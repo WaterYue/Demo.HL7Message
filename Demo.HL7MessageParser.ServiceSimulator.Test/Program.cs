@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Demo.HL7MessageParser.Models;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,9 +14,42 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
     {
         static void Main(string[] args)
         {
-            SoapClient_WSS();
+            var client = new RestClient("http://localhost:1770/pms-asa/1/");
+            var request = new RestRequest("medProfiles/HN170002520", Method.GET);
+            // request.AddParameter("name", "value"); // adds to POST or URL querystring based on Method
+            //  request.AddBody(null);
 
-            WCF_Soap_Test();
+
+            var response2 = client.Execute<MedicationProfileResult>(request);
+
+
+            var requestPost = new RestRequest("alertProfile", Method.POST);
+            requestPost.AddHeader("client_secret", "G5nWL4fdPQp3XbWTm9qaQUbedsN4zMzVmn5CfeKxkwjteHGw6SreJJCS8gVD74RN");
+            requestPost.AddHeader("client_id", "dispCabinet");
+
+            requestPost.AddJsonBody(new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "HKID" } });
+
+            var responsePost2 = client.Execute<MedicationProfileResult>(requestPost);
+
+
+            /*
+            // easy async support
+            client.ExecuteAsync(request, rs => { Console.WriteLine(rs.Content); });
+
+            // async with deserialization
+            var asyncHandle = client.ExecuteAsync<MedicationProfileResult>(request, rss =>
+            {
+                Console.WriteLine(rss.Data.CaseNum);
+            });
+            */
+
+
+
+
+            //SoapClient_WSS();
+
+            //WCF_Soap_Test();
+
             Console.ReadLine();
         }
 
@@ -48,7 +83,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
         private static string BuildSearchparms(string pName, string pvalue)
         {
-            string param = string.Format("<{0}>{1}</{0}>",pName,pvalue);
+            string param = string.Format("<{0}>{1}</{0}>", pName, pvalue);
 
             return param;
         }
