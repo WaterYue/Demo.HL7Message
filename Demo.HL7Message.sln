@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser", "Demo.HL7MessageParser\Demo.HL7MessageParser.csproj", "{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.ServiceSimulator", "Demo.HL7MessageParser.ServiceSimulator\Demo.HL7MessageParser.ServiceSimulator.csproj", "{205FF080-F61A-4DB7-99E7-79E028E70968}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.Models", "Demo.HL7MessageParser.Models\Demo.HL7MessageParser.Models.csproj", "{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{037346C3-82F2-421A-A92F-B37F2B9A1555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.ServiceSimulator.Test", "Demo.HL7MessageParser.ServiceSimulator.Test\Demo.HL7MessageParser.ServiceSimulator.Test.csproj", "{65AF1249-0E75-47D2-8A3D-9579BB86D0D7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{205FF080-F61A-4DB7-99E7-79E028E70968} = {205FF080-F61A-4DB7-99E7-79E028E70968}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SoapServcie", "Demo.SoapServcie\Demo.SoapServcie.csproj", "{8C923817-2871-41D8-AD25-F74136BB7066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.Common", "Demo.HL7MessageParser.Common\Demo.HL7MessageParser.Common.csproj", "{6F4FAD1F-036A-4376-A685-814110E776C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ref", "ref", "{6C372EF8-8740-4667-9C6B-9901D3D2C00A}"
+	ProjectSection(SolutionItems) = preProject
+		ref\Microsoft.Web.Services3.dll = ref\Microsoft.Web.Services3.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.Test", "Demo.HL7MessageParser.Test\Demo.HL7MessageParser.Test.csproj", "{E80A22B4-476F-4D01-8418-3D3AEC878C05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205FF080-F61A-4DB7-99E7-79E028E70968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205FF080-F61A-4DB7-99E7-79E028E70968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205FF080-F61A-4DB7-99E7-79E028E70968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205FF080-F61A-4DB7-99E7-79E028E70968}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65AF1249-0E75-47D2-8A3D-9579BB86D0D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65AF1249-0E75-47D2-8A3D-9579BB86D0D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65AF1249-0E75-47D2-8A3D-9579BB86D0D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65AF1249-0E75-47D2-8A3D-9579BB86D0D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C923817-2871-41D8-AD25-F74136BB7066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C923817-2871-41D8-AD25-F74136BB7066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C923817-2871-41D8-AD25-F74136BB7066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C923817-2871-41D8-AD25-F74136BB7066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F4FAD1F-036A-4376-A685-814110E776C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F4FAD1F-036A-4376-A685-814110E776C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F4FAD1F-036A-4376-A685-814110E776C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F4FAD1F-036A-4376-A685-814110E776C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80A22B4-476F-4D01-8418-3D3AEC878C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80A22B4-476F-4D01-8418-3D3AEC878C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80A22B4-476F-4D01-8418-3D3AEC878C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80A22B4-476F-4D01-8418-3D3AEC878C05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65AF1249-0E75-47D2-8A3D-9579BB86D0D7} = {037346C3-82F2-421A-A92F-B37F2B9A1555}
+		{E80A22B4-476F-4D01-8418-3D3AEC878C05} = {037346C3-82F2-421A-A92F-B37F2B9A1555}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {64A04E52-286E-4C99-9020-002615A1B03E}
+	EndGlobalSection
+EndGlobal
