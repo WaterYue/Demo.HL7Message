@@ -8,7 +8,7 @@ namespace Demo.HL7MessageParser.Models
 
     public partial class MedicationProfileResult
     {
-        public long MedProfileId { get; set; }
+        public string MedProfileId { get; set; }
 
         public string CaseNum { get; set; }
 

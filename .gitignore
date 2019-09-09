@@ -43,3 +43,7 @@
 /packages/MSTest.TestAdapter.1.3.2/build/_common/zh-Hans
 /packages/MSTest.TestAdapter.1.3.2/build/_common/tr
 /.vs
+/Demo.RESTServcie/bin
+/Demo.RESTServcie/obj/Debug
+/Demo.RESTServcie.Tests/obj/Debug
+/packages

@@ -27,6 +27,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ref", "ref", "{6C372EF8-874
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.Test", "Demo.HL7MessageParser.Test\Demo.HL7MessageParser.Test.csproj", "{E80A22B4-476F-4D01-8418-3D3AEC878C05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.RESTServcie", "Demo.RESTServcie\Demo.RESTServcie.csproj", "{ABF8A41F-AF63-4307-9F8A-13A968BB772D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.RESTServcie.Tests", "Demo.RESTServcie.Tests\Demo.RESTServcie.Tests.csproj", "{DA33A33D-F7EC-4996-9254-6B3FB4E528A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,14 @@ Global
 		{E80A22B4-476F-4D01-8418-3D3AEC878C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E80A22B4-476F-4D01-8418-3D3AEC878C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E80A22B4-476F-4D01-8418-3D3AEC878C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABF8A41F-AF63-4307-9F8A-13A968BB772D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABF8A41F-AF63-4307-9F8A-13A968BB772D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABF8A41F-AF63-4307-9F8A-13A968BB772D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABF8A41F-AF63-4307-9F8A-13A968BB772D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA33A33D-F7EC-4996-9254-6B3FB4E528A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA33A33D-F7EC-4996-9254-6B3FB4E528A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA33A33D-F7EC-4996-9254-6B3FB4E528A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA33A33D-F7EC-4996-9254-6B3FB4E528A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

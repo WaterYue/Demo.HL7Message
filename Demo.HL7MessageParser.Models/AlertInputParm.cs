@@ -61,12 +61,20 @@ namespace Demo.HL7MessageParser.Models
     {
         [XmlElement(ElementName = "patientInfo")]
         public PatientInfo PatientInfo { get; set; }
+
         [XmlElement(ElementName = "userInfo")]
         public UserInfo UserInfo { get; set; }
+
         [XmlElement(ElementName = "sysInfo")]
         public SysInfo SysInfo { get; set; }
+
         [XmlElement(ElementName = "credentials")]
         public Credentials Credentials { get; set; }
+
+        //[XmlElement(ElementName = "name")]
+        //public string Name { get; set; }
+        //[XmlElement(ElementName = "age")]
+        //public int Age { get; set; }
     }
 
 }

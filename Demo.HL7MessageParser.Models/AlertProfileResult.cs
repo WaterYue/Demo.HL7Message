@@ -8,86 +8,86 @@ namespace Demo.HL7MessageParser.Models
 
     public class AdrProfile
     {
-        public string adrSeqNo { get; set; }
-        public string aliasName { get; set; }
-        public string displayName { get; set; }
-        public string drug { get; set; }
-        public string drugType { get; set; }
-        public List<object> hicSeqno { get; set; }
-        public string hiclSeqno { get; set; }
-        public string nameType { get; set; }
-        public string reaction { get; set; }
-        public string remark { get; set; }
-        public string salt { get; set; }
-        public string severity { get; set; }
-        public string severityCode { get; set; }
-        public string sourceSystem { get; set; }
-        public string textColor { get; set; }
-        public string updateBy { get; set; }
-        public string updateDtm { get; set; }
-        public string updateHospital { get; set; }
-        public string updateRankDesc { get; set; }
-        public string updateUser { get; set; }
-        public string updateUserRank { get; set; }
+        public string AdrSeqNo { get; set; }
+        public string AliasName { get; set; }
+        public string DisplayName { get; set; }
+        public string Drug { get; set; }
+        public string DrugType { get; set; }
+        public IList<object> HicSeqno { get; set; }
+        public string HiclSeqno { get; set; }
+        public string NameType { get; set; }
+        public string Reaction { get; set; }
+        public string Remark { get; set; }
+        public string Salt { get; set; }
+        public string Severity { get; set; }
+        public string SeverityCode { get; set; }
+        public string SourceSystem { get; set; }
+        public string TextColor { get; set; }
+        public string UpdateBy { get; set; }
+        public string UpdateDtm { get; set; }
+        public string UpdateHospital { get; set; }
+        public string UpdateRankDesc { get; set; }
+        public string UpdateUser { get; set; }
+        public string UpdateUserRank { get; set; }
     }
 
     public class AlertProfile
     {
-        public string alertCode { get; set; }
-        public string alertDesc { get; set; }
-        public string alertSeqNo { get; set; }
-        public string classifiedIndicator { get; set; }
-        public string remark { get; set; }
-        public string textColor { get; set; }
-        public string updateDtm { get; set; }
-        public string updateHospital { get; set; }
-        public string updateUser { get; set; }
-        public string updateUserRank { get; set; }
-        public string validFrom { get; set; }
-        public string validPeriod { get; set; }
-        public string validTo { get; set; }
+        public string AlertCode { get; set; }
+        public string AlertDesc { get; set; }
+        public string AlertSeqNo { get; set; }
+        public string ClassifiedIndicator { get; set; }
+        public string Remark { get; set; }
+        public string TextColor { get; set; }
+        public string UpdateDtm { get; set; }
+        public string UpdateHospital { get; set; }
+        public string UpdateUser { get; set; }
+        public string UpdateUserRank { get; set; }
+        public string ValidFrom { get; set; }
+        public string ValidPeriod { get; set; }
+        public string ValidTo { get; set; }
     }
 
     public class AllergyProfile
     {
-        public string aliasName { get; set; }
-        public string allergen { get; set; }
-        public string allergenType { get; set; }
-        public string allergySeqNo { get; set; }
-        public string certainty { get; set; }
-        public string certaintyCode { get; set; }
-        public string displayName { get; set; }
-        public List<object> hicSeqno { get; set; }
-        public string hiclSeqno { get; set; }
-        public string manifestation { get; set; }
-        public string nameType { get; set; }
-        public string remark { get; set; }
-        public string salt { get; set; }
-        public string sourceSystem { get; set; }
-        public string textColor { get; set; }
-        public string updateBy { get; set; }
-        public string updateDtm { get; set; }
-        public string updateHospital { get; set; }
-        public string updateRankDesc { get; set; }
-        public string updateUser { get; set; }
-        public string updateUserRank { get; set; }
+        public string AliasName { get; set; }
+        public string Allergen { get; set; }
+        public string AllergenType { get; set; }
+        public string AllergySeqNo { get; set; }
+        public string Certainty { get; set; }
+        public string CertaintyCode { get; set; }
+        public string DisplayName { get; set; }
+        public IList<object> HicSeqno { get; set; }
+        public string HiclSeqno { get; set; }
+        public string Manifestation { get; set; }
+        public string NameType { get; set; }
+        public string Remark { get; set; }
+        public string Salt { get; set; }
+        public string SourceSystem { get; set; }
+        public string TextColor { get; set; }
+        public string UpdateBy { get; set; }
+        public string UpdateDtm { get; set; }
+        public string UpdateHospital { get; set; }
+        public string UpdateRankDesc { get; set; }
+        public string UpdateUser { get; set; }
+        public string UpdateUserRank { get; set; }
     }
 
     public class SimpleDisplayFormat
     {
-        public string adrRecord { get; set; }
-        public string alertRecord { get; set; }
-        public string allergyRecord { get; set; }
+        public string AdrRecord { get; set; }
+        public string AlertRecord { get; set; }
+        public string AllergyRecord { get; set; }
     }
 
     public class AlertProfileResult
     {
-        public List<AdrProfile> adrProfile { get; set; }
-        public List<AlertProfile> alertProfile { get; set; }
-        public List<AllergyProfile> allergyProfile { get; set; }
-        public List<object> errorMessage { get; set; }
-        public object moePatientSteroidTag { get; set; }
-        public List<SimpleDisplayFormat> simpleDisplayFormat { get; set; }
+        public IList<AdrProfile> AdrProfile { get; set; }
+        public IList<AlertProfile> AlertProfile { get; set; }
+        public IList<AllergyProfile> AllergyProfile { get; set; }
+        public IList<object> ErrorMessage { get; set; }
+        public object MoePatientSteroidTag { get; set; }
+        public IList<SimpleDisplayFormat> SimpleDisplayFormat { get; set; }
     }
 }
 /*
