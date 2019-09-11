@@ -6,24 +6,36 @@ using System.Text;
 namespace Demo.HL7MessageParser.Models
 {
 
-    public partial class MedicationProfileResult
+    public class MedicationProfileResult
     {
+        public MedicationProfileResult()
+        {
+
+        }
         public string MedProfileId { get; set; }
 
         public string CaseNum { get; set; }
 
-        public MedProfileMoItem[] MedProfileMoItems { get; set; }
+        public List<MedProfileMoItem> MedProfileMoItems { get; set; }
     }
 
-    public partial class MedProfileMoItem
+    public class MedProfileMoItem
     {
+        public MedProfileMoItem()
+        {
+
+        }
         public long MedProfileMoItemId { get; set; }
 
-        public MedProfilePoItem[] MedProfilePoItems { get; set; }
+        public List<MedProfilePoItem> MedProfilePoItems { get; set; }
     }
 
-    public partial class MedProfilePoItem
+    public class MedProfilePoItem
     {
+        public MedProfilePoItem()
+        {
+
+        }
         public long MedProfilePoItemId { get; set; }
 
         public string ItemCode { get; set; }

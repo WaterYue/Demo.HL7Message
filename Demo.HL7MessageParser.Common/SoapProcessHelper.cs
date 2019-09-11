@@ -32,9 +32,9 @@ namespace Demo.HL7MessageParser.Common
 
                 var patientResultXmlElement = XmlHelper.GetElementByElementName(elResponse, CONST_XNAME_PatientDemoEnquiryResult);
 
-                var result = XmlHelper.Deserialize<PatientDemoEnquiry>(patientResultXmlElement.ToString());
+                var result = XmlHelper.XmlDeserialize<PatientDemoEnquiry>(patientResultXmlElement.ToString());
 
-                Console.WriteLine(XmlHelper.Serialize<PatientDemoEnquiry>(result));
+                Console.WriteLine(XmlHelper.XmlSerializeToString(result));
                 if (result == null)
                 {
                     throw new NotSupportedException("deserializ failed");

@@ -13,7 +13,7 @@ namespace Demo.HL7MessageParser.Models
         public string DisplayName { get; set; }
         public string Drug { get; set; }
         public string DrugType { get; set; }
-        public IList<object> HicSeqno { get; set; }
+        public List<object> HicSeqno { get; set; }
         public string HiclSeqno { get; set; }
         public string NameType { get; set; }
         public string Reaction { get; set; }
@@ -57,7 +57,7 @@ namespace Demo.HL7MessageParser.Models
         public string Certainty { get; set; }
         public string CertaintyCode { get; set; }
         public string DisplayName { get; set; }
-        public IList<object> HicSeqno { get; set; }
+        public List<object> HicSeqno { get; set; }
         public string HiclSeqno { get; set; }
         public string Manifestation { get; set; }
         public string NameType { get; set; }
@@ -82,12 +82,12 @@ namespace Demo.HL7MessageParser.Models
 
     public class AlertProfileResult
     {
-        public IList<AdrProfile> AdrProfile { get; set; }
-        public IList<AlertProfile> AlertProfile { get; set; }
-        public IList<AllergyProfile> AllergyProfile { get; set; }
-        public IList<object> ErrorMessage { get; set; }
+        public List<AdrProfile> AdrProfile { get; set; }
+        public List<AlertProfile> AlertProfile { get; set; }
+        public List<AllergyProfile> AllergyProfile { get; set; }
+        public List<object> ErrorMessage { get; set; }
         public object MoePatientSteroidTag { get; set; }
-        public IList<SimpleDisplayFormat> SimpleDisplayFormat { get; set; }
+        public List<SimpleDisplayFormat> SimpleDisplayFormat { get; set; }
     }
 }
 /*

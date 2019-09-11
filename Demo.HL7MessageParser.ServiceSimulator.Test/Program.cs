@@ -16,52 +16,9 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         {
             var client = new RestClient("http://localhost:3181/pms-asa/1/");
 
-            var request = new RestRequest("medProfiles/HN170002520", Method.GET);
-            request.AddHeader("client_secret", "CLIENT_SECRET1");
-            request.AddHeader("pathospcode", "PATHOSPCODE");
+            Request_AlertProfile(client);
 
-            var response = client.ExecuteAsGet<MedicationProfileResult>(request, Method.GET.ToString());
-            if (response.StatusCode != HttpStatusCode.OK)
-            {
-                Console.WriteLine("request2 failed!");
-                Console.WriteLine(response.ResponseStatus);
-            }
-
-            var request2 = new RestRequest("medProfiles/HN170002520", Method.GET);
-            request2.AddHeader("client_secret", "CLIENT_SECRET");
-            request2.AddHeader("pathospcode", "PATHOSPCODE");
-
-            var response2 = client.Execute<MedicationProfileResult>(request2);
-            if (response2.StatusCode== HttpStatusCode.OK)
-            {
-                Console.WriteLine("request2 successful!");
-            }
-
-            var requestPost = new RestRequest("alertProfile", Method.POST);
-            requestPost.AddHeader("client_secret", "CLIENT_SECRET");
-            requestPost.AddHeader("client_id", "CLIENT_ID");
-            requestPost.AddHeader("pathospcode", "PATHOSPCODE");
-            requestPost.AddJsonBody(new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "HKID" } });
-
-            var responsePost2 = client.Execute<AlertProfileResult>(requestPost);
-            if (responsePost2.StatusCode == HttpStatusCode.OK)
-            {
-                Console.WriteLine("responsePost2 successful!");
-            }
-
-            /*
-            // easy async support
-            client.ExecuteAsync(request, rs => { Console.WriteLine(rs.Content); });
-
-            // async with deserialization
-            var asyncHandle = client.ExecuteAsync<MedicationProfileResult>(request, rss =>
-            {
-                Console.WriteLine(rss.Data.CaseNum);
-            });
-            */
-
-
-
+            //Request_MedicationProfile(client);
 
             //SoapClient_WSS();
 
@@ -69,6 +26,58 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
             Console.ReadLine();
         }
+
+        private static void Request_MedicationProfile(RestClient client)
+        {
+
+            foreach (var caseNumber in new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", })
+            {
+                var request = new RestRequest(string.Format("medProfiles/{0}", caseNumber), Method.GET);
+                request.AddHeader("client_secret", "CLIENT_SECRET");
+                request.AddHeader("pathospcode", "PATHOSPCODE");
+
+                // var response = client.ExecuteAsGet<MedicationProfileResult>(request, Method.GET.ToString());
+                var response = client.Execute<MedicationProfileResult>(request);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    Console.WriteLine("request2 failed!");
+                    Console.WriteLine(response.ResponseStatus);
+                }
+
+                else
+                {
+                    var result = response.Data;
+                }
+            }
+
+        }
+
+        private static void Request_AlertProfile(RestClient client)
+        {
+
+            foreach (var hkid in new string[] { "HN03191100Y", "HN170002520" })
+            {
+                var requestPost = new RestRequest("alertProfile", Method.POST);
+                requestPost.AddHeader("client_secret", "CLIENT_SECRET");
+                requestPost.AddHeader("client_id", "CLIENT_ID");
+                requestPost.AddHeader("pathospcode", "PATHOSPCODE");
+                requestPost.AddJsonBody(new AlertInputParm { PatientInfo = new PatientInfo { Hkid = hkid } });
+
+                var response = client.Execute<AlertProfileResult>(requestPost);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    Console.WriteLine("request2 failed!");
+                    Console.WriteLine(response.ResponseStatus);
+                }
+
+                else
+                {
+                    var result = response.Data;
+                }
+            }
+
+        }
+
 
         private static void SoapClient_WSS()
         {

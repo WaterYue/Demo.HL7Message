@@ -1,6 +1,8 @@
-﻿using Demo.HL7MessageParser.Models;
+﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -29,11 +31,19 @@ namespace Demo.RESTServcie.Controllers
         {
             ValidateHeaders();
 
-            return new MedicationProfileResult
+            try
             {
-                CaseNum = casenumber,
-                MedProfileId = "101007132"
-            };
+                var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/MP/{0}.json", casenumber));
+
+                var result = JsonHelper.JsonToObjectFromFile<MedicationProfileResult>(fileName);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Format("JsonToObjectFromFile - {0}.json failed!:{1}", casenumber, ex.Message));
+            }
+
         }
 
         private void ValidateHeaders()

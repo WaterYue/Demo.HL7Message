@@ -1,6 +1,8 @@
-﻿using Demo.HL7MessageParser.Models;
+﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -26,16 +28,34 @@ namespace Demo.RESTServcie.Controllers
         [Route("")]
         public AlertProfileResult Post([FromBody]AlertInputParm alertInputParm)
         {
+            if (alertInputParm == null)
+            {
+                //BAD REQUEST
+                throw new Exception("invalid request body!");
+            }
+
+            if (alertInputParm.PatientInfo == null
+                || string.IsNullOrEmpty(alertInputParm.PatientInfo.Hkid))
+            {
+                //BAD REQUEST
+                throw new Exception("invalid Hkid!");
+            }
+
             ValidateHeaders();
 
-            return new AlertProfileResult
+            try
             {
-                AdrProfile = new List<AdrProfile> { },
-                AlertProfile = new List<AlertProfile> { },
-                AllergyProfile = new List<AllergyProfile> { },
-                SimpleDisplayFormat = new List<SimpleDisplayFormat> { },
-                ErrorMessage = new List<object> { }
-            };
+                var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/AP/{0}.json", alertInputParm.PatientInfo.Hkid));
+
+                var result = JsonHelper.JsonToObjectFromFile<AlertProfileResult>(fileName);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(string.Format("JsonToObjectFromFile - {0}.json failed!:{1}", alertInputParm.PatientInfo.Hkid, ex.Message));
+
+            }
         }
 
         private void ValidateHeaders()

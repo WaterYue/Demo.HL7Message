@@ -1,0 +1,24 @@
+﻿{
+  "medProfileId": 101007132,
+  "caseNum": "HN17000256S",
+  "medProfileMoItems": [
+    {
+      "medProfileMoItemId": 102195220,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 101012259,
+          "itemCode": "AMPI02"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 102195221,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 101012260,
+          "itemCode": "ALLO01"
+        }
+      ]
+    }
+  ]
+}
