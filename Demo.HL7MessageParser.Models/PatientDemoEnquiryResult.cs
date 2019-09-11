@@ -6,41 +6,39 @@ using System.Xml.Serialization;
 
 namespace Demo.HL7MessageParser.Models
 {
-    [XmlRoot(ElementName = "case")]
+    [XmlType("case")]
     public class Case
     {
-        [XmlElement(ElementName = "admissionDatetime")]
+        [XmlElement("admissionDatetime")]
         public string AdmissionDatetime { get; set; }
-        [XmlElement(ElementName = "bedNo")]
+        [XmlElement("bedNo")]
         public string BedNo { get; set; }
-        [XmlElement(ElementName = "hospitalCode")]
+        [XmlElement("hospitalCode")]
         public string HospitalCode { get; set; }
-        [XmlElement(ElementName = "number")]
+        [XmlElement("number")]
         public string Number { get; set; }
-        [XmlElement(ElementName = "patientType")]
+        [XmlElement("patientType")]
         public string PatientType { get; set; }
-        [XmlElement(ElementName = "sourceCode")]
+        [XmlElement("sourceCode")]
         public string SourceCode { get; set; }
-        [XmlElement(ElementName = "sourceIndicator")]
+        [XmlElement("sourceIndicator")]
         public string SourceIndicator { get; set; }
-        [XmlElement(ElementName = "specialty")]
+        [XmlElement("specialty")]
         public string Specialty { get; set; }
-        [XmlElement(ElementName = "type")]
+        [XmlElement("type")]
         public string Type { get; set; }
-        [XmlElement(ElementName = "wardClass")]
+        [XmlElement("wardClass")]
         public string WardClass { get; set; }
-        [XmlElement(ElementName = "wardCode")]
+        [XmlElement("wardCode")]
         public string WardCode { get; set; }
     }
 
-    [XmlRoot(ElementName = "caseList")]
-    public class CaseList
+    [XmlType("caseList")]
+    public class CaseList : List<Case>
     {
-        [XmlElement(ElementName = "case")]
-        public Case Case { get; set; }
     }
 
-    [XmlRoot(ElementName = "address")]
+    [XmlType("address")]
     public class Address
     {
         [XmlElement(ElementName = "building")]
@@ -55,7 +53,7 @@ namespace Demo.HL7MessageParser.Models
         public string Room { get; set; }
     }
 
-    [XmlRoot(ElementName = "patient")]
+    [XmlType("patient")]
     public class Patient
     {
         [XmlElement(ElementName = "address")]
@@ -99,9 +97,11 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "PatientDemoEnquiryResult", Namespace = "")]
     public class PatientDemoEnquiry
     {
-        [XmlElement(ElementName = "caseList")]
+        [XmlArrayItem("case")]
+        [XmlArray("caseList")]
         public CaseList CaseList { get; set; }
-        [XmlElement(ElementName = "patient")]
+
+        [XmlElement("patient")]
         public Patient Patient { get; set; }
     }
 }

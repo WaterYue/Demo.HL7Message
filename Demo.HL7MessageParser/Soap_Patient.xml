@@ -19,6 +19,19 @@
             <wardClass>3</wardClass>
             <wardCode>6B</wardCode>
           </case>
+          <case>
+            <admissionDatetime>20040116 16:14</admissionDatetime>
+            <bedNo>11</bedNo>
+            <hospitalCode>VH</hospitalCode>
+            <number>HN03191100Z</number>
+            <patientType>EP1</patientType>
+            <sourceCode>VH</sourceCode>
+            <sourceIndicator>3</sourceIndicator>
+            <specialty>MED</specialty>
+            <type>I</type>
+            <wardClass>3</wardClass>
+            <wardCode>6B</wardCode>
+          </case>
         </caseList>
         <patient>
           <address>
