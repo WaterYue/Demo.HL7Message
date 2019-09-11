@@ -14,23 +14,40 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
     {
         static void Main(string[] args)
         {
-            var client = new RestClient("http://localhost:1770/pms-asa/1/");
+            var client = new RestClient("http://localhost:3181/pms-asa/1/");
+
             var request = new RestRequest("medProfiles/HN170002520", Method.GET);
-            // request.AddParameter("name", "value"); // adds to POST or URL querystring based on Method
-            //  request.AddBody(null);
+            request.AddHeader("client_secret", "CLIENT_SECRET1");
+            request.AddHeader("pathospcode", "PATHOSPCODE");
 
+            var response = client.ExecuteAsGet<MedicationProfileResult>(request, Method.GET.ToString());
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                Console.WriteLine("request2 failed!");
+                Console.WriteLine(response.ResponseStatus);
+            }
 
-            var response2 = client.Execute<MedicationProfileResult>(request);
+            var request2 = new RestRequest("medProfiles/HN170002520", Method.GET);
+            request2.AddHeader("client_secret", "CLIENT_SECRET");
+            request2.AddHeader("pathospcode", "PATHOSPCODE");
 
+            var response2 = client.Execute<MedicationProfileResult>(request2);
+            if (response2.StatusCode== HttpStatusCode.OK)
+            {
+                Console.WriteLine("request2 successful!");
+            }
 
             var requestPost = new RestRequest("alertProfile", Method.POST);
-            requestPost.AddHeader("client_secret", "G5nWL4fdPQp3XbWTm9qaQUbedsN4zMzVmn5CfeKxkwjteHGw6SreJJCS8gVD74RN");
-            requestPost.AddHeader("client_id", "dispCabinet");
-
+            requestPost.AddHeader("client_secret", "CLIENT_SECRET");
+            requestPost.AddHeader("client_id", "CLIENT_ID");
+            requestPost.AddHeader("pathospcode", "PATHOSPCODE");
             requestPost.AddJsonBody(new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "HKID" } });
 
-            var responsePost2 = client.Execute<MedicationProfileResult>(requestPost);
-
+            var responsePost2 = client.Execute<AlertProfileResult>(requestPost);
+            if (responsePost2.StatusCode == HttpStatusCode.OK)
+            {
+                Console.WriteLine("responsePost2 successful!");
+            }
 
             /*
             // easy async support

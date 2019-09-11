@@ -9,7 +9,7 @@ using System.Web.Http;
 namespace Demo.RESTServcie.Controllers
 {
     [RoutePrefix(Const.ROUNT_PREFIX + "medProfiles")]
-    public class MedProfileController : ApiController
+    public class MedProfileController : BaseController
     {
         [Route("")]
         public IEnumerable<MedicationProfileResult> Get()
@@ -27,11 +27,20 @@ namespace Demo.RESTServcie.Controllers
         [Route("{casenumber}")]
         public MedicationProfileResult Get(string casenumber)
         {
+            ValidateHeaders();
+
             return new MedicationProfileResult
             {
                 CaseNum = casenumber,
                 MedProfileId = "101007132"
             };
+        }
+
+        private void ValidateHeaders()
+        {
+            ValidateHeader_Value(HEADER_CLIENT_SECRET, "CLIENT_SECRET");
+
+            ValidateHeader_Value(HEADER_PATHOSPCODE_VALUE, "PATHOSPCODE");
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Web.Http;
 namespace Demo.RESTServcie.Controllers
 {
     [RoutePrefix(Const.ROUNT_PREFIX + "alertProfile")]
-    public class AlertProfileController : ApiController
+    public class AlertProfileController : BaseController
     {
         [Route("")]
         public IEnumerable<string> Get()
@@ -26,6 +26,8 @@ namespace Demo.RESTServcie.Controllers
         [Route("")]
         public AlertProfileResult Post([FromBody]AlertInputParm alertInputParm)
         {
+            ValidateHeaders();
+
             return new AlertProfileResult
             {
                 AdrProfile = new List<AdrProfile> { },
@@ -36,16 +38,17 @@ namespace Demo.RESTServcie.Controllers
             };
         }
 
-        [Route("{hkid}")]
-        public void Put(string hkid, [FromBody] Abc value)
+        private void ValidateHeaders()
         {
+            /*client_secret: G5nWL4fdPQp3XbWTm9qaQUbedsN4zMzVmn5CfeKxkwjteHGw6SreJJCS8gVD74RN
+             * client_id: dispCabinet
+             * pathospcode:
+             */
+            ValidateHeader_Value(HEADER_CLIENT_SECRET, "CLIENT_SECRET");
 
-        }
+            ValidateHeader_Value(HEAER_CLIENT_ID, "CLIENT_ID");
 
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            ValidateHeader_Value(HEADER_PATHOSPCODE_VALUE, "PATHOSPCODE");
         }
     }
 }
- 
