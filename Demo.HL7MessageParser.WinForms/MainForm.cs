@@ -94,5 +94,15 @@ namespace Demo.HL7MessageParser.WinForms
             scintillaNET.Lexer = ScintillaNET.Lexer.Json;
              
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
