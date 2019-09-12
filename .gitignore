@@ -51,3 +51,5 @@
 /UpgradeLog2.htm
 /UpgradeLog.htm
 /Demo.RESTServcie/obj/Release
+/Demo.HL7MessageParser.WinForms/bin/Debug
+/Demo.HL7MessageParser.WinForms/obj/Debug

@@ -29,15 +29,22 @@ namespace Demo.RESTServcie.Controllers
         [Route("{casenumber}")]
         public MedicationProfileResult Get(string casenumber)
         {
+
             ValidateHeaders();
 
             try
             {
-                var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/MP/{0}.json", casenumber));
+                var caseNumbers = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
+                if (caseNumbers.Contains((casenumber ?? string.Empty).ToUpper()))
+                {
+                    var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/MP/{0}.json", casenumber));
 
-                var result = JsonHelper.JsonToObjectFromFile<MedicationProfileResult>(fileName);
+                    var result = JsonHelper.JsonToObjectFromFile<MedicationProfileResult>(fileName);
 
-                return result;
+                    return result;
+                }
+
+                return new MedicationProfileResult { };
             }
             catch (Exception ex)
             {

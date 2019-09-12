@@ -1,0 +1,3 @@
+Install-Package jacobslusser.ScintillaNET -Version 3.6.3
+
+Install-Package RestSharp -Version 105.2.3

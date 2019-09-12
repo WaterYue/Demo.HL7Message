@@ -1,0 +1,28 @@
+﻿{
+  "medProfileId": 100899050,
+  "caseNum": "HN170002512",
+  "medProfileMoItems": [
+    {
+      "medProfileMoItemId": 102178315,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 101007221,
+          "itemCode": "KABI02"
+        },
+        {
+          "medProfilePoItemId": 101007222,
+          "itemCode": "RABI01"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 101993226,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100964233,
+          "itemCode": "OLAN03"
+        }
+      ]
+    }
+  ]
+}

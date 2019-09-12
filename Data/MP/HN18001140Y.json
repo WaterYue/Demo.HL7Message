@@ -1,0 +1,91 @@
+﻿{
+  "medProfileId": 100866051,
+  "caseNum": "HN18001140Y",
+  "medProfileMoItems": [
+    {
+      "medProfileMoItemId": 101794703,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100896300,
+          "itemCode": "BACL01"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 101827621,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100919206,
+          "itemCode": "CHLO39"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 101833711,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100919207,
+          "itemCode": "ADAL01"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 102066205,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100984220,
+          "itemCode": "HYDR06"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 102066252,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100984218,
+          "itemCode": "SALB06"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 102066254,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100984215,
+          "itemCode": "MORP35"
+        },
+        {
+          "medProfilePoItemId": 100984216,
+          "itemCode": "HALO08"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 102066206,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100984219,
+          "itemCode": "INSU06"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 102066207,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 100984217,
+          "itemCode": "SODI16"
+        }
+      ]
+    },
+    {
+      "medProfileMoItemId": 102211244,
+      "medProfilePoItems": [
+        {
+          "medProfilePoItemId": 101015226,
+          "itemCode": "MIRT02"
+        }
+      ]
+    }
+  ]
+}

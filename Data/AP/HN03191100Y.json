@@ -1,0 +1,14 @@
+﻿{
+  "adrProfile": [],
+  "alertProfile": [],
+  "allergyProfile": [],
+  "errorMessage": [],
+  "moePatientSteroidTag": null,
+  "simpleDisplayFormat": [
+    {
+      "adrRecord": "",
+      "alertRecord": "",
+      "allergyRecord": ""
+    }
+  ]
+}
