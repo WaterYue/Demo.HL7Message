@@ -32,5 +32,10 @@ namespace Demo.HL7MessageParser.Test.Fake
                 throw new Exception(string.Format("JsonToObjectFromFile - {0}.json failed!:{1}", casenumber, ex.Message));
             }
         }
+
+        public void InitializeParam()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace Demo.HL7MessageParser
 {
     public interface IMedicationProfileParser  
     {
-        MedicationProfileResult GetMedicationProfile(string CaseNum);
+        void InitializeParam();
+
+        MedicationProfileResult GetMedicationProfile(string caseNumber);
     }
 }

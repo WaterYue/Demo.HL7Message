@@ -31,7 +31,13 @@ namespace Demo.RESTServcie.Controllers
 
             if ((headerValue ?? string.Empty).Trim().ToUpper() != (expectHeaderValue ?? string.Empty).ToUpper())
             {
-                throw new Exception(string.Format("invalid {0} value!", headerName));
+                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.Forbidden)
+                {
+                    Content = new StringContent(string.Format("Invalid {0} header", headerName)),
+                    ReasonPhrase = string.Format("invalid {0} value of {1}!", headerValue, headerName),
+                });
+
+                throw new ArgumentException(string.Format("invalid {0} value of {1}!", headerValue, headerName));
             }
         }
     }

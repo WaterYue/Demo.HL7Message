@@ -16,7 +16,8 @@ namespace Demo.HL7MessageParser.Test
         [TestInitialize]
         public void Initialize()
         {
-            hl7Parser = new HL7MessageParser_NTEC(
+            hl7Parser = new HL7MessageParser_NTEC
+                (
                 new FakeSoapPatientVisitParser(),
                 new FakeJSONMedicationProfileParser(),
                 new FakeJsonIAlertProfileParser()
@@ -55,11 +56,13 @@ namespace Demo.HL7MessageParser.Test
         {
             var expectObj = new List<Allergies>();
 
-            var caseNo = "";
-
-            var actualObj = hl7Parser.GetAllergies(new AlertInputParm { PatientInfo=new PatientInfo {
-            Hkid= "HN170002520"
-            } });
+            var actualObj = hl7Parser.GetAllergies(new AlertInputParm
+            {
+                PatientInfo = new PatientInfo
+                {
+                    Hkid = "HN170002520"
+                }
+            });
 
             Assert.IsNotNull(actualObj);
             Assert.AreEqual<int>(expectObj.Count, actualObj.Count());
