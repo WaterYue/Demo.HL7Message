@@ -65,10 +65,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PatientService.asmx" />
-    <Content Include="Soap_Patient.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="..\Data\Soap_Patient.xml">
+      <Link>Soap_Patient.xml</Link>
     </Content>
+    <Content Include="PatientService.asmx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

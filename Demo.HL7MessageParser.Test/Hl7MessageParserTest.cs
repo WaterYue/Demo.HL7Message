@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Demo.HL7MessageParser.Model;
 using Demo.HL7MessageParser.Models;
+using Demo.HL7MessageParser.Test.Fake;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Demo.HL7MessageParser.Test
@@ -15,7 +16,11 @@ namespace Demo.HL7MessageParser.Test
         [TestInitialize]
         public void Initialize()
         {
-            hl7Parser = new HL7MessageParser_NTEC();
+            hl7Parser = new HL7MessageParser_NTEC(
+                new FakeSoapPatientVisitParser(),
+                new FakeJSONMedicationProfileParser(),
+                new FakeJsonIAlertProfileParser()
+                );
         }
 
         [TestMethod]
@@ -35,7 +40,7 @@ namespace Demo.HL7MessageParser.Test
         {
             var expectObj = new List<Order>();
 
-            var caseNo = "";
+            var caseNo = "HN18001140Y";
 
             var actualObj = hl7Parser.GetOrders(caseNo);
 
@@ -52,7 +57,9 @@ namespace Demo.HL7MessageParser.Test
 
             var caseNo = "";
 
-            var actualObj = hl7Parser.GetAllergies(new AlertInputParm());
+            var actualObj = hl7Parser.GetAllergies(new AlertInputParm { PatientInfo=new PatientInfo {
+            Hkid= "HN170002520"
+            } });
 
             Assert.IsNotNull(actualObj);
             Assert.AreEqual<int>(expectObj.Count, actualObj.Count());

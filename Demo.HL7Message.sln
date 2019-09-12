@@ -32,6 +32,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.WinForms", "Demo.HL7MessageParser.WinForms\Demo.HL7MessageParser.WinForms.csproj", "{4C63DB34-3612-443D-B31E-9D84CB848915}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{5A6E0108-98D9-44CF-876C-BC514D0098D0}"
+	ProjectSection(SolutionItems) = preProject
+		Demo.HL7MessageParser\Soap_Patient.xml = Demo.HL7MessageParser\Soap_Patient.xml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AP", "AP", "{A902BCE8-868A-477C-9B43-10EB4B53D240}"
 	ProjectSection(SolutionItems) = preProject

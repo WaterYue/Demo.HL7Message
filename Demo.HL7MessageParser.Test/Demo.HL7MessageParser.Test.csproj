@@ -50,13 +50,49 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fake\FakeJsonIAlertProfileParser.cs" />
+    <Compile Include="Fake\FakeSoapPatientVisitParser.cs" />
+    <Compile Include="Fake\FakeJSONMedicationProfileParser.cs" />
+    <Compile Include="Fake\FakeObj.cs" />
     <Compile Include="Hl7MessageParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Data\AP\HN03191100Y.json">
+      <Link>Data\AP\HN03191100Y.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\AP\HN170002520.json">
+      <Link>Data\AP\HN170002520.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\MP\HN03191100Y.json">
+      <Link>Data\MP\HN03191100Y.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\MP\HN170002512.json">
+      <Link>Data\MP\HN170002512.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\MP\HN170002520.json">
+      <Link>Data\MP\HN170002520.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\MP\HN17000256S.json">
+      <Link>Data\MP\HN17000256S.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\MP\HN18001140Y.json">
+      <Link>Data\MP\HN18001140Y.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Demo.HL7MessageParser.Common\Demo.HL7MessageParser.Common.csproj">
+      <Project>{6F4FAD1F-036A-4376-A685-814110E776C9}</Project>
+      <Name>Demo.HL7MessageParser.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Demo.HL7MessageParser.Models\Demo.HL7MessageParser.Models.csproj">
       <Project>{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}</Project>
       <Name>Demo.HL7MessageParser.Models</Name>
@@ -65,6 +101,12 @@
       <Project>{be8c3682-2147-4458-b6d7-9ea9c8f22a92}</Project>
       <Name>Demo.HL7MessageParser</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Data\Soap_Patient.xml">
+      <Link>Data\Soap_Patient.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

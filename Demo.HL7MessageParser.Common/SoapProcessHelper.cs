@@ -19,7 +19,7 @@ namespace Demo.HL7MessageParser.Common
         {
             try
             {
-                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Soap_Patient.xml");
+                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/Soap_Patient.xml");
 
                 XNamespace nsr = "http://schemas.xmlsoap.org/soap/envelope/";
                 XNamespace nsr2 = "http://webservice.pas.ha.org.hk/";
