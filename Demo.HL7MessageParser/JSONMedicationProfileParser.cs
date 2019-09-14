@@ -17,7 +17,6 @@ namespace Demo.HL7MessageParser
 
         public JSONMedicationProfileParser()
         {
-            
         }
 
         public JSONMedicationProfileParser(string restUri, string client_secret, string pathospcode)
@@ -48,15 +47,10 @@ namespace Demo.HL7MessageParser
             var response = client.Execute<MedicationProfileResult>(request);
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                throw new ArgumentException(response.Content);
+               throw new Exception(response.Content);
             }
 
-            else
-            {
-                var result = response.Data;
-
-                return result;
-            }
+            return response.Data;
         }
 
     }

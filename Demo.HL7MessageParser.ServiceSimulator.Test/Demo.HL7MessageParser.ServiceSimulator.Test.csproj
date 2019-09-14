@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
     <Compile Include="XMLHelper.cs" />
     <Compile Include="Connected Services\MedicationProfileRESTServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>

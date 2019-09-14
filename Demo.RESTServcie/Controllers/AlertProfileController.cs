@@ -22,7 +22,14 @@ namespace Demo.RESTServcie.Controllers
         [Route("{hkid}")]
         public AlertProfileResult Get(string hkid)
         {
-            return new AlertProfileResult { };
+            if (string.IsNullOrEmpty(hkid))
+            {
+                this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, string.Format("Invalid Hkid({0})", hkid));
+            }
+
+            ValidateRequestHeaders();
+
+            return JsonFromFile(hkid);
         }
 
         [Route("")]
@@ -30,35 +37,43 @@ namespace Demo.RESTServcie.Controllers
         {
             if (alertInputParm == null)
             {
-                //BAD REQUEST
-                throw new Exception("invalid request body!");
+                this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, "alertInputParm is null!");
             }
 
             if (alertInputParm.PatientInfo == null
                 || string.IsNullOrEmpty(alertInputParm.PatientInfo.Hkid))
             {
-                //BAD REQUEST
-                throw new Exception("invalid Hkid!");
+                this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, string.Format("Invalid Hkid({0})", alertInputParm.PatientInfo.Hkid));
             }
 
-            ValidateHeaders();
+            ValidateRequestHeaders();
 
+            return JsonFromFile(alertInputParm.PatientInfo.Hkid);
+        }
+
+        private static AlertProfileResult JsonFromFile(string hkId)
+        {
             try
             {
-                var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/AP/{0}.json", alertInputParm.PatientInfo.Hkid));
+                var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/AP/{0}.json", hkId));
 
                 var result = JsonHelper.JsonToObjectFromFile<AlertProfileResult>(fileName);
-
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                throw new Exception(string.Format("JsonToObjectFromFile - {0}.json failed!:{1}", alertInputParm.PatientInfo.Hkid, ex.Message));
+                var errorStr = string.Format("JsonToObjectFromFile - {0}.json failed!", hkId);
 
+                throw new HttpResponseException(new HttpResponseMessage
+                {
+                    StatusCode = HttpStatusCode.InternalServerError,
+                    Content = new StringContent(errorStr),
+                    ReasonPhrase = errorStr,
+                });
             }
         }
 
-        private void ValidateHeaders()
+        private void ValidateRequestHeaders()
         {
             /*client_secret: G5nWL4fdPQp3XbWTm9qaQUbedsN4zMzVmn5CfeKxkwjteHGw6SreJJCS8gVD74RN
              * client_id: dispCabinet

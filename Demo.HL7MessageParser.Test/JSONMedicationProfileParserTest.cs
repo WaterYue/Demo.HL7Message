@@ -60,11 +60,11 @@ namespace Demo.HL7MessageParser.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "invalid INVALID_CLIENT_SECRET value!")]
+        [ExpectedException(typeof(Exception), "invalid INVALID_CLIENT_SECRET value of client_secret!")]
         public void Test_GetMedicationProfile_Invalid_Client_Secret()
         {
             var expectedProfile = new MedicationProfileResult();
-          
+
             var localParser = new JSONMedicationProfileParser(restUri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
 
             var caseNumber = "INVALID_CLIENT_SECRET";
@@ -72,6 +72,20 @@ namespace Demo.HL7MessageParser.Test
             var actualProfile = localParser.GetMedicationProfile(caseNumber);
 
             Assert.AreEqual<MedicationProfileResult>(expectedProfile, actualProfile);
+        }
+
+        //https://www.nuget.org/packages/MSTestExtensions/4.0.0
+        [TestMethod]
+        public void Test_GetMedicationProfile_Invalid_Client_Secret_WithMSExtension()
+        {
+            var caseNumber = "INVALID_CLIENT_SECRET";
+            var errorMessage = "Invalid INVALID_CLIENT_SECRET value of client_secret!";
+
+            var localParser = new JSONMedicationProfileParser(restUri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
+
+            var actualException = Assert.ThrowsException<Exception>(() => localParser.GetMedicationProfile(caseNumber), errorMessage);
+
+            Assert.AreEqual(actualException.Message, errorMessage);
         }
 
         [TestCleanup]

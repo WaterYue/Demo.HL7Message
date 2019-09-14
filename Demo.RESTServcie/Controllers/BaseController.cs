@@ -19,7 +19,9 @@ namespace Demo.RESTServcie.Controllers
 
             if (!Request.Headers.TryGetValues(headerName, out header_Values))
             {
-                throw new Exception(string.Format("You are missing header - '{0}'!", headerName));
+                var errorStr = string.Format("You are missing header - '{0}'!", headerName);
+
+                this.ThrowHttpResponseExceptions(HttpStatusCode.Unauthorized, errorStr);
             }
 
             return header_Values.FirstOrDefault();
@@ -31,13 +33,9 @@ namespace Demo.RESTServcie.Controllers
 
             if ((headerValue ?? string.Empty).Trim().ToUpper() != (expectHeaderValue ?? string.Empty).ToUpper())
             {
-                throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.Forbidden)
-                {
-                    Content = new StringContent(string.Format("Invalid {0} header", headerName)),
-                    ReasonPhrase = string.Format("invalid {0} value of {1}!", headerValue, headerName),
-                });
+                var errorStr = string.Format("Invalid {0} value of {1}!", headerValue, headerName);
 
-                throw new ArgumentException(string.Format("invalid {0} value of {1}!", headerValue, headerName));
+                this.ThrowHttpResponseExceptions(HttpStatusCode.Unauthorized, errorStr);
             }
         }
     }

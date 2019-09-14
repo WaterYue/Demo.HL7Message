@@ -1,10 +1,12 @@
 ﻿using Demo.HL7MessageParser.Models;
 using Demo.RESTServcie.Controllers;
+using FluentValidation.WebApi;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 using System.Xml.Serialization;
 
 namespace Demo.RESTServcie
@@ -33,6 +35,12 @@ namespace Demo.RESTServcie
             //    routeTemplate: "api/{controller}/{id}",
             //    defaults: new { id = RouteParameter.Optional }
             //);
+
+            //https://fluentvalidation.net/aspnet
+            // FluentValidationModelValidatorProvider.Configure(config);
+
+            config.Services.Replace(typeof(IExceptionLogger), new GlobalExceptionLogger());
+            config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
         }
     }
 
