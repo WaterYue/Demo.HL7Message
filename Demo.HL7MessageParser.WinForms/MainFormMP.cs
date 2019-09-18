@@ -57,46 +57,75 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnSendMedicationProfile_Click(object sender, EventArgs e)
         {
-            var client = new RestClient(txtURL.Text.Trim());
-            var request = new RestRequest(string.Format("medProfiles/{0}", cbxCaseNumber.Text.Trim()), Method.GET);
-            request.AddHeader("client_secret", txtClientSecret.Text.Trim());
-            request.AddHeader("pathospcode", txtPaHospCode.Text.Trim());
-
-            var response = client.Execute<MedicationProfileResult>(request);
-            if (response.StatusCode != HttpStatusCode.OK)
+            var loadData = new LoadDataThreadHelper<RestRequestParam, MedicationProfileResult>();
+            loadData.Initialize(ProcessMedicationProfile);
+            loadData.Completed += (MedicationProfileResult data) =>
             {
-                Console.WriteLine("request2 failed!");
-                Console.WriteLine(response.ResponseStatus);
-            }
-
-            else
-            {
-                var result = response.Data;
-
-                if (result != null)
+                if (data != null)
                 {
-                    var responseJsonStr = JsonHelper.ToJson(result);
+                    var responseJsonStr = JsonHelper.ToJson(data);
 
-                    scintillaResMP.FormatJsonStyle();
+                    this.SafeInvoke(() =>
+                    {
+                        scintillaResMP.FormatJsonStyle();
 
-                    scintillaResMP.Focus();
-                    tcBottom.SelectedIndex = 1;
-                    scintillaResMP.Text = JsonHelper.FormatJson(responseJsonStr);
-
+                        scintillaResMP.Focus();
+                        tcBottom.SelectedIndex = 1;
+                        scintillaResMP.Text = JsonHelper.FormatJson(responseJsonStr);
+                    }, false);
                 }
 
-                //string fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("Data/AP/{0}.json", "HN170002520"));
+            };
+            loadData.Exceptioned += (Exception ex) =>
+            {
+                this.SafeInvoke(() =>
+                {
+                    if (ex is RestException)
+                    {
+                        var restEx = ex as RestException;
 
-                //using (StreamReader reader = new StreamReader(fileName, Encoding.UTF8))
-                //{
+                        MessageBox.Show(string.Format("Message:{0},HttpStatusCode:{1}", restEx.Message, restEx.HttpStatusCode));
+                    }
+                    else
+                    {
+                        MessageBox.Show(string.Format("Unknown Exception: {0}", ex.Message));
+                    }
+                }, false);
 
-                //    JsonStyle(scintillaReqMP);
 
-                //    scintillaReqMP.Text = reader.ReadToEnd();
-
-                //}
-            }
+            };
+            loadData.LoadDataAsync(new RestRequestParam
+            {
+                url = txtURL.Text.Trim(),
+                clientsecret = txtClientSecret.Text.Trim(),
+                pahospCode = txtPaHospCode.Text.Trim(),
+                casenumber = cbxCaseNumber.Text.Trim()
+            });
         }
 
+        private MedicationProfileResult ProcessMedicationProfile(RestRequestParam requestParam)
+        {
+            var client = new RestClient(requestParam.url);
+            var request = new RestRequest(string.Format("medProfiles/{0}", requestParam.casenumber), Method.GET);
+            request.AddHeader("client_secret", requestParam.clientsecret);
+            request.AddHeader("pathospcode", requestParam.pahospCode);
+
+            var response = client.Execute<MedicationProfileResult>(request);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                response.ThrowException();
+            }
+
+            return response.Data;
+        }
+    }
+    public class RestRequestParam
+    {
+        public string url { get; set; }
+        public string casenumber { get; set; }
+        public string clientsecret { get; set; }
+        public string clientid { get; set; }
+        public string pahospCode { get; set; }
     }
 }
