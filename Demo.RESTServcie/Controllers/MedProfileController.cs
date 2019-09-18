@@ -14,6 +14,7 @@ namespace Demo.RESTServcie.Controllers
     public class MedProfileController : BaseController
     {
         static List<string> caseNumbers = new List<string> { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
+
         const string LOCAL_PATH_Format = "bin/Data/MP/{0}.json";
 
         [Route("")]
@@ -30,20 +31,19 @@ namespace Demo.RESTServcie.Controllers
         [Route("{casenumber}")]
         public MedicationProfileResult Get(string casenumber)
         {
-            if (string.IsNullOrWhiteSpace(casenumber))
+            if (!string.IsNullOrWhiteSpace(casenumber))
             {
-                this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, string.Format("Invalid CassNumber({0})", casenumber));
+                ValidateHeader_Value(HEADER_CLIENT_SECRET, "CLIENT_SECRET");
+                
+                if (IsValidateHeader_Value(HEADER_PATHOSPCODE_VALUE, "PATHOSPCODE"))
+                {
+                    if (caseNumbers.Contains(casenumber.ToUpper()))
+                    {
+                        return JsonFromFile(casenumber);
+                    }
+                }
             }
-
-            ValidateRequestHeaders();
-
-
-            if (caseNumbers.Contains(casenumber.ToUpper()))
-            {
-                return JsonFromFile(casenumber);
-            }
-
-
+            //invalid pat_hospcode OR casenumber, return empty object
             return new MedicationProfileResult { };
         }
 
@@ -67,13 +67,6 @@ namespace Demo.RESTServcie.Controllers
                     ReasonPhrase = errorStr,
                 });
             }
-        }
-
-        private void ValidateRequestHeaders()
-        {
-            ValidateHeader_Value(HEADER_CLIENT_SECRET, "CLIENT_SECRET");
-
-            ValidateHeader_Value(HEADER_PATHOSPCODE_VALUE, "PATHOSPCODE");
         }
     }
 }

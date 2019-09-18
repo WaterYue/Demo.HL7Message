@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using Demo.HL7MessageParser.Common;
 using Demo.HL7MessageParser.Model;
 using Demo.HL7MessageParser.Models;
@@ -24,7 +25,7 @@ namespace Demo.HL7MessageParser.Test
         }
 
         [TestMethod]
-        public void Test_GetMedicationProfile_Succeed()
+        public void Test_GetMedicationProfile_Successful()
         {
             var caseNumber = "HN170002512";
 
@@ -60,33 +61,79 @@ namespace Demo.HL7MessageParser.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception), "invalid INVALID_CLIENT_SECRET value of client_secret!")]
-        public void Test_GetMedicationProfile_Invalid_Client_Secret()
+        public void Test_GetMedicationProfile_Invalid_PATHOSPCODE()
         {
-            var expectedProfile = new MedicationProfileResult();
-
-            var localParser = new JSONMedicationProfileParser(restUri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
-
-            var caseNumber = "INVALID_CLIENT_SECRET";
+            var caseNumber = "Any_CaseNumber";
+            var localParser = new JSONMedicationProfileParser(restUri, "CLIENT_SECRET", "INVALID_PATHOSPCODE");
 
             var actualProfile = localParser.GetMedicationProfile(caseNumber);
 
-            Assert.AreEqual<MedicationProfileResult>(expectedProfile, actualProfile);
+            Assert.IsNotNull(actualProfile);
+            Assert.IsNull(actualProfile.MedProfileId);
+            Assert.IsNull(actualProfile.CaseNum);
+            Assert.IsNull(actualProfile.MedProfileMoItems);
         }
+
+        //[TestMethod]
+        //[ExpectedException(typeof(RestException), "invalid INVALID_CLIENT_SECRET value of client_secret!")]
+        //public void Test_GetMedicationProfile_Invalid_Client_Secret()
+        //{
+        //    var expectedProfile = new MedicationProfileResult();
+
+        //    var localParser = new JSONMedicationProfileParser(restUri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
+
+        //    var caseNumber = "INVALID_CLIENT_SECRET";
+
+        //    var actualProfile = localParser.GetMedicationProfile(caseNumber);
+
+        //    Assert.AreEqual<MedicationProfileResult>(expectedProfile, actualProfile);
+        //}
 
         //https://www.nuget.org/packages/MSTestExtensions/4.0.0
         [TestMethod]
-        public void Test_GetMedicationProfile_Invalid_Client_Secret_WithMSExtension()
+        public void Test_GetMedicationProfile_Invalid_Client_Secret()
         {
             var caseNumber = "INVALID_CLIENT_SECRET";
-            var errorMessage = "Invalid INVALID_CLIENT_SECRET value of client_secret!";
+
+            var errorMessage = "Unauthorized";
+            var httpStatusCode = HttpStatusCode.Unauthorized;
 
             var localParser = new JSONMedicationProfileParser(restUri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
 
-            var actualException = Assert.ThrowsException<Exception>(() => localParser.GetMedicationProfile(caseNumber), errorMessage);
+            var actualException = Assert.ThrowsException<RestException>(() => localParser.GetMedicationProfile(caseNumber));
 
+            Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
             Assert.AreEqual(actualException.Message, errorMessage);
         }
+
+        [TestMethod]
+        public void Test_GetMedicationProfile_Service_NotFound()
+        {
+            var caseNumber = "Any_CaseNumber";
+
+            var httpStatusCode = HttpStatusCode.NotFound;
+
+            // var localParser = new JSONMedicationProfileParser("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
+            var localParser = new JSONMedicationProfileParser("https://en.wikipedia.org/wiki/Main_Page/", "CLIENT_SECRET", "PATHOSPCODE");
+            var actualException = Assert.ThrowsException<RestException>(() => localParser.GetMedicationProfile(caseNumber));
+
+            Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
+        }
+
+        [TestMethod]
+        public void Test_GetMedicationProfile_Service_Unavailable()
+        {
+            var caseNumber = "Any_CaseNumber";
+
+            var httpStatusCode = HttpStatusCode.ServiceUnavailable;
+
+            //  var localParser = new JSONMedicationProfileParser("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
+            var localParser = new JSONMedicationProfileParser("http://localhost:9527/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
+            var actualException = Assert.ThrowsException<RestException>(() => localParser.GetMedicationProfile(caseNumber));
+
+            Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
+        }
+
 
         [TestCleanup]
         public void CleanUp()

@@ -27,16 +27,23 @@ namespace Demo.RESTServcie.Controllers
             return header_Values.FirstOrDefault();
         }
 
-        protected void ValidateHeader_Value(string headerName, string expectHeaderValue)
+        protected void ValidateHeader_Value(string headerName, string expectHeaderValue, HttpStatusCode httpStatusCode = HttpStatusCode.Unauthorized)
         {
             var headerValue = GetHeaderValue(headerName);
 
             if ((headerValue ?? string.Empty).Trim().ToUpper() != (expectHeaderValue ?? string.Empty).ToUpper())
             {
-                var errorStr = string.Format("Invalid {0} value of {1}!", headerValue, headerName);
+                var errorStr = "Unauthorized";
 
-                this.ThrowHttpResponseExceptions(HttpStatusCode.Unauthorized, errorStr);
+                this.ThrowHttpResponseExceptions(httpStatusCode, errorStr);
             }
+        }
+
+        protected bool IsValidateHeader_Value(string headerName, string expectHeaderValue, HttpStatusCode httpStatusCode = HttpStatusCode.Unauthorized)
+        {
+            var headerValue = GetHeaderValue(headerName);
+
+            return (headerValue ?? string.Empty).Trim().ToUpper() == (expectHeaderValue ?? string.Empty).ToUpper();
         }
     }
 }

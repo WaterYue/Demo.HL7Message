@@ -13,6 +13,10 @@ namespace Demo.RESTServcie.Controllers
     [RoutePrefix(Const.ROUNT_PREFIX + "alertProfile")]
     public class AlertProfileController : BaseController
     {
+        static List<string> HKIDs = new List<string> { "HN03191100Y", "HN170002520" };
+
+        const string LOCAL_PATH_Format = "bin/Data/MP/{0}.json";
+
         [Route("")]
         public IEnumerable<string> Get()
         {
@@ -40,15 +44,26 @@ namespace Demo.RESTServcie.Controllers
                 this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, "alertInputParm is null!");
             }
 
+            //invalid HKID
             if (alertInputParm.PatientInfo == null
-                || string.IsNullOrEmpty(alertInputParm.PatientInfo.Hkid))
+                || string.IsNullOrEmpty(alertInputParm.PatientInfo.Hkid)
+                || alertInputParm.PatientInfo.Hkid.ToUpper().StartsWith("INVALID_HKID"))
             {
-                this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, string.Format("Invalid Hkid({0})", alertInputParm.PatientInfo.Hkid));
+                return JsonFromFile("INVALID_HKID");
             }
+            var tempHKID = alertInputParm.PatientInfo.Hkid.ToUpper();
 
             ValidateRequestHeaders();
 
-            return JsonFromFile(alertInputParm.PatientInfo.Hkid);
+            if (HKIDs.Contains(tempHKID))
+            {
+                return JsonFromFile(tempHKID);
+            }
+            //invalid Patient info
+            else
+            {
+                return JsonFromFile("INVALID_PATIENT");
+            }
         }
 
         private static AlertProfileResult JsonFromFile(string hkId)
@@ -60,7 +75,7 @@ namespace Demo.RESTServcie.Controllers
                 var result = JsonHelper.JsonToObjectFromFile<AlertProfileResult>(fileName);
                 return result;
             }
-            catch (Exception )
+            catch (Exception)
             {
                 var errorStr = string.Format("JsonToObjectFromFile - {0}.json failed!", hkId);
 
@@ -81,7 +96,7 @@ namespace Demo.RESTServcie.Controllers
              */
             ValidateHeader_Value(HEADER_CLIENT_SECRET, "CLIENT_SECRET");
 
-            ValidateHeader_Value(HEAER_CLIENT_ID, "CLIENT_ID");
+          //  ValidateHeader_Value(HEAER_CLIENT_ID, "CLIENT_ID");
 
             ValidateHeader_Value(HEADER_PATHOSPCODE_VALUE, "PATHOSPCODE");
         }

@@ -1,0 +1,14 @@
+﻿{
+    "adrProfile": [],
+    "alertProfile": [],
+    "allergyProfile": [],
+    "errorMessage": [
+        {
+            "msgCode": "20002",
+            "msgText": "Name, Sex, DOB of the selected patient do not match with that in corporate allergy server.",
+            "standardMsg": "Drug Allergy/Non-drug Allergy/Adverse Drug Reaction/Alert information is temporarily not available, please check patient's medical records."
+        }
+    ],
+    "moePatientSteroidTag": null,
+    "simpleDisplayFormat": []
+}

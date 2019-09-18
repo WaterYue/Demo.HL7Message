@@ -17,6 +17,7 @@ namespace Demo.HL7MessageParser
         {
             this.patientVisitParser = new SoapPatientVisitParser();
             this.medicationProfileParser = new JSONMedicationProfileParser();
+            this.allergiesParser = new JSONIAlertProfileParser();
         }
         public HL7MessageParser_NTEC(IPatientVisitParser patientVisitParser,
             IMedicationProfileParser medicationProfileParser,
@@ -31,6 +32,8 @@ namespace Demo.HL7MessageParser
         {
             var medicationProfile = medicationProfileParser.GetMedicationProfile(caseno);
 
+            //TODO:storage the response
+
             var orders = medicationProfile.MedProfileMoItems.ToConvert();
 
             return orders;
@@ -40,6 +43,8 @@ namespace Demo.HL7MessageParser
         public PatientVisit GetPatient(string caseno)
         {
             var pr = patientVisitParser.GetPatientResult(caseno);
+            
+            //TODO: storage the response
 
             var patientVisit = pr.ToConvert();
 
@@ -50,6 +55,8 @@ namespace Demo.HL7MessageParser
         public IEnumerable<Allergies> GetAllergies(AlertInputParm alertinput)
         {
             var apr = allergiesParser.GetAlertProfile(alertinput);
+
+            //TODO:storage the response
 
             var result = apr.ToConvert();
 

@@ -1,0 +1,14 @@
+{
+    "adrProfile": [],
+    "alertProfile": [],
+    "allergyProfile": [],
+    "errorMessage": [
+        {
+            "msgCode": "20083",
+            "msgText": "Invalid access code.",
+            "standardMsg": "Drug Allergy/Non-drug Allergy/Adverse Drug Reaction/Alert information is temporarily not available, please check patient's medical records."
+        }
+    ],
+    "moePatientSteroidTag": null,
+    "simpleDisplayFormat": []
+}

@@ -79,13 +79,17 @@ namespace Demo.HL7MessageParser.Models
         public string AlertRecord { get; set; }
         public string AllergyRecord { get; set; }
     }
-
+    public class ErrorMessage {
+        public string MsgCode { get; set; }
+        public string MsgText { get; set; }
+        public string StandardMsg { get; set; }
+    }
     public class AlertProfileResult
     {
         public List<AdrProfile> AdrProfile { get; set; }
         public List<AlertProfile> AlertProfile { get; set; }
         public List<AllergyProfile> AllergyProfile { get; set; }
-        public List<object> ErrorMessage { get; set; }
+        public List<ErrorMessage> ErrorMessage { get; set; }
         public object MoePatientSteroidTag { get; set; }
         public List<SimpleDisplayFormat> SimpleDisplayFormat { get; set; }
     }

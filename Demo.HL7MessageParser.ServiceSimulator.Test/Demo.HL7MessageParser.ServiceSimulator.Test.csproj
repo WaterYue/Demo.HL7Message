@@ -122,6 +122,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Demo.HL7MessageParser.Common\Demo.HL7MessageParser.Common.csproj">
+      <Project>{6F4FAD1F-036A-4376-A685-814110E776C9}</Project>
+      <Name>Demo.HL7MessageParser.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Demo.HL7MessageParser.Models\Demo.HL7MessageParser.Models.csproj">
       <Project>{4e61a17f-cc30-4f3e-8cfc-2f1ed9594b04}</Project>
       <Name>Demo.HL7MessageParser.Models</Name>

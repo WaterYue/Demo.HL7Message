@@ -9,20 +9,22 @@ using System.Text;
 
 namespace Demo.HL7MessageParser
 {
-    public class JSONMedicationProfileParser : IMedicationProfileParser
+    public class JSONIAlertProfileParser : IAlertProfileParser
     {
         private string restUri;
         private string client_secret;
+        private string client_id;
         private string pathospcode;
 
-        public JSONMedicationProfileParser()
+        public JSONIAlertProfileParser()
         {
         }
 
-        public JSONMedicationProfileParser(string restUri, string client_secret, string pathospcode)
+        public JSONIAlertProfileParser(string restUri, string client_secret, string client_id, string pathospcode)
         {
             this.restUri = restUri;
             this.client_secret = client_secret;
+            this.client_id = client_id;
             this.pathospcode = pathospcode;
         }
 
@@ -31,24 +33,26 @@ namespace Demo.HL7MessageParser
             // resturi, client_secret, pathospcode from  storage(DB,FILE, CACHE)
             restUri = "http://localhost:3181/pms-asa/1/";
             client_secret = "CLIENT_SECRET";
+            client_id = "CLIENT_ID";
             pathospcode = "PATHOSPCODE";
         }
 
 
-
-        public MedicationProfileResult GetMedicationProfile(string caseNumber)
+        public AlertProfileResult GetAlertProfile(AlertInputParm alertinput)
         {
             var client = new RestClient(restUri);
 
-            var request = new RestRequest(string.Format("medProfiles/{0}", caseNumber), Method.GET);
+            var request = new RestRequest("alertProfile", Method.POST);
             request.AddHeader("client_secret", client_secret);
+            request.AddHeader("client_id", client_id);
             request.AddHeader("pathospcode", pathospcode);
 
-            var response = client.Execute<MedicationProfileResult>(request);
+            request.AddJsonBody(alertinput);
+
+            var response = client.Execute<AlertProfileResult>(request);
 
             if (!response.IsSuccessful())
             {
-                //response is unsuccessful, throw exception
                 response.ThrowException();
             }
 
@@ -56,6 +60,5 @@ namespace Demo.HL7MessageParser
 
             return result;
         }
-
     }
 }

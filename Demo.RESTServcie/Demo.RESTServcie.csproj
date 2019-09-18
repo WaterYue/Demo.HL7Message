@@ -131,6 +131,18 @@
     <Content Include="Data\AP\HN170002520.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Data\AP\INVALID_HKID.json">
+      <Link>Data\AP\INVALID_HKID.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Data\AP\INVALID_PATIENT.json">
+      <Link>Data\AP\INVALID_PATIENT.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Data\AP\INVALID_ACCESSCODE.json">
+      <Link>Data\AP\INVALID_ACCESSCODE.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">

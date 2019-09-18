@@ -57,6 +57,7 @@
     <Compile Include="Fake\FakeSoapPatientVisitParser.cs" />
     <Compile Include="Fake\FakeJSONMedicationProfileParser.cs" />
     <Compile Include="Fake\FakeObj.cs" />
+    <Compile Include="JSONIAlertProfileParserTest.cs" />
     <Compile Include="JSONMedicationProfileParserTest.cs" />
     <Compile Include="Hl7MessageParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +69,18 @@
     </None>
     <None Include="..\Data\AP\HN170002520.json">
       <Link>Data\AP\HN170002520.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\AP\INVALID_ACCESSCODE.json">
+      <Link>Data\AP\INVALID_ACCESSCODE.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\AP\INVALID_HKID.json">
+      <Link>Data\AP\INVALID_HKID.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\AP\INVALID_PATIENT.json">
+      <Link>Data\AP\INVALID_PATIENT.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\Data\MP\HN03191100Y.json">

@@ -1,0 +1,14 @@
+﻿{
+    "adrProfile": [],
+    "alertProfile": [],
+    "allergyProfile": [],
+    "errorMessage": [
+        {
+            "msgCode": "20001",
+            "msgText": "Selected patient is not found in the corporate allergy server.",
+            "standardMsg": "Drug Allergy/Non-drug Allergy/Adverse Drug Reaction/Alert information is temporarily not available, please check patient's medical records."
+        }
+    ],
+    "moePatientSteroidTag": null,
+    "simpleDisplayFormat": []
+}

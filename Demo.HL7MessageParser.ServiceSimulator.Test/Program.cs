@@ -1,4 +1,5 @@
-﻿using Demo.HL7MessageParser.Models;
+﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,13 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
     {
         static void Main(string[] args)
         {
-            var client = new RestClient("http://localhost:3181/pms-asa/1/");
+            var client = new RestClient("http://localhost:3181/pms-asa1/1/");
 
-            Request_AlertProfile(client);
+            // Request_AlertProfile(client);
 
-            //Request_MedicationProfile(client);
+            Request_MedicationProfile(client);
 
-            //SoapClient_WSS();
+            // SoapClient_WSS();
 
             //WCF_Soap_Test();
 
@@ -38,15 +39,24 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
                 // var response = client.ExecuteAsGet<MedicationProfileResult>(request, Method.GET.ToString());
                 var response = client.Execute<MedicationProfileResult>(request);
-                if (response.StatusCode != HttpStatusCode.OK)
-                {
-                    Console.WriteLine("request2 failed!");
-                    Console.WriteLine(response.ResponseStatus);
-                }
-
-                else
+                if (response.IsSuccessful())
                 {
                     var result = response.Data;
+                }
+                else
+                {
+                    try
+                    {
+                        response.ThrowException();
+                    }
+                    catch (RestException rex)
+                    {
+                        //Log exception
+                    }
+                    catch (Exception ex)
+                    {
+                        //Log exception
+                    }
                 }
             }
 
