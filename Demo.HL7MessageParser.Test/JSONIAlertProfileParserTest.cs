@@ -20,8 +20,6 @@ namespace Demo.HL7MessageParser.Test
         public void Initialize()
         {
             parser = new JSONIAlertProfileParser();
-
-            parser.InitializeParam();
         }
 
         [TestMethod]

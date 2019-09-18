@@ -115,6 +115,10 @@
       <Project>{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}</Project>
       <Name>Demo.HL7MessageParser.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Demo.HL7MessageParser\Demo.HL7MessageParser.csproj">
+      <Project>{be8c3682-2147-4458-b6d7-9ea9c8f22a92}</Project>
+      <Name>Demo.HL7MessageParser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

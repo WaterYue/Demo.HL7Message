@@ -105,19 +105,11 @@ namespace Demo.HL7MessageParser.WinForms
 
         private MedicationProfileResult ProcessMedicationProfile(RestRequestParam requestParam)
         {
-            var client = new RestClient(requestParam.url);
-            var request = new RestRequest(string.Format("medProfiles/{0}", requestParam.casenumber), Method.GET);
-            request.AddHeader("client_secret", requestParam.clientsecret);
-            request.AddHeader("pathospcode", requestParam.pahospCode);
+            IMedicationProfileParser parser = new JSONMedicationProfileParser();
 
-            var response = client.Execute<MedicationProfileResult>(request);
+            parser.InitializeParam(requestParam.url, requestParam.clientsecret, requestParam.pahospCode);
 
-            if (response.StatusCode != HttpStatusCode.OK)
-            {
-                response.ThrowException();
-            }
-
-            return response.Data;
+            return parser.GetMedicationProfile(requestParam.casenumber);
         }
     }
     public class RestRequestParam

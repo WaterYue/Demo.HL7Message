@@ -9,6 +9,6 @@ namespace Demo.HL7MessageParser
     public interface IAlertProfileParser
     {
         AlertProfileResult GetAlertProfile(AlertInputParm alertinput);
-        void InitializeParam();
+        void InitializeParam(string restUri, string client_secret, string client_id, string pathospcode);
     }
 }

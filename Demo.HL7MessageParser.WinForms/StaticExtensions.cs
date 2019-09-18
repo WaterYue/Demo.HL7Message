@@ -42,40 +42,5 @@ namespace Demo.HL7MessageParser
                 }
             }
         }
-
-
-        public static bool IsScuccessStatusCode(this HttpStatusCode responseCode)
-        {
-            var numericResponse = (int)responseCode;
-
-            const int statusCodeOk = (int)HttpStatusCode.OK;
-
-            const int statusCodeBadRequest = (int)HttpStatusCode.BadRequest;
-
-            return numericResponse >= statusCodeOk &&
-                   numericResponse < statusCodeBadRequest;
-        }
-
-        public static bool IsSuccessful(this IRestResponse response)
-        {
-            return response.StatusCode.IsScuccessStatusCode() &&
-                   response.ResponseStatus == ResponseStatus.Completed;
-        }
-        public static void ThrowException(this IRestResponse response)
-        {
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                return;
-            }
-
-            if (response.StatusCode == 0)
-            {
-                throw new RestException(HttpStatusCode.ServiceUnavailable, response.ErrorMessage, response.ErrorException);
-            }
-            else
-            {
-                throw new RestException(response.StatusCode, response.Content, response.ErrorException);
-            }
-        }
     }
 }
