@@ -143,6 +143,18 @@
       <Link>Data\AP\INVALID_ACCESSCODE.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Data\AP\HN170002512.json">
+      <Link>Data\AP\HN170002512.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Data\AP\HN17000256S.json">
+      <Link>Data\AP\HN17000256S.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Data\AP\HN18001140Y.json">
+      <Link>Data\AP\HN18001140Y.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">

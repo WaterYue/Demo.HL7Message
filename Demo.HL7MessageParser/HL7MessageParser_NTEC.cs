@@ -9,16 +9,38 @@ namespace Demo.HL7MessageParser
 {
     public class HL7MessageParser_NTEC : IHL7MessageParser
     {
-        IPatientVisitParser patientVisitParser;
-        IMedicationProfileParser medicationProfileParser;
-        IAlertProfileParser allergiesParser;
+        private string url;
+        private string casenumber;
+        private string clientsecret;
+        private string clientid;
+        private string pahospCode;
+
+        private IPatientVisitParser patientVisitParser;
+        private IMedicationProfileParser medicationProfileParser;
+        private IAlertProfileParser allergiesParser;
 
         public HL7MessageParser_NTEC()
         {
             this.patientVisitParser = new SoapPatientVisitParser();
             this.medicationProfileParser = new JSONMedicationProfileParser();
             this.allergiesParser = new JSONIAlertProfileParser();
+
+            Initialize();
         }
+
+        private void Initialize()
+        {
+           //TODO Initialize parameters
+           /* client_secret
+            * client_id
+            * pahospCode
+            * accessCode
+            * loginId
+            * username
+            * password
+            */
+        }
+
         public HL7MessageParser_NTEC(IPatientVisitParser patientVisitParser,
             IMedicationProfileParser medicationProfileParser,
             IAlertProfileParser allergiesParser)
@@ -43,7 +65,7 @@ namespace Demo.HL7MessageParser
         public PatientVisit GetPatient(string caseno)
         {
             var pr = patientVisitParser.GetPatientResult(caseno);
-            
+
             //TODO: storage the response
 
             var patientVisit = pr.ToConvert();

@@ -67,8 +67,20 @@
       <Link>Data\AP\HN03191100Y.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="..\Data\AP\HN170002512.json">
+      <Link>Data\AP\HN170002512.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="..\Data\AP\HN170002520.json">
       <Link>Data\AP\HN170002520.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\AP\HN17000256S.json">
+      <Link>Data\AP\HN17000256S.json</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Data\AP\HN18001140Y.json">
+      <Link>Data\AP\HN18001140Y.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\Data\AP\INVALID_ACCESSCODE.json">

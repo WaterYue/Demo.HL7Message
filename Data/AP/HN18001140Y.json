@@ -1,0 +1,38 @@
+﻿{
+    "adrProfile": [],
+    "alertProfile": [],
+    "allergyProfile": [
+        {
+            "aliasName": "",
+            "allergen": "No Known Drug Allergy",
+            "allergenType": "N",
+            "allergySeqNo": "0000084799",
+            "certainty": "",
+            "certaintyCode": "",
+            "displayName": "No Known Drug Allergy",
+            "hicSeqno": [],
+            "hiclSeqno": null,
+            "manifestation": "",
+            "nameType": "",
+            "remark": "",
+            "salt": "",
+            "sourceSystem": "CMS3",
+            "textColor": "#000000",
+            "updateBy": "Y2KMED",
+            "updateDtm": "25-07-2018 11:23:12",
+            "updateHospital": "VH",
+            "updateRankDesc": "''",
+            "updateUser": "AA, FORMAT in IP",
+            "updateUserRank": "''"
+        }
+    ],
+    "errorMessage": [],
+    "moePatientSteroidTag": null,
+    "simpleDisplayFormat": [
+        {
+            "adrRecord": "",
+            "alertRecord": "",
+            "allergyRecord": "1. No Known Drug Allergy"
+        }
+    ]
+}
