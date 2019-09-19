@@ -145,5 +145,47 @@ namespace Demo.HL7MessageParser.Common
                 return (T)serialize.Deserialize(reader);
             }
         }
+
+        public static string FormatXML(string xml)
+        {
+            string result = string.Empty;
+
+            using (MemoryStream mStream = new MemoryStream())
+            {
+                using (XmlTextWriter writer = new XmlTextWriter(mStream, Encoding.Unicode))
+                {
+                    try
+                    {
+                        XmlDocument document = new XmlDocument();
+
+                        document.LoadXml(xml);
+
+                        writer.Formatting = Formatting.Indented;
+
+                        document.WriteContentTo(writer);
+                        writer.Flush();
+                        mStream.Flush();
+
+                        mStream.Position = 0;
+
+                        StreamReader sReader = new StreamReader(mStream);
+
+                        string formattedXml = sReader.ReadToEnd();
+
+                        result = formattedXml;
+
+                        return result;
+                    }
+                    catch (XmlException xmlEx)
+                    {
+                        return xml;
+                    }
+                    catch (Exception ex)
+                    {
+                        return xml;
+                    }
+                }
+            }
+        }
     }
 }

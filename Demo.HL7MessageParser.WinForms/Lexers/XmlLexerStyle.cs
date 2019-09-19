@@ -20,10 +20,10 @@ namespace Demo.HL7MessageParser.WinForms.Lexers
 
             // Set the XML Lexer
             scintilla.Lexer = Lexer.Xml;
-
+            /*
             // Show line numbers
             scintilla.Margins[0].Width = 20;
-
+            */
             // Enable folding
             scintilla.SetProperty("fold", "1");
             scintilla.SetProperty("fold.compact", "1");

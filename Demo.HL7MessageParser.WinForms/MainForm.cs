@@ -21,33 +21,19 @@ namespace Demo.HL7MessageParser.WinForms
         {
             InitializeComponent();
 
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            {
-                InitializeAP();
-            }
-
+            //if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+            //{
+            //    tcMain.TabPages[0].Controls.Add(new MedicationProfileControl { Dock = DockStyle.Fill });
+            //}
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            InitializeMP();
+            tpMedicationProfile.Controls.Add(new MedicationProfileControl { Dock = DockStyle.Fill });
 
-            InitializeAP();
+            tpAlertProfile.Controls.Add(new AlertProfileParserControl { Dock = DockStyle.Fill });
 
-
-        }
-
-
-      
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            tpPatientDemographic.Controls.Add(new PatientDemographicControl { Dock = DockStyle.Fill });
         }
     }
 }
