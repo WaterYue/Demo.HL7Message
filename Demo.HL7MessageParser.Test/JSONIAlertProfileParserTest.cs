@@ -65,7 +65,7 @@ namespace Demo.HL7MessageParser.Test
         [TestMethod]
         public void Test_GetAlertProfile_Invalid_AccessCode()
         {
-            var caseNumber = new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "INVALID_PATIENT" } };
+            var caseNumber = new AlertInputParm { PatientInfo = new PatientInfo { Hkid = "INVALID_ACCESSCODE" } };
 
             var actualProfile = parser.GetAlertProfile(caseNumber);
 

@@ -84,5 +84,10 @@ namespace Demo.HL7MessageParser.WinForms
                 casenumber = cbxCaseNumber.Text.Trim()
             });
         }
+
+        private void cbxCaseNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

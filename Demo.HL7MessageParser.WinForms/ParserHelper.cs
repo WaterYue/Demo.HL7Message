@@ -1,4 +1,5 @@
-﻿using Demo.HL7MessageParser.Models;
+﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,17 @@ namespace Demo.HL7MessageParser
 
             return parser.GetMedicationProfile(requestParam.casenumber);
         }
+
+        public static AlertProfileResult ProcessAlertProfile(RestRequestParam requestParam)
+        {
+            IAlertProfileParser parser = new JSONIAlertProfileParser();
+
+            parser.InitializeParam(requestParam.url, requestParam.clientsecret, requestParam.clientid, requestParam.pahospCode);
+
+            var inputParam = XmlHelper.XmlDeserialize<AlertInputParm>(requestParam.xmlReq);
+
+            return parser.GetAlertProfile(inputParam);
+        }
     }
 
     public class RestRequestParam
@@ -26,5 +38,9 @@ namespace Demo.HL7MessageParser
         public string clientsecret { get; set; }
         public string clientid { get; set; }
         public string pahospCode { get; set; }
+
+        public string xmlReq { get; set; }
+
+        public string jsonReq { get; set; }
     }
 }

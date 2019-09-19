@@ -89,6 +89,7 @@
             this.cbxCaseNumber.Name = "cbxCaseNumber";
             this.cbxCaseNumber.Size = new System.Drawing.Size(285, 28);
             this.cbxCaseNumber.TabIndex = 9;
+            this.cbxCaseNumber.SelectedIndexChanged += new System.EventHandler(this.cbxCaseNumber_SelectedIndexChanged);
             // 
             // btnSendMedicationProfile
             // 

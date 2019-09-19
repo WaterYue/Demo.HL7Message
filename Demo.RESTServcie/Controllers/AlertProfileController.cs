@@ -13,7 +13,7 @@ namespace Demo.RESTServcie.Controllers
     [RoutePrefix(Const.ROUNT_PREFIX + "alertProfile")]
     public class AlertProfileController : BaseController
     {
-        static List<string> HKIDs = new List<string> { "HN03191100Y", "HN170002520" };
+        static List<string> HKIDs = new List<string> { "HN03191100Y", "HN170002520", "INVALID_ACCESSCODE" };
 
         const string LOCAL_PATH_Format = "bin/Data/MP/{0}.json";
 
@@ -44,6 +44,8 @@ namespace Demo.RESTServcie.Controllers
                 this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, "alertInputParm is null!");
             }
 
+            ValidateRequestHeaders();
+
             //invalid HKID
             if (alertInputParm.PatientInfo == null
                 || string.IsNullOrEmpty(alertInputParm.PatientInfo.Hkid)
@@ -52,8 +54,6 @@ namespace Demo.RESTServcie.Controllers
                 return JsonFromFile("INVALID_HKID");
             }
             var tempHKID = alertInputParm.PatientInfo.Hkid.ToUpper();
-
-            ValidateRequestHeaders();
 
             if (HKIDs.Contains(tempHKID))
             {

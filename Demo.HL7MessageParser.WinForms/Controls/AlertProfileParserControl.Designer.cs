@@ -39,16 +39,16 @@
             this.txtClientSecret = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.scintilla3 = new ScintillaNET.Scintilla();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tcMain = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.scintilla1 = new ScintillaNET.Scintilla();
+            this.scintillaInputParam = new ScintillaNET.Scintilla();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.scintilla2 = new ScintillaNET.Scintilla();
+            this.scintillaRes = new ScintillaNET.Scintilla();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tcMain.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +77,7 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
+            this.splitContainer2.Panel2.Controls.Add(this.tcMain);
             this.splitContainer2.Size = new System.Drawing.Size(969, 769);
             this.splitContainer2.SplitterDistance = 343;
             this.splitContainer2.SplitterWidth = 5;
@@ -91,6 +91,7 @@
             this.cbxHKId.Size = new System.Drawing.Size(320, 28);
             this.cbxHKId.TabIndex = 19;
             this.cbxHKId.SelectedIndexChanged += new System.EventHandler(this.cbxHKId_SelectedIndexChanged);
+            this.cbxHKId.TextChanged += new System.EventHandler(this.cbxHKId_TextChanged);
             // 
             // btnSend
             // 
@@ -179,19 +180,19 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(621, 769);
-            this.tabControl1.TabIndex = 0;
+            this.tcMain.Controls.Add(this.tabPage5);
+            this.tcMain.Controls.Add(this.tabPage6);
+            this.tcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcMain.Location = new System.Drawing.Point(0, 0);
+            this.tcMain.Margin = new System.Windows.Forms.Padding(4);
+            this.tcMain.Name = "tabControl1";
+            this.tcMain.SelectedIndex = 0;
+            this.tcMain.Size = new System.Drawing.Size(621, 769);
+            this.tcMain.TabIndex = 0;
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.scintilla1);
+            this.tabPage5.Controls.Add(this.scintillaInputParam);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
@@ -203,17 +204,17 @@
             // 
             // scintilla1
             // 
-            this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintilla1.Location = new System.Drawing.Point(4, 4);
-            this.scintilla1.Margin = new System.Windows.Forms.Padding(4);
-            this.scintilla1.Name = "scintilla1";
-            this.scintilla1.Size = new System.Drawing.Size(605, 735);
-            this.scintilla1.TabIndex = 0;
-            this.scintilla1.Text = "scintilla1";
+            this.scintillaInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaInputParam.Location = new System.Drawing.Point(4, 4);
+            this.scintillaInputParam.Margin = new System.Windows.Forms.Padding(4);
+            this.scintillaInputParam.Name = "scintilla1";
+            this.scintillaInputParam.Size = new System.Drawing.Size(605, 735);
+            this.scintillaInputParam.TabIndex = 0;
+            this.scintillaInputParam.Text = "scintilla1";
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.scintilla2);
+            this.tabPage6.Controls.Add(this.scintillaRes);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
@@ -225,13 +226,13 @@
             // 
             // scintilla2
             // 
-            this.scintilla2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintilla2.Location = new System.Drawing.Point(4, 4);
-            this.scintilla2.Margin = new System.Windows.Forms.Padding(4);
-            this.scintilla2.Name = "scintilla2";
-            this.scintilla2.Size = new System.Drawing.Size(605, 735);
-            this.scintilla2.TabIndex = 1;
-            this.scintilla2.Text = "scintilla2";
+            this.scintillaRes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaRes.Location = new System.Drawing.Point(4, 4);
+            this.scintillaRes.Margin = new System.Windows.Forms.Padding(4);
+            this.scintillaRes.Name = "scintilla2";
+            this.scintillaRes.Size = new System.Drawing.Size(605, 735);
+            this.scintillaRes.TabIndex = 1;
+            this.scintillaRes.Text = "scintilla2";
             // 
             // AlertProfileParserControl
             // 
@@ -245,7 +246,7 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tcMain.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -256,11 +257,11 @@
 
         private System.Windows.Forms.SplitContainer splitContainer2;
         private ScintillaNET.Scintilla scintilla3;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tcMain;
         private System.Windows.Forms.TabPage tabPage5;
-        private ScintillaNET.Scintilla scintilla1;
+        private ScintillaNET.Scintilla scintillaInputParam;
         private System.Windows.Forms.TabPage tabPage6;
-        private ScintillaNET.Scintilla scintilla2;
+        private ScintillaNET.Scintilla scintillaRes;
         private System.Windows.Forms.ComboBox cbxHKId;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox txtURL;

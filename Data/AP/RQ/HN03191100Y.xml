@@ -1,0 +1,25 @@
+﻿<alertInputParm>
+    <patientInfo>
+        <hkid>HN03191100Y</hkid>
+        <name>CHUI, Strawberry</name>
+        <dob>19430810</dob>
+        <sex>F</sex>
+        <cccode1>17761</cccode1>
+        <cccode2>54301</cccode2>
+        <cccode3>54481</cccode3>
+        <cccode4></cccode4>
+        <cccode5></cccode5>
+        <cccode6></cccode6>
+    </patientInfo>
+    <userInfo>
+        <hospCode>VH</hospCode>
+        <loginId>itdadmin</loginId>
+    </userInfo>
+    <sysInfo>
+        <wsId>160.68.34.60</wsId>
+        <sourceSystem>PMS</sourceSystem>
+    </sysInfo>
+    <credentials>
+        <accessCode>YAYRoZAJoaYD5qYZbwjQsTGI</accessCode>
+    </credentials>
+</alertInputParm>
