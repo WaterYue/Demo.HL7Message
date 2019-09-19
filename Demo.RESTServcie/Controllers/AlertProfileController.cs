@@ -13,7 +13,17 @@ namespace Demo.RESTServcie.Controllers
     [RoutePrefix(Const.ROUNT_PREFIX + "alertProfile")]
     public class AlertProfileController : BaseController
     {
-        static List<string> HKIDs = new List<string> { "HN03191100Y", "HN170002520", "INVALID_ACCESSCODE" };
+        static List<string> HKIDs = new List<string>
+        {
+            "HN03191100Y",
+            "HN17000256S",
+            "HN18001140Y",
+            "HN170002512",
+            "HN170002520",
+            "INVALID_HKID",
+            "INVALID_PATIENT",
+            "INVALID_ACCESSCODE"
+        };
 
         const string LOCAL_PATH_Format = "bin/Data/MP/{0}.json";
 
@@ -96,7 +106,7 @@ namespace Demo.RESTServcie.Controllers
              */
             ValidateHeader_Value(HEADER_CLIENT_SECRET, "CLIENT_SECRET");
 
-          //  ValidateHeader_Value(HEAER_CLIENT_ID, "CLIENT_ID");
+            //  ValidateHeader_Value(HEAER_CLIENT_ID, "CLIENT_ID");
 
             ValidateHeader_Value(HEADER_PATHOSPCODE_VALUE, "PATHOSPCODE");
         }

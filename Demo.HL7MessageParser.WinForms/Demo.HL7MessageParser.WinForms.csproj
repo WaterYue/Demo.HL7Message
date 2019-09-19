@@ -183,8 +183,20 @@
       <Link>Data\AP\RQ\HN03191100Y.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\Data\AP\RQ\HN170002512.xml">
+      <Link>Data\AP\RQ\HN170002512.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\Data\AP\RQ\HN170002520.xml">
       <Link>Data\AP\RQ\HN170002520.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Data\AP\RQ\HN17000256S.xml">
+      <Link>Data\AP\RQ\HN17000256S.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Data\AP\RQ\HN18001140Y.xml">
+      <Link>Data\AP\RQ\HN18001140Y.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\Data\AP\RQ\INVALID_ACCESSCODE.xml">

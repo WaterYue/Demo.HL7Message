@@ -138,8 +138,17 @@ namespace Demo.HL7MessageParser.WinForms
             txtURL.Text = @"http://localhost:3181/pms-asa/1/";
             txtClientSecret.Text = "CLIENT_SECRET";
             txtPaHospCode.Text = "PATHOSPCODE";
-            //"HN17000256S", "HN18001140Y", "HN170002512",
-            hkIds = new List<string> { "HN03191100Y", "HN170002520", "INVALID_HKID", "INVALID_PATIENT", "INVALID_ACCESSCODE" };
+            hkIds = new List<string>
+            {
+                "HN03191100Y",
+                "HN17000256S",
+                "HN18001140Y",
+                "HN170002512",
+                "HN170002520",
+                "INVALID_HKID",
+                "INVALID_PATIENT",
+                "INVALID_ACCESSCODE"
+            };
 
             cbxHKId.DataSource = hkIds;
             scintilla3.FormatStyle(StyleType.Xml);
