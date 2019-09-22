@@ -30,6 +30,7 @@
         {
             this.scintillaReq = new ScintillaNET.Scintilla();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnPreview = new System.Windows.Forms.Button();
             this.cbxCaseNumber = new System.Windows.Forms.ComboBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.txtURL = new System.Windows.Forms.TextBox();
@@ -43,7 +44,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.scintillaRes = new ScintillaNET.Scintilla();
-            this.btnPreview = new System.Windows.Forms.Button();
+            this.txtHospitalCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -73,6 +75,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.txtHospitalCode);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.btnPreview);
             this.splitContainer1.Panel1.Controls.Add(this.cbxCaseNumber);
             this.splitContainer1.Panel1.Controls.Add(this.btnSend);
@@ -94,10 +98,21 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 2;
             // 
+            // btnPreview
+            // 
+            this.btnPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.Location = new System.Drawing.Point(9, 289);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(180, 30);
+            this.btnPreview.TabIndex = 10;
+            this.btnPreview.Text = "PreViewSOAPReq";
+            this.btnPreview.UseVisualStyleBackColor = true;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
             // cbxCaseNumber
             // 
             this.cbxCaseNumber.FormattingEnabled = true;
-            this.cbxCaseNumber.Location = new System.Drawing.Point(9, 195);
+            this.cbxCaseNumber.Location = new System.Drawing.Point(9, 246);
             this.cbxCaseNumber.Name = "cbxCaseNumber";
             this.cbxCaseNumber.Size = new System.Drawing.Size(285, 28);
             this.cbxCaseNumber.TabIndex = 9;
@@ -105,12 +120,13 @@
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(195, 238);
+            this.btnSend.Location = new System.Drawing.Point(195, 289);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(98, 30);
             this.btnSend.TabIndex = 8;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // txtURL
             // 
@@ -132,7 +148,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(5, 170);
+            this.label3.Location = new System.Drawing.Point(5, 221);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 22);
@@ -221,17 +237,25 @@
             this.scintillaRes.Size = new System.Drawing.Size(690, 652);
             this.scintillaRes.TabIndex = 1;
             this.scintillaRes.Text = "scintilla2";
+            this.scintillaRes.Click += new System.EventHandler(this.scintillaRes_Click);
             // 
-            // btnPreview
+            // txtHospitalCode
             // 
-            this.btnPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreview.Location = new System.Drawing.Point(9, 238);
-            this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(180, 30);
-            this.btnPreview.TabIndex = 10;
-            this.btnPreview.Text = "PreViewSOAPReq";
-            this.btnPreview.UseVisualStyleBackColor = true;
-            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            this.txtHospitalCode.Location = new System.Drawing.Point(9, 193);
+            this.txtHospitalCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHospitalCode.Name = "txtHospitalCode";
+            this.txtHospitalCode.Size = new System.Drawing.Size(285, 26);
+            this.txtHospitalCode.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(5, 167);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 22);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "PaHospCode";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PatientDemographicControl
             // 
@@ -270,5 +294,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private ScintillaNET.Scintilla scintillaRes;
         private System.Windows.Forms.Button btnPreview;
+        private System.Windows.Forms.TextBox txtHospitalCode;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -36,6 +36,7 @@ namespace Demo.HL7MessageParser
         public string url { get; set; }
         public string casenumber { get; set; }
         public string clientsecret { get; set; }
+        public string accessCode { get; set; }
         public string clientid { get; set; }
         public string pahospCode { get; set; }
 

@@ -42,7 +42,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.scintillaReqMP = new ScintillaNET.Scintilla();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.scintillaResMP = new ScintillaNET.Scintilla();
+            this.scintillaRes = new ScintillaNET.Scintilla();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -203,7 +203,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.scintillaResMP);
+            this.tabPage4.Controls.Add(this.scintillaRes);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
@@ -215,13 +215,13 @@
             // 
             // scintillaResMP
             // 
-            this.scintillaResMP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaResMP.Location = new System.Drawing.Point(4, 4);
-            this.scintillaResMP.Margin = new System.Windows.Forms.Padding(4);
-            this.scintillaResMP.Name = "scintillaResMP";
-            this.scintillaResMP.Size = new System.Drawing.Size(675, 685);
-            this.scintillaResMP.TabIndex = 1;
-            this.scintillaResMP.Text = "scintilla2";
+            this.scintillaRes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaRes.Location = new System.Drawing.Point(4, 4);
+            this.scintillaRes.Margin = new System.Windows.Forms.Padding(4);
+            this.scintillaRes.Name = "scintillaResMP";
+            this.scintillaRes.Size = new System.Drawing.Size(675, 685);
+            this.scintillaRes.TabIndex = 1;
+            this.scintillaRes.Text = "scintilla2";
             // 
             // MedicationProfileControl
             // 
@@ -258,6 +258,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private ScintillaNET.Scintilla scintillaReqMP;
         private System.Windows.Forms.TabPage tabPage4;
-        private ScintillaNET.Scintilla scintillaResMP;
+        private ScintillaNET.Scintilla scintillaRes;
     }
 }

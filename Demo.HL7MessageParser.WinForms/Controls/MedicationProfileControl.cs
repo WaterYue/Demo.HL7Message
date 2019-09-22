@@ -25,7 +25,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             InitializeMP();
         }
-        
+
         private void InitializeMP()
         {
             txtURL.Text = @"http://localhost:3181/pms-asa/1/";
@@ -37,6 +37,9 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnSendMedicationProfile_Click(object sender, EventArgs e)
         {
+            // BeginInvoke((MethodInvoker)(() => scintillaRes.Text = string.Empty));
+            scintillaRes.Text = string.Empty;
+
             var loadData = new LoadDataThreadHelper<RestRequestParam, MedicationProfileResult>();
 
             loadData.Initialize(ParserHelper.ProcessMedicationProfile);
@@ -49,11 +52,11 @@ namespace Demo.HL7MessageParser.WinForms
 
                     this.SafeInvoke(() =>
                     {
-                        scintillaResMP.FormatJsonStyle();
+                        scintillaRes.FormatJsonStyle();
 
-                        scintillaResMP.Focus();
+                        scintillaRes.Focus();
                         tcBottom.SelectedIndex = 1;
-                        scintillaResMP.Text = JsonHelper.FormatJson(responseJsonStr);
+                        scintillaRes.Text = JsonHelper.FormatJson(responseJsonStr);
                     }, false);
                 }
             };

@@ -71,17 +71,20 @@ namespace Demo.HL7MessageParser.WinForms
         <sourceSystem>PMS</sourceSystem>
     </sysInfo>
     <credentials>
-        <accessCode>YAYRoZAJoaYD5qYZbwjQsTGI</accessCode>
+        <accessCode>{1}</accessCode>
     </credentials>
 </alertInputParm>";
 
-                    scintilla3.Text = string.Format(str, hkId);
+                    scintilla3.Text = string.Format(str, hkId, txtAccessCode.Text.Trim());
                 }
 
             }
         }
         private void btnSend_Click(object sender, EventArgs e)
         {
+            scintillaRes.Text = string.Empty;
+
+
             var loadData = new LoadDataThreadHelper<RestRequestParam, AlertProfileResult>();
 
             loadData.Initialize(ParserHelper.ProcessAlertProfile);
@@ -128,6 +131,7 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 url = txtURL.Text.Trim(),
                 clientsecret = txtClientSecret.Text.Trim(),
+                accessCode = txtAccessCode.Text.Trim(),
                 pahospCode = txtPaHospCode.Text.Trim(),
                 xmlReq = scintilla3.Text.Trim()
             });
@@ -138,6 +142,7 @@ namespace Demo.HL7MessageParser.WinForms
             txtURL.Text = @"http://localhost:3181/pms-asa/1/";
             txtClientSecret.Text = "CLIENT_SECRET";
             txtPaHospCode.Text = "PATHOSPCODE";
+            txtAccessCode.Text = "YAYRoZAJoaYD5qYZbwjQsTGI";
             hkIds = new List<string>
             {
                 "HN03191100Y",

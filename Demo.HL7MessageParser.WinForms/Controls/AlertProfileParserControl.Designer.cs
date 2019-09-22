@@ -44,6 +44,8 @@
             this.scintillaInputParam = new ScintillaNET.Scintilla();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.scintillaRes = new ScintillaNET.Scintilla();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAccessCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -63,6 +65,8 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.txtAccessCode);
+            this.splitContainer2.Panel1.Controls.Add(this.label5);
             this.splitContainer2.Panel1.Controls.Add(this.cbxHKId);
             this.splitContainer2.Panel1.Controls.Add(this.btnSend);
             this.splitContainer2.Panel1.Controls.Add(this.txtURL);
@@ -78,7 +82,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tcMain);
-            this.splitContainer2.Size = new System.Drawing.Size(969, 769);
+            this.splitContainer2.Size = new System.Drawing.Size(969, 826);
             this.splitContainer2.SplitterDistance = 343;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 2;
@@ -96,7 +100,7 @@
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(226, 719);
+            this.btnSend.Location = new System.Drawing.Point(226, 776);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(98, 30);
             this.btnSend.TabIndex = 18;
@@ -171,23 +175,23 @@
             // 
             // scintilla3
             // 
-            this.scintilla3.Location = new System.Drawing.Point(4, 260);
+            this.scintilla3.Location = new System.Drawing.Point(4, 317);
             this.scintilla3.Margin = new System.Windows.Forms.Padding(4);
             this.scintilla3.Name = "scintilla3";
             this.scintilla3.Size = new System.Drawing.Size(320, 451);
             this.scintilla3.TabIndex = 10;
             this.scintilla3.Text = "scintilla3";
             // 
-            // tabControl1
+            // tcMain
             // 
             this.tcMain.Controls.Add(this.tabPage5);
             this.tcMain.Controls.Add(this.tabPage6);
             this.tcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMain.Location = new System.Drawing.Point(0, 0);
             this.tcMain.Margin = new System.Windows.Forms.Padding(4);
-            this.tcMain.Name = "tabControl1";
+            this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(621, 769);
+            this.tcMain.Size = new System.Drawing.Size(621, 826);
             this.tcMain.TabIndex = 0;
             // 
             // tabPage5
@@ -197,18 +201,18 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(613, 743);
+            this.tabPage5.Size = new System.Drawing.Size(613, 800);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Request JSON";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // scintilla1
+            // scintillaInputParam
             // 
             this.scintillaInputParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintillaInputParam.Location = new System.Drawing.Point(4, 4);
             this.scintillaInputParam.Margin = new System.Windows.Forms.Padding(4);
-            this.scintillaInputParam.Name = "scintilla1";
-            this.scintillaInputParam.Size = new System.Drawing.Size(605, 735);
+            this.scintillaInputParam.Name = "scintillaInputParam";
+            this.scintillaInputParam.Size = new System.Drawing.Size(605, 792);
             this.scintillaInputParam.TabIndex = 0;
             this.scintillaInputParam.Text = "scintilla1";
             // 
@@ -224,15 +228,33 @@
             this.tabPage6.Text = "Response JSON";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // scintilla2
+            // scintillaRes
             // 
             this.scintillaRes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scintillaRes.Location = new System.Drawing.Point(4, 4);
             this.scintillaRes.Margin = new System.Windows.Forms.Padding(4);
-            this.scintillaRes.Name = "scintilla2";
+            this.scintillaRes.Name = "scintillaRes";
             this.scintillaRes.Size = new System.Drawing.Size(605, 735);
             this.scintillaRes.TabIndex = 1;
             this.scintillaRes.Text = "scintilla2";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(4, 247);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 22);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "AccessCode";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtAccessCode
+            // 
+            this.txtAccessCode.Location = new System.Drawing.Point(8, 270);
+            this.txtAccessCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAccessCode.Name = "txtAccessCode";
+            this.txtAccessCode.Size = new System.Drawing.Size(320, 26);
+            this.txtAccessCode.TabIndex = 21;
             // 
             // AlertProfileParserControl
             // 
@@ -240,7 +262,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer2);
             this.Name = "AlertProfileParserControl";
-            this.Size = new System.Drawing.Size(969, 769);
+            this.Size = new System.Drawing.Size(969, 826);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -271,5 +293,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtClientSecret;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAccessCode;
+        private System.Windows.Forms.Label label5;
     }
 }

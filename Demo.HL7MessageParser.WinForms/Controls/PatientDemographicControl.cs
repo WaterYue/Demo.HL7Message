@@ -30,31 +30,39 @@ namespace Demo.HL7MessageParser.WinForms
         {
             txtURL.Text = @"http://localhost:8096/PatientService.asmx?op=searchHKPMIPatientByCaseNo";
 
-            txtUserName.Text = "USERNAME";
+            txtUserName.Text = "pas-appt-ws-user";
 
-            txtPassword.Text = "PASSWORD";
+            txtPassword.Text = "pas-appt-ws-user-pwd";
 
+            txtHospitalCode.Text = "HV";
             cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            string url = "http://localhost:8096/PatientService.asmx?op=searchHKPMIPatientByCaseNo";
-            string credid = "pas-appt-ws-user";
-            string credpassword = "pas-appt-ws-user-pwd";
-            StringBuilder rawSOAP = new StringBuilder();
-            rawSOAP.Append(BuildSoapHeader(credid, credpassword));
-            rawSOAP.Append(@"<soapenv:Body><web:searchHKPMIPatientByCaseNo>");
-            rawSOAP.Append(BuildSearchparms("hospitalCode", "VH"));
-            rawSOAP.Append(BuildSearchparms("caseNo", "HN03191100Y"));
 
-            rawSOAP.Append(@"</web:searchHKPMIPatientByCaseNo></soapenv:Body></soapenv:Envelope>");
 
-            string SOAPObj = rawSOAP.ToString();
+            string SOAPObj = BuildRequestSoap();
 
             scintillaReq.Text = XmlHelper.FormatXML(SOAPObj);
 
             scintillaReq.FormatStyle(StyleType.Xml);
+        }
+
+        private string BuildRequestSoap()
+        {
+            string credid = txtUserName.Text.Trim();
+            string credpassword = txtPassword.Text.Trim();
+            StringBuilder rawSOAP = new StringBuilder();
+            rawSOAP.Append(BuildSoapHeader(credid, credpassword));
+            rawSOAP.Append(@"<soapenv:Body><web:searchHKPMIPatientByCaseNo>");
+            rawSOAP.Append(BuildSearchparms("hospitalCode", txtHospitalCode.Text.Trim()));
+            rawSOAP.Append(BuildSearchparms("caseNo", cbxCaseNumber.Text.Trim()));
+
+            rawSOAP.Append(@"</web:searchHKPMIPatientByCaseNo></soapenv:Body></soapenv:Envelope>");
+
+            return rawSOAP.ToString();
+
         }
 
         private static string BuildSearchparms(string pName, string pvalue)
@@ -86,6 +94,17 @@ namespace Demo.HL7MessageParser.WinForms
         {
             string phrase = Guid.NewGuid().ToString();
             return phrase;
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            scintillaRes.Text = string.Empty;
+
+        }
+
+        private void scintillaRes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

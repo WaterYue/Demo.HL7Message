@@ -31,6 +31,7 @@
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tpMedicationProfile = new System.Windows.Forms.TabPage();
             this.tpAlertProfile = new System.Windows.Forms.TabPage();
+            this.tpPatientDemographic = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.scintilla1 = new ScintillaNET.Scintilla();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -38,7 +39,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.scintillaResMP = new ScintillaNET.Scintilla();
-            this.tpPatientDemographic = new System.Windows.Forms.TabPage();
             this.tcMain.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
@@ -54,7 +54,7 @@
             this.tcMain.Location = new System.Drawing.Point(0, 0);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(1215, 788);
+            this.tcMain.Size = new System.Drawing.Size(1215, 843);
             this.tcMain.TabIndex = 0;
             // 
             // tpMedicationProfile
@@ -62,7 +62,7 @@
             this.tpMedicationProfile.Location = new System.Drawing.Point(4, 22);
             this.tpMedicationProfile.Name = "tpMedicationProfile";
             this.tpMedicationProfile.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMedicationProfile.Size = new System.Drawing.Size(1207, 762);
+            this.tpMedicationProfile.Size = new System.Drawing.Size(1207, 817);
             this.tpMedicationProfile.TabIndex = 0;
             this.tpMedicationProfile.Text = "MedicationProfile";
             this.tpMedicationProfile.UseVisualStyleBackColor = true;
@@ -76,6 +76,15 @@
             this.tpAlertProfile.TabIndex = 1;
             this.tpAlertProfile.Text = "AlertProfile";
             this.tpAlertProfile.UseVisualStyleBackColor = true;
+            // 
+            // tpPatientDemographic
+            // 
+            this.tpPatientDemographic.Location = new System.Drawing.Point(4, 22);
+            this.tpPatientDemographic.Name = "tpPatientDemographic";
+            this.tpPatientDemographic.Size = new System.Drawing.Size(1207, 762);
+            this.tpPatientDemographic.TabIndex = 2;
+            this.tpPatientDemographic.Text = "PatientDemographic";
+            this.tpPatientDemographic.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
@@ -154,20 +163,11 @@
             this.scintillaResMP.TabIndex = 1;
             this.scintillaResMP.Text = "scintilla2";
             // 
-            // tpPatientDemographic
-            // 
-            this.tpPatientDemographic.Location = new System.Drawing.Point(4, 22);
-            this.tpPatientDemographic.Name = "tpPatientDemographic";
-            this.tpPatientDemographic.Size = new System.Drawing.Size(1207, 762);
-            this.tpPatientDemographic.TabIndex = 2;
-            this.tpPatientDemographic.Text = "PatientDemographic";
-            this.tpPatientDemographic.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1215, 788);
+            this.ClientSize = new System.Drawing.Size(1215, 843);
             this.Controls.Add(this.tcMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainForm";

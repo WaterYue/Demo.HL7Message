@@ -33,7 +33,7 @@ namespace Demo.HL7MessageParser
            //TODO Initialize parameters
            /* client_secret
             * client_id
-            * pahospCode
+            * pahospCodesss
             * accessCode
             * loginId
             * username
