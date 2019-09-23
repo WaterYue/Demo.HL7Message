@@ -13,7 +13,7 @@ namespace Demo.HL7MessageParser.Test.Fake
     {
         public PatientDemoEnquiry GetPatientResult(string caseNumber)
         {
-            var result = SoapProcessHelper.DoProcess(caseNumber);
+            var result = SoapParserHelper.LoadSamplePatientDemoEnquiry(caseNumber);
 
             return result;
         }

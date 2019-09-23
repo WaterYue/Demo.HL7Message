@@ -25,7 +25,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
             //  Request_MedicationProfile(client);
 
-            SoapClient_WSS(true);
+          //  SoapClient_WSS(true);
 
             
 
@@ -186,7 +186,6 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
                 {
                     streamWriter.Write(SOAPObj);
                     streamWriter.Flush();
-                    streamWriter.Close();
                 }
 
                 using (HttpWebResponse webresponse = request.GetResponse() as HttpWebResponse)

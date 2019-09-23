@@ -268,7 +268,6 @@
             this.scintillaRes.Size = new System.Drawing.Size(690, 652);
             this.scintillaRes.TabIndex = 1;
             this.scintillaRes.Text = "scintilla2";
-            this.scintillaRes.Click += new System.EventHandler(this.scintillaRes_Click);
             // 
             // PatientDemographicControl
             // 

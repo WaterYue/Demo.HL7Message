@@ -34,7 +34,7 @@ namespace Demo.SoapServcie
 
             return new SearchHKPMIPatientByCaseNoResponse
             {
-                PatientDemoEnquiry = SoapProcessHelper.DoProcess(caseNo.CaseNo)
+                PatientDemoEnquiry = SoapParserHelper.LoadSamplePatientDemoEnquiry(caseNo.CaseNo)
             };
         }
     }

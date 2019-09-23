@@ -53,6 +53,47 @@ namespace Demo.HL7MessageParser.WinForms
             scintillaReq.FormatStyle(StyleType.Xml);
         }
 
+        private void btnCallByProxy_Click(object sender, EventArgs e)
+        {
+            scintillaRes.Text = string.Empty;
+
+            //init web service proxy 
+            PatientService serviceProxy = new PatientService();
+
+            //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
+            //  of ServiceUsernameTokenManager class.
+            UsernameToken token = new UsernameToken("pas-appt-ws-user", "pas-appt-ws-user-pwd", PasswordOption.SendPlainText);
+
+            // Set the token onto the proxy
+            serviceProxy.SetClientCredential(token);
+
+            // Set the ClientPolicy onto the proxy
+            serviceProxy.SetPolicy("ClientPolicy");
+
+            //invoke the HelloMyFriend web service method
+            try
+            {
+                var res = serviceProxy.searchHKPMIPatientByCaseNo(new SearchHKPMIPatientByCaseNo
+                {
+                    caseNo = "HN03191100Y",
+                    hospitalCode = "HV"
+                });
+
+                var resStr = XmlHelper.XmlSerializeToString(res);
+
+                scintillaRes.Focus();
+                tcBottom.SelectedIndex = 1;
+
+                scintillaRes.Text = XmlHelper.FormatXML(resStr);
+                scintillaRes.FormatStyle(StyleType.Xml);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         private string BuildRequestSoap()
         {
             string credid = txtUserName.Text.Trim();
@@ -117,52 +158,6 @@ namespace Demo.HL7MessageParser.WinForms
         {
             string phrase = Guid.NewGuid().ToString();
             return phrase;
-        }
-
-        private void btnCallByProxy_Click(object sender, EventArgs e)
-        {
-            scintillaRes.Text = string.Empty;
-
-            //init web service proxy 
-            PatientService serviceProxy = new PatientService();
-
-            //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
-            //  of ServiceUsernameTokenManager class.
-            UsernameToken token = new UsernameToken("pas-appt-ws-user", "pas-appt-ws-user-pwd", PasswordOption.SendPlainText);
-
-            // Set the token onto the proxy
-            serviceProxy.SetClientCredential(token);
-
-            // Set the ClientPolicy onto the proxy
-            serviceProxy.SetPolicy("ClientPolicy");
-
-            //invoke the HelloMyFriend web service method
-            try
-            {
-                var res = serviceProxy.searchHKPMIPatientByCaseNo(new SearchHKPMIPatientByCaseNo
-                {
-                    caseNo = "HN03191100Y",
-                    hospitalCode = "HV"
-                });
-
-                var resStr = XmlHelper.XmlSerializeToString(res);
-
-                scintillaRes.Focus();
-                tcBottom.SelectedIndex = 1;
-
-                scintillaRes.Text = XmlHelper.FormatXML(resStr);
-                scintillaRes.FormatStyle(StyleType.Xml);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-
-        private void scintillaRes_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCallByWebReq_Click(object sender, EventArgs e)
