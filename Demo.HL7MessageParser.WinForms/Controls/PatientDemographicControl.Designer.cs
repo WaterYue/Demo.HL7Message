@@ -30,9 +30,12 @@
         {
             this.scintillaReq = new ScintillaNET.Scintilla();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnCallByWebReq = new System.Windows.Forms.Button();
+            this.txtHospitalCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnPreview = new System.Windows.Forms.Button();
             this.cbxCaseNumber = new System.Windows.Forms.ComboBox();
-            this.btnSend = new System.Windows.Forms.Button();
+            this.btnCallByProxy = new System.Windows.Forms.Button();
             this.txtURL = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +47,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.scintillaRes = new ScintillaNET.Scintilla();
-            this.txtHospitalCode = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,11 +76,12 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnCallByWebReq);
             this.splitContainer1.Panel1.Controls.Add(this.txtHospitalCode);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.btnPreview);
             this.splitContainer1.Panel1.Controls.Add(this.cbxCaseNumber);
-            this.splitContainer1.Panel1.Controls.Add(this.btnSend);
+            this.splitContainer1.Panel1.Controls.Add(this.btnCallByProxy);
             this.splitContainer1.Panel1.Controls.Add(this.txtURL);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
@@ -97,6 +99,35 @@
             this.splitContainer1.SplitterDistance = 305;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // btnCallByWebReq
+            // 
+            this.btnCallByWebReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCallByWebReq.Location = new System.Drawing.Point(9, 337);
+            this.btnCallByWebReq.Name = "btnCallByWebReq";
+            this.btnCallByWebReq.Size = new System.Drawing.Size(180, 30);
+            this.btnCallByWebReq.TabIndex = 13;
+            this.btnCallByWebReq.Text = "CallByWebReq";
+            this.btnCallByWebReq.UseVisualStyleBackColor = true;
+            this.btnCallByWebReq.Click += new System.EventHandler(this.btnCallByWebReq_Click);
+            // 
+            // txtHospitalCode
+            // 
+            this.txtHospitalCode.Location = new System.Drawing.Point(9, 193);
+            this.txtHospitalCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHospitalCode.Name = "txtHospitalCode";
+            this.txtHospitalCode.Size = new System.Drawing.Size(285, 26);
+            this.txtHospitalCode.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(5, 167);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 22);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "PaHospCode";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnPreview
             // 
@@ -117,16 +148,16 @@
             this.cbxCaseNumber.Size = new System.Drawing.Size(285, 28);
             this.cbxCaseNumber.TabIndex = 9;
             // 
-            // btnSend
+            // btnCallByProxy
             // 
-            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(195, 289);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(98, 30);
-            this.btnSend.TabIndex = 8;
-            this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            this.btnCallByProxy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCallByProxy.Location = new System.Drawing.Point(9, 383);
+            this.btnCallByProxy.Name = "btnCallByProxy";
+            this.btnCallByProxy.Size = new System.Drawing.Size(180, 30);
+            this.btnCallByProxy.TabIndex = 8;
+            this.btnCallByProxy.Text = "CallByProxy";
+            this.btnCallByProxy.UseVisualStyleBackColor = true;
+            this.btnCallByProxy.Click += new System.EventHandler(this.btnCallByProxy_Click);
             // 
             // txtURL
             // 
@@ -239,24 +270,6 @@
             this.scintillaRes.Text = "scintilla2";
             this.scintillaRes.Click += new System.EventHandler(this.scintillaRes_Click);
             // 
-            // txtHospitalCode
-            // 
-            this.txtHospitalCode.Location = new System.Drawing.Point(9, 193);
-            this.txtHospitalCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtHospitalCode.Name = "txtHospitalCode";
-            this.txtHospitalCode.Size = new System.Drawing.Size(285, 26);
-            this.txtHospitalCode.TabIndex = 12;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(5, 167);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 22);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "PaHospCode";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // PatientDemographicControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,7 +294,7 @@
         private ScintillaNET.Scintilla scintillaReq;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ComboBox cbxCaseNumber;
-        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Button btnCallByProxy;
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -296,5 +309,6 @@
         private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.TextBox txtHospitalCode;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCallByWebReq;
     }
 }

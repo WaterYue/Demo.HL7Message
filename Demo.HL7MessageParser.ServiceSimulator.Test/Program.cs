@@ -1,5 +1,6 @@
 ﻿using Demo.HL7MessageParser.Common;
 using Demo.HL7MessageParser.Models;
+using Microsoft.Web.Services3.Security.Tokens;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Xml.Serialization;
+using Microsoft.Web.Services3.Security.Tokens;
+using System.ServiceModel.Security;
 
 namespace Demo.HL7MessageParser.ServiceSimulator.Test
 {
@@ -19,13 +22,46 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
             // Request_AlertProfile(client);
 
-            Request_MedicationProfile(client);
+            //  Request_MedicationProfile(client);
 
-            // SoapClient_WSS();
+            SoapClient_WSS(true);
 
-            //WCF_Soap_Test();
+            //  SoapClientProxy();
 
             Console.ReadLine();
+        }
+
+        private static void SoapClientProxy()
+        {
+            //init web service proxy 
+            PatientService serviceProxy = new PatientService();
+
+            //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
+            //  of ServiceUsernameTokenManager class.
+            UsernameToken token = new UsernameToken("pas-appt-ws-user", "pas-appt-ws-user-pwd", PasswordOption.SendPlainText);
+
+            // Set the token onto the proxy
+            serviceProxy.SetClientCredential(token);
+
+            // Set the ClientPolicy onto the proxy
+            serviceProxy.SetPolicy("ClientPolicy");
+
+            //invoke the HelloMyFriend web service method
+            try
+            {
+                var res = serviceProxy.searchHKPMIPatientByCaseNo(new SearchHKPMIPatientByCaseNo
+                {
+                    caseNo = "HN03191100Y",
+                    hospitalCode = "HV"
+                });
+
+                var resStr = XmlHelper.XmlSerializeToString(res);
+                Console.WriteLine(resStr);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void Request_MedicationProfile(RestClient client)
@@ -89,16 +125,18 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         }
 
 
-        private static void SoapClient_WSS()
+        private static void SoapClient_WSS(bool enableWS_Address)
         {
             //C# WebClient and Soap Services with WSSe security
             //https://richardscannell.wordpress.com/2015/12/15/c-webclient-and-soap-services-with-wsse-security/
 
-            string url = "http://localhost:8096/PatientService.asmx?op=searchHKPMIPatientByCaseNo";
+            string url = "http://localhost:8096/PatientService.asmx";
+            var actionName = "http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo";
             string credid = "pas-appt-ws-user";
             string credpassword = "pas-appt-ws-user-pwd";
             StringBuilder rawSOAP = new StringBuilder();
-            rawSOAP.Append(BuildSoapHeader(credid, credpassword));
+
+            rawSOAP.Append(BuildSoapHeader(credid, credpassword, enableWS_Address, url, actionName));
             rawSOAP.Append(@"<soapenv:Body><web:searchHKPMIPatientByCaseNo>");
             rawSOAP.Append(BuildSearchparms("hospitalCode", "VH"));
             rawSOAP.Append(BuildSearchparms("caseNo", "HN03191100Y"));
@@ -106,14 +144,32 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             rawSOAP.Append(@"</web:searchHKPMIPatientByCaseNo></soapenv:Body></soapenv:Envelope>");
 
             string SOAPObj = rawSOAP.ToString();
-            using (var wb = new WebClient())
-            {
 
-                wb.Credentials = new NetworkCredential(credid, credpassword);
-                var responseVal = wb.UploadString(url, "POST", SOAPObj);
-                //XmlSerializer ser = new XmlSerializer(typeof(Envelope));
-                //var reader = new StringReader(responseVal.ToString());
-                //var instance = (Envelope)ser.Deserialize(reader);
+            try
+            {
+                HttpWebRequest request = HttpWebRequest.Create(url + "?op=searchHKPMIPatientByCaseNo") as HttpWebRequest;
+
+                request.ContentType = "text/xml";
+                request.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    streamWriter.Write(SOAPObj);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
+
+                using (HttpWebResponse webresponse = request.GetResponse() as HttpWebResponse)
+                {
+                    using (StreamReader reader = new StreamReader(webresponse.GetResponseStream()))
+                    {
+                        string response = reader.ReadToEnd();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ex = ex;
             }
         }
 
@@ -124,13 +180,25 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             return param;
         }
 
-        private static string BuildSoapHeader(string credid, string credpassword)
+        private static string BuildSoapHeader(string credid, string credpassword, bool enableWS_Address, string url, string actionName)
         {
             var nonce = getNonce();
             string nonceToSend = Convert.ToBase64String(Encoding.UTF8.GetBytes(nonce));
             string utc = DateTime.Now.ToUniversalTime().ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'"); ;
-            StringBuilder rawSOAP = new StringBuilder(@"<soapenv:Envelope xmlns:sear=""http://www.remotesite.com/serviceName"" xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"">");
+            StringBuilder rawSOAP = new StringBuilder(@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:web=""http://webservice.pas.ha.org.hk/"" ");
+
+            if (enableWS_Address)
+            {
+                rawSOAP.Append(@" xmlns:wsa = ""http://schemas.xmlsoap.org/ws/2004/08/addressing""");
+            }
+            rawSOAP.Append(">");
+
             rawSOAP.Append(@"<soapenv:Header>");
+            if (enableWS_Address)
+            {
+                rawSOAP.Append(string.Format(@"<wsa:Action>{0}</wsa:Action>", actionName));
+                rawSOAP.Append(string.Format(@"<wsa:To>{0}</wsa:To>", url));
+            }
             rawSOAP.Append(@"<wsse:Security soapenv:mustUnderstand=""1"" xmlns:wsse=""http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"" xmlns:wsu=""http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"">");
             rawSOAP.Append(@"<wsse:UsernameToken wsu:Id=""UsernameToken-D1A5C91F8C11FC7F2614479411111111"">");
             rawSOAP.Append(@"<wsse:Username>" + credid + "</wsse:Username>");
@@ -147,20 +215,6 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         {
             string phrase = Guid.NewGuid().ToString();
             return phrase;
-        }
-
-        private static void WCF_Soap_Test()
-        {
-            PatientSoapServiceReference.PatientSoapServiceClient patientClient = new PatientSoapServiceReference.PatientSoapServiceClient();
-
-            var pr = patientClient.searchHKPMIPatientByCaseNo("A", "B");
-
-            MedicationProfileRESTServiceReference.MedicationProfileRESTServiceClient mrClient = new MedicationProfileRESTServiceReference.MedicationProfileRESTServiceClient();
-
-            var mr = mrClient.GetMedicationProfile();
-
-
-            patientClient.Close();
         }
     }
 }

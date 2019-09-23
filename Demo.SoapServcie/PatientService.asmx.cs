@@ -10,12 +10,13 @@ using System.Web.Services.Description;
 using System.Web.Services.Protocols;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Microsoft.Web.Services3;
+using Microsoft.Web.Services3.Messaging;
 
 namespace Demo.SoapServcie
 {
-    /// <summary>
-    /// Summary description for PatientService
-    /// </summary>
+    [SoapActor("*")]
+    [Policy("ServerPolicy")]
     [WebService(Namespace = "http://webservice.pas.ha.org.hk/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]

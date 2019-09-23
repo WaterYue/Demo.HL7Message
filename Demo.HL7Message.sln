@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{037346C3-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.ServiceSimulator.Test", "Demo.HL7MessageParser.ServiceSimulator.Test\Demo.HL7MessageParser.ServiceSimulator.Test.csproj", "{65AF1249-0E75-47D2-8A3D-9579BB86D0D7}"
 	ProjectSection(ProjectDependencies) = postProject
+		{8C923817-2871-41D8-AD25-F74136BB7066} = {8C923817-2871-41D8-AD25-F74136BB7066}
 		{205FF080-F61A-4DB7-99E7-79E028E70968} = {205FF080-F61A-4DB7-99E7-79E028E70968}
 	EndProjectSection
 EndProject

@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ref\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.2.3\lib\net35\RestSharp.dll</HintPath>
     </Reference>
@@ -39,6 +43,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -46,17 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
-    <Compile Include="XMLHelper.cs" />
     <Compile Include="Connected Services\MedicationProfileRESTServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\PatientSoapServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
+    <Compile Include="PatientService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -75,21 +75,13 @@
     <None Include="Connected Services\MedicationProfileRESTServiceReference\MedicationProfileRESTService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PatientSoapServiceReference\PatientSoapService.wsdl" />
-    <None Include="Connected Services\PatientSoapServiceReference\PatientSoapService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PatientSoapServiceReference\PatientSoapService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PatientSoapServiceReference\PatientSoapService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
+    <None Include="wse3policyCache.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\MedicationProfileRESTServiceReference\" />
-    <WCFMetadataStorage Include="Connected Services\PatientSoapServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\MedicationProfileRESTServiceReference\MedicationProfileRESTService.disco" />
@@ -102,21 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\MedicationProfileRESTServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PatientSoapServiceReference\PatientSoapService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PatientSoapServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PatientSoapServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\PatientSoapServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
