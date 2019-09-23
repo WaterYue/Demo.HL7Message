@@ -13,6 +13,7 @@ using Demo.HL7MessageParser.Common;
 using Microsoft.Web.Services3.Security.Tokens;
 using System.Net;
 using System.IO;
+using Demo.HL7MessageParser.WebProxy;
 
 namespace Demo.HL7MessageParser.WinForms
 {

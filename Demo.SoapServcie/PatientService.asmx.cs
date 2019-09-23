@@ -32,7 +32,10 @@ namespace Demo.SoapServcie
         {
             WorkContext = new WorkContextSoapHeader();
 
-            return new SearchHKPMIPatientByCaseNoResponse { PatientDemoEnquiry = SoapProcessHelper.DoProcess() };
+            return new SearchHKPMIPatientByCaseNoResponse
+            {
+                PatientDemoEnquiry = SoapProcessHelper.DoProcess(caseNo.CaseNo)
+            };
         }
     }
 

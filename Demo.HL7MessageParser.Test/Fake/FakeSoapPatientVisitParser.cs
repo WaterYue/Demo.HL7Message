@@ -11,11 +11,16 @@ namespace Demo.HL7MessageParser.Test.Fake
 {
     public class FakeSoapPatientVisitParser : IPatientVisitParser
     {
-        public PatientDemoEnquiry GetPatientResult(string CaseNum)
+        public PatientDemoEnquiry GetPatientResult(string caseNumber)
         {
-            var result = SoapProcessHelper.DoProcess();
+            var result = SoapProcessHelper.DoProcess(caseNumber);
 
             return result;
+        }
+
+        public void InitializeParam(string restUri, string userName, string password, string pathospcode)
+        {
+            throw new NotImplementedException();
         }
     }
 }

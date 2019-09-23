@@ -45,7 +45,8 @@ namespace Demo.SoapServcie
             //    if you are implementing per-server security
             // 2) get the password from the database or XML file for the given user name
 
-            bool Valid = (("pas-appt-ws-user" == token.Username) && ("pas-appt-ws-user-pwd" == token.Password));
+            bool Valid = (("pas-appt-ws-user" == token.Username) 
+                && ("pas-appt-ws-user-pwd" == token.Password));
 
             if (Valid)
             {

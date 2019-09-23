@@ -116,9 +116,7 @@ namespace Demo.HL7MessageParser.Common
         /// <returns>返回转换的对象</returns>
         public static T XmlDeserialize<T>(string xmlStr)
         {
-            //以前刚学泛型时,就是感觉泛型好流弊,就是不明白这个词是什么意思.后来觉得模板更加贴切
             XmlSerializer serialize = new XmlSerializer(typeof(T));
-            //创建内存流并进行转换
             using (MemoryStream stream = new MemoryStream(xmlEncode.GetBytes(xmlStr)))
             {
                 //采用StreamReader是为了编码

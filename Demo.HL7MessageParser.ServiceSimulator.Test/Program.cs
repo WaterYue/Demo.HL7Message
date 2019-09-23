@@ -1,16 +1,13 @@
 ﻿using Demo.HL7MessageParser.Common;
 using Demo.HL7MessageParser.Models;
+using Demo.HL7MessageParser.WebProxy;
 using Microsoft.Web.Services3.Security.Tokens;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Xml.Serialization;
-using Microsoft.Web.Services3.Security.Tokens;
-using System.ServiceModel.Security;
 
 namespace Demo.HL7MessageParser.ServiceSimulator.Test
 {
@@ -18,6 +15,10 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
     {
         static void Main(string[] args)
         {
+            //SoapClientProxy();
+
+            Test_HL7Parser();
+
             var client = new RestClient("http://localhost:3181/pms-asa1/1/");
 
             // Request_AlertProfile(client);
@@ -26,9 +27,38 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
             SoapClient_WSS(true);
 
-            //  SoapClientProxy();
+            
 
             Console.ReadLine();
+        }
+
+        private static void Test_HL7Parser()
+        {
+            List<string> HKIDs = new List<string>
+        {
+            "HN03191100Y",
+            "HN17000256S",
+            "HN18001140Y",
+            "HN170002512",
+            "HN170002520",
+            "INVALID_HKID",
+            "INVALID_PATIENT",
+            "INVALID_ACCESSCODE"
+        };
+
+            IHL7MessageParser hl7Parser = new HL7MessageParser_NTEC();
+
+            var pv = hl7Parser.GetPatient("HN170002520");
+
+            var pr = hl7Parser.GetOrders("HN170002520");
+
+            var ar = hl7Parser.GetAllergies(new AlertInputParm
+            {
+                PatientInfo = new PatientInfo
+                {
+                    Hkid = "HN170002520"
+                }
+            });
         }
 
         private static void SoapClientProxy()
@@ -49,7 +79,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             //invoke the HelloMyFriend web service method
             try
             {
-                var res = serviceProxy.searchHKPMIPatientByCaseNo(new SearchHKPMIPatientByCaseNo
+                var res = serviceProxy.searchHKPMIPatientByCaseNo(new WebProxy.SearchHKPMIPatientByCaseNo
                 {
                     caseNo = "HN03191100Y",
                     hospitalCode = "HV"

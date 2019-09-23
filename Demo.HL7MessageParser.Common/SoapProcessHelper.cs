@@ -15,7 +15,7 @@ namespace Demo.HL7MessageParser.Common
         private const string CONST_XNAME_RESPONSE = "searchHKPMIPatientByCaseNoResponse";
         private const string CONST_XNAME_PatientDemoEnquiryResult = "PatientDemoEnquiryResult";
 
-        public static PatientDemoEnquiry DoProcess()
+        public static PatientDemoEnquiry DoProcess(string caseNumber)
         {
             try
             {

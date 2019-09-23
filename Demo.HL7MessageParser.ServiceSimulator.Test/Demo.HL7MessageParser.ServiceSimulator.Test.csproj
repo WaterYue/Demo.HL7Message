@@ -50,13 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions.cs" />
     <Compile Include="Connected Services\MedicationProfileRESTServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="PatientService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +104,10 @@
     <ProjectReference Include="..\Demo.HL7MessageParser.Models\Demo.HL7MessageParser.Models.csproj">
       <Project>{4e61a17f-cc30-4f3e-8cfc-2f1ed9594b04}</Project>
       <Name>Demo.HL7MessageParser.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Demo.HL7MessageParser\Demo.HL7MessageParser.csproj">
+      <Project>{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}</Project>
+      <Name>Demo.HL7MessageParser</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
