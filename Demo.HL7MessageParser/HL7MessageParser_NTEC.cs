@@ -92,6 +92,7 @@ namespace Demo.HL7MessageParser
 
                 //TODO: storage accesscenter business object to db            
 
+                
                 return patientVisit;
             }
             catch (AMException amex)

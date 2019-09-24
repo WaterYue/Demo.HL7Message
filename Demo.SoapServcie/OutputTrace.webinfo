@@ -12842,4 +12842,248 @@ File name: 'D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\Data\Soa
       </soap:Envelope>
     </processingStep>
   </outputMessage>
+  <outputMessage utc="09/24/2019 7:05:02 AM" messageId="urn:uuid:b8f4fb24-3284-4b50-b336-4eb68d30949d">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:b8f4fb24-3284-4b50-b336-4eb68d30949d</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:4076427e-a4d9-408a-84a1-2a891e6217ea</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-854640c7-1c8d-4995-b839-8cd776d370be">
+              <wsu:Created>2019-09-24T07:05:01Z</wsu:Created>
+              <wsu:Expires>2019-09-24T07:10:01Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="09/24/2019 7:05:02 AM" messageId="urn:uuid:767a53db-4a7a-4d7c-9887-8037ebb17aef">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:767a53db-4a7a-4d7c-9887-8037ebb17aef</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:c61f9e3e-dd00-4abe-90cf-e1e154b82b97</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-11e399b7-d7a8-4022-9818-75ab0514327e">
+              <wsu:Created>2019-09-24T07:05:02Z</wsu:Created>
+              <wsu:Expires>2019-09-24T07:10:02Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
 </log>
