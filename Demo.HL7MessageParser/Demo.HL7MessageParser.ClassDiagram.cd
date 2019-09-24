@@ -1,97 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Demo.HL7MessageParser.HL7MessageParser_NTEC" BaseTypeListCollapsed="true">
-    <Position X="0.75" Y="6.25" Width="2.5" />
+    <Position X="0.5" Y="6" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAACAAAAAAAQAAAAAAAQAAAAAAAAAAAAAACA=</HashCode>
+      <HashCode>AAAAAQAAABCAAQAIAAQAAAAAAASIABAAAAAIAAAAACA=</HashCode>
       <FileName>HL7MessageParser_NTEC.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Demo.HL7MessageParser.JSONMedicationProfileParser" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4" Y="5.75" Width="2.5" />
+    <Position X="3.25" Y="5.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAABCAAAAAAAAAgAAg=</HashCode>
       <FileName>JSONMedicationProfileParser.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Demo.HL7MessageParser.ObjectAutoMapping">
-    <Position X="0.75" Y="2.25" Width="3" />
+    <Position X="3.5" Y="8.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ObjectAutoMapping.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Demo.HL7MessageParser.SoapPatientVisitParser" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7" Y="5.75" Width="2" />
+    <Position X="6.25" Y="5.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AgAIAAAAAAAAAAAAAAAAAAAAAQAABAAACAAAAgECAgg=</HashCode>
       <FileName>SoapPatientVisitParser.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Demo.HL7MessageParser.Model.Allergies" Collapsed="true">
-    <Position X="11.75" Y="7.5" Width="1.5" />
+  <Class Name="Demo.HL7MessageParser.Model.Allergies">
+    <Position X="7.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Patient.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Demo.HL7MessageParser.Model.Order" Collapsed="true">
-    <Position X="11.75" Y="6.5" Width="1.5" />
+  <Class Name="Demo.HL7MessageParser.Model.Order">
+    <Position X="9.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Patient.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Demo.HL7MessageParser.Model.PatientVisit" Collapsed="true">
-    <Position X="11.75" Y="4.5" Width="1.5" />
+  <Class Name="Demo.HL7MessageParser.Model.PatientVisit">
+    <Position X="4" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Model\Patient.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Demo.HL7MessageParser.Model.Visit" Collapsed="true">
-    <Position X="11.75" Y="5.5" Width="1.5" />
+  <Class Name="Demo.HL7MessageParser.Model.Visit">
+    <Position X="6" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Patient.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Demo.HL7MessageParser.Model.Patient" Collapsed="true">
-    <Position X="11.75" Y="3.5" Width="1.5" />
+  <Class Name="Demo.HL7MessageParser.Model.Patient">
+    <Position X="6" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.HL7MessageParser.RestSharpExtensions">
+    <Position X="8.25" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAABAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo.HL7MessageParser.JSONIAlertProfileParser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAgAAABAAAAAAAAAAgAgg=</HashCode>
+      <FileName>JSONIAlertProfileParser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Demo.HL7MessageParser.WebProxy.PatientService">
+    <Position X="11.25" Y="4.25" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>BAAAwAgAAAAAAAAAIBAAgAAAAAAAAAAAAAACEAAAAAE=</HashCode>
+      <FileName>PatientServiceProxy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Demo.HL7MessageParser.IHL7MessageParser">
-    <Position X="1" Y="4.5" Width="2" />
+    <Position X="0.5" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Interface\IHL7MessageParser.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Demo.HL7MessageParser.IMedicationProfileParser">
-    <Position X="4.25" Y="4.5" Width="2" />
+    <Position X="3.25" Y="4.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAg=</HashCode>
       <FileName>Interface\IMedicationProfileParser .cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Demo.HL7MessageParser.IPatientVisitParser">
-    <Position X="7" Y="4.5" Width="2" />
+    <Position X="6.25" Y="4.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAg=</HashCode>
       <FileName>Interface\IPatientVisitParser.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Demo.HL7MessageParser.Interface.IAllergiesParser">
-    <Position X="9.75" Y="4.5" Width="1.5" />
+  <Interface Name="Demo.HL7MessageParser.IAlertProfileParser">
+    <Position X="9" Y="4.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Interface\IAllergiesParser.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>Interface\IAlertProfileParser.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

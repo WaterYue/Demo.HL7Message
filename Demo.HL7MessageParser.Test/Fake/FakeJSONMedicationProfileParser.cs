@@ -33,7 +33,7 @@ namespace Demo.HL7MessageParser.Test.Fake
             }
         }
 
-        public void InitializeParam(string restUri, string client_secret, string pathospcode)
+        public void Initialize(string restUri, string client_secret, string pathospcode)
         {
             throw new NotImplementedException();
         }

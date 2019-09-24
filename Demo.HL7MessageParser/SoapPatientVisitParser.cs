@@ -21,13 +21,17 @@ namespace Demo.HL7MessageParser
 
         public SoapPatientVisitParser()
         {
-            // resturi, client_secret, pathospcode from  storage(DB,FILE, CACHE)
             Url = "http://localhost:8096/PatientService.asmx";
             userName = "pas-appt-ws-user";
             password = "pas-appt-ws-user-pwd";
             pathospcode = "PATHOSPCODE";
         }
-        public void InitializeParam(string restUri, string userName, string password, string pathospcode)
+        public SoapPatientVisitParser(string uri, string userName, string password, string pathospcode)
+        {
+            Initialize(uri, userName, password, pathospcode);
+        }
+
+        public void Initialize(string restUri, string userName, string password, string pathospcode)
         {
             this.Url = restUri;
             this.userName = userName;
@@ -87,10 +91,9 @@ namespace Demo.HL7MessageParser
                 return resStr;
 
             }
-            catch (Exception ex)
+            catch
             {
-                //Logger
-                throw ex;
+                throw;
             }
         }
 

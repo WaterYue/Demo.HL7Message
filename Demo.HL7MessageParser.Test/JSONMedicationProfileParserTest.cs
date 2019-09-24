@@ -98,7 +98,7 @@ namespace Demo.HL7MessageParser.Test
 
             var localParser = new JSONMedicationProfileParser(restUri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
 
-            var actualException = Assert.ThrowsException<RestException>(() => localParser.GetMedicationProfile(caseNumber));
+            var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
             Assert.AreEqual(actualException.Message, errorMessage);
@@ -113,7 +113,7 @@ namespace Demo.HL7MessageParser.Test
 
             // var localParser = new JSONMedicationProfileParser("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
             var localParser = new JSONMedicationProfileParser("https://en.wikipedia.org/wiki/Main_Page/", "CLIENT_SECRET", "PATHOSPCODE");
-            var actualException = Assert.ThrowsException<RestException>(() => localParser.GetMedicationProfile(caseNumber));
+            var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
         }
@@ -127,7 +127,7 @@ namespace Demo.HL7MessageParser.Test
 
             //  var localParser = new JSONMedicationProfileParser("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
             var localParser = new JSONMedicationProfileParser("http://localhost:9527/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
-            var actualException = Assert.ThrowsException<RestException>(() => localParser.GetMedicationProfile(caseNumber));
+            var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
         }

@@ -6,18 +6,18 @@ using System.Text;
 
 namespace Demo.HL7MessageParser.Common
 {
-    public class RestException : Exception
+    public class AMException : Exception
     {
         public HttpStatusCode HttpStatusCode { get; private set; }
 
         public Uri RequestUri { get; private set; }
 
-        public RestException(HttpStatusCode httpStatusCode, string message, Exception innerException) : base(message, innerException)
+        public AMException(HttpStatusCode httpStatusCode, string message, Exception innerException) : base(message, innerException)
         {
             HttpStatusCode = httpStatusCode;
         }
 
-        public RestException(HttpStatusCode httpStatusCode, Uri requestUri, string message, Exception innerException) : base(message, innerException)
+        public AMException(HttpStatusCode httpStatusCode, Uri requestUri, string message, Exception innerException) : base(message, innerException)
         {
             HttpStatusCode = httpStatusCode;
             RequestUri = requestUri;

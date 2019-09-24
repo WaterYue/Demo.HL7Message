@@ -8,7 +8,7 @@ namespace Demo.HL7MessageParser
 {
     public interface IPatientVisitParser
     {
-        void InitializeParam(string restUri, string userName, string password, string pathospcode);
+        void Initialize(string restUri, string userName, string password, string pathospcode);
         PatientDemoEnquiry GetPatientResult(string CaseNum);
     }
 }

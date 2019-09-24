@@ -113,9 +113,9 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 this.SafeInvoke(() =>
                 {
-                    if (ex is RestException)
+                    if (ex is AMException)
                     {
-                        var restEx = ex as RestException;
+                        var restEx = ex as AMException;
 
                         MessageBox.Show(string.Format("HttpStatusCode:{1}", restEx.Message, restEx.HttpStatusCode));
                         return;

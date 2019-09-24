@@ -57,7 +57,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
                 PatientInfo = new PatientInfo
                 {
                     Hkid = "HN170002520"
-                }
+                },Credentials=new Credentials { }
             });
         }
 
@@ -115,7 +115,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
                     {
                         response.ThrowException();
                     }
-                    catch (RestException rex)
+                    catch (AMException rex)
                     {
                         //Log exception
                     }

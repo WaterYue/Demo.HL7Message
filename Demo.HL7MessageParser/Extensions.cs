@@ -40,11 +40,11 @@ namespace Demo.HL7MessageParser
 
             if (response.StatusCode == 0)
             {
-                throw new RestException(HttpStatusCode.ServiceUnavailable, response.ErrorMessage, response.ErrorException);
+                throw new AMException(HttpStatusCode.ServiceUnavailable, response.ErrorMessage, response.ErrorException);
             }
             else
             {
-                throw new RestException(response.StatusCode, response.Content, response.ErrorException);
+                throw new AMException(response.StatusCode, response.Content, response.ErrorException);
             }
         }
     }

@@ -18,7 +18,6 @@ namespace Demo.HL7MessageParser
 
         public JSONIAlertProfileParser()
         {
-            // resturi, client_secret, pathospcode from  storage(DB,FILE, CACHE)
             restUri = "http://localhost:3181/pms-asa/1/";
             client_secret = "CLIENT_SECRET";
             client_id = "CLIENT_ID";
@@ -27,13 +26,10 @@ namespace Demo.HL7MessageParser
 
         public JSONIAlertProfileParser(string restUri, string client_secret, string client_id, string pathospcode)
         {
-            this.restUri = restUri;
-            this.client_secret = client_secret;
-            this.client_id = client_id;
-            this.pathospcode = pathospcode;
+            Initialize(restUri, client_secret, client_id, pathospcode);
         }
 
-        public void InitializeParam(string restUri, string client_secret, string client_id, string pathospcode)
+        public void Initialize(string restUri, string client_secret, string client_id, string pathospcode)
         {
             this.restUri = restUri;
             this.client_secret = client_secret;

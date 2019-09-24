@@ -14,7 +14,7 @@ namespace Demo.HL7MessageParser
         {
             IMedicationProfileParser parser = new JSONMedicationProfileParser();
 
-            parser.InitializeParam(requestParam.url, requestParam.clientsecret, requestParam.pahospCode);
+            parser.Initialize(requestParam.url, requestParam.clientsecret, requestParam.pahospCode);
 
             return parser.GetMedicationProfile(requestParam.casenumber);
         }
@@ -23,7 +23,7 @@ namespace Demo.HL7MessageParser
         {
             IAlertProfileParser parser = new JSONIAlertProfileParser();
 
-            parser.InitializeParam(requestParam.url, requestParam.clientsecret, requestParam.clientid, requestParam.pahospCode);
+            parser.Initialize(requestParam.url, requestParam.clientsecret, requestParam.clientid, requestParam.pahospCode);
 
             var inputParam = XmlHelper.XmlDeserialize<AlertInputParm>(requestParam.xmlReq);
 

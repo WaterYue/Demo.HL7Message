@@ -18,7 +18,7 @@ namespace Demo.HL7MessageParser.Test.Fake
             return result;
         }
 
-        public void InitializeParam(string restUri, string userName, string password, string pathospcode)
+        public void Initialize(string restUri, string userName, string password, string pathospcode)
         {
             throw new NotImplementedException();
         }

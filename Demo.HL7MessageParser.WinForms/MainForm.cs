@@ -26,7 +26,22 @@ namespace Demo.HL7MessageParser.WinForms
             //    tcMain.TabPages[0].Controls.Add(new MedicationProfileControl { Dock = DockStyle.Fill });
             //}
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.F1:
+                case Keys.F2:
+                    {
+                        new HL7MessageParserFormTest().ShowDialog();
+                        return true;
+                    }
+                default:
+                    break;
+            }
 
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             tpMedicationProfile.Controls.Add(new MedicationProfileControl { Dock = DockStyle.Fill });

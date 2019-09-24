@@ -1,5 +1,7 @@
-﻿using Demo.HL7MessageParser.Model;
+﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.Model;
 using Demo.HL7MessageParser.Models;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,20 @@ namespace Demo.HL7MessageParser
 {
     public class HL7MessageParser_NTEC : IHL7MessageParser
     {
-        private string url;
-        private string casenumber;
-        private string clientsecret;
-        private string clientid;
-        private string pahospCode;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        private string RestUrl;
+
+        private string SoapUrl;
+
+        private string UserName;
+        private string Password;
+
+        private string ClientSecret;
+        private string ClientId;
+
+        private string HospitalCode;
+        private string AccessCode;
 
         private IPatientVisitParser patientVisitParser;
         private IMedicationProfileParser medicationProfileParser;
@@ -21,27 +32,34 @@ namespace Demo.HL7MessageParser
 
         public HL7MessageParser_NTEC()
         {
-            this.patientVisitParser = new SoapPatientVisitParser();
-            this.medicationProfileParser = new JSONMedicationProfileParser();
-            this.allergiesParser = new JSONIAlertProfileParser();
-
             Initialize();
+
+            this.patientVisitParser = new SoapPatientVisitParser(SoapUrl, UserName, Password, HospitalCode);
+
+            this.medicationProfileParser = new JSONMedicationProfileParser(RestUrl, ClientSecret, HospitalCode);
+
+            this.allergiesParser = new JSONIAlertProfileParser(RestUrl, ClientSecret, ClientId, HospitalCode);
         }
 
         private void Initialize()
         {
-           //TODO Initialize parameters
-           /* client_secret
-            * client_id
-            * pahospCodesss
-            * accessCode
-            * loginId
-            * username
-            * password
-            */
+            //TODO Initialize parameters from DB
+
+            SoapUrl = "http://localhost:8096/PatientService.asmx";
+            UserName = "pas-appt-ws-user";
+            Password = "pas-appt-ws-user-pwd";
+
+
+            RestUrl = "http://localhost:3181/pms-asa/1/";
+            ClientSecret = "CLIENT_SECRET";
+            ClientId = "AccessCenter";
+
+            AccessCode = "AccessCode";
+            HospitalCode = "PATHOSPCODE";
         }
 
-        public HL7MessageParser_NTEC(IPatientVisitParser patientVisitParser,
+        public HL7MessageParser_NTEC(
+            IPatientVisitParser patientVisitParser,
             IMedicationProfileParser medicationProfileParser,
             IAlertProfileParser allergiesParser)
         {
@@ -61,21 +79,38 @@ namespace Demo.HL7MessageParser
             return orders;
         }
 
-
         public PatientVisit GetPatient(string caseno)
         {
-            var pr = patientVisitParser.GetPatientResult(caseno);
+            try
+            {
+                var pr = patientVisitParser.GetPatientResult(caseno);
 
-            //TODO: storage the response
+                //TODO: storage the response Postponse
 
-            var patientVisit = pr.ToConvert();
+                var patientVisit = pr.ToConvert();
 
-            return patientVisit;
+                //TODO: storage accesscenter business object to db            
+
+                return patientVisit;
+            }
+            catch (AMException amex)
+            {
+                logger.Error(amex);
+
+                throw amex;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+
+                return null;
+            }
         }
-
 
         public IEnumerable<Allergies> GetAllergies(AlertInputParm alertinput)
         {
+            alertinput.Credentials.AccessCode = AccessCode;
+
             var apr = allergiesParser.GetAlertProfile(alertinput);
 
             //TODO:storage the response

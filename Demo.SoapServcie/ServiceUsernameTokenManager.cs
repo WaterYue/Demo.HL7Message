@@ -8,12 +8,13 @@ using Microsoft.Web.Services3;
 using Microsoft.Web.Services3.Design;
 using Microsoft.Web.Services3.Security;
 using Microsoft.Web.Services3.Security.Tokens;
+using Demo.HL7MessageParser.Common;
 
 namespace Demo.SoapServcie
 {
     public class ServiceUsernameTokenManager : UsernameTokenManager
     {
-       
+
         /// <summary>
         /// Constructs an instance of this security token manager.
         /// </summary>
@@ -45,7 +46,7 @@ namespace Demo.SoapServcie
             //    if you are implementing per-server security
             // 2) get the password from the database or XML file for the given user name
 
-            bool Valid = (("pas-appt-ws-user" == token.Username) 
+            bool Valid = (("pas-appt-ws-user" == token.Username)
                 && ("pas-appt-ws-user-pwd" == token.Password));
 
             if (Valid)
@@ -54,7 +55,7 @@ namespace Demo.SoapServcie
             }
             else
             {
-                throw new UnauthorizedAccessException("User validation failed");
+                throw new AMException(System.Net.HttpStatusCode.InternalServerError, "Unknown exception, internal system processing error.", new Exception("UserNmae or Password is invalid!"));
             }
 
 

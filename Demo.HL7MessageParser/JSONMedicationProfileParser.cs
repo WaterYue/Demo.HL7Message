@@ -17,7 +17,6 @@ namespace Demo.HL7MessageParser
 
         public JSONMedicationProfileParser()
         {
-            // resturi, client_secret, pathospcode from  storage(DB,FILE, CACHE)
             restUri = "http://localhost:3181/pms-asa/1/";
             client_secret = "CLIENT_SECRET";
             pathospcode = "PATHOSPCODE";
@@ -25,12 +24,10 @@ namespace Demo.HL7MessageParser
 
         public JSONMedicationProfileParser(string restUri, string client_secret, string pathospcode)
         {
-            this.restUri = restUri;
-            this.client_secret = client_secret;
-            this.pathospcode = pathospcode;
+            Initialize(restUri, client_secret, pathospcode);
         }
 
-        public void InitializeParam(string restUri, string client_secret, string pathospcode)
+        public void Initialize(string restUri, string client_secret, string pathospcode)
         {
             this.restUri = restUri;
             this.client_secret = client_secret;
