@@ -106,6 +106,10 @@
       <Project>{6F4FAD1F-036A-4376-A685-814110E776C9}</Project>
       <Name>Demo.HL7MessageParser.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Demo.HL7MessageParser.DTOs\Demo.HL7MessageParser.DTOs.csproj">
+      <Project>{E1F8AB24-9D6E-43D2-A3F6-BBC290FD2144}</Project>
+      <Name>Demo.HL7MessageParser.DTOs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Demo.HL7MessageParser.Models\Demo.HL7MessageParser.Models.csproj">
       <Project>{4e61a17f-cc30-4f3e-8cfc-2f1ed9594b04}</Project>
       <Name>Demo.HL7MessageParser.Models</Name>

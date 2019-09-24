@@ -1,13 +1,11 @@
-﻿using System;
+﻿using Demo.HL7MessageParser.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Demo.HL7MessageParser.Model
 {
-    public class Allergy
-    {
-    }
 
     public class Order
     {
@@ -15,14 +13,11 @@ namespace Demo.HL7MessageParser.Model
 
     public class PatientVisit
     {
-        public Patient Pateint { get; set; }
-        public Visit Vist { get; set; }
-    }
-    public class Visit
-    {
-    }
-
-    public class Patient
-    {
+        public PatientVisit()
+        {
+            Vists = new List<VisitObj>();
+        }
+        public PatientObj Pateint { get; set; }
+        public List<VisitObj> Vists { get; set; }
     }
 }

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VisitDataSet" targetNamespace="http://tempuri.org/VisitDataSet.xsd" xmlns:mstns="http://tempuri.org/VisitDataSet.xsd" xmlns="http://tempuri.org/VisitDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ADS_NEWConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ADS_NEWConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Demo.HL7MessageParser.DTOs.Properties.Settings.GlobalReference.Default.ADS_NEWConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="VisitDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="VisitDataSet" msprop:Generator_UserDSName="VisitDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_VISIT" msprop:Generator_TableClassName="V_VISITDataTable" msprop:Generator_RowEvArgName="V_VISITRowChangeEvent" msprop:Generator_TablePropName="V_VISIT" msprop:Generator_TableVarName="tableV_VISIT" msprop:Generator_RowEvHandlerName="V_VISITRowChangeEventHandler" msprop:Generator_RowDeletingName="V_VISITRowDeleting" msprop:Generator_RowChangingName="V_VISITRowChanging" msprop:Generator_RowDeletedName="V_VISITRowDeleted" msprop:Generator_UserTableName="V_VISIT" msprop:Generator_RowChangedName="V_VISITRowChanged" msprop:Generator_RowClassName="V_VISITRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PatientVisitID" msprop:Generator_ColumnVarNameInTable="columnPatientVisitID" msprop:Generator_ColumnPropNameInRow="PatientVisitID" msprop:Generator_ColumnPropNameInTable="PatientVisitIDColumn" msprop:Generator_UserColumnName="PatientVisitID" type="xs:int" />
+              <xs:element name="PatientID" msprop:Generator_ColumnVarNameInTable="columnPatientID" msprop:Generator_ColumnPropNameInRow="PatientID" msprop:Generator_ColumnPropNameInTable="PatientIDColumn" msprop:Generator_UserColumnName="PatientID" type="xs:int" />
+              <xs:element name="CareUnitID" msprop:Generator_ColumnVarNameInTable="columnCareUnitID" msprop:Generator_ColumnPropNameInRow="CareUnitID" msprop:Generator_ColumnPropNameInTable="CareUnitIDColumn" msprop:Generator_UserColumnName="CareUnitID" type="xs:int" />
+              <xs:element name="AdmitDate" msprop:Generator_ColumnVarNameInTable="columnAdmitDate" msprop:Generator_ColumnPropNameInRow="AdmitDate" msprop:Generator_ColumnPropNameInTable="AdmitDateColumn" msprop:Generator_UserColumnName="AdmitDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DischargeDate" msprop:Generator_ColumnVarNameInTable="columnDischargeDate" msprop:Generator_ColumnPropNameInRow="DischargeDate" msprop:Generator_ColumnPropNameInTable="DischargeDateColumn" msprop:Generator_UserColumnName="DischargeDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Room" msprop:Generator_ColumnVarNameInTable="columnRoom" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_UserColumnName="Room" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bed" msprop:Generator_ColumnVarNameInTable="columnBed" msprop:Generator_ColumnPropNameInRow="Bed" msprop:Generator_ColumnPropNameInTable="BedColumn" msprop:Generator_UserColumnName="Bed" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountNumber" msprop:Generator_ColumnVarNameInTable="columnAccountNumber" msprop:Generator_ColumnPropNameInRow="AccountNumber" msprop:Generator_ColumnPropNameInTable="AccountNumberColumn" msprop:Generator_UserColumnName="AccountNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_UserColumnName="Barcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HospitalService" msprop:Generator_ColumnVarNameInTable="columnHospitalService" msprop:Generator_ColumnPropNameInRow="HospitalService" msprop:Generator_ColumnPropNameInTable="HospitalServiceColumn" msprop:Generator_UserColumnName="HospitalService" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

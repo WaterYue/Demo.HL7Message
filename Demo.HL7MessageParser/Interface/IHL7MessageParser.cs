@@ -1,4 +1,5 @@
-﻿using Demo.HL7MessageParser.Model;
+﻿using Demo.HL7MessageParser.DTOs;
+using Demo.HL7MessageParser.Model;
 using Demo.HL7MessageParser.Models;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,10 @@ namespace Demo.HL7MessageParser
 {
     public interface IHL7MessageParser
     {
-         PatientVisit GetPatient(string caseno);
+        PatientVisit GetPatient(string caseno);
 
         IEnumerable<Order> GetOrders(string caseno);
 
-        IEnumerable<Allergy> GetAllergies(AlertInputParm alertinput);
+        IEnumerable<PatientAllergyObj> GetAllergies(AlertInputParm alertinput);
     }
 }

@@ -35,6 +35,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\ref\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ref\Microsoft.Web.Services3.dll</HintPath>
@@ -80,6 +83,10 @@
     <ProjectReference Include="..\Demo.HL7MessageParser.Common\Demo.HL7MessageParser.Common.csproj">
       <Project>{6F4FAD1F-036A-4376-A685-814110E776C9}</Project>
       <Name>Demo.HL7MessageParser.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Demo.HL7MessageParser.DTOs\Demo.HL7MessageParser.DTOs.csproj">
+      <Project>{e1f8ab24-9d6e-43d2-a3f6-bbc290fd2144}</Project>
+      <Name>Demo.HL7MessageParser.DTOs</Name>
     </ProjectReference>
     <ProjectReference Include="..\Demo.HL7MessageParser.Models\Demo.HL7MessageParser.Models.csproj">
       <Project>{4e61a17f-cc30-4f3e-8cfc-2f1ed9594b04}</Project>

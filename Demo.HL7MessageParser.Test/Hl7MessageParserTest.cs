@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Demo.HL7MessageParser.DTOs;
 using Demo.HL7MessageParser.Model;
 using Demo.HL7MessageParser.Models;
 using Demo.HL7MessageParser.Test.Fake;
@@ -54,7 +55,7 @@ namespace Demo.HL7MessageParser.Test
         [TestMethod]
         public void Test_Allergies_Succeed()
         {
-            var expectObj = new List<Allergy>();
+            var expectObj = new List<PatientAllergyObj>();
 
             var actualObj = hl7Parser.GetAllergies(new AlertInputParm
             {
@@ -66,7 +67,7 @@ namespace Demo.HL7MessageParser.Test
 
             Assert.IsNotNull(actualObj);
             Assert.AreEqual<int>(expectObj.Count, actualObj.Count());
-            Assert.AreEqual<IEnumerable<Allergy>>(expectObj, actualObj);
+            Assert.AreEqual<IEnumerable<PatientAllergyObj>>(expectObj, actualObj);
         }
 
 

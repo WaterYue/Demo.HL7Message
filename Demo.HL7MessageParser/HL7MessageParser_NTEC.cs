@@ -1,4 +1,5 @@
 ﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.DTOs;
 using Demo.HL7MessageParser.Model;
 using Demo.HL7MessageParser.Models;
 using NLog;
@@ -107,7 +108,7 @@ namespace Demo.HL7MessageParser
             }
         }
 
-        public IEnumerable<Allergy> GetAllergies(AlertInputParm alertinput)
+        public IEnumerable<PatientAllergyObj> GetAllergies(AlertInputParm alertinput)
         {
             alertinput.Credentials.AccessCode = AccessCode;
 

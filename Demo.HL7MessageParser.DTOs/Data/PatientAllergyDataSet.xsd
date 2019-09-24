@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="PatientAllergyDataSet" targetNamespace="http://tempuri.org/PatientAllergyDataSet.xsd"
+	elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://tempuri.org/PatientAllergyDataSet.xsd"
+	xmlns:mstns="http://tempuri.org/PatientAllergyDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="PatientAllergyDataSet" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="V_PATIENT_ALLERGY">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="PatientAllergyID" type="xs:int" />
+							<xs:element name="PatientID" type="xs:int" minOccurs="0" />
+							<xs:element name="DrugClass" type="xs:string" minOccurs="0" />
+							<xs:element name="DrugClassName" type="xs:string" minOccurs="0" />
+							<xs:element name="AllergyName" type="xs:string" minOccurs="0" />
+							<xs:element name="EntryDate" type="xs:dateTime" />
+							<xs:element name="SiteID" type="xs:int" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:unique name="PatientAllergyDataSetKey1" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:T_ALLERGY" />
+			<xs:field xpath="mstns:AllergyID" />
+		</xs:unique>
+	</xs:element>
+</xs:schema>

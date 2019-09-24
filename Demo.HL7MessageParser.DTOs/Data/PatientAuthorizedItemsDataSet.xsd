@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PatientAuthorizedItemsDataSet" targetNamespace="http://tempuri.org/PatientAuthorizedItemsDataSet.xsd" xmlns:mstns="http://tempuri.org/PatientAuthorizedItemsDataSet.xsd" xmlns="http://tempuri.org/PatientAuthorizedItemsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ADS_NEWConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ADS_NEWConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Demo.HL7MessageParser.DTOs.Properties.Settings.GlobalReference.Default.ADS_NEWConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_PATIENT_AUTHORIZED_ITEMSTableAdapter" GeneratorDataComponentClassName="V_PATIENT_AUTHORIZED_ITEMSTableAdapter" Name="V_PATIENT_AUTHORIZED_ITEMS" UserDataComponentName="V_PATIENT_AUTHORIZED_ITEMSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ADS_NEWConnectionString (Settings)" DbObjectName="ADS_NEW.dbo.V_PATIENT_AUTHORIZED_ITEMS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RemoteItemAuthorizationID, PatientID, ItemID, AuthorizedDispenseAmount, ApprovedByOperatorID, DateEntered, ApprovalExpirationDate, Deleted, SiteID, ItemName, EnteredByOperator FROM dbo.V_PATIENT_AUTHORIZED_ITEMS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RemoteItemAuthorizationID" DataSetColumn="RemoteItemAuthorizationID" />
+              <Mapping SourceColumn="PatientID" DataSetColumn="PatientID" />
+              <Mapping SourceColumn="ItemID" DataSetColumn="ItemID" />
+              <Mapping SourceColumn="AuthorizedDispenseAmount" DataSetColumn="AuthorizedDispenseAmount" />
+              <Mapping SourceColumn="ApprovedByOperatorID" DataSetColumn="ApprovedByOperatorID" />
+              <Mapping SourceColumn="DateEntered" DataSetColumn="DateEntered" />
+              <Mapping SourceColumn="ApprovalExpirationDate" DataSetColumn="ApprovalExpirationDate" />
+              <Mapping SourceColumn="Deleted" DataSetColumn="Deleted" />
+              <Mapping SourceColumn="SiteID" DataSetColumn="SiteID" />
+              <Mapping SourceColumn="ItemName" DataSetColumn="ItemName" />
+              <Mapping SourceColumn="EnteredByOperator" DataSetColumn="EnteredByOperator" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PatientAuthorizedItemsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PatientAuthorizedItemsDataSet" msprop:Generator_DataSetName="PatientAuthorizedItemsDataSet" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_PATIENT_AUTHORIZED_ITEMS" msprop:Generator_UserTableName="V_PATIENT_AUTHORIZED_ITEMS" msprop:Generator_RowDeletedName="V_PATIENT_AUTHORIZED_ITEMSRowDeleted" msprop:Generator_TableClassName="V_PATIENT_AUTHORIZED_ITEMSDataTable" msprop:Generator_RowChangedName="V_PATIENT_AUTHORIZED_ITEMSRowChanged" msprop:Generator_RowClassName="V_PATIENT_AUTHORIZED_ITEMSRow" msprop:Generator_RowChangingName="V_PATIENT_AUTHORIZED_ITEMSRowChanging" msprop:Generator_RowEvArgName="V_PATIENT_AUTHORIZED_ITEMSRowChangeEvent" msprop:Generator_RowEvHandlerName="V_PATIENT_AUTHORIZED_ITEMSRowChangeEventHandler" msprop:Generator_TablePropName="V_PATIENT_AUTHORIZED_ITEMS" msprop:Generator_TableVarName="tableV_PATIENT_AUTHORIZED_ITEMS" msprop:Generator_RowDeletingName="V_PATIENT_AUTHORIZED_ITEMSRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RemoteItemAuthorizationID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="RemoteItemAuthorizationID" msprop:Generator_ColumnPropNameInRow="RemoteItemAuthorizationID" msprop:Generator_ColumnVarNameInTable="columnRemoteItemAuthorizationID" msprop:Generator_ColumnPropNameInTable="RemoteItemAuthorizationIDColumn" type="xs:int" />
+              <xs:element name="PatientID" msprop:Generator_UserColumnName="PatientID" msprop:Generator_ColumnPropNameInRow="PatientID" msprop:Generator_ColumnVarNameInTable="columnPatientID" msprop:Generator_ColumnPropNameInTable="PatientIDColumn" type="xs:int" />
+              <xs:element name="ItemID" msprop:Generator_UserColumnName="ItemID" msprop:Generator_ColumnPropNameInRow="ItemID" msprop:Generator_ColumnVarNameInTable="columnItemID" msprop:Generator_ColumnPropNameInTable="ItemIDColumn" type="xs:int" />
+              <xs:element name="AuthorizedDispenseAmount" msprop:Generator_UserColumnName="AuthorizedDispenseAmount" msprop:Generator_ColumnPropNameInRow="AuthorizedDispenseAmount" msprop:Generator_ColumnVarNameInTable="columnAuthorizedDispenseAmount" msprop:Generator_ColumnPropNameInTable="AuthorizedDispenseAmountColumn" type="xs:int" />
+              <xs:element name="ApprovedByOperatorID" msprop:Generator_UserColumnName="ApprovedByOperatorID" msprop:Generator_ColumnPropNameInRow="ApprovedByOperatorID" msprop:Generator_ColumnVarNameInTable="columnApprovedByOperatorID" msprop:Generator_ColumnPropNameInTable="ApprovedByOperatorIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DateEntered" msprop:Generator_UserColumnName="DateEntered" msprop:Generator_ColumnPropNameInRow="DateEntered" msprop:Generator_ColumnVarNameInTable="columnDateEntered" msprop:Generator_ColumnPropNameInTable="DateEnteredColumn" type="xs:dateTime" />
+              <xs:element name="ApprovalExpirationDate" msprop:Generator_UserColumnName="ApprovalExpirationDate" msprop:Generator_ColumnPropNameInRow="ApprovalExpirationDate" msprop:Generator_ColumnVarNameInTable="columnApprovalExpirationDate" msprop:Generator_ColumnPropNameInTable="ApprovalExpirationDateColumn" type="xs:dateTime" />
+              <xs:element name="Deleted" msprop:Generator_UserColumnName="Deleted" msprop:Generator_ColumnPropNameInRow="Deleted" msprop:Generator_ColumnVarNameInTable="columnDeleted" msprop:Generator_ColumnPropNameInTable="DeletedColumn" type="xs:boolean" minOccurs="0" />
+              <xs:element name="SiteID" msprop:Generator_UserColumnName="SiteID" msprop:Generator_ColumnPropNameInRow="SiteID" msprop:Generator_ColumnVarNameInTable="columnSiteID" msprop:Generator_ColumnPropNameInTable="SiteIDColumn" type="xs:int" />
+              <xs:element name="ItemName" msdata:ReadOnly="true" msprop:Generator_UserColumnName="ItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="91" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EnteredByOperator" msdata:ReadOnly="true" msprop:Generator_UserColumnName="EnteredByOperator" msprop:Generator_ColumnPropNameInRow="EnteredByOperator" msprop:Generator_ColumnVarNameInTable="columnEnteredByOperator" msprop:Generator_ColumnPropNameInTable="EnteredByOperatorColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="41" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_PATIENT_AUTHORIZED_ITEMS" />
+      <xs:field xpath="mstns:RemoteItemAuthorizationID" />
+      <xs:field xpath="mstns:SiteID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

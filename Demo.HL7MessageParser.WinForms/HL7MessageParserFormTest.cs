@@ -1,4 +1,5 @@
 ﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.DTOs;
 using Demo.HL7MessageParser.Model;
 using System;
 using System.Collections.Generic;
@@ -33,8 +34,18 @@ namespace Demo.HL7MessageParser.WinForms
             cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
         }
 
+        Loading loadForm;
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+
+            BeginInvoke((MethodInvoker)(() =>
+            {
+                loadForm = new Loading();
+                loadForm.Width = this.Width;
+                loadForm.Height = this.Height;
+                loadForm.ShowDialog();
+            }));
+
             EventResult result = new EventResult();
 
             var caseNumber = e.Argument as string;
@@ -68,11 +79,17 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            MessageBox.Show("Completed1");
+            BeginInvoke((MethodInvoker)(() =>
+            {
+                loadForm.Close();
+            }));
             //如果用户取消了当前操作就关闭窗口。
             if (e.Cancelled)
             {
                 this.Close();
             }
+            MessageBox.Show("Completed2");
 
             //计算过程中的异常会被抓住，在这里可以进行处理。
             if (e.Error != null)
@@ -87,8 +104,10 @@ namespace Demo.HL7MessageParser.WinForms
                 }
 
                 MessageBox.Show(e.Error.Message);
-            }
 
+                return;
+            }
+            MessageBox.Show("Completed3");
             if (e.Result is EventResult)
             {
                 var result = e.Result as EventResult;
@@ -112,7 +131,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             public PatientVisit PatientVisit { get; set; }
             public List<Order> Orders { get; set; }
-            public List<Allergy> Allergies { get; set; }
+            public List<PatientAllergyObj> Allergies { get; set; }
         }
     }
 }
