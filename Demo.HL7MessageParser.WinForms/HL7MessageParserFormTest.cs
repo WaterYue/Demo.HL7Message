@@ -79,7 +79,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("Completed1");
+            MessageBox.Show("Completing");
             BeginInvoke((MethodInvoker)(() =>
             {
                 loadForm.Close();
@@ -89,7 +89,7 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 this.Close();
             }
-            MessageBox.Show("Completed2");
+          
 
             //计算过程中的异常会被抓住，在这里可以进行处理。
             if (e.Error != null)
@@ -107,18 +107,21 @@ namespace Demo.HL7MessageParser.WinForms
 
                 return;
             }
-            MessageBox.Show("Completed3");
+
+
             if (e.Result is EventResult)
             {
+                MessageBox.Show("Completed with Result");
+
                 var result = e.Result as EventResult;
-                scintilla1.FormatJsonStyle();
-                scintilla1.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.PatientVisit));
+                scintillaPV.FormatJsonStyle();
+                scintillaPV.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.PatientVisit));
 
-                scintilla2.FormatJsonStyle();
-                scintilla2.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Orders));
+                scintillaPR.FormatJsonStyle();
+                scintillaPR.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Orders));
 
-                scintilla3.FormatJsonStyle();
-                scintilla3.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
+                scintillaPA.FormatJsonStyle();
+                scintillaPA.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
             }
         }
 
