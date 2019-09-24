@@ -59,19 +59,14 @@ namespace Demo.HL7MessageParser.WinForms
                 result.PatientVisit = pv;
 
                 var orders = parser.GetOrders(caseNumber);
+                result.Orders = (orders ?? new List<Order>()).ToList();
 
-                if (orders != null)
+                var allergys = parser.GetAllergies(new Models.AlertInputParm
                 {
-                    result.Orders = orders.ToList();
-
-                    var allergys = parser.GetAllergies(new Models.AlertInputParm
-                    {
-                        PatientInfo = new Models.PatientInfo { Hkid = caseNumber },
-                        Credentials = new Models.Credentials { AccessCode = "" }
-                    });
-
-                    result.Allergies = allergys.ToList();
-                }
+                    PatientInfo = new Models.PatientInfo { Hkid = caseNumber },
+                    Credentials = new Models.Credentials { AccessCode = "" }
+                });
+                result.Allergies = (allergys ?? new List<PatientAllergyObj>()).ToList();
             }
 
             e.Result = result;
@@ -89,7 +84,7 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 this.Close();
             }
-          
+
 
             //计算过程中的异常会被抓住，在这里可以进行处理。
             if (e.Error != null)
@@ -123,11 +118,6 @@ namespace Demo.HL7MessageParser.WinForms
                 scintillaPA.FormatJsonStyle();
                 scintillaPA.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
             }
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public class EventResult
