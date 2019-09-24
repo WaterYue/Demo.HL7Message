@@ -23,9 +23,9 @@ namespace Demo.HL7MessageParser
         {
             return new PatientVisit();
         }
-        public static IEnumerable<Allergies> ToConvert(this AlertProfileResult apr)
+        public static IEnumerable<Allergy> ToConvert(this AlertProfileResult apr)
         {
-            return new List<Allergies>();
+            return new List<Allergy>();
         }
     }
 }

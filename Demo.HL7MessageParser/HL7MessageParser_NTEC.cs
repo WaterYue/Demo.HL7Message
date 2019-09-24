@@ -103,11 +103,11 @@ namespace Demo.HL7MessageParser
             {
                 logger.Error(ex);
 
-                return null;
+                throw ex;
             }
         }
 
-        public IEnumerable<Allergies> GetAllergies(AlertInputParm alertinput)
+        public IEnumerable<Allergy> GetAllergies(AlertInputParm alertinput)
         {
             alertinput.Credentials.AccessCode = AccessCode;
 

@@ -13,6 +13,6 @@ namespace Demo.HL7MessageParser
 
         IEnumerable<Order> GetOrders(string caseno);
 
-        IEnumerable<Allergies> GetAllergies(AlertInputParm alertinput);
+        IEnumerable<Allergy> GetAllergies(AlertInputParm alertinput);
     }
 }

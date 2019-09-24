@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Demo.HL7MessageParser.Model
 {
-    public class Allergies
+    public class Allergy
     {
     }
 
