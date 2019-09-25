@@ -86,13 +86,15 @@ namespace Demo.HL7MessageParser
             {
                 var pr = patientVisitParser.GetPatientResult(caseno);
 
+                logger.Info(JsonHelper.ToJson(pr));
+
                 //TODO: storage the response Postponse
 
                 var patientVisit = pr.ToConvert();
 
                 //TODO: storage accesscenter business object to db            
 
-                
+
                 return patientVisit;
             }
             catch (AMException amex)

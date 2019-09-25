@@ -14,11 +14,13 @@ using Microsoft.Web.Services3.Security.Tokens;
 using System.Net;
 using System.IO;
 using Demo.HL7MessageParser.WebProxy;
+using NLog;
 
 namespace Demo.HL7MessageParser.WinForms
 {
     public partial class PatientDemographicControl : UserControl
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public PatientDemographicControl()
         {
@@ -46,7 +48,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            string SOAPObj = BuildRequestSoap();
+            string SOAPObj = BuildRequestSoap(chxEnableWSAddress.Checked);
 
             scintillaReq.Text = XmlHelper.FormatXML(SOAPObj);
 
@@ -90,11 +92,13 @@ namespace Demo.HL7MessageParser.WinForms
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                logger.Error(ex, ex.Message);
+
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private string BuildRequestSoap()
+        private string BuildRequestSoap(bool enableWSAddress)
         {
             string credid = txtUserName.Text.Trim();
             string credpassword = txtPassword.Text.Trim();
@@ -103,7 +107,7 @@ namespace Demo.HL7MessageParser.WinForms
             var actionName = "http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo";
 
             StringBuilder rawSOAP = new StringBuilder();
-            rawSOAP.Append(BuildSoapHeader(credid, credpassword, true, url, actionName));
+            rawSOAP.Append(BuildSoapHeader(credid, credpassword, enableWSAddress, url, actionName));
             rawSOAP.Append(@"<soapenv:Body><web:searchHKPMIPatientByCaseNo>");
             rawSOAP.Append(BuildSearchparms("hospitalCode", txtHospitalCode.Text.Trim()));
             rawSOAP.Append(BuildSearchparms("caseNo", cbxCaseNumber.Text.Trim()));
@@ -162,7 +166,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnCallByWebReq_Click(object sender, EventArgs e)
         {
-            string SOAPObj = BuildRequestSoap();
+            string SOAPObj = BuildRequestSoap(chxEnableWSAddress.Checked);
             string url = txtURL.Text.Trim();
             try
             {
@@ -196,7 +200,9 @@ namespace Demo.HL7MessageParser.WinForms
             }
             catch (Exception ex)
             {
-                ex = ex;
+                logger.Error(ex, ex.Message);
+
+                MessageBox.Show(ex.Message);
             }
         }
     }

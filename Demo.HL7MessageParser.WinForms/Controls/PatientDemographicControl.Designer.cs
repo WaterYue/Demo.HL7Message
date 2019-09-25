@@ -47,6 +47,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.scintillaRes = new ScintillaNET.Scintilla();
+            this.chxEnableWSAddress = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,6 +77,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.chxEnableWSAddress);
             this.splitContainer1.Panel1.Controls.Add(this.btnCallByWebReq);
             this.splitContainer1.Panel1.Controls.Add(this.txtHospitalCode);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
@@ -105,9 +107,9 @@
             this.btnCallByWebReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCallByWebReq.Location = new System.Drawing.Point(9, 337);
             this.btnCallByWebReq.Name = "btnCallByWebReq";
-            this.btnCallByWebReq.Size = new System.Drawing.Size(180, 30);
+            this.btnCallByWebReq.Size = new System.Drawing.Size(127, 30);
             this.btnCallByWebReq.TabIndex = 13;
-            this.btnCallByWebReq.Text = "CallByWebReq";
+            this.btnCallByWebReq.Text = "WebReqCall";
             this.btnCallByWebReq.UseVisualStyleBackColor = true;
             this.btnCallByWebReq.Click += new System.EventHandler(this.btnCallByWebReq_Click);
             // 
@@ -132,11 +134,11 @@
             // btnPreview
             // 
             this.btnPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreview.Location = new System.Drawing.Point(9, 289);
+            this.btnPreview.Location = new System.Drawing.Point(171, 286);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(180, 30);
+            this.btnPreview.Size = new System.Drawing.Size(127, 30);
             this.btnPreview.TabIndex = 10;
-            this.btnPreview.Text = "PreViewSOAPReq";
+            this.btnPreview.Text = "PreviewReq";
             this.btnPreview.UseVisualStyleBackColor = true;
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
@@ -151,11 +153,11 @@
             // btnCallByProxy
             // 
             this.btnCallByProxy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCallByProxy.Location = new System.Drawing.Point(9, 383);
+            this.btnCallByProxy.Location = new System.Drawing.Point(167, 337);
             this.btnCallByProxy.Name = "btnCallByProxy";
-            this.btnCallByProxy.Size = new System.Drawing.Size(180, 30);
+            this.btnCallByProxy.Size = new System.Drawing.Size(136, 30);
             this.btnCallByProxy.TabIndex = 8;
-            this.btnCallByProxy.Text = "CallByProxy";
+            this.btnCallByProxy.Text = "ProxyCall";
             this.btnCallByProxy.UseVisualStyleBackColor = true;
             this.btnCallByProxy.Click += new System.EventHandler(this.btnCallByProxy_Click);
             // 
@@ -269,6 +271,16 @@
             this.scintillaRes.TabIndex = 1;
             this.scintillaRes.Text = "scintilla2";
             // 
+            // chxEnableWSAddress
+            // 
+            this.chxEnableWSAddress.AutoSize = true;
+            this.chxEnableWSAddress.Location = new System.Drawing.Point(9, 292);
+            this.chxEnableWSAddress.Name = "chxEnableWSAddress";
+            this.chxEnableWSAddress.Size = new System.Drawing.Size(118, 24);
+            this.chxEnableWSAddress.TabIndex = 14;
+            this.chxEnableWSAddress.Text = "WS-Address";
+            this.chxEnableWSAddress.UseVisualStyleBackColor = true;
+            // 
             // PatientDemographicControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,5 +321,6 @@
         private System.Windows.Forms.TextBox txtHospitalCode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCallByWebReq;
+        private System.Windows.Forms.CheckBox chxEnableWSAddress;
     }
 }

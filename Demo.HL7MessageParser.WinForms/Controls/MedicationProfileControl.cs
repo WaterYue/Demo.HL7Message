@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Demo.HL7MessageParser.Models;
 using Demo.HL7MessageParser.Common;
+using NLog;
 
 namespace Demo.HL7MessageParser.WinForms
 {
     public partial class MedicationProfileControl : UserControl
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public MedicationProfileControl()
         {
             InitializeComponent();
@@ -63,8 +66,11 @@ namespace Demo.HL7MessageParser.WinForms
 
             loadData.Exceptioned += (Exception ex) =>
             {
+                logger.Error(ex, ex.Message);
+
                 this.SafeInvoke(() =>
                 {
+
                     if (ex is AMException)
                     {
                         var restEx = ex as AMException;

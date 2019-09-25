@@ -13,12 +13,15 @@ using System.Xml;
 using System.IO;
 using System.Xml.Linq;
 using Demo.HL7MessageParser.Models;
+using NLog;
 
 namespace Demo.HL7MessageParser.WinForms
 {
     public partial class AlertProfileParserControl : UserControl
     {
-        List<string> hkIds = new List<string>();
+        private  List<string> hkIds = new List<string>();
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public AlertProfileParserControl()
         {
@@ -77,13 +80,11 @@ namespace Demo.HL7MessageParser.WinForms
 
                     scintilla3.Text = string.Format(str, hkId, txtAccessCode.Text.Trim());
                 }
-
             }
         }
         private void btnSend_Click(object sender, EventArgs e)
         {
             scintillaRes.Text = string.Empty;
-
 
             var loadData = new LoadDataThreadHelper<RestRequestParam, AlertProfileResult>();
 
@@ -111,6 +112,8 @@ namespace Demo.HL7MessageParser.WinForms
 
             loadData.Exceptioned += (Exception ex) =>
             {
+                logger.Error(ex, ex.Message);
+
                 this.SafeInvoke(() =>
                 {
                     if (ex is AMException)
