@@ -14168,4 +14168,571 @@ File name: 'D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\Data\Soa
       </soap:Envelope>
     </processingStep>
   </outputMessage>
+  <outputMessage utc="09/25/2019 1:12:51 AM" messageId="urn:uuid:b4121a7f-bb7a-4522-aa83-8355130e3151">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:b4121a7f-bb7a-4522-aa83-8355130e3151</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:3cda1a98-ae02-46eb-948a-d6e7915decd4</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-1968bd6f-1015-42e2-a152-1b385a848eb9">
+              <wsu:Created>2019-09-25T01:12:51Z</wsu:Created>
+              <wsu:Expires>2019-09-25T01:17:51Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="09/25/2019 1:14:32 AM" messageId="urn:uuid:a393c0e3-816a-4214-ba05-0af86ff2397f">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:a393c0e3-816a-4214-ba05-0af86ff2397f</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:14623cea-611f-4411-b725-969cd84bf6c8</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-dea77a15-afc1-4441-ab8c-48ce1adc7eca">
+              <wsu:Created>2019-09-25T01:14:32Z</wsu:Created>
+              <wsu:Expires>2019-09-25T01:19:32Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="09/25/2019 1:15:38 AM" messageId="urn:uuid:c9d24db1-62b4-4cb2-b2ef-a53537934ed2">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:c9d24db1-62b4-4cb2-b2ef-a53537934ed2</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:5220429b-a5e0-45f8-97b0-71db5919af59</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-9245aa35-c99e-471a-aa8c-0f2910f815b7">
+              <wsu:Created>2019-09-25T01:15:38Z</wsu:Created>
+              <wsu:Expires>2019-09-25T01:20:38Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20030116 16:14</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN03191100Y</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>VH</sourceCode>
+                  <sourceIndicator>3</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6B</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>YUK MING COURT, KWAN MING HOUSE</building>
+                  <districtCode>TKO</districtCode>
+                  <fullEnglishAddress>Rm 3511  YUK MING COURT, KWAN MING HOUSE,  TSEUNG KWAN O NEW TERRITORIES</fullEnglishAddress>
+                  <record_id>0</record_id>
+                  <room>3511</room>
+                </address>
+                <CCCode1>17761</CCCode1>
+                <CCCode2>54301</CCCode2>
+                <CCCode3>54481</CCCode3>
+                <chineseName>徐草莓</chineseName>
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19430810</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>M1312877</HKID>
+                <hkicSymbol>N/A</hkicSymbol>
+                <homePhone>27147081</homePhone>
+                <key>90500073</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>M</maritalStatus>
+                <name>CHUI, Strawberry</name>
+                <officePhone>98784856</officePhone>
+                <race>CH</race>
+                <sex>F</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="09/25/2019 1:15:40 AM" messageId="urn:uuid:a10d4789-c5f1-47f3-b52b-3cc6d3e48c88">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode xmlns:q0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">q0:FailedAuthentication</faultcode>
+            <faultstring>Microsoft.Web.Services3.Security.SecurityFault: The security token could not be authenticated or authorized ---&gt; Demo.HL7MessageParser.Common.AMException: Unknown exception, internal system processing error. ---&gt; System.Exception: UserNmae or Password is invalid!
+   --- End of inner exception stack trace ---
+   at Demo.SoapServcie.ServiceUsernameTokenManager.AuthenticateToken(UsernameToken token) in D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\ServiceUsernameTokenManager.cs:line 58
+   at Microsoft.Web.Services3.Security.Tokens.UsernameTokenManager.VerifyToken(SecurityToken token)
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.LoadXmlSecurityToken(XmlElement element)
+   --- End of inner exception stack trace ---
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.LoadXmlSecurityToken(XmlElement element)
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.GetTokenFromXml(XmlElement element)
+   at Microsoft.Web.Services3.Security.Security.LoadToken(XmlElement element, SecurityConfiguration configuration, Int32&amp; tokenCount)
+   at Microsoft.Web.Services3.Security.Security.LoadXml(XmlElement element)
+   at Microsoft.Web.Services3.Security.Security.CreateFrom(SoapEnvelope envelope, String localActor, String serviceActor)
+   at Microsoft.Web.Services3.Security.ReceiveSecurityFilter.ProcessMessage(SoapEnvelope envelope)
+   at Microsoft.Web.Services3.Pipeline.ProcessInputMessage(SoapEnvelope envelope)
+   at Microsoft.Web.Services3.WseProtocol.FilterRequest(SoapEnvelope requestEnvelope)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <faultactor>http://localhost:8096/PatientService.asmx</faultactor>
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:a10d4789-c5f1-47f3-b52b-3cc6d3e48c88</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:c5984e59-5a35-472d-89d0-7854df4e9dc6</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-7df94fe1-62b2-4c75-b5bf-f988f6331415">
+              <wsu:Created>2019-09-25T01:15:40Z</wsu:Created>
+              <wsu:Expires>2019-09-25T01:20:40Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode xmlns:q0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">q0:FailedAuthentication</faultcode>
+            <faultstring>Microsoft.Web.Services3.Security.SecurityFault: The security token could not be authenticated or authorized ---&gt; Demo.HL7MessageParser.Common.AMException: Unknown exception, internal system processing error. ---&gt; System.Exception: UserNmae or Password is invalid!
+   --- End of inner exception stack trace ---
+   at Demo.SoapServcie.ServiceUsernameTokenManager.AuthenticateToken(UsernameToken token) in D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\ServiceUsernameTokenManager.cs:line 58
+   at Microsoft.Web.Services3.Security.Tokens.UsernameTokenManager.VerifyToken(SecurityToken token)
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.LoadXmlSecurityToken(XmlElement element)
+   --- End of inner exception stack trace ---
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.LoadXmlSecurityToken(XmlElement element)
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.GetTokenFromXml(XmlElement element)
+   at Microsoft.Web.Services3.Security.Security.LoadToken(XmlElement element, SecurityConfiguration configuration, Int32&amp; tokenCount)
+   at Microsoft.Web.Services3.Security.Security.LoadXml(XmlElement element)
+   at Microsoft.Web.Services3.Security.Security.CreateFrom(SoapEnvelope envelope, String localActor, String serviceActor)
+   at Microsoft.Web.Services3.Security.ReceiveSecurityFilter.ProcessMessage(SoapEnvelope envelope)
+   at Microsoft.Web.Services3.Pipeline.ProcessInputMessage(SoapEnvelope envelope)
+   at Microsoft.Web.Services3.WseProtocol.FilterRequest(SoapEnvelope requestEnvelope)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <faultactor>http://localhost:8096/PatientService.asmx</faultactor>
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="09/25/2019 1:16:31 AM" messageId="urn:uuid:85558ed2-2036-4830-a2ef-e0e8a47e1eaa">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <faultcode xmlns:q0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">q0:FailedAuthentication</faultcode>
+            <faultstring>Microsoft.Web.Services3.Security.SecurityFault: The security token could not be authenticated or authorized ---&gt; Demo.HL7MessageParser.Common.AMException: Unknown exception, internal system processing error. ---&gt; System.Exception: UserNmae or Password is invalid!
+   --- End of inner exception stack trace ---
+   at Demo.SoapServcie.ServiceUsernameTokenManager.AuthenticateToken(UsernameToken token) in D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\ServiceUsernameTokenManager.cs:line 58
+   at Microsoft.Web.Services3.Security.Tokens.UsernameTokenManager.VerifyToken(SecurityToken token)
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.LoadXmlSecurityToken(XmlElement element)
+   --- End of inner exception stack trace ---
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.LoadXmlSecurityToken(XmlElement element)
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.GetTokenFromXml(XmlElement element)
+   at Microsoft.Web.Services3.Security.Security.LoadToken(XmlElement element, SecurityConfiguration configuration, Int32&amp; tokenCount)
+   at Microsoft.Web.Services3.Security.Security.LoadXml(XmlElement element)
+   at Microsoft.Web.Services3.Security.Security.CreateFrom(SoapEnvelope envelope, String localActor, String serviceActor)
+   at Microsoft.Web.Services3.Security.ReceiveSecurityFilter.ProcessMessage(SoapEnvelope envelope)
+   at Microsoft.Web.Services3.Pipeline.ProcessInputMessage(SoapEnvelope envelope)
+   at Microsoft.Web.Services3.WseProtocol.FilterRequest(SoapEnvelope requestEnvelope)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <faultactor>http://localhost:8096/PatientService.asmx</faultactor>
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:85558ed2-2036-4830-a2ef-e0e8a47e1eaa</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:d7778a38-f54d-4e18-84b1-25b818a71706</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-812f9c88-5b5c-4858-a05e-23d410d88b94">
+              <wsu:Created>2019-09-25T01:16:31Z</wsu:Created>
+              <wsu:Expires>2019-09-25T01:21:31Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <soap:Fault>
+            <faultcode xmlns:q0="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">q0:FailedAuthentication</faultcode>
+            <faultstring>Microsoft.Web.Services3.Security.SecurityFault: The security token could not be authenticated or authorized ---&gt; Demo.HL7MessageParser.Common.AMException: Unknown exception, internal system processing error. ---&gt; System.Exception: UserNmae or Password is invalid!
+   --- End of inner exception stack trace ---
+   at Demo.SoapServcie.ServiceUsernameTokenManager.AuthenticateToken(UsernameToken token) in D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\ServiceUsernameTokenManager.cs:line 58
+   at Microsoft.Web.Services3.Security.Tokens.UsernameTokenManager.VerifyToken(SecurityToken token)
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.LoadXmlSecurityToken(XmlElement element)
+   --- End of inner exception stack trace ---
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.LoadXmlSecurityToken(XmlElement element)
+   at Microsoft.Web.Services3.Security.Tokens.SecurityTokenManager.GetTokenFromXml(XmlElement element)
+   at Microsoft.Web.Services3.Security.Security.LoadToken(XmlElement element, SecurityConfiguration configuration, Int32&amp; tokenCount)
+   at Microsoft.Web.Services3.Security.Security.LoadXml(XmlElement element)
+   at Microsoft.Web.Services3.Security.Security.CreateFrom(SoapEnvelope envelope, String localActor, String serviceActor)
+   at Microsoft.Web.Services3.Security.ReceiveSecurityFilter.ProcessMessage(SoapEnvelope envelope)
+   at Microsoft.Web.Services3.Pipeline.ProcessInputMessage(SoapEnvelope envelope)
+   at Microsoft.Web.Services3.WseProtocol.FilterRequest(SoapEnvelope requestEnvelope)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</faultstring>
+            <faultactor>http://localhost:8096/PatientService.asmx</faultactor>
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
+  <outputMessage utc="09/25/2019 1:16:34 AM" messageId="urn:uuid:3f571aa4-de73-4461-8de5-1fe7d834496f">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Body>
+          <soap:Fault>
+            <soap:Code>
+              <soap:Value>soap:Sender</soap:Value>
+            </soap:Code>
+            <soap:Reason>
+              <soap:Text xml:lang="en">System.Web.Services.Protocols.SoapHeaderException: WSE012: The input was not a valid SOAP message because the following information is missing: action.
+   at Microsoft.Web.Services3.Utilities.AspNetHelper.SetDefaultAddressingProperties(SoapContext context, HttpContext httpContext)
+   at Microsoft.Web.Services3.WseProtocol.CreateRequestSoapContext(SoapEnvelope requestEnvelope)
+   at Microsoft.Web.Services3.WseProtocol.FilterRequest(SoapEnvelope requestEnvelope)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</soap:Text>
+            </soap:Reason>
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <env:Header xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+          <wsa:Action>http://schemas.xmlsoap.org/ws/2004/08/addressing/fault</wsa:Action>
+          <wsa:MessageID>urn:uuid:3f571aa4-de73-4461-8de5-1fe7d834496f</wsa:MessageID>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-e57ca355-ade6-4734-8b1c-93854f1558da">
+              <wsu:Created>2019-09-25T01:16:34Z</wsu:Created>
+              <wsu:Expires>2019-09-25T01:21:34Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </env:Header>
+        <soap:Body>
+          <soap:Fault>
+            <soap:Code>
+              <soap:Value>soap:Sender</soap:Value>
+            </soap:Code>
+            <soap:Reason>
+              <soap:Text xml:lang="en">System.Web.Services.Protocols.SoapHeaderException: WSE012: The input was not a valid SOAP message because the following information is missing: action.
+   at Microsoft.Web.Services3.Utilities.AspNetHelper.SetDefaultAddressingProperties(SoapContext context, HttpContext httpContext)
+   at Microsoft.Web.Services3.WseProtocol.CreateRequestSoapContext(SoapEnvelope requestEnvelope)
+   at Microsoft.Web.Services3.WseProtocol.FilterRequest(SoapEnvelope requestEnvelope)
+   at Microsoft.Web.Services3.WseProtocol.RouteRequest(SoapServerMessage message)
+   at System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   at System.Web.Services.Protocols.ServerProtocol.SetContext(Type type, HttpContext context, HttpRequest request, HttpResponse response)
+   at System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean&amp; abortProcessing)</soap:Text>
+            </soap:Reason>
+          </soap:Fault>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
 </log>

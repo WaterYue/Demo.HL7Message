@@ -58,13 +58,16 @@ namespace Demo.HL7MessageParser.WinForms
         private void btnCallByProxy_Click(object sender, EventArgs e)
         {
             scintillaRes.Text = string.Empty;
+            string credid = txtUserName.Text.Trim();
+            string credpassword = txtPassword.Text.Trim();
+            string url = txtURL.Text.Trim();
 
             //init web service proxy 
-            PatientService serviceProxy = new PatientService();
+            PatientService serviceProxy = new PatientService(txtURL.Text.Trim());
 
             //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
             //  of ServiceUsernameTokenManager class.
-            UsernameToken token = new UsernameToken("pas-appt-ws-user", "pas-appt-ws-user-pwd", PasswordOption.SendPlainText);
+            UsernameToken token = new UsernameToken(credid, credpassword, PasswordOption.SendPlainText);
 
             // Set the token onto the proxy
             serviceProxy.SetClientCredential(token);
