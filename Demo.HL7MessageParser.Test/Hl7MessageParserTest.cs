@@ -28,13 +28,13 @@ namespace Demo.HL7MessageParser.Test
         [TestMethod]
         public void Test_Patient_Succeed()
         {
-            var expectPatient = new PatientVisit();
+            var expectPatient = "ABC";
 
             var caseNo = "";
 
-            var actualPatientVisit = hl7Parser.GetPatient(caseNo);
+            var actualPatientVisit = hl7Parser.GetAccountNumberAfterPatientVisit(caseNo);
 
-            Assert.AreEqual<PatientVisit>(expectPatient, actualPatientVisit);
+            Assert.AreEqual<string>(expectPatient, actualPatientVisit);
         }
 
         [TestMethod]
@@ -50,7 +50,6 @@ namespace Demo.HL7MessageParser.Test
             Assert.AreEqual<int>(expectObj.Count, actualObj.Count());
             Assert.AreEqual<IEnumerable<Order>>(expectObj, actualObj);
         }
-
 
         [TestMethod]
         public void Test_Allergies_Succeed()
@@ -69,8 +68,6 @@ namespace Demo.HL7MessageParser.Test
             Assert.AreEqual<int>(expectObj.Count, actualObj.Count());
             Assert.AreEqual<IEnumerable<PatientAllergyObj>>(expectObj, actualObj);
         }
-
-
 
         [TestCleanup]
         public void CleanUp()

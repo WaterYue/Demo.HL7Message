@@ -39,7 +39,6 @@
             this.txtClientSecret = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tcBottom = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.scintillaReqMP = new ScintillaNET.Scintilla();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.scintillaRes = new ScintillaNET.Scintilla();
@@ -48,7 +47,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tcBottom.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,7 +167,6 @@
             // 
             // tcBottom
             // 
-            this.tcBottom.Controls.Add(this.tabPage3);
             this.tcBottom.Controls.Add(this.tabPage4);
             this.tcBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcBottom.Location = new System.Drawing.Point(0, 0);
@@ -178,18 +175,6 @@
             this.tcBottom.SelectedIndex = 0;
             this.tcBottom.Size = new System.Drawing.Size(691, 719);
             this.tcBottom.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.scintillaReqMP);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(683, 693);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "Request JSON";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // scintillaReqMP
             // 
@@ -236,7 +221,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tcBottom.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -255,7 +239,6 @@
         private System.Windows.Forms.TextBox txtClientSecret;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tcBottom;
-        private System.Windows.Forms.TabPage tabPage3;
         private ScintillaNET.Scintilla scintillaReqMP;
         private System.Windows.Forms.TabPage tabPage4;
         private ScintillaNET.Scintilla scintillaRes;

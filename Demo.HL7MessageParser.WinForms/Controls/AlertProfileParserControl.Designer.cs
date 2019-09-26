@@ -40,7 +40,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.scintilla3 = new ScintillaNET.Scintilla();
             this.tcMain = new System.Windows.Forms.TabControl();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.scintillaInputParam = new ScintillaNET.Scintilla();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.scintillaRes = new ScintillaNET.Scintilla();
@@ -51,7 +50,6 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tcMain.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -184,7 +182,6 @@
             // 
             // tcMain
             // 
-            this.tcMain.Controls.Add(this.tabPage5);
             this.tcMain.Controls.Add(this.tabPage6);
             this.tcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMain.Location = new System.Drawing.Point(0, 0);
@@ -193,18 +190,6 @@
             this.tcMain.SelectedIndex = 0;
             this.tcMain.Size = new System.Drawing.Size(621, 826);
             this.tcMain.TabIndex = 0;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.scintillaInputParam);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(613, 800);
-            this.tabPage5.TabIndex = 0;
-            this.tabPage5.Text = "Request JSON";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // scintillaInputParam
             // 
@@ -269,10 +254,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tcMain.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -280,7 +263,6 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private ScintillaNET.Scintilla scintilla3;
         private System.Windows.Forms.TabControl tcMain;
-        private System.Windows.Forms.TabPage tabPage5;
         private ScintillaNET.Scintilla scintillaInputParam;
         private System.Windows.Forms.TabPage tabPage6;
         private ScintillaNET.Scintilla scintillaRes;

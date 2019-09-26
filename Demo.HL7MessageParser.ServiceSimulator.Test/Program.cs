@@ -48,7 +48,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
             IHL7MessageParser hl7Parser = new HL7MessageParser_NTEC();
 
-            var pv = hl7Parser.GetPatient("HN170002520");
+            var pv = hl7Parser.GetAccountNumberAfterPatientVisit("HN170002520");
 
             var pr = hl7Parser.GetOrders("HN170002520");
 
