@@ -15,6 +15,7 @@ namespace Demo.RESTServcie
 
     public static class RestServiceExtensions
     {
+        
         public static void ThrowHttpResponseExceptions(this ApiController controller, HttpStatusCode httpStatusCode, string errorMessage)
         {
             throw new HttpResponseException(new HttpResponseMessage

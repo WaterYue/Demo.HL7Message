@@ -49,5 +49,28 @@ namespace Demo.HL7MessageParser
         }
     }
 
+    public class CallFasterWebProxy : IWebProxy
+    {
+        public ICredentials Credentials { get; set; }
 
+        public Uri GetProxy(Uri destination)
+        {
+            return destination;
+        }
+
+        public bool IsBypassed(Uri host)
+        {
+            // if return true, service will be very slow.
+            return false;
+        }
+
+        private static CallFasterWebProxy defaultProxy = new CallFasterWebProxy();
+        public static CallFasterWebProxy Default
+        {
+            get
+            {
+                return defaultProxy;
+            }
+        }
+    }
 }

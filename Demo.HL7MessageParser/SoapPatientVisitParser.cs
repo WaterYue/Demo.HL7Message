@@ -78,7 +78,7 @@ namespace Demo.HL7MessageParser
             //invoke the HelloMyFriend web service method
             try
             {
-                var res = serviceProxy.searchHKPMIPatientByCaseNo(new WebProxy.SearchHKPMIPatientByCaseNo
+                var res = serviceProxy.searchHKPMIPatientByCaseNo(new WebProxy.searchHKPMIPatientByCaseNo
                 {
                     caseNo = caseNumber,
                     hospitalCode = pathospcode

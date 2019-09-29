@@ -12,6 +12,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using Microsoft.Web.Services3;
 using Microsoft.Web.Services3.Messaging;
+using System.Text;
 
 namespace Demo.SoapServcie
 {
@@ -28,13 +29,16 @@ namespace Demo.SoapServcie
         [WebMethod]
         [SoapHeader("WorkContext", Direction = SoapHeaderDirection.InOut)]
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
-        public SearchHKPMIPatientByCaseNoResponse searchHKPMIPatientByCaseNo(SearchHKPMIPatientByCaseNo caseNo)
+        public SearchHKPMIPatientByCaseNoResponse searchHKPMIPatientByCaseNo(SearchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo)
         {
+            HttpContext.Current.Request.InputStream.Position = 0;
+            var jsonString = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
+
             WorkContext = new WorkContextSoapHeader();
 
             return new SearchHKPMIPatientByCaseNoResponse
             {
-                PatientDemoEnquiry = SoapParserHelper.LoadSamplePatientDemoEnquiry(caseNo.CaseNo)
+                PatientDemoEnquiry = SoapParserHelper.LoadSamplePatientDemoEnquiry(searchHKPMIPatientByCaseNo.CaseNo)
             };
         }
     }

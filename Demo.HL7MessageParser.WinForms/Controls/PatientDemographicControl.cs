@@ -61,6 +61,8 @@ namespace Demo.HL7MessageParser.WinForms
             string credid = txtUserName.Text.Trim();
             string credpassword = txtPassword.Text.Trim();
             string url = txtURL.Text.Trim();
+            var hospitalCode = txtHospitalCode.Text.Trim();
+            var caseNo = cbxCaseNumber.Text.Trim();
 
             //init web service proxy 
             PatientService serviceProxy = new PatientService(txtURL.Text.Trim());
@@ -78,10 +80,10 @@ namespace Demo.HL7MessageParser.WinForms
             //invoke the HelloMyFriend web service method
             try
             {
-                var res = serviceProxy.searchHKPMIPatientByCaseNo(new SearchHKPMIPatientByCaseNo
+                var res = serviceProxy.searchHKPMIPatientByCaseNo(new searchHKPMIPatientByCaseNo
                 {
-                    caseNo = "HN03191100Y",
-                    hospitalCode = "HV"
+                    caseNo = caseNo,
+                    hospitalCode = hospitalCode
                 });
 
                 var resStr = XmlHelper.XmlSerializeToString(res);

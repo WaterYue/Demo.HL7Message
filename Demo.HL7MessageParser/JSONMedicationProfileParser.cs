@@ -37,6 +37,9 @@ namespace Demo.HL7MessageParser
         public MedicationProfileResult GetMedicationProfile(string caseNumber)
         {
             var client = new RestClient(restUri);
+            //The first call is so slower
+            //https://stackoverflow.com/questions/12259964/why-is-my-initial-call-in-restsharp-really-slow-but-others-after-are-very-fast
+            client.Proxy = CallFasterWebProxy.Default;
 
             var request = new RestRequest(string.Format("medProfiles/{0}", caseNumber), Method.GET);
             request.AddHeader("client_secret", client_secret);

@@ -9,6 +9,7 @@ using Microsoft.Web.Services3.Design;
 using Microsoft.Web.Services3.Security;
 using Microsoft.Web.Services3.Security.Tokens;
 using Demo.HL7MessageParser.Common;
+using System.Net;
 
 namespace Demo.SoapServcie
 {
@@ -46,24 +47,20 @@ namespace Demo.SoapServcie
             //    if you are implementing per-server security
             // 2) get the password from the database or XML file for the given user name
 
-            bool Valid = (("pas-appt-ws-user" == token.Username)
-                && ("pas-appt-ws-user-pwd" == token.Password));
-
-            if (Valid)
+            if (ValidateToken(token))
             {
                 return token.Password;
             }
-            else
-            {
-                throw new AMException(System.Net.HttpStatusCode.InternalServerError, "Unknown exception, internal system processing error.", new Exception("UserNmae or Password is invalid!"));
-            }
 
+            var errorMessage = "Unknown exception, internal system processing error.";
+            var innerEx = new Exception("UserNmae or Password is invalid!");
 
-            // for example purposes we just return a reversed value of username
-            //char[] ch = username.ToCharArray();
-            //Array.Reverse(ch);
-            //return new String(ch);
+            throw new AMException(HttpStatusCode.InternalServerError, errorMessage, innerEx);
         }
 
+        private bool ValidateToken(UsernameToken token)
+        {
+            return (("pas-appt-ws-user" == token.Username) && ("pas-appt-ws-user-pwd" == token.Password));
+        }
     }
 }

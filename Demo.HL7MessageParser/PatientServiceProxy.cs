@@ -61,7 +61,7 @@ namespace Demo.HL7MessageParser.WebProxy
         [System.Web.Services.Protocols.SoapHeaderAttribute("WorkContext", Direction = System.Web.Services.Protocols.SoapHeaderDirection.InOut)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("searchHKPMIPatientByCaseNoResponse", Namespace = "http://webservice.pas.ha.org.hk/", IsNullable = true)]
-        public SearchHKPMIPatientByCaseNoResponse searchHKPMIPatientByCaseNo([System.Xml.Serialization.XmlElementAttribute("searchHKPMIPatientByCaseNo", Namespace = "http://webservice.pas.ha.org.hk/", IsNullable = true)] SearchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo1)
+        public SearchHKPMIPatientByCaseNoResponse searchHKPMIPatientByCaseNo([System.Xml.Serialization.XmlElementAttribute("searchHKPMIPatientByCaseNo", Namespace = "http://webservice.pas.ha.org.hk/", IsNullable = true)] searchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo1)
         {
             object[] results = this.Invoke("searchHKPMIPatientByCaseNo", new object[] {
                     searchHKPMIPatientByCaseNo1});
@@ -69,7 +69,7 @@ namespace Demo.HL7MessageParser.WebProxy
         }
 
         /// <remarks/>
-        public System.IAsyncResult BeginsearchHKPMIPatientByCaseNo(SearchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo1, System.AsyncCallback callback, object asyncState)
+        public System.IAsyncResult BeginsearchHKPMIPatientByCaseNo(searchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo1, System.AsyncCallback callback, object asyncState)
         {
             return this.BeginInvoke("searchHKPMIPatientByCaseNo", new object[] {
                     searchHKPMIPatientByCaseNo1}, callback, asyncState);
@@ -83,13 +83,13 @@ namespace Demo.HL7MessageParser.WebProxy
         }
 
         /// <remarks/>
-        public void searchHKPMIPatientByCaseNoAsync(SearchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo1)
+        public void searchHKPMIPatientByCaseNoAsync(searchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo1)
         {
             this.searchHKPMIPatientByCaseNoAsync(searchHKPMIPatientByCaseNo1, null);
         }
 
         /// <remarks/>
-        public void searchHKPMIPatientByCaseNoAsync(SearchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo1, object userState)
+        public void searchHKPMIPatientByCaseNoAsync(searchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo1, object userState)
         {
             if ((this.searchHKPMIPatientByCaseNoOperationCompleted == null))
             {
@@ -781,8 +781,8 @@ namespace Demo.HL7MessageParser.WebProxy
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://webservice.pas.ha.org.hk/")]
-    public partial class SearchHKPMIPatientByCaseNo
+   // [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://webservice.pas.ha.org.hk/")]
+    public partial class searchHKPMIPatientByCaseNo
     {
 
         private string hospitalCodeField;
@@ -790,6 +790,7 @@ namespace Demo.HL7MessageParser.WebProxy
         private string caseNoField;
 
         /// <remarks/>
+        [XmlElement(ElementName = "hospitalCode",Namespace ="")]
         public string hospitalCode
         {
             get
@@ -803,6 +804,7 @@ namespace Demo.HL7MessageParser.WebProxy
         }
 
         /// <remarks/>
+        [XmlElement(ElementName = "caseNo", Namespace = "")]
         public string caseNo
         {
             get
@@ -813,6 +815,23 @@ namespace Demo.HL7MessageParser.WebProxy
             {
                 this.caseNoField = value;
             }
+        }
+
+        private XmlSerializerNamespaces xmlns;
+
+        [XmlNamespaceDeclarations]
+        public XmlSerializerNamespaces Xmlns
+        {
+            get
+            {
+                if (xmlns == null)
+                {
+                    xmlns = new XmlSerializerNamespaces();
+                    xmlns.Add("web", "http://webservice.pas.ha.org.hk/");
+                }
+                return xmlns;
+            }
+            set { xmlns = value; }
         }
     }
 

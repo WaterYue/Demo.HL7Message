@@ -79,7 +79,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             //invoke the HelloMyFriend web service method
             try
             {
-                var res = serviceProxy.searchHKPMIPatientByCaseNo(new WebProxy.SearchHKPMIPatientByCaseNo
+                var res = serviceProxy.searchHKPMIPatientByCaseNo(new WebProxy.searchHKPMIPatientByCaseNo
                 {
                     caseNo = "HN03191100Y",
                     hospitalCode = "HV"
