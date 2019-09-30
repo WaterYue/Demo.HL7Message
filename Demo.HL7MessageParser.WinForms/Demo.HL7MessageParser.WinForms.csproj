@@ -84,6 +84,7 @@
     <Compile Include="Controls\PatientDemographicControl.Designer.cs">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="HL7MessageParserFormTest.cs">
       <SubType>Form</SubType>
     </Compile>

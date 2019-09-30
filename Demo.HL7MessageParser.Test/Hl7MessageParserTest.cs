@@ -19,22 +19,22 @@ namespace Demo.HL7MessageParser.Test
         {
             hl7Parser = new HL7MessageParser_NTEC
                 (
-                new FakeSoapPatientVisitParser(),
-                new FakeJSONMedicationProfileParser(),
-                new FakeJsonIAlertProfileParser()
+                    new FakeSoapPatientVisitParser(),
+                    new FakeJSONMedicationProfileParser(),
+                    new FakeJsonIAlertProfileParser()
                 );
         }
 
         [TestMethod]
         public void Test_Patient_Succeed()
         {
-            var expectPatient = "ABC";
+            var expectPatient = new PatientVisit { };
 
             var caseNo = "";
 
-            var actualPatientVisit = hl7Parser.GetAccountNumberAfterPatientVisit(caseNo);
+            var actualPatientVisit = hl7Parser.GetPatient(caseNo);
 
-            Assert.AreEqual<string>(expectPatient, actualPatientVisit);
+            Assert.AreEqual<PatientVisit>(expectPatient, actualPatientVisit);
         }
 
         [TestMethod]

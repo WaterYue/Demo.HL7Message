@@ -31,7 +31,8 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void InitializeMP()
         {
-            txtURL.Text = @"http://localhost:3181/pms-asa/1/";
+            txtURL.Text = Global.RestUri;
+
             txtClientSecret.Text = "CLIENT_SECRET";
             txtPaHospCode.Text = "PATHOSPCODE";
 

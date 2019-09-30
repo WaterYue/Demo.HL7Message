@@ -5,11 +5,28 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "searchHKPMIPatientByCaseNo")]
     public class SearchHKPMIPatientByCaseNo
     {
-        [XmlElement(ElementName = "hospitalCode")]
+        [XmlElement(ElementName = "hospitalCode", Namespace = "")]
         public string HospitalCode { get; set; }
 
-        [XmlElement(ElementName = "caseNo")]
+        [XmlElement(ElementName = "caseNo",Namespace ="")]
         public string CaseNo { get; set; }
+
+        private XmlSerializerNamespaces xmlns;
+
+        [XmlNamespaceDeclarations]
+        public XmlSerializerNamespaces Xmlns
+        {
+            get
+            {
+                if (xmlns == null)
+                {
+                    xmlns = new XmlSerializerNamespaces();
+                    xmlns.Add("web", "http://webservice.pas.ha.org.hk/");
+                }
+                return xmlns;
+            }
+            set { xmlns = value; }
+        }
     }
 
     [XmlRoot(ElementName = "searchHKPMIPatientByCaseNoResponse")]

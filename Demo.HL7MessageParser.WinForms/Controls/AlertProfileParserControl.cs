@@ -19,7 +19,7 @@ namespace Demo.HL7MessageParser.WinForms
 {
     public partial class AlertProfileParserControl : UserControl
     {
-        private  List<string> hkIds = new List<string>();
+        private List<string> hkIds = new List<string>();
 
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -142,7 +142,8 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void InitializeAP()
         {
-            txtURL.Text = @"http://localhost:3181/pms-asa/1/";
+            txtURL.Text = Global.RestUri;
+
             txtClientSecret.Text = "CLIENT_SECRET";
             txtPaHospCode.Text = "PATHOSPCODE";
             txtAccessCode.Text = "YAYRoZAJoaYD5qYZbwjQsTGI";

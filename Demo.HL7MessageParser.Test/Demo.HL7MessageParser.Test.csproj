@@ -57,6 +57,7 @@
     <Compile Include="Fake\FakeSoapPatientVisitParser.cs" />
     <Compile Include="Fake\FakeJSONMedicationProfileParser.cs" />
     <Compile Include="Fake\FakeObj.cs" />
+    <Compile Include="SoapPatientVisitParserTest.cs" />
     <Compile Include="JSONIAlertProfileParserTest.cs" />
     <Compile Include="JSONMedicationProfileParserTest.cs" />
     <Compile Include="Hl7MessageParserTest.cs" />

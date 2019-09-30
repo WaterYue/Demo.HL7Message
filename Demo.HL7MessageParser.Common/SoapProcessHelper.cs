@@ -14,10 +14,23 @@ namespace Demo.HL7MessageParser.Common
         private const string CONST_XNAME_BODY = "Body";
         private const string CONST_XNAME_RESPONSE = "searchHKPMIPatientByCaseNoResponse";
         private const string CONST_XNAME_PatientDemoEnquiryResult = "PatientDemoEnquiryResult";
+        static List<string> cases = new List<string>
+        {
+            "HN03191100Y",
+            "HN17000256S",
+            "HN18001140Y",
+            "HN170002512",
+            "HN170002520",
+        };
 
         public static PatientDemoEnquiry LoadSamplePatientDemoEnquiry(string caseNumber)
         {
-            var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data/Soap_Patient.xml");
+            if (!cases.Contains(caseNumber))
+            {
+                return null ;
+            }
+
+            var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/PE/{0}.xml", caseNumber));
 
             var doc = XElement.Load(file);
 

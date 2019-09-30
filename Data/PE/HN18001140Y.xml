@@ -1,0 +1,50 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Header>
+        <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdqADF3ZWJsb2dpYy5hcHAuUEFTX1BBU19QQVRJRU5UX0VOUVVJUllfV1NTXzJfMF8xMl82AAAA1gAAACN3ZWJsb2dpYy53b3JrYXJlYS5TdHJpbmdXb3JrQ29udGV4dAAIMi4wLjEyLjYAAA==</work:WorkContext>
+    </S:Header>
+    <S:Body>
+        <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+                <caseList>
+                    <case>
+                        <admissionDatetime>20180913 11:28</admissionDatetime>
+                        <hospitalCode>VH</hospitalCode>
+                        <number>HN18001140Y</number>
+                        <patientType>PIP</patientType>
+                        <sourceCode>VH</sourceCode>
+                        <sourceIndicator>0</sourceIndicator>
+                        <specialty>MED</specialty>
+                        <type>I</type>
+                        <wardClass>3</wardClass>
+                        <wardCode>NI01</wardCode>
+                    </case>
+                </caseList>
+                <patient>
+                    <address>
+                        <building>UNKNOWN</building>
+                        <districtCode>UNK</districtCode>
+                        <fullEnglishAddress>UNKNOWN,  UNKNOWN</fullEnglishAddress>
+                        <record_id>0</record_id>
+                    </address>
+                    <bodyCategory></bodyCategory>
+                    <CCCode1>37691</CCCode1>
+                    <CCCode2>38431</CCCode2>
+                    <CCCode3>32371</CCCode3>
+                    <chineseName>王瑞清</chineseName>
+                    <confidentialFlag>N</confidentialFlag>
+                    <DOB>19700101</DOB>
+                    <exactDOBFlag>Y</exactDOBFlag>
+                    <HKID>I0021789</HKID>
+                    <hkicSymbol>A</hkicSymbol>
+                    <key>92628517</key>
+                    <lastDocumentType>ID</lastDocumentType>
+                    <lastPayCode>PIP</lastPayCode>
+                    <maritalStatus>U</maritalStatus>
+                    <name>PATIENT, 2178</name>
+                    <race>UN</race>
+                    <sex>F</sex>
+                </patient>
+            </PatientDemoEnquiryResult>
+        </ns2:searchHKPMIPatientByCaseNoResponse>
+    </S:Body>
+</S:Envelope>

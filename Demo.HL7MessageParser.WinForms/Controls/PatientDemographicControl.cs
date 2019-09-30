@@ -36,7 +36,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void InitializePE()
         {
-            txtURL.Text = @"http://localhost:8096/PatientService.asmx";
+            txtURL.Text = Global.SoapUri;
 
             txtUserName.Text = "pas-appt-ws-user";
 
@@ -49,6 +49,9 @@ namespace Demo.HL7MessageParser.WinForms
         private void btnPreview_Click(object sender, EventArgs e)
         {
             string SOAPObj = BuildRequestSoap(chxEnableWSAddress.Checked);
+
+            tcBottom.SelectedIndex = 0;
+            scintillaReq.Focus();
 
             scintillaReq.Text = XmlHelper.FormatXML(SOAPObj);
 

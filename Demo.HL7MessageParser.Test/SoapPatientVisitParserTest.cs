@@ -12,30 +12,32 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Demo.HL7MessageParser.Test
 {
     [TestClass]
-    public class JSONMedicationProfileParserTest
+    public class SoapPatientVisitParserTest
     {
-        IMedicationProfileParser parser;
-        string restUri = "http://localhost:3181/pms-asa/1/";
+        IPatientVisitParser parser;
+
+        string Uri = "http://localhost:8096/PatientService.asmx";
         [TestInitialize]
         public void Initialize()
         {
-            parser = new JSONMedicationProfileParser();
+            parser = new SoapPatientVisitParser();
         }
 
         [TestMethod]
-        public void Test_GetMedicationProfile_Successful()
+        public void Test_GetPatientDemographic_Successful()
         {
             var caseNumber = "HN170002512";
 
-            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("Data/MP/{0}.json", caseNumber));
+            var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("Data/PE/{0}.json", caseNumber));
 
-            var expectedProfile = JsonHelper.JsonToObjectFromFile<MedicationProfileResult>(fileName);
+            var expectedProfile = JsonHelper.JsonToObjectFromFile<PatientDemoEnquiry>(fileName);
 
             Assert.IsNotNull(expectedProfile);
+
             var expectedProfileJSONStr = JsonHelper.ToJson(expectedProfile);
 
 
-            var actualProfile = parser.GetMedicationProfile(caseNumber);
+            var actualProfile = parser.GetPatientResult(caseNumber);
             Assert.IsNotNull(expectedProfile);
 
             var actualProfileJSONStr = JsonHelper.ToJson(actualProfile);
@@ -48,19 +50,16 @@ namespace Demo.HL7MessageParser.Test
         {
             var caseNumber = "Invalid_CaseNumber";
 
-            var actualProfile = parser.GetMedicationProfile(caseNumber);
+            var actualProfile = parser.GetPatientResult(caseNumber);
 
             Assert.IsNotNull(actualProfile);
-            Assert.IsNull(actualProfile.MedProfileId);
-            Assert.IsNull(actualProfile.CaseNum);
-            Assert.IsNull(actualProfile.MedProfileMoItems);
         }
 
         [TestMethod]
         public void Test_GetMedicationProfile_Invalid_PATHOSPCODE()
         {
             var caseNumber = "Any_CaseNumber";
-            var localParser = new JSONMedicationProfileParser(restUri, "CLIENT_SECRET", "INVALID_PATHOSPCODE");
+            var localParser = new JSONMedicationProfileParser(Uri, "CLIENT_SECRET", "INVALID_PATHOSPCODE");
 
             var actualProfile = localParser.GetMedicationProfile(caseNumber);
 
@@ -70,20 +69,7 @@ namespace Demo.HL7MessageParser.Test
             Assert.IsNull(actualProfile.MedProfileMoItems);
         }
 
-        //[TestMethod]
-        //[ExpectedException(typeof(RestException), "invalid INVALID_CLIENT_SECRET value of client_secret!")]
-        //public void Test_GetMedicationProfile_Invalid_Client_Secret()
-        //{
-        //    var expectedProfile = new MedicationProfileResult();
-
-        //    var localParser = new JSONMedicationProfileParser(restUri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
-
-        //    var caseNumber = "INVALID_CLIENT_SECRET";
-
-        //    var actualProfile = localParser.GetMedicationProfile(caseNumber);
-
-        //    Assert.AreEqual<MedicationProfileResult>(expectedProfile, actualProfile);
-        //}
+       
 
         //https://www.nuget.org/packages/MSTestExtensions/4.0.0
         [TestMethod]
@@ -94,26 +80,12 @@ namespace Demo.HL7MessageParser.Test
             var errorMessage = "Unauthorized";
             var httpStatusCode = HttpStatusCode.Unauthorized;
 
-            var localParser = new JSONMedicationProfileParser(restUri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
+            var localParser = new JSONMedicationProfileParser(Uri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
 
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
             Assert.AreEqual(actualException.Message, errorMessage);
-        }
-
-        [TestMethod]
-        public void Test_GetMedicationProfile_Service_NotFound()
-        {
-            var caseNumber = "Any_CaseNumber";
-
-            var httpStatusCode = HttpStatusCode.NotFound;
-
-            // var localParser = new JSONMedicationProfileParser("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
-            var localParser = new JSONMedicationProfileParser("https://en.wikipedia.org/wiki/Main_Page/", "CLIENT_SECRET", "PATHOSPCODE");
-            var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
-
-            Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
         }
 
         [TestMethod]
@@ -129,7 +101,6 @@ namespace Demo.HL7MessageParser.Test
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);
         }
-
 
         [TestCleanup]
         public void CleanUp()
