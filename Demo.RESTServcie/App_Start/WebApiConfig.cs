@@ -21,7 +21,6 @@ namespace Demo.RESTServcie
             var xml = GlobalConfiguration.Configuration.Formatters.XmlFormatter;
             // Use XmlSerializer for instances of type "Product":
             xml.SetSerializer<AlertInputParm>(new XmlSerializer(typeof(AlertInputParm)));
-            xml.SetSerializer<Abc>(new XmlSerializer(typeof(Abc)));
 
 
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
@@ -43,14 +42,4 @@ namespace Demo.RESTServcie
             config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
         }
     }
-
-    [XmlRoot(ElementName = "abc")]
-    public class Abc
-    {
-        [XmlElement(ElementName = "name")]
-        public string Name { get; set; }
-        [XmlElement(ElementName = "age")]
-        public int Age { get; set; }
-    }
-
 }

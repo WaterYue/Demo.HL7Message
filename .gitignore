@@ -53,3 +53,7 @@
 /Demo.RESTServcie/obj/Release
 /Demo.HL7MessageParser.WinForms/bin/Debug
 /Demo.HL7MessageParser.WinForms/obj/Debug
+/Demo.HL7MessageParser.WinForms/obj/Release
+/Demo.HL7MessageParser.DTOs/obj/Release
+/Demo.HL7MessageParser.Common/bin/Release
+/Demo.HL7MessageParser/obj/Release
