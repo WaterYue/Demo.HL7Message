@@ -1,6 +1,7 @@
 ﻿using Demo.HL7MessageParser.Common;
 using Demo.HL7MessageParser.Models;
 using RestSharp;
+using RestSharp.Serializers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,11 +44,15 @@ namespace Demo.HL7MessageParser
             var client = new RestClient(restUri);
 
             var request = new RestRequest("alertProfile", Method.POST);
+           // request.AddHeader("Content-Type", "application/xml");
+
             request.AddHeader("client_secret", client_secret);
             request.AddHeader("client_id", client_id);
             request.AddHeader("pathospcode", pathospcode);
-
-            request.AddJsonBody(alertinput);
+           
+            request.RequestFormat = DataFormat.Xml;
+            request.XmlSerializer = new DotNetXmlSerializer();
+            request.AddBody(alertinput);
 
             var response = client.Execute<AlertProfileResult>(request);
 
@@ -58,7 +63,21 @@ namespace Demo.HL7MessageParser
 
             var result = response.Data;
 
+            if (IsInvalidResponseResult(result))
+            {
+                var errorMsg = string.Format("Invalid Request:{0}-{1}", result.ErrorMessage[0].MsgCode, result.ErrorMessage[0].MsgText);
+
+                throw new AMException(HttpStatusCode.Unauthorized, errorMsg, null);
+            }
+
             return result;
+        }
+
+        private static bool IsInvalidResponseResult(AlertProfileResult result)
+        {
+            return result.ErrorMessage != null
+                && result.ErrorMessage.Count > 0
+                && string.Compare(result.ErrorMessage[0].MsgCode, string.Empty) != 0;
         }
     }
 }

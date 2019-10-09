@@ -25,8 +25,6 @@ namespace Demo.RESTServcie.Controllers
             "INVALID_ACCESSCODE"
         };
 
-        const string LOCAL_PATH_Format = "bin/Data/MP/{0}.json";
-
         [Route("")]
         public IEnumerable<string> Get()
         {

@@ -15,11 +15,10 @@ namespace Demo.RESTServcie
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
+            //// Web API configuration and services
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
 
             var xml = GlobalConfiguration.Configuration.Formatters.XmlFormatter;
-            // Use XmlSerializer for instances of type "Product":
             xml.SetSerializer<AlertInputParm>(new XmlSerializer(typeof(AlertInputParm)));
 
 

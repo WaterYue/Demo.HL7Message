@@ -70,11 +70,6 @@ namespace Demo.HL7MessageParser.Models
 
         [XmlElement(ElementName = "credentials")]
         public Credentials Credentials { get; set; }
-
-        //[XmlElement(ElementName = "name")]
-        //public string Name { get; set; }
-        //[XmlElement(ElementName = "age")]
-        //public int Age { get; set; }
     }
 
 }
