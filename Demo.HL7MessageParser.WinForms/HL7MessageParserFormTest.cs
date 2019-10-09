@@ -22,11 +22,13 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            if (backgroundWorker1.IsBusy != true)
-            {
-                // Start the asynchronous operation.
-                backgroundWorker1.RunWorkerAsync(cbxCaseNumber.Text.Trim());
-            }
+            // Start the asynchronous operation.
+            backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            backgroundWorker1.RunWorkerAsync(cbxCaseNumber.Text.Trim());
+
+            loadForm = new Loading { Width = this.Width, Height = this.Height };
+
+            loadForm.ShowDialog();
         }
 
         private void HL7MessageParserFormTest_Load(object sender, EventArgs e)
@@ -37,15 +39,6 @@ namespace Demo.HL7MessageParser.WinForms
         Loading loadForm;
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-
-            BeginInvoke((MethodInvoker)(() =>
-            {
-                loadForm = new Loading();
-                loadForm.Width = this.Width;
-                loadForm.Height = this.Height;
-                loadForm.ShowDialog();
-            }));
-
             EventResult result = new EventResult();
 
             var caseNumber = e.Argument as string;
@@ -75,16 +68,17 @@ namespace Demo.HL7MessageParser.WinForms
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             MessageBox.Show("Completing");
-            BeginInvoke((MethodInvoker)(() =>
+
+            if (loadForm!=null)
             {
                 loadForm.Close();
-            }));
+            }
+
             //如果用户取消了当前操作就关闭窗口。
             if (e.Cancelled)
             {
                 this.Close();
             }
-
 
             //计算过程中的异常会被抓住，在这里可以进行处理。
             if (e.Error != null)

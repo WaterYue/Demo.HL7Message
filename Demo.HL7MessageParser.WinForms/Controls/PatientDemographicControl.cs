@@ -48,14 +48,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            string SOAPObj = BuildRequestSoap(chxEnableWSAddress.Checked);
-
-            tcBottom.SelectedIndex = 0;
-            scintillaReq.Focus();
-
-            scintillaReq.Text = XmlHelper.FormatXML(SOAPObj);
-
-            scintillaReq.FormatStyle(StyleType.Xml);
+          
         }
 
         private void btnCallByProxy_Click(object sender, EventArgs e)
@@ -174,6 +167,13 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void btnCallByWebReq_Click(object sender, EventArgs e)
         {
+            if (!chxEnableWSAddress.Checked)
+            {
+                MessageBox.Show("You must check 'WS-Address Header' before CallByWebReq");
+
+                return;
+            }
+
             string SOAPObj = BuildRequestSoap(chxEnableWSAddress.Checked);
             string url = txtURL.Text.Trim();
             try
@@ -212,6 +212,28 @@ namespace Demo.HL7MessageParser.WinForms
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cbxCaseNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GenerateReqXml();
+        }
+
+        private void GenerateReqXml()
+        {
+            string SOAPObj = BuildRequestSoap(chxEnableWSAddress.Checked);
+
+            tcBottom.SelectedIndex = 0;
+            scintillaReq.Focus();
+
+            scintillaReq.Text = XmlHelper.FormatXML(SOAPObj);
+
+            scintillaReq.FormatStyle(StyleType.Xml);
+        }
+
+        private void chxEnableWSAddress_CheckedChanged(object sender, EventArgs e)
+        {
+            GenerateReqXml();
         }
     }
 }

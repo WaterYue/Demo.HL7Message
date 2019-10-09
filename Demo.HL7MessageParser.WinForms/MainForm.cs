@@ -1,16 +1,11 @@
-﻿using Demo.HL7MessageParser.Common;
-using Demo.HL7MessageParser.Models;
-using RestSharp;
-using ScintillaNET;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Demo.HL7MessageParser.WinForms
@@ -20,11 +15,12 @@ namespace Demo.HL7MessageParser.WinForms
         public MainForm()
         {
             InitializeComponent();
-
             //if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
             //{
             //    tcMain.TabPages[0].Controls.Add(new MedicationProfileControl { Dock = DockStyle.Fill });
             //}
+
+            Global.Initialize();
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -42,13 +38,21 @@ namespace Demo.HL7MessageParser.WinForms
 
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-            tpMedicationProfile.Controls.Add(new MedicationProfileControl { Dock = DockStyle.Fill });
+            TabControl tc = new TabControl { Dock = DockStyle.Fill };
 
-            tpAlertProfile.Controls.Add(new AlertProfileParserControl { Dock = DockStyle.Fill });
+            tc.TabPages.Add(new TabPage { Name = "tbPatientDemographic", Text = "PatientDemographic" });
+            tc.TabPages["tbPatientDemographic"].Controls.Add(new PatientDemographicControl { Dock = DockStyle.Fill });
 
-            tpPatientDemographic.Controls.Add(new PatientDemographicControl { Dock = DockStyle.Fill });
+            tc.TabPages.Add(new TabPage { Name = "tbMedicationProfile", Text = "MedicationProfile" });
+            tc.TabPages["tbMedicationProfile"].Controls.Add(new MedicationProfileControl { Dock = DockStyle.Fill });
+
+            tc.TabPages.Add(new TabPage { Name = "tbAlertProfile", Text = "AlertProfileControl" });
+            tc.TabPages["tbAlertProfile"].Controls.Add(new AlertProfileParserControl { Dock = DockStyle.Fill });
+
+            Controls.Add(tc);
         }
     }
 }

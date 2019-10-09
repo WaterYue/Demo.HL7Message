@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Demo.HL7MessageParser.WinForms</RootNamespace>
     <AssemblyName>Demo.HL7MessageParser.WinForms</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -91,11 +91,11 @@
     <Compile Include="HL7MessageParserFormTest.Designer.cs">
       <DependentUpon>HL7MessageParserFormTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lexers\CSharpLexerStyle.cs" />
-    <Compile Include="Lexers\ILexerStyle.cs" />
-    <Compile Include="Lexers\JsonLexerStyle.cs" />
-    <Compile Include="Lexers\LexerStyleHelper.cs" />
-    <Compile Include="Lexers\XmlLexerStyle.cs" />
+    <Compile Include="Data\Lexers\CSharpLexerStyle.cs" />
+    <Compile Include="Data\Lexers\ILexerStyle.cs" />
+    <Compile Include="Data\Lexers\JsonLexerStyle.cs" />
+    <Compile Include="Data\Lexers\LexerStyleHelper.cs" />
+    <Compile Include="Data\Lexers\XmlLexerStyle.cs" />
     <Compile Include="LoadDataHelper.cs" />
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>

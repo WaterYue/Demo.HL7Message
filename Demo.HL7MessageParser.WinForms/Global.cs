@@ -13,7 +13,7 @@ namespace Demo.HL7MessageParser.WinForms
 
         public static string SoapUri { get; set; }
 
-        static Global()
+        public static void Initialize()
         {
             RestUri = ConfigurationManager.AppSettings["RestUri"].ToString();
 

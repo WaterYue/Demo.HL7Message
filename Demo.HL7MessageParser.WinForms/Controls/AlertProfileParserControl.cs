@@ -40,9 +40,12 @@ namespace Demo.HL7MessageParser.WinForms
             var hkId = cbxHKId.Text.Trim();
             if (!string.IsNullOrEmpty(hkId))
             {
-                scintilla3.Text = XmlHelper.FormatXML(XmlFromFile(hkId));
+                scintillaReq.Focus();
 
-                scintilla3.FormatStyle(StyleType.Xml);
+                tcMain.SelectedIndex = 0;
+                scintillaReq.Text = XmlHelper.FormatXML(XmlFromFile(hkId));
+
+                scintillaReq.FormatStyle(StyleType.Xml);
             }
         }
         private void cbxHKId_TextChanged(object sender, EventArgs e)
@@ -78,7 +81,7 @@ namespace Demo.HL7MessageParser.WinForms
     </credentials>
 </alertInputParm>";
 
-                    scintilla3.Text = string.Format(str, hkId, txtAccessCode.Text.Trim());
+                    scintillaReq.Text = string.Format(str, hkId, txtAccessCode.Text.Trim());
                 }
             }
         }
@@ -136,7 +139,7 @@ namespace Demo.HL7MessageParser.WinForms
                 clientsecret = txtClientSecret.Text.Trim(),
                 accessCode = txtAccessCode.Text.Trim(),
                 pahospCode = txtPaHospCode.Text.Trim(),
-                xmlReq = scintilla3.Text.Trim()
+                xmlReq = scintillaReq.Text.Trim()
             });
         }
 
@@ -160,9 +163,9 @@ namespace Demo.HL7MessageParser.WinForms
             };
 
             cbxHKId.DataSource = hkIds;
-            scintilla3.FormatStyle(StyleType.Xml);
+            scintillaReq.FormatStyle(StyleType.Xml);
 
-            scintilla3.Text = @"<alertInputParm>
+            scintillaReq.Text = @"<alertInputParm>
     <patientInfo>
         <hkid>HKID_DEMO</hkid>
         <name>Bob</name>
