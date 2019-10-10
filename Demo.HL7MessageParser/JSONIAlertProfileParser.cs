@@ -42,17 +42,43 @@ namespace Demo.HL7MessageParser
         public AlertProfileResult GetAlertProfile(AlertInputParm alertinput)
         {
             var client = new RestClient(restUri);
-
             var request = new RestRequest("alertProfile", Method.POST);
-           // request.AddHeader("Content-Type", "application/xml");
-
             request.AddHeader("client_secret", client_secret);
             request.AddHeader("client_id", client_id);
             request.AddHeader("pathospcode", pathospcode);
-           
-            request.RequestFormat = DataFormat.Xml;
+
             request.XmlSerializer = new DotNetXmlSerializer();
-            request.AddBody(alertinput);
+            //      request.AddXmlBody(alertinput);
+
+            /*We must set the Content-Type is 'application/json' and with Xml request body to adjust the customer's interface:
+                    POST /pms-asa/1/alertProfile
+                    client_secret: G5nWL4fdPQp3XbWTm9qaQUbedsN4zMzVmn5CfeKxkwjteHGw6SreJJCS8gVD74RN
+                    client_id: dispCabinet
+                    pathospcode:
+                    content-type: application/json
+                    cache-control: no-cache
+                    accept: *//*
+                    host: pmssvc-corp-int-uat:26862
+                    accept-encoding: gzip, deflate
+                    content-length: 562
+
+                    <alertInputParm>
+                     <patientInfo>
+                     <hkid> I001362A</hkid>
+                     <name>PATIENT, 1362</name>
+                     </patientInfo>
+                     <userInfo>
+                     </userInfo>
+                     <sysInfo>
+                     </sysInfo>
+                     <credentials>
+                     <accessCode>YAYRoZAJoaYD5qYZbwjQsTGI</accessCode>
+                     </credentials>
+                     </alertInputParm>
+                   */
+
+            var xmlRequestBody = XmlHelper.XmlSerializeToString(alertinput);
+            request.AddParameter("application/json", xmlRequestBody, ParameterType.RequestBody);
 
             var response = client.Execute<AlertProfileResult>(request);
 

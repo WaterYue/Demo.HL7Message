@@ -132,7 +132,7 @@ namespace Demo.HL7MessageParser.WinForms
                 }, false);
 
             };
-
+            
             loadData.LoadDataAsync(new RestRequestParam
             {
                 url = txtURL.Text.Trim(),

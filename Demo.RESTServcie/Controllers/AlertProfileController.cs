@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Demo.RESTServcie.Controllers
@@ -44,7 +45,63 @@ namespace Demo.RESTServcie.Controllers
             return JsonFromFile(hkid);
         }
 
+
+        /*Accepting Raw Request Body Content with ASP.NET Web API
+         *https://weblog.west-wind.com/posts/2013/dec/13/accepting-raw-request-body-content-with-aspnet-web-api
+         */
         [Route("")]
+        public async Task<AlertProfileResult> PostAsync()
+        {
+            var contenttype=Request.Content.Headers.ContentType;
+
+            System.Diagnostics.Debug.WriteLine(Request.Content.Headers.ToString());
+
+            string result = await Request.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrWhiteSpace(result))
+            {
+                this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, "alertInputParm is null!");
+            }
+
+            AlertInputParm alertInputParm = null;
+            try
+            {
+                alertInputParm = XmlHelper.XmlDeserialize<AlertInputParm>(result);
+            }
+            catch
+            {
+                this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, "alertInputParm is null!");
+            }
+
+
+            if (alertInputParm == null)
+            {
+                this.ThrowHttpResponseExceptions(HttpStatusCode.BadRequest, "alertInputParm is null!");
+            }
+
+            ValidateRequestHeaders();
+
+            //invalid HKID
+            if (alertInputParm.PatientInfo == null
+                || string.IsNullOrEmpty(alertInputParm.PatientInfo.Hkid)
+                || alertInputParm.PatientInfo.Hkid.ToUpper().StartsWith("INVALID_HKID"))
+            {
+                return JsonFromFile("INVALID_HKID");
+            }
+            var tempHKID = alertInputParm.PatientInfo.Hkid.ToUpper();
+
+            if (HKIDs.Contains(tempHKID))
+            {
+                return JsonFromFile(tempHKID);
+            }
+            //invalid Patient info
+            else
+            {
+                return JsonFromFile("INVALID_PATIENT");
+            }
+        }
+
+        [Route("test")]
         public AlertProfileResult Post([FromBody]AlertInputParm alertInputParm)
         {
             if (alertInputParm == null)

@@ -14,9 +14,14 @@ namespace Demo.HL7MessageParser
         private Thread t = null;
         private Func<T, R> func;
 
-        public Action<R> Completed { get; set; }
-        public Action<Exception> Exceptioned { get; set; }
+        //public Action<R> Completed { get; set; }
+        //public Action<Exception> Exceptioned { get; set; }
 
+        //事件应该由事件发布者(这里是LoadDataThreadHelper)触发，而不应该由客户端(声明并使用LoadDataThreadHelper实例的地方)来触发
+        //而委托是可以由客户端(声明并使用LoadDataThreadHelper实例的地方)来触发的，从这点来说事件是对委托的一个很好的封装。
+        public event Action<R> Completed;
+        public event Action<Exception> Exceptioned;
+        
         public void Initialize(Func<T, R> func)
         {
             this.func = func;

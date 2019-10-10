@@ -42,6 +42,7 @@ namespace Demo.HL7MessageParser
             client.Proxy = CallFasterWebProxy.Default;
 
             var request = new RestRequest(string.Format("medProfiles/{0}", caseNumber), Method.GET);
+            request.AddHeader("Content-Type", "application/json");
             request.AddHeader("client_secret", client_secret);
             request.AddHeader("pathospcode", pathospcode);
 
