@@ -132,7 +132,7 @@ namespace Demo.HL7MessageParser.WinForms
                 }, false);
 
             };
-            
+
             loadData.LoadDataAsync(new RestRequestParam
             {
                 url = txtURL.Text.Trim(),
@@ -201,7 +201,7 @@ namespace Demo.HL7MessageParser.WinForms
 
                 return doc.ToString();
             }
-            catch (Exception ex)
+            catch
             {
                 var errorStr = string.Format("LoadXmlFromFile - {0}.xml failed!", hkId);
 

@@ -10,19 +10,32 @@ using Microsoft.Web.Services3.Security;
 using Microsoft.Web.Services3.Security.Tokens;
 using Demo.HL7MessageParser.Common;
 using System.Net;
+using System.Configuration;
 
 namespace Demo.SoapServcie
 {
     public class ServiceUsernameTokenManager : UsernameTokenManager
     {
 
+        protected static readonly string PARAM_CLIENT_SECRET = null;
+        protected static readonly string Token_Password = null;
+        protected static readonly string Token_Username = null;
+
         /// <summary>
         /// Constructs an instance of this security token manager.
         /// </summary>
-        public ServiceUsernameTokenManager()
+        static ServiceUsernameTokenManager()
         {
+            Token_Username = ConfigurationManager.AppSettings["Token_Username"];
+
+            Token_Password = ConfigurationManager.AppSettings["Token_Password"];
+
         }
 
+        public ServiceUsernameTokenManager()
+        {
+
+        }
         /// <summary>
         /// Constructs an instance of this security token manager.
         /// </summary>
@@ -39,8 +52,6 @@ namespace Demo.SoapServcie
         /// <returns>The password (or password equivalent) for the username</returns>
         protected override string AuthenticateToken(UsernameToken token)
         {
-            string username = token.Username;
-
             // it's up to you where you will get a password for some user
             // you may:
             // 1) get the password hash from web.config or system registry
@@ -60,7 +71,7 @@ namespace Demo.SoapServcie
 
         private bool ValidateToken(UsernameToken token)
         {
-            return (("pas-appt-ws-user" == token.Username) && ("pas-appt-ws-user-pwd" == token.Password));
+            return ((Token_Username == token.Username) && (Token_Password == token.Password));
         }
     }
 }

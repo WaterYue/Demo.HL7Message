@@ -29,7 +29,7 @@ namespace Demo.RESTServcie.Controllers
         [Route("")]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "AlertProfile1", "AlertProfile2" };
         }
 
         [Route("{hkid}")]
@@ -101,6 +101,7 @@ namespace Demo.RESTServcie.Controllers
             }
         }
 
+        [Obsolete]
         [Route("test")]
         public AlertProfileResult Post([FromBody]AlertInputParm alertInputParm)
         {
@@ -159,11 +160,11 @@ namespace Demo.RESTServcie.Controllers
              * client_id: dispCabinet
              * pathospcode:
              */
-            ValidateHeader_Value(HEADER_CLIENT_SECRET, "CLIENT_SECRET");
+            ValidateHeader_Value(HEADER_CLIENT_SECRET, PARAM_CLIENT_SECRET);
 
             //  ValidateHeader_Value(HEAER_CLIENT_ID, "CLIENT_ID");
 
-            ValidateHeader_Value(HEADER_PATHOSPCODE_VALUE, "PATHOSPCODE");
+            ValidateHeader_Value(HEADER_PATHOSPCODE, PARAM_PATHOSPCODE);
         }
     }
 }

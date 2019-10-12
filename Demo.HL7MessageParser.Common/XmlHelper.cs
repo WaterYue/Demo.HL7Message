@@ -174,11 +174,7 @@ namespace Demo.HL7MessageParser.Common
 
                         return result;
                     }
-                    catch (XmlException xmlEx)
-                    {
-                        return xml;
-                    }
-                    catch (Exception ex)
+                    catch
                     {
                         return xml;
                     }

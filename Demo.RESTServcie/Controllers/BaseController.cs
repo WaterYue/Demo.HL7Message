@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -10,8 +11,21 @@ namespace Demo.RESTServcie.Controllers
     public class BaseController : ApiController
     {
         protected const string HEADER_CLIENT_SECRET = "client_secret";
-        protected const string HEADER_PATHOSPCODE_VALUE = "patHospCode";
         protected const string HEAER_CLIENT_ID = "client_id";
+        protected const string HEADER_PATHOSPCODE = "patHospCode";
+
+        protected static readonly string PARAM_CLIENT_SECRET = null;
+        protected static readonly string PARAM_CLIENT_ID = null;
+        protected static readonly string PARAM_PATHOSPCODE = null;
+
+        static BaseController()
+        {
+            PARAM_CLIENT_SECRET = ConfigurationManager.AppSettings[HEADER_CLIENT_SECRET];
+
+            PARAM_CLIENT_ID = ConfigurationManager.AppSettings[HEAER_CLIENT_ID];
+
+            PARAM_PATHOSPCODE = ConfigurationManager.AppSettings[HEADER_PATHOSPCODE];
+        }
 
         protected string GetHeaderValue(string headerName)
         {

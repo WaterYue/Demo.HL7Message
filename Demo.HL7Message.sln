@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser", "Demo.HL7MessageParser\Demo.HL7MessageParser.csproj", "{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.ServiceSimulator", "Demo.HL7MessageParser.ServiceSimulator\Demo.HL7MessageParser.ServiceSimulator.csproj", "{205FF080-F61A-4DB7-99E7-79E028E70968}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.Models", "Demo.HL7MessageParser.Models\Demo.HL7MessageParser.Models.csproj", "{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}"
 EndProject
@@ -14,7 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.ServiceSimulator.Test", "Demo.HL7MessageParser.ServiceSimulator.Test\Demo.HL7MessageParser.ServiceSimulator.Test.csproj", "{65AF1249-0E75-47D2-8A3D-9579BB86D0D7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8C923817-2871-41D8-AD25-F74136BB7066} = {8C923817-2871-41D8-AD25-F74136BB7066}
-		{205FF080-F61A-4DB7-99E7-79E028E70968} = {205FF080-F61A-4DB7-99E7-79E028E70968}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SoapServcie", "Demo.SoapServcie\Demo.SoapServcie.csproj", "{8C923817-2871-41D8-AD25-F74136BB7066}"
@@ -96,10 +93,6 @@ Global
 		{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE8C3682-2147-4458-B6D7-9EA9C8F22A92}.Release|Any CPU.Build.0 = Release|Any CPU
-		{205FF080-F61A-4DB7-99E7-79E028E70968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{205FF080-F61A-4DB7-99E7-79E028E70968}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{205FF080-F61A-4DB7-99E7-79E028E70968}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{205FF080-F61A-4DB7-99E7-79E028E70968}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E61A17F-CC30-4F3E-8CFC-2F1ED9594B04}.Release|Any CPU.ActiveCfg = Release|Any CPU

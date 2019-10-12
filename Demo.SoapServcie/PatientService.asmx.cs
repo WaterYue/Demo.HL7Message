@@ -32,6 +32,7 @@ namespace Demo.SoapServcie
         public SearchHKPMIPatientByCaseNoResponse searchHKPMIPatientByCaseNo(SearchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo)
         {
             HttpContext.Current.Request.InputStream.Position = 0;
+
             var jsonString = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
 
             WorkContext = new WorkContextSoapHeader();
@@ -41,13 +42,6 @@ namespace Demo.SoapServcie
                 PatientDemoEnquiry = SoapParserHelper.LoadSamplePatientDemoEnquiry(searchHKPMIPatientByCaseNo.CaseNo)
             };
         }
-    }
-
-    public class AuthHeader : SoapHeader
-    {
-        public string UserName;
-        public string Password;
-
     }
 
     [XmlRoot(ElementName = "WorkContext", Namespace = "http://oracle.com/weblogic/soap/workarea/")]

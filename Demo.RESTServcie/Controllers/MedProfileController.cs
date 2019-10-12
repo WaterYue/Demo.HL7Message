@@ -33,9 +33,9 @@ namespace Demo.RESTServcie.Controllers
         {
             if (!string.IsNullOrWhiteSpace(casenumber))
             {
-                ValidateHeader_Value(HEADER_CLIENT_SECRET, "CLIENT_SECRET");
+                ValidateHeader_Value(HEADER_CLIENT_SECRET, PARAM_CLIENT_SECRET);
                 
-                if (IsValidateHeader_Value(HEADER_PATHOSPCODE_VALUE, "PATHOSPCODE"))
+                if (IsValidateHeader_Value(HEADER_PATHOSPCODE, PARAM_PATHOSPCODE))
                 {
                     if (caseNumbers.Contains(casenumber.ToUpper()))
                     {
