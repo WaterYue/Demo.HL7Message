@@ -1,13 +1,13 @@
-﻿using Demo.HL7MessageParser.Common;
-using Demo.HL7MessageParser.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+
+using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.Models;
 
 namespace Demo.RESTServcie.Controllers
 {
