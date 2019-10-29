@@ -8,6 +8,7 @@
                 <caseList>
                     <case>
                         <admissionDatetime>20170511 17:51</admissionDatetime>
+                      <bedNo>11</bedNo>
                         <hospitalCode>VH</hospitalCode>
                         <number>HN170002520</number>
                         <patientType>EP1</patientType>

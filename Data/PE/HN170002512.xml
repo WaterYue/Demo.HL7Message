@@ -8,6 +8,7 @@
                 <caseList>
                     <case>
                         <admissionDatetime>20170511 17:45</admissionDatetime>
+                      <bedNo>11</bedNo>
                         <hospitalCode>VH</hospitalCode>
                         <number>HN170002512</number>
                         <patientType>EP1</patientType>
@@ -31,7 +32,7 @@
                     <confidentialFlag>N</confidentialFlag>
                     <DOB>20030113</DOB>
                     <exactDOBFlag>Y</exactDOBFlag>
-                    <HKID>I001362A</HKID>
+                    <HKID>HN170002512</HKID>
                     <hkicSymbol>A</hkicSymbol>
                     <key>92621099</key>
                     <lastDocumentType>ID</lastDocumentType>
