@@ -86,6 +86,10 @@ namespace Demo.HL7MessageParser.Models
     }
     public class AlertProfileResult
     {
+        public AlertProfileResult()
+        {
+            ErrorMessage = new List<ErrorMessage>();
+        }
         public List<AdrProfile> AdrProfile { get; set; }
         public List<AlertProfile> AlertProfile { get; set; }
         public List<AllergyProfile> AllergyProfile { get; set; }

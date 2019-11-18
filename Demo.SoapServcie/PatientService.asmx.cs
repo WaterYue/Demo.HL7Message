@@ -13,6 +13,7 @@ using System.Xml.Serialization;
 using Microsoft.Web.Services3;
 using Microsoft.Web.Services3.Messaging;
 using System.Text;
+using System.Configuration;
 
 namespace Demo.SoapServcie
 {
@@ -31,11 +32,18 @@ namespace Demo.SoapServcie
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
         public SearchHKPMIPatientByCaseNoResponse searchHKPMIPatientByCaseNo(SearchHKPMIPatientByCaseNo searchHKPMIPatientByCaseNo)
         {
+            WorkContext = new WorkContextSoapHeader();
+
+            /*
             HttpContext.Current.Request.InputStream.Position = 0;
 
             var jsonString = new StreamReader(HttpContext.Current.Request.InputStream, Encoding.UTF8).ReadToEnd();
-
-            WorkContext = new WorkContextSoapHeader();
+            */
+            var patHospCode = ConfigurationManager.AppSettings["patHospCode"];
+            if (false == searchHKPMIPatientByCaseNo.HospitalCode.Equals(patHospCode, StringComparison.OrdinalIgnoreCase))
+            {
+                return new SearchHKPMIPatientByCaseNoResponse { };
+            }
 
             return new SearchHKPMIPatientByCaseNoResponse
             {
