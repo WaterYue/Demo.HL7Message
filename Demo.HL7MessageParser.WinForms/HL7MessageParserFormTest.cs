@@ -1,11 +1,14 @@
 ﻿using Demo.HL7MessageParser.Common;
 using Demo.HL7MessageParser.DTOs;
 using Demo.HL7MessageParser.Model;
+using Demo.HL7MessageParser.Models;
+using Demo.HL7MessageParser.WinForms.Lexers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +21,17 @@ namespace Demo.HL7MessageParser.WinForms
         public HL7MessageParserFormTest()
         {
             InitializeComponent();
+
+            backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
         }
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
+            scintillaAlerts.Text = string.Empty;
+            scintillaProfiles.Text = string.Empty;
+            scintillaPatient.Text = string.Empty;
+
             // Start the asynchronous operation.
-            backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             backgroundWorker1.RunWorkerAsync(cbxCaseNumber.Text.Trim());
 
             loadForm = new Loading { Width = this.Width, Height = this.Height };
@@ -33,13 +41,22 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void HL7MessageParserFormTest_Load(object sender, EventArgs e)
         {
-            cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
+            var patientsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/PE/");
+
+            var files = Directory.GetFiles(patientsDir, "*.xml");
+
+            cbxCaseNumber.DataSource = files.Select(o => new FileInfo(o).Name)
+                                            .Select(o => o.Substring(0, o.Length - ".xml".Length))
+                                            .ToList();
+
+            //  cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
         }
 
         Loading loadForm;
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            EventResult result = new EventResult();
+            var result = new EventResult();
+            e.Result = result;
 
             var caseNumber = e.Argument as string;
 
@@ -50,26 +67,36 @@ namespace Demo.HL7MessageParser.WinForms
             if (pv != null)
             {
                 result.PatientVisit = pv;
+                this.BeginInvoke((MethodInvoker)delegate
+                {
+                    scintillaPatient.FormatStyle(StyleType.Xml);
+                    scintillaPatient.Text = XmlHelper.FormatXML(XmlHelper.XmlSerializeToString(result.PatientVisit));
+                });
+                var orders = parser.GetMedicationProfiles(caseNumber);
+                result.Orders = (orders ?? new MedicationProfileResult());
+                this.BeginInvoke((MethodInvoker)delegate
+                {
+                    scintillaProfiles.FormatJsonStyle();
+                    scintillaProfiles.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Orders));
+                });
 
-                var orders = parser.GetOrders(caseNumber);
-                result.Orders = (orders ?? new List<Order>()).ToList();
-
-                var allergys = parser.GetAllergies(new Models.AlertInputParm
+                var allergys = parser.GetAlertProfiles(new Models.AlertInputParm
                 {
                     PatientInfo = new Models.PatientInfo { Hkid = caseNumber },
                     Credentials = new Models.Credentials { AccessCode = "" }
                 });
-                result.Allergies = (allergys ?? new List<PatientAllergyObj>()).ToList();
+                result.Allergies = (allergys ?? new AlertProfileResult());
+                this.BeginInvoke((MethodInvoker)delegate
+                {
+                    scintillaAlerts.FormatJsonStyle();
+                    scintillaAlerts.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
+                });
             }
-
-            e.Result = result;
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("Completing");
-
-            if (loadForm!=null)
+            if (loadForm != null)
             {
                 loadForm.Close();
             }
@@ -88,37 +115,35 @@ namespace Demo.HL7MessageParser.WinForms
                     var amex = e.Error as AMException;
 
                     MessageBox.Show(string.Format("{0}-{1}", amex.HttpStatusCode, amex.Message));
-
-                    return;
                 }
-
-                MessageBox.Show(e.Error.Message);
+                else
+                {
+                    MessageBox.Show(e.Error.Message);
+                }
 
                 return;
             }
-
+            /*
 
             if (e.Result is EventResult)
             {
-                MessageBox.Show("Completed with Result");
-
                 var result = e.Result as EventResult;
-                scintillaPV.FormatJsonStyle();
-                scintillaPV.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.PatientVisit));
+                scintillaPatient.FormatStyle(StyleType.Xml);
+                scintillaPatient.Text = XmlHelper.FormatXML(XmlHelper.XmlSerializeToString(result.PatientVisit));
 
-                scintillaPR.FormatJsonStyle();
-                scintillaPR.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Orders));
+                scintillaProfiles.FormatJsonStyle();
+                scintillaProfiles.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Orders));
 
-                scintillaPA.FormatJsonStyle();
-                scintillaPA.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
-            }
+                scintillaAlerts.FormatJsonStyle();
+                scintillaAlerts.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
+            }*/
         }
 
         public class EventResult
         {
-            public PatientVisit PatientVisit { get; set; }
-            public List<Order> Orders { get; set; }
-            public List<PatientAllergyObj> Allergies { get; set; }
+            public PatientDemoEnquiry PatientVisit { get; set; }
+            public MedicationProfileResult Orders { get; set; }
+            public AlertProfileResult Allergies { get; set; }
         }
     }
 }

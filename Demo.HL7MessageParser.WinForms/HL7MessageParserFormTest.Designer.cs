@@ -34,11 +34,11 @@
             this.cbxCaseNumber = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.scintillaPV = new ScintillaNET.Scintilla();
+            this.scintillaPatient = new ScintillaNET.Scintilla();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.scintillaPR = new ScintillaNET.Scintilla();
+            this.scintillaProfiles = new ScintillaNET.Scintilla();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.scintillaPA = new ScintillaNET.Scintilla();
+            this.scintillaAlerts = new ScintillaNET.Scintilla();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -55,9 +55,9 @@
             this.btnRequest.Location = new System.Drawing.Point(320, 37);
             this.btnRequest.Margin = new System.Windows.Forms.Padding(5);
             this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(217, 35);
+            this.btnRequest.Size = new System.Drawing.Size(95, 35);
             this.btnRequest.TabIndex = 0;
-            this.btnRequest.Text = "RequestPatientInfo";
+            this.btnRequest.Text = "Send";
             this.btnRequest.UseVisualStyleBackColor = true;
             this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
             // 
@@ -115,7 +115,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.scintillaPV);
+            this.tabPage1.Controls.Add(this.scintillaPatient);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -126,16 +126,16 @@
             // 
             // scintillaPV
             // 
-            this.scintillaPV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaPV.Location = new System.Drawing.Point(3, 3);
-            this.scintillaPV.Name = "scintillaPV";
-            this.scintillaPV.Size = new System.Drawing.Size(1319, 543);
-            this.scintillaPV.TabIndex = 1;
-            this.scintillaPV.Text = "PatientVisit";
+            this.scintillaPatient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaPatient.Location = new System.Drawing.Point(3, 3);
+            this.scintillaPatient.Name = "scintillaPV";
+            this.scintillaPatient.Size = new System.Drawing.Size(1319, 543);
+            this.scintillaPatient.TabIndex = 1;
+            this.scintillaPatient.Text = "PatientVisit";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.scintillaPR);
+            this.tabPage2.Controls.Add(this.scintillaProfiles);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -146,16 +146,16 @@
             // 
             // scintillaPR
             // 
-            this.scintillaPR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaPR.Location = new System.Drawing.Point(3, 3);
-            this.scintillaPR.Name = "scintillaPR";
-            this.scintillaPR.Size = new System.Drawing.Size(1319, 543);
-            this.scintillaPR.TabIndex = 1;
-            this.scintillaPR.Text = "Patient Profile";
+            this.scintillaProfiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaProfiles.Location = new System.Drawing.Point(3, 3);
+            this.scintillaProfiles.Name = "scintillaPR";
+            this.scintillaProfiles.Size = new System.Drawing.Size(1319, 543);
+            this.scintillaProfiles.TabIndex = 1;
+            this.scintillaProfiles.Text = "Patient Profile";
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.scintillaPA);
+            this.tabPage3.Controls.Add(this.scintillaAlerts);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -166,12 +166,12 @@
             // 
             // scintillaPA
             // 
-            this.scintillaPA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaPA.Location = new System.Drawing.Point(3, 3);
-            this.scintillaPA.Name = "scintillaPA";
-            this.scintillaPA.Size = new System.Drawing.Size(1319, 543);
-            this.scintillaPA.TabIndex = 0;
-            this.scintillaPA.Text = "Patient Allergy";
+            this.scintillaAlerts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaAlerts.Location = new System.Drawing.Point(3, 3);
+            this.scintillaAlerts.Name = "scintillaPA";
+            this.scintillaAlerts.Size = new System.Drawing.Size(1319, 543);
+            this.scintillaAlerts.TabIndex = 0;
+            this.scintillaAlerts.Text = "Patient Allergy";
             // 
             // backgroundWorker1
             // 
@@ -210,10 +210,10 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private ScintillaNET.Scintilla scintillaPV;
+        private ScintillaNET.Scintilla scintillaPatient;
         private System.Windows.Forms.TabPage tabPage2;
-        private ScintillaNET.Scintilla scintillaPR;
+        private ScintillaNET.Scintilla scintillaProfiles;
         private System.Windows.Forms.TabPage tabPage3;
-        private ScintillaNET.Scintilla scintillaPA;
+        private ScintillaNET.Scintilla scintillaAlerts;
     }
 }

@@ -24,7 +24,7 @@ namespace Demo.HL7MessageParser
             Url = "http://localhost:8096/PatientService.asmx";
             userName = "pas-appt-ws-user";
             password = "pas-appt-ws-user-pwd";
-            pathospcode = "PATHOSPCODE";
+            pathospcode = "VH";
         }
         public SoapPatientVisitParser(string uri, string userName, string password, string pathospcode)
         {
@@ -43,12 +43,12 @@ namespace Demo.HL7MessageParser
         {
             try
             {
-                var temp = CallByWebReq(caseNumber);
-                var result = XmlHelper.XmlDeserialize<Models.PatientDemoEnquiry>(temp);
+                //var temp = CallByWebReq(caseNumber);
+                //var result = XmlHelper.XmlDeserialize<Models.PatientDemoEnquiry>(temp);
 
                 var patientResultXmlElement = CallByProxyClient(caseNumber);
 
-                result = XmlHelper.XmlDeserialize<Models.PatientDemoEnquiry>(patientResultXmlElement);
+            var    result = XmlHelper.XmlDeserialize<Models.PatientDemoEnquiry>(patientResultXmlElement);
 
                 return result;
             }

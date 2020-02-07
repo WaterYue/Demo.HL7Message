@@ -15,10 +15,6 @@ namespace Demo.HL7MessageParser.WinForms
         public MainForm()
         {
             InitializeComponent();
-            //if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            //{
-            //    tcMain.TabPages[0].Controls.Add(new MedicationProfileControl { Dock = DockStyle.Fill });
-            //}
 
             Global.Initialize();
         }
@@ -51,6 +47,12 @@ namespace Demo.HL7MessageParser.WinForms
 
             tc.TabPages.Add(new TabPage { Name = "tbAlertProfile", Text = "AlertProfileControl" });
             tc.TabPages["tbAlertProfile"].Controls.Add(new AlertProfileParserControl { Dock = DockStyle.Fill });
+
+            tc.TabPages.Add(new TabPage { Name = "PatientOrderAlerts", Text = "PatientOrderAlertControl" });
+            tc.TabPages["PatientOrderAlerts"].Controls.Add(new PatientOrderAlertControl { Dock = DockStyle.Fill });
+
+
+            
 
             Controls.Add(tc);
         }

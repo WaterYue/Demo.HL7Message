@@ -59,7 +59,7 @@ namespace Demo.HL7MessageParser
             PatientObj p = Mapper.Map<PatientDemoEnquiry, PatientObj>(pr);
 
             pv.Pateint = p;
-          
+
             foreach (var item in pr.CaseList)
             {
                 VisitObj v = Mapper.Map<Case, VisitObj>(item);

@@ -78,6 +78,12 @@
     <Compile Include="Controls\MedicationProfileControl.Designer.cs">
       <DependentUpon>MedicationProfileControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PatientOrderAlertControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PatientOrderAlertControl.Designer.cs">
+      <DependentUpon>PatientOrderAlertControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PatientDemographicControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MedicationProfileControl.resx">
       <DependentUpon>MedicationProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PatientOrderAlertControl.resx">
+      <DependentUpon>PatientOrderAlertControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PatientDemographicControl.resx">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>

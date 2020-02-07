@@ -51,12 +51,12 @@ namespace Demo.HL7MessageParser
             Password = "pas-appt-ws-user-pwd";
 
 
-            RestUrl = "http://localhost:3181/pms-asa/1/";
+            RestUrl = "http://localhost:8290/pms-asa/1/";
             ClientSecret = "CLIENT_SECRET";
             ClientId = "AccessCenter";
 
             AccessCode = "AccessCode";
-            HospitalCode = "PATHOSPCODE";
+            HospitalCode = "VH";
         }
 
         public HL7MessageParser_NTEC(
@@ -69,33 +69,33 @@ namespace Demo.HL7MessageParser
             this.allergiesParser = allergiesParser;
         }
 
-        public IEnumerable<Order> GetOrders(string caseno)
+        public MedicationProfileResult GetMedicationProfiles(string caseno)
         {
             var medicationProfile = medicationProfileParser.GetMedicationProfile(caseno);
-
+            logger.Info(JsonHelper.ToJson(medicationProfile));
             //TODO:storage the response
 
-            var orders = medicationProfile.MedProfileMoItems.ToConvert();
+            // var orders = medicationProfile.MedProfileMoItems.ToConvert();
 
-            return orders;
+            return medicationProfile;
         }
 
-        public PatientVisit GetPatient(string caseno)
+        public PatientDemoEnquiry GetPatient(string caseno)
         {
             try
             {
                 var pr = patientVisitParser.GetPatientResult(caseno);
 
-                logger.Info(JsonHelper.ToJson(pr));
+                logger.Info(XmlHelper.XmlSerializeToString(pr));
 
                 //TODO: storage the response Postponse
 
-                var patientVisit = pr.ToConvert();
+                //var patientVisit = pr.ToConvert();
 
                 //TODO: storage accesscenter business object to db            
 
 
-                return patientVisit;
+                return pr;
             }
             catch (AMException amex)
             {
@@ -111,18 +111,18 @@ namespace Demo.HL7MessageParser
             }
         }
 
-        public IEnumerable<PatientAllergyObj> GetAllergies(AlertInputParm alertinput)
+        public AlertProfileResult GetAlertProfiles(AlertInputParm alertinput)
         {
             alertinput.Credentials.AccessCode = AccessCode;
 
             var apr = allergiesParser.GetAlertProfile(alertinput);
 
-
+            logger.Info(JsonHelper.ToJson(apr));
             //TODO:storage the response
 
-            var result = apr.ToConvert();
+            // var result = apr.ToConvert();
 
-            return result;
+            return apr;
         }
 
         public string SaveRemoteHL7PatientToLocal(string caseNumber, out string errorMessage)
