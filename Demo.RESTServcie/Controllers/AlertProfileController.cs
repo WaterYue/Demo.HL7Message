@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,17 +15,30 @@ namespace Demo.RESTServcie.Controllers
     [RoutePrefix(Const.ROUNT_PREFIX + "alertProfile")]
     public class AlertProfileController : BaseController
     {
-        static List<string> HKIDs = new List<string>
+        static AlertProfileController()
         {
-            "HN03191100Y",
-            "HN17000256S",
-            "HN18001140Y",
-            "HN170002512",
-            "HN170002520",
-            "INVALID_HKID",
-            "INVALID_PATIENT",
-            "INVALID_ACCESSCODE"
-        };
+            var alertsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin/Data/AP");
+            var alerts = Directory.GetFiles(alertsDir, "*.json");
+
+            HKIDs = alerts.Select(o => new FileInfo(o).Name)
+                                            .Select(o => o.Substring(0, o.Length - ".json".Length))
+                                            .ToList();
+
+        }
+        static List<string> HKIDs;
+
+
+        //static List<string> HKIDs = new List<string>
+        //{
+        //    "HN03191100Y",
+        //    "HN17000256S",
+        //    "HN18001140Y",
+        //    "HN170002512",
+        //    "HN170002520",
+        //    "INVALID_HKID",
+        //    "INVALID_PATIENT",
+        //    "INVALID_ACCESSCODE"
+        //};
 
         [Route("")]
         public IEnumerable<string> Get()
@@ -52,7 +66,7 @@ namespace Demo.RESTServcie.Controllers
         [Route("")]
         public async Task<AlertProfileResult> PostAsync()
         {
-            var contenttype=Request.Content.Headers.ContentType;
+            var contenttype = Request.Content.Headers.ContentType;
 
             System.Diagnostics.Debug.WriteLine(Request.Content.Headers.ToString());
 

@@ -84,6 +84,12 @@
     <Compile Include="Controls\PatientDemographicControl.Designer.cs">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="HL7MessageParserFormTest.cs">
       <SubType>Form</SubType>
@@ -128,6 +134,9 @@
     <EmbeddedResource Include="Controls\PatientDemographicControl.resx">
       <DependentUpon>PatientDemographicControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HL7MessageParserFormTest.resx">
       <DependentUpon>HL7MessageParserFormTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,38 +159,6 @@
     <EmbeddedResource Include="TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="..\Data\AP\HN03191100Y.json">
-      <Link>Data\AP\HN03191100Y.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Data\AP\HN170002512.json">
-      <Link>Data\AP\HN170002512.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Data\AP\HN170002520.json">
-      <Link>Data\AP\HN170002520.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Data\AP\HN17000256S.json">
-      <Link>Data\AP\HN17000256S.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Data\AP\HN18001140Y.json">
-      <Link>Data\AP\HN18001140Y.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Data\AP\INVALID_ACCESSCODE.json">
-      <Link>Data\AP\INVALID_ACCESSCODE.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Data\AP\INVALID_HKID.json">
-      <Link>Data\AP\INVALID_HKID.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\Data\AP\INVALID_PATIENT.json">
-      <Link>Data\AP\INVALID_PATIENT.json</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -197,9 +174,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\MP\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Demo.HL7MessageParser.Common\Demo.HL7MessageParser.Common.csproj">
       <Project>{6f4fad1f-036a-4376-a685-814110e776c9}</Project>
@@ -218,39 +193,11 @@
       <Name>Demo.HL7MessageParser</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Data\AP\RQ\HN03191100Y.xml">
-      <Link>Data\AP\RQ\HN03191100Y.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\AP\RQ\HN170002512.xml">
-      <Link>Data\AP\RQ\HN170002512.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\AP\RQ\HN170002520.xml">
-      <Link>Data\AP\RQ\HN170002520.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\AP\RQ\HN17000256S.xml">
-      <Link>Data\AP\RQ\HN17000256S.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\AP\RQ\HN18001140Y.xml">
-      <Link>Data\AP\RQ\HN18001140Y.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\AP\RQ\INVALID_ACCESSCODE.xml">
-      <Link>Data\AP\RQ\INVALID_ACCESSCODE.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\AP\RQ\INVALID_HKID.xml">
-      <Link>Data\AP\RQ\INVALID_HKID.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\AP\RQ\INVALID_PATIENT.xml">
-      <Link>Data\AP\RQ\INVALID_PATIENT.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET TARGET=$(TargetDir)\Data
+rmdir /S/Q "%25TARGET%25"
+SET Source=$(SolutionDir)\Data
+xcopy /Y/S "%25Source%25\*.*" "%25TARGET%25\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

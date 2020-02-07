@@ -58,12 +58,25 @@ namespace Demo.HL7MessageParser.Models
     {
         [XmlElement(ElementName = "address")]
         public Address Address { get; set; }
+
         [XmlElement(ElementName = "CCCode1")]
         public string CCCode1 { get; set; }
+
         [XmlElement(ElementName = "CCCode2")]
         public string CCCode2 { get; set; }
+
         [XmlElement(ElementName = "CCCode3")]
         public string CCCode3 { get; set; }
+
+        [XmlElement(ElementName = "CCCode4")]
+        public string CCCode4 { get; set; }
+
+        [XmlElement(ElementName = "CCCode5")]
+        public string CCCode5 { get; set; }
+
+        [XmlElement(ElementName = "CCCode6")]
+        public string CCCode6 { get; set; }
+
         [XmlElement(ElementName = "chineseName")]
         public string ChineseName { get; set; }
         [XmlElement(ElementName = "confidentialFlag")]

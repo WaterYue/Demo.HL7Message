@@ -117,11 +117,33 @@ namespace Demo.HL7MessageParser
 
             var apr = allergiesParser.GetAlertProfile(alertinput);
 
+
             //TODO:storage the response
 
             var result = apr.ToConvert();
 
             return result;
+        }
+
+        public string SaveRemoteHL7PatientToLocal(string caseNumber, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            var actualProfile = allergiesParser.GetAlertProfile(new Models.AlertInputParm
+            {
+                PatientInfo = new Models.PatientInfo { Hkid = caseNumber },
+                Credentials = new Models.Credentials { AccessCode = AccessCode }
+            });
+
+            if (IsInvalidAccessCode(actualProfile))
+            {
+            }
+            return null;
+        }
+
+        private static bool IsInvalidAccessCode(AlertProfileResult actualProfile)
+        {
+            return actualProfile.ErrorMessage.Count > 0 && "20083".Equals(actualProfile.ErrorMessage[0].MsgCode);
         }
     }
 }

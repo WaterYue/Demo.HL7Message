@@ -64,27 +64,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="..\Data\PE\HN03191100Y.xml">
-      <Link>Data\PE\HN03191100Y.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\PE\HN170002512.xml">
-      <Link>Data\PE\HN170002512.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\PE\HN170002520.xml">
-      <Link>Data\PE\HN170002520.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\PE\HN17000256S.xml">
-      <Link>Data\PE\HN17000256S.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Data\PE\HN18001140Y.xml">
-      <Link>Data\PE\HN18001140Y.xml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Soap_Patient.xml" />
     <Content Include="wse3policyCache.config" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +116,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>SET TARGET=$(TargetDir)\Data\PE
+rmdir /S/Q "%25TARGET%25"
+SET Source=$(SolutionDir)\Data\PE
+xcopy /Y/S "%25Source%25\*.*" "%25TARGET%25\"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

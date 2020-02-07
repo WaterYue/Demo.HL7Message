@@ -14,20 +14,43 @@ namespace Demo.HL7MessageParser.Common
         private const string CONST_XNAME_BODY = "Body";
         private const string CONST_XNAME_RESPONSE = "searchHKPMIPatientByCaseNoResponse";
         private const string CONST_XNAME_PatientDemoEnquiryResult = "PatientDemoEnquiryResult";
-        static List<string> cases = new List<string>
-        {
-            "HN03191100Y",
-            "HN17000256S",
-            "HN18001140Y",
-            "HN170002512",
-            "HN170002520",
-        };
+        static List<string> cases;
 
+        //static List<string> cases = new List<string>
+        //{
+        //    "HN03191100Y",
+        //    "HN17000256S",
+        //    "HN18001140Y",
+        //    "HN170002512",
+        //    "HN170002520",
+        //};
+        static SoapParserHelper()
+        {
+            var patientDemoEnquiryXmlDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin/Data/PE/");
+            try
+            {
+                var files = Directory.GetFiles(patientDemoEnquiryXmlDir, "*.xml");
+
+                cases = files.Select(o => new FileInfo(o).Name)
+                             .Select(o => o.Substring(0, o.Length - ".xml".Length))
+                             .ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public static PatientDemoEnquiry LoadSamplePatientDemoEnquiry(string caseNumber)
         {
-            if (!cases.Contains(caseNumber))
+            if (null == caseNumber || string.IsNullOrEmpty(caseNumber))
             {
-                return null ;
+                return null;
+            }
+
+            if (!cases.Contains(caseNumber.ToUpper()))
+            {
+                return null;
             }
 
             var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format("bin/Data/PE/{0}.xml", caseNumber));

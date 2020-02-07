@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Demo.HL7MessageParser.Models;
 using Demo.HL7MessageParser.Common;
 using NLog;
+using System.Configuration;
+using System.IO;
 
 namespace Demo.HL7MessageParser.WinForms
 {
@@ -33,10 +35,24 @@ namespace Demo.HL7MessageParser.WinForms
         {
             txtURL.Text = Global.RestUri;
 
-            txtClientSecret.Text = "CLIENT_SECRET";
-            txtPaHospCode.Text = "PATHOSPCODE";
+            txtClientSecret.Text = ConfigurationManager.AppSettings["client_secret"];
+            txtPaHospCode.Text = ConfigurationManager.AppSettings["patHospCode"];
 
-            cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
+            try
+            {
+                var profilesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/MP");
+                var profiles = Directory.GetFiles(profilesDir, "*.json");
+
+                cbxCaseNumber.DataSource = profiles.Select(o => new FileInfo(o).Name)
+                                                .Select(o => o.Substring(0, o.Length - ".json".Length))
+                                                .ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+         //   cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
         }
 
         private void btnSendMedicationProfile_Click(object sender, EventArgs e)

@@ -1,0 +1,78 @@
+{
+    "MedProfileId": "20000002712437",
+    "CaseNum": "HN191099571",
+    "MedProfileMoItems": [
+        {
+            "MedProfileMoItemId": 20000026692420,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000011719238,
+                    "ItemCode": "PHEN33"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000026692390,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000011719234,
+                    "ItemCode": "AQUE06"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000026816360,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000011773807,
+                    "ItemCode": "BISA02"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000027272494,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000011979965,
+                    "ItemCode": "DEXT1C"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000027305949,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000011990586,
+                    "ItemCode": "PARA04"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000027428461,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000012044548,
+                    "ItemCode": "PIPE08"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000027428462,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000012044547,
+                    "ItemCode": "SODI1J"
+                }
+            ]
+        },
+        {
+            "MedProfileMoItemId": 20000027428381,
+            "MedProfilePoItems": [
+                {
+                    "MedProfilePoItemId": 20000012044546,
+                    "ItemCode": "PIPE08"
+                }
+            ]
+        }
+    ]
+}

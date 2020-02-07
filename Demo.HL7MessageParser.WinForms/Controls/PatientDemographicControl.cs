@@ -15,6 +15,7 @@ using System.Net;
 using System.IO;
 using Demo.HL7MessageParser.WebProxy;
 using NLog;
+using System.Configuration;
 
 namespace Demo.HL7MessageParser.WinForms
 {
@@ -38,17 +39,31 @@ namespace Demo.HL7MessageParser.WinForms
         {
             txtURL.Text = Global.SoapUri;
 
-            txtUserName.Text = "pas-appt-ws-user";
+            txtUserName.Text = ConfigurationManager.AppSettings["Token_Username"];
 
-            txtPassword.Text = "pas-appt-ws-user-pwd";
+            txtPassword.Text = ConfigurationManager.AppSettings["Token_Password"];
 
-            txtHospitalCode.Text = "HV";
-            cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
+            txtHospitalCode.Text = ConfigurationManager.AppSettings["patHospCode"];
+
+            var patientDemoEnquiryXmlDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/PE/");
+            try
+            {
+                var files = Directory.GetFiles(patientDemoEnquiryXmlDir, "*.xml");
+
+                cbxCaseNumber.DataSource = files.Select(o => new FileInfo(o).Name)
+                                                .Select(o => o.Substring(0, o.Length - ".xml".Length))
+                                                .ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void btnCallByProxy_Click(object sender, EventArgs e)
@@ -130,7 +145,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             var nonce = getNonce();
             string nonceToSend = Convert.ToBase64String(Encoding.UTF8.GetBytes(nonce));
-            string utc = DateTime.Now.ToUniversalTime().ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'"); ;
+            string utc = DateTime.Now.AddMinutes(-30).ToUniversalTime().ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'"); ;
             StringBuilder rawSOAP = new StringBuilder(@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:web=""http://webservice.pas.ha.org.hk/"" ");
 
             if (enableWS_Address)

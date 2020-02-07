@@ -47,7 +47,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         };
 
             IHL7MessageParser hl7Parser = new HL7MessageParser_NTEC();
-
+            /*
             var pv = hl7Parser.GetPatient("HN170002520");
 
             var pr = hl7Parser.GetOrders("HN170002520");
@@ -59,6 +59,7 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
                     Hkid = "HN170002520"
                 },Credentials=new Credentials { }
             });
+            */
         }
 
         private static void SoapClientProxy()

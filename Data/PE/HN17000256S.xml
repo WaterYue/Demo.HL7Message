@@ -1,48 +1,48 @@
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
-    <S:Header>
-        <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdqADF3ZWJsb2dpYy5hcHAuUEFTX1BBU19QQVRJRU5UX0VOUVVJUllfV1NTXzJfMF8xMl82AAAA1gAAACN3ZWJsb2dpYy53b3JrYXJlYS5TdHJpbmdXb3JrQ29udGV4dAAIMi4wLjEyLjYAAA==</work:WorkContext>
-    </S:Header>
-    <S:Body>
-        <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
-            <PatientDemoEnquiryResult>
-                <caseList>
-                    <case>
-                        <admissionDatetime>20170511 17:59</admissionDatetime>
-                        <bedNo>11</bedNo>
-                        <hospitalCode>VH</hospitalCode>
-                        <number>HN17000256S</number>
-                        <patientType>EP1</patientType>
-                        <sourceCode>TMH</sourceCode>
-                        <sourceIndicator>0</sourceIndicator>
-                        <specialty>MED</specialty>
-                        <type>I</type>
-                        <wardClass>3</wardClass>
-                        <wardCode>6A</wardCode>
-                    </case>
-                </caseList>
-                <patient>
-                    <address>
-                        <building>UNKNOWN</building>
-                        <districtCode>UNK</districtCode>
-                        <fullEnglishAddress>UNKNOWN,  UNKNOWN</fullEnglishAddress>
-                        <record_id>0</record_id>
-                    </address>
-                    <bodyCategory></bodyCategory>
-                    <chineseName/>
-                    <confidentialFlag>N</confidentialFlag>
-                    <DOB>20031006</DOB>
-                    <exactDOBFlag>Y</exactDOBFlag>
-                    <HKID>HN17000256S</HKID>
-                    <hkicSymbol>A</hkicSymbol>
-                    <key>92621104</key>
-                    <lastDocumentType>ID</lastDocumentType>
-                    <lastPayCode>EP1</lastPayCode>
-                    <maritalStatus>U</maritalStatus>
-                    <name>PATIENT, 1367</name>
-                    <race>UN</race>
-                    <sex>F</sex>
-                </patient>
-            </PatientDemoEnquiryResult>
-        </ns2:searchHKPMIPatientByCaseNoResponse>
-    </S:Body>
+  <S:Header>
+    <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdqADF3ZWJsb2dpYy5hcHAuUEFTX1BBU19QQVRJRU5UX0VOUVVJUllfV1NTXzJfMF8xMl82AAAA1gAAACN3ZWJsb2dpYy53b3JrYXJlYS5TdHJpbmdXb3JrQ29udGV4dAAIMi4wLjEyLjYAAA==</work:WorkContext>
+  </S:Header>
+  <S:Body>
+    <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+      <PatientDemoEnquiryResult>
+        <caseList>
+          <case>
+            <admissionDatetime>20170511 17:59</admissionDatetime>
+            <bedNo>11</bedNo>
+            <hospitalCode>VH</hospitalCode>
+            <number>HN17000256S</number>
+            <patientType>EP1</patientType>
+            <sourceCode>TMH</sourceCode>
+            <sourceIndicator>0</sourceIndicator>
+            <specialty>MED</specialty>
+            <type>I</type>
+            <wardClass>3</wardClass>
+            <wardCode>6A</wardCode>
+          </case>
+        </caseList>
+        <patient>
+          <address>
+            <building>UNKNOWN</building>
+            <districtCode>UNK</districtCode>
+            <fullEnglishAddress>UNKNOWN,  UNKNOWN</fullEnglishAddress>
+            <record_id>0</record_id>
+          </address>
+          <bodyCategory></bodyCategory>
+          <chineseName/>
+          <confidentialFlag>N</confidentialFlag>
+          <DOB>20031006</DOB>
+          <exactDOBFlag>Y</exactDOBFlag>
+          <HKID>HN17000256S</HKID>
+          <hkicSymbol>A</hkicSymbol>
+          <key>92621104</key>
+          <lastDocumentType>ID</lastDocumentType>
+          <lastPayCode>EP1</lastPayCode>
+          <maritalStatus>U</maritalStatus>
+          <name>PATIENT, 1367</name>
+          <race>UN</race>
+          <sex>F</sex>
+        </patient>
+      </PatientDemoEnquiryResult>
+    </ns2:searchHKPMIPatientByCaseNoResponse>
+  </S:Body>
 </S:Envelope>

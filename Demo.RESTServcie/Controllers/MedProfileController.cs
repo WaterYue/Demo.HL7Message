@@ -17,6 +17,18 @@ namespace Demo.RESTServcie.Controllers
 
         const string LOCAL_PATH_Format = "bin/Data/MP/{0}.json";
 
+        static MedProfileController()
+        {
+            var profilesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"bin/Data/MP");
+            var profiles = Directory.GetFiles(profilesDir, "*.json");
+
+            caseNumbers = profiles.Select(o => new FileInfo(o).Name)
+                                            .Select(o => o.Substring(0, o.Length - ".json".Length))
+                                            .ToList();
+
+        }
+        static List<string> CaseNumbers;
+
         [Route("")]
         public IEnumerable<MedicationProfileResult> Get()
         {

@@ -1,0 +1,50 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Header>
+    <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/">rO0ABXdqADF3ZWJsb2dpYy5hcHAuUEFTX1BBU19QQVRJRU5UX0VOUVVJUllfV1NTXzJfMF8xMl82AAAA1gAAACN3ZWJsb2dpYy53b3JrYXJlYS5TdHJpbmdXb3JrQ29udGV4dAAIMi4wLjEyLjYAAA==</work:WorkContext>
+  </S:Header>
+  <S:Body>
+    <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+      <PatientDemoEnquiryResult>
+        <caseList>
+          <case>
+            <admissionDatetime>20190826 18:25</admissionDatetime>
+            <bedNo>25</bedNo>
+            <hospitalCode>TPH</hospitalCode>
+            <number> HN191068129</number>
+            <patientType>EX</patientType>
+            <sourceCode>NDH</sourceCode>
+            <sourceIndicator>5</sourceIndicator>
+            <specialty>PSY2</specialty>
+            <type>I</type>
+            <wardClass>3</wardClass>
+            <wardCode>1A</wardCode>
+          </case>
+        </caseList>
+        <patient>
+          <address>
+            <building>G/F OF H49-H52 AND H55, HO SHEUNG HEUNG SUN CHUEN HO SHEUNG HEUNG NEW TERRITORIES COMFORT ELDERLY HOME (HO SHEUNG HEUNG BRANCH)</building>
+            <districtCode>HSH</districtCode>
+            <fullEnglishAddress>G/F OF H49-H52 AND H55, HO SHEUNG HEUNG SUN CHUEN HO SHEUNG HEUNG NEW TERRITORIES COMFORT ELDERLY HOME (HO SHEUNG HEUNG BRANCH)</fullEnglishAddress>
+            <record_id>5000787</record_id>
+          </address>
+          <CCCode1>50121</CCCode1>
+          <CCCode2>24171</CCCode2>
+          <CCCode3>27341</CCCode3>
+          <chineseName>羅敬梅</chineseName>
+          <confidentialFlag>N</confidentialFlag>
+          <DOB>19691002</DOB>
+          <exactDOBFlag>Y</exactDOBFlag>
+          <HKID> C5903287</HKID>
+          <hkicSymbol>A</hkicSymbol>
+          <homePhone>34040017</homePhone>
+          <key>01237667</key>
+          <lastPayCode>EP1</lastPayCode>
+          <maritalStatus>M</maritalStatus>
+          <name>LAW, KING MUI</name>
+          <race>CH</race>
+          <sex>F</sex>
+        </patient>
+      </PatientDemoEnquiryResult>
+    </ns2:searchHKPMIPatientByCaseNoResponse>
+  </S:Body>
+</S:Envelope>

@@ -258,6 +258,12 @@ namespace Demo.HL7MessageParser.WebProxy
 
         private string cCCode3Field;
 
+        private string cCCode4Field;
+
+        private string cCCode5Field;
+
+        private string cCCode6Field;
+
         private string chineseNameField;
 
         private string confidentialFlagField;
@@ -338,6 +344,41 @@ namespace Demo.HL7MessageParser.WebProxy
             }
         }
 
+        public string CCCode4
+        {
+            get
+            {
+                return this.cCCode4Field;
+            }
+            set
+            {
+                this.cCCode4Field = value;
+            }
+        }
+
+        public string CCCode5
+        {
+            get
+            {
+                return this.cCCode5Field;
+            }
+            set
+            {
+                this.cCCode5Field = value;
+            }
+        }
+
+        public string CCCode6
+        {
+            get
+            {
+                return this.cCCode6Field;
+            }
+            set
+            {
+                this.cCCode6Field = value;
+            }
+        }
         /// <remarks/>
         public string chineseName
         {

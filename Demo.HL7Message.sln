@@ -53,6 +53,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MP", "MP", "{19DA17F4-2945-
 		Data\MP\HN170002520.json = Data\MP\HN170002520.json
 		Data\MP\HN17000256S.json = Data\MP\HN17000256S.json
 		Data\MP\HN18001140Y.json = Data\MP\HN18001140Y.json
+		Data\MP\HN191068129.json = Data\MP\HN191068129.json
+		Data\MP\HN191099571.json = Data\MP\HN191099571.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D68A9A2-9C15-4E07-94D8-3E9B2407A1F4}"
@@ -81,6 +83,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PE", "PE", "{D0E66100-869F-
 		Data\PE\HN170002520.xml = Data\PE\HN170002520.xml
 		Data\PE\HN17000256S.xml = Data\PE\HN17000256S.xml
 		Data\PE\HN18001140Y.xml = Data\PE\HN18001140Y.xml
+		Data\PE\HN191068129.xml = Data\PE\HN191068129.xml
+		Data\PE\HN191099571.xml = Data\PE\HN191099571.xml
 	EndProjectSection
 EndProject
 Global

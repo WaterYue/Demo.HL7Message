@@ -14,6 +14,7 @@ using System.IO;
 using System.Xml.Linq;
 using Demo.HL7MessageParser.Models;
 using NLog;
+using System.Configuration;
 
 namespace Demo.HL7MessageParser.WinForms
 {
@@ -147,20 +148,33 @@ namespace Demo.HL7MessageParser.WinForms
         {
             txtURL.Text = Global.RestUri;
 
-            txtClientSecret.Text = "CLIENT_SECRET";
-            txtPaHospCode.Text = "PATHOSPCODE";
+            txtClientSecret.Text = ConfigurationManager.AppSettings["client_secret"];
+            txtPaHospCode.Text = ConfigurationManager.AppSettings["patHospCode"];
             txtAccessCode.Text = "YAYRoZAJoaYD5qYZbwjQsTGI";
-            hkIds = new List<string>
+            try
             {
-                "HN03191100Y",
-                "HN17000256S",
-                "HN18001140Y",
-                "HN170002512",
-                "HN170002520",
-                "INVALID_HKID",
-                "INVALID_PATIENT",
-                "INVALID_ACCESSCODE"
-            };
+                var alertsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/AP");
+                var alerts = Directory.GetFiles(alertsDir, "*.json");
+
+                hkIds = alerts.Select(o => new FileInfo(o).Name)
+                                                .Select(o => o.Substring(0, o.Length - ".json".Length))
+                                                .ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            //hkIds = new List<string>
+            //{
+            //    "HN03191100Y",
+            //    "HN17000256S",
+            //    "HN18001140Y",
+            //    "HN170002512",
+            //    "HN170002520",
+            //    "INVALID_HKID",
+            //    "INVALID_PATIENT",
+            //    "INVALID_ACCESSCODE"
+            //};
 
             cbxHKId.DataSource = hkIds;
             scintillaReq.FormatStyle(StyleType.Xml);
