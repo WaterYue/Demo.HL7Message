@@ -22,6 +22,8 @@ namespace Demo.HL7MessageParser.WinForms
 
         public static string AccessCode { get; set; }
         public static string ClientId { get; private set; }
+        public static string SourceSystem { get; internal set; }
+        public static string LoginId { get; internal set; }
 
         public static void Initialize()
         {
@@ -38,6 +40,10 @@ namespace Demo.HL7MessageParser.WinForms
             HospitalCode = ConfigurationManager.AppSettings["patHospCode"].ToString();
 
             AccessCode = ConfigurationManager.AppSettings["AccessCode"].ToString();
+
+            LoginId = ConfigurationManager.AppSettings["LoginId"].ToString();
+
+            SourceSystem = ConfigurationManager.AppSettings["SourceSystem"].ToString();
 
             ClientId = "AccessCenter";
 

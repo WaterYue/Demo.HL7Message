@@ -23885,4 +23885,114 @@ File name: 'D:\Jeriffe\Examples\C#\git\Demo.HL7Message\Demo.SoapServcie\Data\Soa
       </soap:Envelope>
     </processingStep>
   </outputMessage>
+  <outputMessage utc="02/07/2020 10:59:54 AM" messageId="urn:uuid:bb52fd49-fe87-47c5-abf8-b3dd2e053b22">
+    <processingStep description="Unprocessed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20170511 17:51</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN170002520</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>TMH</sourceCode>
+                  <sourceIndicator>0</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6A</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>UNKNOWN</building>
+                  <districtCode>UNK</districtCode>
+                  <fullEnglishAddress>UNKNOWN,  UNKNOWN</fullEnglishAddress>
+                  <record_id>0</record_id>
+                </address>
+                <chineseName />
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19981012</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>HN170002520</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <key>92621100</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>PATIENT, 1363</name>
+                <race>UN</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceOutputFilter" />
+    <processingStep description="Processed message">
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <soap:Header>
+          <work:WorkContext xmlns:work="http://oracle.com/weblogic/soap/workarea/" />
+          <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNoResponse</wsa:Action>
+          <wsa:MessageID>urn:uuid:bb52fd49-fe87-47c5-abf8-b3dd2e053b22</wsa:MessageID>
+          <wsa:RelatesTo>urn:uuid:487a4ab7-6cb2-4b7f-ab06-c3fd4b54a106</wsa:RelatesTo>
+          <wsa:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:To>
+          <wsse:Security>
+            <wsu:Timestamp wsu:Id="Timestamp-ffab8fe0-cca7-4e34-978c-cb8b39f49044">
+              <wsu:Created>2020-02-07T10:59:54Z</wsu:Created>
+              <wsu:Expires>2020-02-07T11:04:54Z</wsu:Expires>
+            </wsu:Timestamp>
+          </wsse:Security>
+        </soap:Header>
+        <soap:Body>
+          <ns2:searchHKPMIPatientByCaseNoResponse xmlns:ns2="http://webservice.pas.ha.org.hk/">
+            <PatientDemoEnquiryResult>
+              <caseList>
+                <case>
+                  <admissionDatetime>20170511 17:51</admissionDatetime>
+                  <bedNo>11</bedNo>
+                  <hospitalCode>VH</hospitalCode>
+                  <number>HN170002520</number>
+                  <patientType>EP1</patientType>
+                  <sourceCode>TMH</sourceCode>
+                  <sourceIndicator>0</sourceIndicator>
+                  <specialty>MED</specialty>
+                  <type>I</type>
+                  <wardClass>3</wardClass>
+                  <wardCode>6A</wardCode>
+                </case>
+              </caseList>
+              <patient>
+                <address>
+                  <building>UNKNOWN</building>
+                  <districtCode>UNK</districtCode>
+                  <fullEnglishAddress>UNKNOWN,  UNKNOWN</fullEnglishAddress>
+                  <record_id>0</record_id>
+                </address>
+                <chineseName />
+                <confidentialFlag>N</confidentialFlag>
+                <DOB>19981012</DOB>
+                <exactDOBFlag>Y</exactDOBFlag>
+                <HKID>HN170002520</HKID>
+                <hkicSymbol>A</hkicSymbol>
+                <key>92621100</key>
+                <lastPayCode>EP1</lastPayCode>
+                <maritalStatus>U</maritalStatus>
+                <name>PATIENT, 1363</name>
+                <race>UN</race>
+                <sex>M</sex>
+              </patient>
+            </PatientDemoEnquiryResult>
+          </ns2:searchHKPMIPatientByCaseNoResponse>
+        </soap:Body>
+      </soap:Envelope>
+    </processingStep>
+  </outputMessage>
 </log>

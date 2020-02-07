@@ -74,11 +74,11 @@ namespace Demo.HL7MessageParser.WinForms
 
             var caseNumber = e.Argument as string;
 
-            var pv = parser.GetPatient(caseNumber);
+            var pd = parser.GetPatient(caseNumber);
 
-            if (pv != null)
+            if (pd != null)
             {
-                result.PatientVisit = pv;
+                result.PatientVisit = pd;
                 this.BeginInvoke((MethodInvoker)delegate
                 {
                     scintillaPatient.FormatStyle(StyleType.Xml);
@@ -92,11 +92,38 @@ namespace Demo.HL7MessageParser.WinForms
                     scintillaProfiles.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Orders));
                 });
 
-                var allergys = parser.GetAlertProfiles(new Models.AlertInputParm
+                var alertInputParm = new Models.AlertInputParm
                 {
-                    PatientInfo = new Models.PatientInfo { Hkid = caseNumber },
-                    Credentials = new Models.Credentials { AccessCode = "" }
-                });
+                    PatientInfo = new PatientInfo
+                    {
+                        Hkid = pd.Patient.HKID,
+                        Name = pd.Patient.Name,
+                        Sex = pd.Patient.Sex,
+                        Dob = pd.Patient.DOB,
+                        Cccode1 = pd.Patient.CCCode1,
+                        Cccode2 = pd.Patient.CCCode2,
+                        Cccode3 = pd.Patient.CCCode3,
+                        Cccode4 = pd.Patient.CCCode4,
+                        Cccode5 = pd.Patient.CCCode5,
+                        Cccode6 = pd.Patient.CCCode6
+                    },
+
+                    UserInfo = new UserInfo
+                    {
+                        HospCode = Global.HospitalCode,
+                        LoginId = Global.LoginId
+                    },
+                    SysInfo = new SysInfo
+                    {
+                        WsId = GetCurrentStationIP(),
+                        SourceSystem = Global.SourceSystem
+                    },
+                    Credentials = new Credentials
+                    {
+                        AccessCode = Global.AccessCode
+                    }
+                };
+                var allergys = parser.GetAlertProfiles(alertInputParm);
                 result.Allergies = (allergys ?? new AlertProfileResult());
                 this.BeginInvoke((MethodInvoker)delegate
                 {
@@ -104,6 +131,19 @@ namespace Demo.HL7MessageParser.WinForms
                     scintillaAlerts.Text = JsonHelper.FormatJson(JsonHelper.ToJson(result.Allergies));
                 });
             }
+        }
+        private static string GetCurrentStationIP()
+        {
+            string AddressIP = string.Empty;
+            foreach (IPAddress _IPAddress in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+            {
+                if (_IPAddress.AddressFamily.ToString() == "InterNetwork")
+                {
+                    AddressIP = _IPAddress.ToString();
+                }
+            }
+
+            return AddressIP;
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
