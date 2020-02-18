@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Demo.HL7MessageParser
 {
@@ -68,34 +69,62 @@ namespace Demo.HL7MessageParser
             this.medicationProfileParser = medicationProfileParser;
             this.allergiesParser = allergiesParser;
         }
+        static int Max_Retry_Count = 3;
+        private static T GetFuncWithRetry<T>(Func<T> func) where T : class
+        {
+            int retryCount = 1;
+
+            while (true)
+            {
+                try
+                {
+                    return func();
+                }
+                catch
+                {
+                    retryCount++;
+
+                    if (retryCount > Max_Retry_Count)
+                    {
+                        throw;
+                    }
+
+                    Thread.Sleep(100);
+                }
+            }
+        }
 
         public MedicationProfileResult GetMedicationProfiles(string caseno)
         {
-            var medicationProfile = medicationProfileParser.GetMedicationProfile(caseno);
-            logger.Info(JsonHelper.ToJson(medicationProfile));
-            //TODO:storage the response
+            return GetFuncWithRetry<MedicationProfileResult>(() =>
+            {
+                var medicationProfile = medicationProfileParser.GetMedicationProfile(caseno);
 
-            // var orders = medicationProfile.MedProfileMoItems.ToConvert();
+                logger.Info(JsonHelper.ToJson(medicationProfile));
 
-            return medicationProfile;
+                return medicationProfile;
+            });
         }
 
         public PatientDemoEnquiry GetPatient(string caseno)
         {
             try
             {
-                var pr = patientVisitParser.GetPatientResult(caseno);
+                return GetFuncWithRetry<PatientDemoEnquiry>(() =>
+                {
+                    var pr = patientVisitParser.GetPatientResult(caseno);
 
-                logger.Info(XmlHelper.XmlSerializeToString(pr));
+                    logger.Info(XmlHelper.XmlSerializeToString(pr));
 
-                //TODO: storage the response Postponse
+                    //TODO: storage the response Postponse
 
-                //var patientVisit = pr.ToConvert();
+                    //var patientVisit = pr.ToConvert();
 
-                //TODO: storage accesscenter business object to db            
+                    //TODO: storage accesscenter business object to db            
 
 
-                return pr;
+                    return pr;
+                });
             }
             catch (AMException amex)
             {
@@ -113,16 +142,19 @@ namespace Demo.HL7MessageParser
 
         public AlertProfileResult GetAlertProfiles(AlertInputParm alertinput)
         {
-            alertinput.Credentials.AccessCode = AccessCode;
+            return GetFuncWithRetry<AlertProfileResult>(() =>
+            {
+                alertinput.Credentials.AccessCode = AccessCode;
 
-            var apr = allergiesParser.GetAlertProfile(alertinput);
+                var apr = allergiesParser.GetAlertProfile(alertinput);
 
-            logger.Info(JsonHelper.ToJson(apr));
-            //TODO:storage the response
+                logger.Info(JsonHelper.ToJson(apr));
+                //TODO:storage the response
 
-            // var result = apr.ToConvert();
+                // var result = apr.ToConvert();
 
-            return apr;
+                return apr;
+            });
         }
 
         public string SaveRemoteHL7PatientToLocal(string caseNumber, out string errorMessage)

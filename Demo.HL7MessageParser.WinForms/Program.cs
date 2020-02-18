@@ -1,7 +1,16 @@
-﻿using System;
+﻿using Demo.HL7MessageParser.Common;
+using Demo.HL7MessageParser.DTOs;
+using Demo.HL7MessageParser.Models;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Soap;
+using System.Text;
+using System.Threading;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Demo.HL7MessageParser.WinForms
 {
@@ -21,6 +30,15 @@ namespace Demo.HL7MessageParser.WinForms
             //var result = new List<string>().CheckIfSelectedItemExists();
         }
 
+        private static int FindIDX(int index)
+        {
+            if (index == 1)
+            {
+                return 0;
+            }
+
+            return -1;
+        }
 
         static int Max_Retry_Count = 5;
         private static string GetPatientEnquiry(string caseno)
@@ -35,8 +53,6 @@ namespace Demo.HL7MessageParser.WinForms
                     {
                         return "sss";
                     }
-
-                    throw new Exception("TTT");
                 }
                 catch
                 {
@@ -49,7 +65,12 @@ namespace Demo.HL7MessageParser.WinForms
                 }
             }
         }
+
+
+
     }
+
+
 
     public static class EX
     {

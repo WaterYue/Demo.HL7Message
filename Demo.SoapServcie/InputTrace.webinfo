@@ -9310,4 +9310,47 @@
       </soap:Envelope>
     </processingStep>
   </inputMessage>
+  <inputMessage utc="02/18/2020 6:01:17 AM" messageId="urn:uuid:d82e284a-7151-458a-8837-e840ef2de464">
+    <processingStep description="Unprocessed message">
+      <soapenv:Envelope xmlns:web="http://webservice.pas.ha.org.hk/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+    <soapenv:Header>
+        <wsa:Action>http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo</wsa:Action>
+        <wsa:To>http://localhost:8096/PatientService.asmx</wsa:To>
+        <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:UsernameToken wsu:Id="UsernameToken-D1A5C91F8C11FC7F2614479411111111">
+                <wsse:Username>pas-appt-ws-user</wsse:Username>
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">pas-appt-ws-user-pwd</wsse:Password>
+                <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">NjQwZjBhYmItOThhMS00NzZiLWE4OWMtZGUxNGEzMjI4NjU4</wsse:Nonce>
+                <wsu:Created>2019-09-22T03:08:53.260Z</wsu:Created>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soapenv:Header>
+    <soapenv:Body>
+        <web:searchHKPMIPatientByCaseNo>
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+        </web:searchHKPMIPatientByCaseNo>
+    </soapenv:Body>
+</soapenv:Envelope>
+    </processingStep>
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.RequireSoapHeaderAssertion+RequireSoapHeaderFilter" />
+    <processingStep description="Entering SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Exited SOAP filter Microsoft.Web.Services3.Design.UsernameOverTransportAssertion+ServiceInputFilter" />
+    <processingStep description="Processed message">
+      <soapenv:Envelope xmlns:web="http://webservice.pas.ha.org.hk/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+    <soapenv:Header>
+        
+        
+        
+    </soapenv:Header>
+    <soapenv:Body>
+        <web:searchHKPMIPatientByCaseNo>
+            <hospitalCode>VH</hospitalCode>
+            <caseNo>HN03191100Y</caseNo>
+        </web:searchHKPMIPatientByCaseNo>
+    </soapenv:Body>
+</soapenv:Envelope>
+    </processingStep>
+  </inputMessage>
 </log>

@@ -49,22 +49,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2019 16:35:10</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Common.dll">
-      <publishTime>11/18/2019 13:30:29</publishTime>
+      <publishTime>02/10/2020 16:47:19</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Common.pdb">
-      <publishTime>11/18/2019 13:30:29</publishTime>
+      <publishTime>02/10/2020 16:47:19</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Models.dll">
-      <publishTime>10/09/2019 14:03:54</publishTime>
+      <publishTime>02/10/2020 16:47:19</publishTime>
     </File>
     <File Include="bin/Demo.HL7MessageParser.Models.pdb">
-      <publishTime>10/09/2019 14:03:54</publishTime>
+      <publishTime>02/10/2020 16:47:19</publishTime>
     </File>
     <File Include="bin/Demo.RESTServcie.dll">
-      <publishTime>11/27/2019 15:18:11</publishTime>
+      <publishTime>02/10/2020 16:49:48</publishTime>
     </File>
     <File Include="bin/Demo.RESTServcie.pdb">
-      <publishTime>11/27/2019 15:18:11</publishTime>
+      <publishTime>02/10/2020 16:49:48</publishTime>
     </File>
     <File Include="bin/FluentValidation.dll">
       <publishTime>05/10/2019 10:53:18</publishTime>

@@ -87,6 +87,38 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PE", "PE", "{D0E66100-869F-
 		Data\PE\HN191099571.xml = Data\PE\HN191099571.xml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demp.SimpleSoapService", "Demp.SimpleSoapService\Demp.SimpleSoapService.csproj", "{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MDS", "MDS", "{1442D4B8-6B5B-4227-BF1C-C457E7B13FD0}"
+	ProjectSection(SolutionItems) = preProject
+		Data\MDS\HN130005510.json = Data\MDS\HN130005510.json
+		Data\MDS\HN170002520.json = Data\MDS\HN170002520.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM", "DM", "{EED021E0-62B9-4A39-849A-18D23C8ABDD9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "getPreparation", "getPreparation", "{F721A3DF-9D67-440C-95E6-72BA3E6B1840}"
+	ProjectSection(SolutionItems) = preProject
+		Data\DM\getPreparation\AMET02.xml = Data\DM\getPreparation\AMET02.xml
+		Data\DM\getPreparation\METH66.xml = Data\DM\getPreparation\METH66.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "getDrugMdsPropertyHq", "getDrugMdsPropertyHq", "{785EB32E-E008-4BAD-9B8A-967D819FB593}"
+	ProjectSection(SolutionItems) = preProject
+		Data\DM\getDrugMdsPropertyHq\1.xml = Data\DM\getDrugMdsPropertyHq\1.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Req", "Req", "{87C1AAA2-1497-4301-A2DE-BFE4B9BEAE2D}"
+	ProjectSection(SolutionItems) = preProject
+		Data\DM\getPreparation\Req\AMET02.xml = Data\DM\getPreparation\Req\AMET02.xml
+		Data\DM\getPreparation\Req\METH66.xml = Data\DM\getPreparation\Req\METH66.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Req", "Req", "{8EB05B79-87EF-423A-B0A5-9093A89A8939}"
+	ProjectSection(SolutionItems) = preProject
+		Data\DM\getDrugMdsPropertyHq\Req\1.xml = Data\DM\getDrugMdsPropertyHq\Req\1.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +161,10 @@ Global
 		{E1F8AB24-9D6E-43D2-A3F6-BBC290FD2144}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1F8AB24-9D6E-43D2-A3F6-BBC290FD2144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1F8AB24-9D6E-43D2-A3F6-BBC290FD2144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF63643-7D3D-4D7A-AA55-9F8A6F876678}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,6 +176,12 @@ Global
 		{19DA17F4-2945-4D80-B22D-4197A2B4026D} = {5A6E0108-98D9-44CF-876C-BC514D0098D0}
 		{44CDDBF7-219A-4BB0-B902-6987B6C2A176} = {A902BCE8-868A-477C-9B43-10EB4B53D240}
 		{D0E66100-869F-4576-A079-C5C0B0F7EB1B} = {5A6E0108-98D9-44CF-876C-BC514D0098D0}
+		{1442D4B8-6B5B-4227-BF1C-C457E7B13FD0} = {5A6E0108-98D9-44CF-876C-BC514D0098D0}
+		{EED021E0-62B9-4A39-849A-18D23C8ABDD9} = {5A6E0108-98D9-44CF-876C-BC514D0098D0}
+		{F721A3DF-9D67-440C-95E6-72BA3E6B1840} = {EED021E0-62B9-4A39-849A-18D23C8ABDD9}
+		{785EB32E-E008-4BAD-9B8A-967D819FB593} = {EED021E0-62B9-4A39-849A-18D23C8ABDD9}
+		{87C1AAA2-1497-4301-A2DE-BFE4B9BEAE2D} = {F721A3DF-9D67-440C-95E6-72BA3E6B1840}
+		{8EB05B79-87EF-423A-B0A5-9093A89A8939} = {785EB32E-E008-4BAD-9B8A-967D819FB593}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {64A04E52-286E-4C99-9020-002615A1B03E}

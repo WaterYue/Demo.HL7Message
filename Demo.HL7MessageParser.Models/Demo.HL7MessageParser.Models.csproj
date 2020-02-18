@@ -33,6 +33,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Web.Services.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -41,6 +45,12 @@
   <ItemGroup>
     <Compile Include="AlertInputParm.cs" />
     <Compile Include="AlertProfileResult.cs" />
+    <Compile Include="MDSCheckInputParm.cs" />
+    <Compile Include="MDSCheckResult.cs" />
+    <Compile Include="GetDrugMdsPropertyHqResponse.cs" />
+    <Compile Include="getDrugMdsPropertyHq.cs" />
+    <Compile Include="GetPreparationResponse.cs" />
+    <Compile Include="GetPreparationRequest.cs" />
     <Compile Include="PatientDemoEnquiryResult.cs" />
     <Compile Include="MedicationProfileResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

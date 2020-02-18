@@ -104,6 +104,7 @@
     <Compile Include="Const.cs" />
     <Compile Include="Controllers\AlertProfileController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\MDSCheckController.cs" />
     <Compile Include="Controllers\MedProfileController.cs" />
     <Compile Include="Exceptions\GlobalExceptionHandler.cs" />
     <Compile Include="Exceptions\GlobalExceptionLogger.cs" />

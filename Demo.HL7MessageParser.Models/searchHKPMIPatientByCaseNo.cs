@@ -8,7 +8,7 @@ namespace Demo.HL7MessageParser.Models
         [XmlElement(ElementName = "hospitalCode", Namespace = "")]
         public string HospitalCode { get; set; }
 
-        [XmlElement(ElementName = "caseNo",Namespace ="")]
+        [XmlElement(ElementName = "caseNo", Namespace = "")]
         public string CaseNo { get; set; }
 
         private XmlSerializerNamespaces xmlns;
@@ -52,4 +52,6 @@ namespace Demo.HL7MessageParser.Models
         [XmlElement(ElementName = "PatientDemoEnquiryResult", Namespace = "")]
         public PatientDemoEnquiry PatientDemoEnquiry { get; set; }
     }
+
+   
 }

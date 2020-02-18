@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <!-- Register WSE section -->
+    <section name="microsoft.web.services3" type="Microsoft.Web.Services3.Configuration.WebServicesConfiguration, Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+    <section name="nlog" type="NLog.Config.ConfigSectionHandler, NLog"/>
+  </configSections>
+  <appSettings>
+    <!--<add key="RestUri" value="http://XIA-JEJIANG-LT:9527/pms-asa/1/"/>
+    <add key="SoapUri" value="http://XIA-JEJIANG-LT:9528/PatientService.asmx"/>-->
+    <add key="RestUri" value="http://localhost:8290/pms-asa/1/"/>
+    <add key="SoapUri" value="http://localhost:8096/PatientService.asmx"/>
+    <add key="client_secret" value="CLIENT_SECRET"/>
+    <add key="patHospCode" value="VH"/>
+    <add key="AccessCode" value="YAYRoZAJoaYD5qYZbwjQsTGI"/>
+    <add key="Token_Username" value="pas-appt-ws-user"/>
+    <add key="Token_Password" value="pas-appt-ws-user-pwd"/>
+    <add key="LoginId" value="itdadmin"/>
+    <add key="SourceSystem" value="PMS"/>
+  </appSettings>
+  <!-- WSE 3.0 settings -->
+  <microsoft.web.services3>
+    <diagnostics>
+      <!--<trace enabled="true" input="InputTrace.webinfo" output="OutputTrace.webinfo" />-->
+    </diagnostics>
+    <policy fileName="wse3policyCache.config"/>
+  </microsoft.web.services3>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2"/>d
+  </startup>
+
+  <nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- 
+  See http://nlog-project.org/wiki/Configuration_file 
+  for information on customizing logging rules and outputs.
+   -->
+    <targets>
+      <target name="file" xsi:type="File" autoFlush="true" fileName="${basedir}/logs/HL7MessageParser.WinForms.log" layout="${longdate} ${uppercase:${level}} ${message}" archiveFileName="${basedir}/logs/archives/HL7MessageParser.WinForms.{#}.log" archiveEvery="Day" archiveNumbering="Rolling" maxArchiveFiles="7" concurrentWrites="true" keepFileOpen="false"/>
+    </targets>
+    <rules>
+      <logger name="*" minlevel="Info" writeTo="file"/>
+    </rules>
+  </nlog>
+</configuration>

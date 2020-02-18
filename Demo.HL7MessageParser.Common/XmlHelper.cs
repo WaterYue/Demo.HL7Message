@@ -66,7 +66,7 @@ namespace Demo.HL7MessageParser.Common
             settings.IndentChars = " ";/*表示缩进的距离为一个Tab*/
             settings.NewLineChars = "\r\n";/*换行符,Window下换行符*/
             settings.Encoding = xmlEncode;/*编码方式*/
-                                          //开始正式写入
+            //开始正式写入
             using (XmlWriter writer = XmlWriter.Create(stream, settings))
             {
                 serialize.Serialize(writer, obj);
@@ -126,6 +126,9 @@ namespace Demo.HL7MessageParser.Common
                 }
             }
         }
+
+
+
 
         /// <summary>
         /// 将xml文件序列化为对象
