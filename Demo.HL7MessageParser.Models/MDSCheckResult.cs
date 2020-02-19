@@ -14,6 +14,7 @@ namespace Demo.HL7MessageParser.Models
         public object disconCheckingResults { get; set; }
         public object dlcmCheckingResults { get; set; }
         public object drcmCheckingResults { get; set; }
+
         public DrugAdrCheckingResults drugAdrCheckingResults { get; set; }
         public DrugAllergyCheckingResults drugAllergyCheckingResults { get; set; }
         public DrugError drugError { get; set; }
@@ -98,7 +99,7 @@ namespace Demo.HL7MessageParser.Models
 
     public class DrugAdrCheckingResults
     {
-        public List<object> drugAdrAlertMessages { get; set; }
+        public List<string> drugAdrAlertMessages { get; set; }
         public List<DrugAdrAlert> drugAdrAlerts { get; set; }
         public string errorCode { get; set; }
         public string errorDesc { get; set; }
@@ -123,7 +124,7 @@ namespace Demo.HL7MessageParser.Models
 
     public class DrugAllergyCheckingResults
     {
-        public List<object> drugAllergyAlertMessages { get; set; }
+        public List<string> drugAllergyAlertMessages { get; set; }
         public List<DrugAllergyAlert> drugAllergyAlerts { get; set; }
         public string errorCode { get; set; }
         public string errorDesc { get; set; }
