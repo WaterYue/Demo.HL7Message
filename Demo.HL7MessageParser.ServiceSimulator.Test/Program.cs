@@ -3,6 +3,7 @@ using Demo.HL7MessageParser.Models;
 using Demo.HL7MessageParser.WebProxy;
 using Microsoft.Web.Services3.Security.Tokens;
 using RestSharp;
+using RestSharp.Serializers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,17 +18,32 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         {
             //SoapClientProxy();
 
-            Test_HL7Parser();
+            try
+            {
+                PreparationService soapservice = new PreparationService("http://localhost:44368/PreparationService.asmx");
 
-            var client = new RestClient("http://localhost:3181/pms-asa1/1/");
+                var r1 = soapservice.getDrugMdsPropertyHq(new WebProxy.getDrugMdsPropertyHq());
+                
+                var r2 = soapservice.getPreparation(new WebProxy.GetPreparationRequest { arg0 = new WebProxy.Arg0 { itemCode = "AMET02" } });
+            }
+            catch (Exception ex)
+            {
+                ex = ex;
+            }
 
+            return;
+
+            // Test_HL7Parser();
+
+            var client = new RestClient("http://localhost:8290/pms-asa/1/");
+            Request_CheckMDS(client);
             // Request_AlertProfile(client);
 
             //  Request_MedicationProfile(client);
 
-          //  SoapClient_WSS(true);
+            //  SoapClient_WSS(true);
 
-            
+
 
             Console.ReadLine();
         }
@@ -93,6 +109,31 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+        private static void Request_CheckMDS(RestClient client)
+        {
+
+            foreach (var caseNumber in new string[] { "HN130005510", "HN170002520", })
+            {
+                var request = new RestRequest("mdsCheck", Method.POST);
+                request.AddHeader("client_secret", "CLIENT_SECRET");
+                request.AddHeader("pathospcode", "PATHOSPCODE");
+
+                request.XmlSerializer = new DotNetXmlSerializer();
+
+                var xmlRequestBody = XmlHelper.XmlSerializeToString(new MDSCheckInputParm { PatientInfo = new MDSCheck_PatientInfo { HKID = caseNumber } });
+                request.AddParameter("application/json", xmlRequestBody, ParameterType.RequestBody);
+
+                var response = client.Execute<MDSCheckResult>(request);
+
+                if (!response.IsSuccessful())
+                {
+                    response.ThrowException();
+                }
+
+                var result = response.Data;
+            }
+
         }
 
         private static void Request_MedicationProfile(RestClient client)

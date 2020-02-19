@@ -61,21 +61,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PreparationServiceProxy.cs" />
+    <Compile Include="Service\DrugMasterSoapService.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="HL7MessageParser_NTEC.cs" />
-    <Compile Include="Interface\IAlertProfileParser.cs" />
+    <Compile Include="Service\HL7MessageParser_NTEC.cs" />
     <Compile Include="Interface\IDrugMasterSoapService .cs" />
     <Compile Include="Interface\IHL7MessageParser.cs" />
     <Compile Include="Interface\IMDSCheckRestService .cs" />
     <Compile Include="Interface\IPatientVisitParser.cs" />
     <Compile Include="Interface\IProfileRestService1.cs" />
-    <Compile Include="JSONIAlertProfileParser.cs" />
+    <Compile Include="Service\MDSCheckRestService.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="ObjectAutoMapping.cs" />
     <Compile Include="PatientServiceProxy.cs" />
-    <Compile Include="ProfileRestService.cs" />
+    <Compile Include="Service\ProfileRestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SoapPatientVisitParser.cs" />
+    <Compile Include="Service\SoapPatientVisitParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Demo.HL7MessageParser.ClassDiagram.cd" />

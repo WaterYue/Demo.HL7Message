@@ -27,17 +27,17 @@ namespace Demo.HL7MessageParser.Models
         }
 
         [XmlElement(ElementName = "return")]
-        public List<Return_GetDrugMdsPropertyHqResponse> Return { get; set; }
+        public List<ReturnObj> Return { get; set; }
 
 
-        [XmlRoot]
-        public class Return_GetDrugMdsPropertyHqResponse
+        [XmlRoot(ElementName = "return")]
+        public class ReturnObj
         {
             [XmlElement(ElementName = "drugKey")]
             public string DrugKey { get; set; }
 
             [XmlElement(ElementName = "drugMds")]
-            public DrugMds_Return_GetDrugMdsPropertyHqResponse DrugMds { get; set; }
+            public DrugMDSObj DrugMds { get; set; }
 
             [XmlElement(ElementName = "drugProperty")]
             public DrugProperty DrugProperty { get; set; }
@@ -50,7 +50,7 @@ namespace Demo.HL7MessageParser.Models
 
 
     [XmlRoot(ElementName = "drugMds")]
-    public class DrugMds_Return_GetDrugMdsPropertyHqResponse
+    public class DrugMDSObj
     {
         [XmlElement(ElementName = "duplicateFlag")]
         public string DuplicateFlag { get; set; }

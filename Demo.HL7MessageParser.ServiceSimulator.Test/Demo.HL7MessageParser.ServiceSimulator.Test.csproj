@@ -55,50 +55,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\MedicationProfileRESTServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\MedicationProfileRESTServiceReference\MedicationProfileRESTService.wsdl" />
-    <None Include="Connected Services\MedicationProfileRESTServiceReference\MedicationProfileRESTService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\MedicationProfileRESTServiceReference\MedicationProfileRESTService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\MedicationProfileRESTServiceReference\MedicationProfileRESTService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="wse3policyCache.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\MedicationProfileRESTServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MedicationProfileRESTServiceReference\MedicationProfileRESTService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MedicationProfileRESTServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MedicationProfileRESTServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\MedicationProfileRESTServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

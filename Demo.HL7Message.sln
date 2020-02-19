@@ -12,6 +12,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.HL7MessageParser.ServiceSimulator.Test", "Demo.HL7MessageParser.ServiceSimulator.Test\Demo.HL7MessageParser.ServiceSimulator.Test.csproj", "{65AF1249-0E75-47D2-8A3D-9579BB86D0D7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8C923817-2871-41D8-AD25-F74136BB7066} = {8C923817-2871-41D8-AD25-F74136BB7066}
+		{7CF63643-7D3D-4D7A-AA55-9F8A6F876678} = {7CF63643-7D3D-4D7A-AA55-9F8A6F876678}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.SoapServcie", "Demo.SoapServcie\Demo.SoapServcie.csproj", "{8C923817-2871-41D8-AD25-F74136BB7066}"
