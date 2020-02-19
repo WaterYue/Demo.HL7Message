@@ -6,10 +6,12 @@ using System.Text;
 
 namespace Demo.HL7MessageParser
 {
-    public interface IMedicationProfileParser  
+    public interface IProfileRestService
     {
-        void Initialize(string restUri, string client_secret, string pathospcode);
+        AlertProfileResult GetAlertProfile(AlertInputParm alertinput);
 
         MedicationProfileResult GetMedicationProfile(string caseNumber);
+
+        void Initialize(string restUri, string client_secret, string client_id, string pathospcode);
     }
 }

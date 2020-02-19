@@ -29,8 +29,7 @@ namespace Demo.HL7MessageParser
         private string AccessCode;
 
         private IPatientVisitParser patientVisitParser;
-        private IMedicationProfileParser medicationProfileParser;
-        private IAlertProfileParser allergiesParser;
+        private IProfileRestService profileService;
 
         public HL7MessageParser_NTEC()
         {
@@ -38,9 +37,7 @@ namespace Demo.HL7MessageParser
 
             this.patientVisitParser = new SoapPatientVisitParser(SoapUrl, UserName, Password, HospitalCode);
 
-            this.medicationProfileParser = new JSONMedicationProfileParser(RestUrl, ClientSecret, HospitalCode);
-
-            this.allergiesParser = new JSONIAlertProfileParser(RestUrl, ClientSecret, ClientId, HospitalCode);
+            this.profileService = new ProfileRestService(RestUrl, ClientSecret, ClientId, HospitalCode);
         }
 
         private void Initialize()
@@ -62,12 +59,11 @@ namespace Demo.HL7MessageParser
 
         public HL7MessageParser_NTEC(
             IPatientVisitParser patientVisitParser,
-            IMedicationProfileParser medicationProfileParser,
-            IAlertProfileParser allergiesParser)
+           
+            IProfileRestService profileService)
         {
             this.patientVisitParser = patientVisitParser;
-            this.medicationProfileParser = medicationProfileParser;
-            this.allergiesParser = allergiesParser;
+            this.profileService = profileService;
         }
         static int Max_Retry_Count = 3;
         private static T GetFuncWithRetry<T>(Func<T> func) where T : class
@@ -98,7 +94,7 @@ namespace Demo.HL7MessageParser
         {
             return GetFuncWithRetry<MedicationProfileResult>(() =>
             {
-                var medicationProfile = medicationProfileParser.GetMedicationProfile(caseno);
+                var medicationProfile = profileService.GetMedicationProfile(caseno);
 
                 logger.Info(JsonHelper.ToJson(medicationProfile));
 
@@ -106,7 +102,7 @@ namespace Demo.HL7MessageParser
             });
         }
 
-        public PatientDemoEnquiry GetPatient(string caseno)
+        public PatientDemoEnquiry GetPatientEnquiry(string caseno)
         {
             try
             {
@@ -146,7 +142,7 @@ namespace Demo.HL7MessageParser
             {
                 alertinput.Credentials.AccessCode = AccessCode;
 
-                var apr = allergiesParser.GetAlertProfile(alertinput);
+                var apr = profileService.GetAlertProfile(alertinput);
 
                 logger.Info(JsonHelper.ToJson(apr));
                 //TODO:storage the response
@@ -161,7 +157,7 @@ namespace Demo.HL7MessageParser
         {
             errorMessage = string.Empty;
 
-            var actualProfile = allergiesParser.GetAlertProfile(new Models.AlertInputParm
+            var actualProfile = profileService.GetAlertProfile(new Models.AlertInputParm
             {
                 PatientInfo = new Models.PatientInfo { Hkid = caseNumber },
                 Credentials = new Models.Credentials { AccessCode = AccessCode }

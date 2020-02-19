@@ -14,7 +14,6 @@ namespace Demo.HL7MessageParser.Models
         public object disconCheckingResults { get; set; }
         public object dlcmCheckingResults { get; set; }
         public object drcmCheckingResults { get; set; }
-
         public DrugAdrCheckingResults drugAdrCheckingResults { get; set; }
         public DrugAllergyCheckingResults drugAllergyCheckingResults { get; set; }
         public DrugError drugError { get; set; }
@@ -26,7 +25,6 @@ namespace Demo.HL7MessageParser.Models
         public object steroidCheckingResults { get; set; }
         public object tenoCheckingResults { get; set; }
     }
-
     public class AdrError
     {
         public string errorAction { get; set; }
@@ -44,7 +42,19 @@ namespace Demo.HL7MessageParser.Models
         public List<ErrorDetail> errorDetails { get; set; }
         public bool hasAllergyError { get; set; }
     }
-
+   
+    public class DdcmCheckingResults
+    {
+ 
+        public List<string> ddcmAlertMessages { get; set; }
+        public List<DdcmAlert> ddcmAlerts { get; set; }
+        public string errorCode { get; set; }
+        public string errorDesc { get; set; }
+        public bool hasDdcmAlert { get; set; }
+        public bool hasG6PdDeficiencyAlert { get; set; }
+        public bool hasPregnancyAlert { get; set; }
+        public int messageCount { get; set; }
+    }
     public class DdcmAlert
     {
         public string conditionId { get; set; }
@@ -61,21 +71,9 @@ namespace Demo.HL7MessageParser.Models
         public bool suppress { get; set; }
     }
 
-    public class DdcmCheckingResults
-    {
-        public List<object> ddcmAlertMessages { get; set; }
-        public List<DdcmAlert> ddcmAlerts { get; set; }
-        public string errorCode { get; set; }
-        public string errorDesc { get; set; }
-        public bool hasDdcmAlert { get; set; }
-        public bool hasG6PdDeficiencyAlert { get; set; }
-        public bool hasPregnancyAlert { get; set; }
-        public int messageCount { get; set; }
-    }
-
     public class DdimCheckingResults
     {
-        public List<object> ddimAlertMessages { get; set; }
+        public List<string> ddimAlertMessages { get; set; }
         public List<object> ddimAlerts { get; set; }
         public string errorCode { get; set; }
         public string errorDesc { get; set; }
@@ -83,6 +81,16 @@ namespace Demo.HL7MessageParser.Models
         public int messageCount { get; set; }
     }
 
+
+    public class DrugAdrCheckingResults
+    {
+        public List<string> drugAdrAlertMessages { get; set; }
+        public List<DrugAdrAlert> drugAdrAlerts { get; set; }
+        public string errorCode { get; set; }
+        public string errorDesc { get; set; }
+        public bool hasDrugAdrAlert { get; set; }
+        public int messageCount { get; set; }
+    }
     public class DrugAdrAlert
     {
         public string adr { get; set; }
@@ -94,19 +102,21 @@ namespace Demo.HL7MessageParser.Models
         public string matchType { get; set; }
         public string reaction { get; set; }
         public string remark { get; set; }
+        /// <summary>
+        /// 2.System should not perform MDS checking on an ADR record if its severity is “Mild”.
+        /// </summary>
         public string severity { get; set; }
     }
 
-    public class DrugAdrCheckingResults
+    public class DrugAllergyCheckingResults
     {
-        public List<string> drugAdrAlertMessages { get; set; }
-        public List<DrugAdrAlert> drugAdrAlerts { get; set; }
+        public List<string> drugAllergyAlertMessages { get; set; }
+        public List<DrugAllergyAlert> drugAllergyAlerts { get; set; }
         public string errorCode { get; set; }
         public string errorDesc { get; set; }
-        public bool hasDrugAdrAlert { get; set; }
+        public bool hasDrugAllergyAlert { get; set; }
         public int messageCount { get; set; }
     }
-
     public class DrugAllergyAlert
     {
         public string allergen { get; set; }
@@ -122,16 +132,6 @@ namespace Demo.HL7MessageParser.Models
         public bool suppress { get; set; }
     }
 
-    public class DrugAllergyCheckingResults
-    {
-        public List<string> drugAllergyAlertMessages { get; set; }
-        public List<DrugAllergyAlert> drugAllergyAlerts { get; set; }
-        public string errorCode { get; set; }
-        public string errorDesc { get; set; }
-        public bool hasDrugAllergyAlert { get; set; }
-        public int messageCount { get; set; }
-    }
-
     public class DrugError
     {
         public string errorAction { get; set; }
@@ -140,6 +140,7 @@ namespace Demo.HL7MessageParser.Models
         public List<ErrorDetail> errorDetails { get; set; }
         public bool hasDrugError { get; set; }
     }
+
     public class ErrorDetail
     {
         public string code { get; set; }

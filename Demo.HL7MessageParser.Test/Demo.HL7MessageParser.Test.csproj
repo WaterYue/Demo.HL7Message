@@ -53,13 +53,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fake\FakeJsonIAlertProfileParser.cs" />
+    <Compile Include="Fake\FakeProfileRestService.cs" />
     <Compile Include="Fake\FakeSoapPatientVisitParser.cs" />
-    <Compile Include="Fake\FakeJSONMedicationProfileParser.cs" />
     <Compile Include="Fake\FakeObj.cs" />
     <Compile Include="SoapPatientVisitParserTest.cs" />
     <Compile Include="JSONIAlertProfileParserTest.cs" />
-    <Compile Include="JSONMedicationProfileParserTest.cs" />
+    <Compile Include="ProfileRestServicerTest.cs" />
     <Compile Include="Hl7MessageParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

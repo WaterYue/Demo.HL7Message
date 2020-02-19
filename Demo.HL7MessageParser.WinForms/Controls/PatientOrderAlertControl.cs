@@ -32,11 +32,9 @@ namespace Demo.HL7MessageParser.WinForms
 
             var patientVisitParser = new SoapPatientVisitParser(Global.SoapUri, Global.UserName, Global.Password, Global.HospitalCode);
 
-            var medicationProfileParser = new JSONMedicationProfileParser(Global.RestUri, Global.ClientSecret, Global.HospitalCode);
+            var profileService = new ProfileRestService(Global.RestUri, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 
-            var allergiesParser = new JSONIAlertProfileParser(Global.RestUri, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
-
-            parser = new HL7MessageParser_NTEC(patientVisitParser, medicationProfileParser, allergiesParser);
+            parser = new HL7MessageParser_NTEC(patientVisitParser, profileService);
         }
 
         private void btnRequest_Click(object sender, EventArgs e)
@@ -74,7 +72,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             var caseNumber = e.Argument as string;
 
-            var pd = parser.GetPatient(caseNumber);
+            var pd = parser.GetPatientEnquiry(caseNumber);
 
             if (pd != null)
             {

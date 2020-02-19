@@ -62,7 +62,7 @@ namespace Demo.HL7MessageParser.WinForms
 
             var parser = new HL7MessageParser_NTEC();
 
-            var pv = parser.GetPatient(caseNumber);
+            var pv = parser.GetPatientEnquiry(caseNumber);
 
             if (pv != null)
             {

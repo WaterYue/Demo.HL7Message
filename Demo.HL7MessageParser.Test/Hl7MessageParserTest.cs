@@ -20,53 +20,8 @@ namespace Demo.HL7MessageParser.Test
             hl7Parser = new HL7MessageParser_NTEC
                 (
                     new FakeSoapPatientVisitParser(),
-                    new FakeJSONMedicationProfileParser(),
-                    new FakeJsonIAlertProfileParser()
+                    new FakeProfileRestService()
                 );
-        }
-
-        [TestMethod]
-        public void Test_Patient_Succeed()
-        {
-            var expectPatient = new PatientVisit { };
-
-            var caseNo = "";
-
-            var actualPatientVisit = hl7Parser.GetPatient(caseNo);
-
-            Assert.AreEqual<PatientVisit>(expectPatient, actualPatientVisit);
-        }
-
-        [TestMethod]
-        public void Test_Order_Succeed()
-        {
-            var expectObj = new List<Order>();
-
-            var caseNo = "HN18001140Y";
-
-            var actualObj = hl7Parser.GetOrders(caseNo);
-
-            Assert.IsNotNull(actualObj);
-            Assert.AreEqual<int>(expectObj.Count, actualObj.Count());
-            Assert.AreEqual<IEnumerable<Order>>(expectObj, actualObj);
-        }
-
-        [TestMethod]
-        public void Test_Allergies_Succeed()
-        {
-            var expectObj = new List<PatientAllergyObj>();
-
-            var actualObj = hl7Parser.GetAllergies(new AlertInputParm
-            {
-                PatientInfo = new PatientInfo
-                {
-                    Hkid = "HN170002520"
-                }
-            });
-
-            Assert.IsNotNull(actualObj);
-            Assert.AreEqual<int>(expectObj.Count, actualObj.Count());
-            Assert.AreEqual<IEnumerable<PatientAllergyObj>>(expectObj, actualObj);
         }
 
         [TestCleanup]

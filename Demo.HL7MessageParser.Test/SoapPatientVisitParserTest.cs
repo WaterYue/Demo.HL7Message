@@ -59,7 +59,7 @@ namespace Demo.HL7MessageParser.Test
         public void Test_GetMedicationProfile_Invalid_PATHOSPCODE()
         {
             var caseNumber = "Any_CaseNumber";
-            var localParser = new JSONMedicationProfileParser(Uri, "CLIENT_SECRET", "INVALID_PATHOSPCODE");
+            var localParser = new ProfileRestService(Uri, "CLIENT_SECRET", "CLIENT_ID", "INVALID_PATHOSPCODE");
 
             var actualProfile = localParser.GetMedicationProfile(caseNumber);
 
@@ -80,7 +80,7 @@ namespace Demo.HL7MessageParser.Test
             var errorMessage = "Unauthorized";
             var httpStatusCode = HttpStatusCode.Unauthorized;
 
-            var localParser = new JSONMedicationProfileParser(Uri, "INVALID_CLIENT_SECRET", "PATHOSPCODE");
+            var localParser = new ProfileRestService(Uri, "CLIENT_SECRET", "CLIENT_ID", "INVALID_PATHOSPCODE");
 
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
@@ -96,7 +96,7 @@ namespace Demo.HL7MessageParser.Test
             var httpStatusCode = HttpStatusCode.ServiceUnavailable;
 
             //  var localParser = new JSONMedicationProfileParser("http://localhost:3181/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
-            var localParser = new JSONMedicationProfileParser("http://localhost:9527/pms-asa/invalidurl/", "CLIENT_SECRET", "PATHOSPCODE");
+            var localParser = new ProfileRestService("http://localhost:9527/pms-asa/invalidurl/", "CLIENT_SECRET", "CLIENT_ID", "PATHOSPCODE");
             var actualException = Assert.ThrowsException<AMException>(() => localParser.GetMedicationProfile(caseNumber));
 
             Assert.AreEqual(actualException.HttpStatusCode, httpStatusCode);

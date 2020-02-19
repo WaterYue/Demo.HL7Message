@@ -10,24 +10,21 @@ namespace Demo.HL7MessageParser
 {
     public static class ParserHelper
     {
+        static IProfileRestService profileService = new ProfileRestService();
         public static MedicationProfileResult ProcessMedicationProfile(RestRequestParam requestParam)
         {
-            IMedicationProfileParser parser = new JSONMedicationProfileParser();
+            profileService.Initialize(requestParam.url, requestParam.clientsecret, requestParam.clientid, requestParam.pahospCode);
 
-            parser.Initialize(requestParam.url, requestParam.clientsecret, requestParam.pahospCode);
-
-            return parser.GetMedicationProfile(requestParam.casenumber);
+            return profileService.GetMedicationProfile(requestParam.casenumber);
         }
 
         public static AlertProfileResult ProcessAlertProfile(RestRequestParam requestParam)
         {
-            IAlertProfileParser parser = new JSONIAlertProfileParser();
-
-            parser.Initialize(requestParam.url, requestParam.clientsecret, requestParam.clientid, requestParam.pahospCode);
+            profileService.Initialize(requestParam.url, requestParam.clientsecret, requestParam.clientid, requestParam.pahospCode);
 
             var inputParam = XmlHelper.XmlDeserialize<AlertInputParm>(requestParam.xmlReq);
 
-            return parser.GetAlertProfile(inputParam);
+            return profileService.GetAlertProfile(inputParam);
         }
     }
 

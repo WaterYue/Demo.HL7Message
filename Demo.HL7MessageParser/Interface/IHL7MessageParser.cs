@@ -12,10 +12,10 @@ namespace Demo.HL7MessageParser
     {
         string  SaveRemoteHL7PatientToLocal(string caseNumber,out string errorMessage);
 
-        //PatientVisit GetPatient(string caseno);
+        PatientDemoEnquiry GetPatientEnquiry(string caseno);
 
-        //IEnumerable<Order> GetOrders(string caseno);
+        MedicationProfileResult GetMedicationProfiles(string caseno);
 
-        //IEnumerable<PatientAllergyObj> GetAllergies(AlertInputParm alertinput);
+        AlertProfileResult GetAlertProfiles(AlertInputParm alertinput);
     }
 }

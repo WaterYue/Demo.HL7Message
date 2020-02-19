@@ -5,6 +5,19 @@ using System.Text;
 
 namespace Demo.HL7MessageParser.Models
 {
+    public class AlertProfileResult
+    {
+        public AlertProfileResult()
+        {
+            ErrorMessage = new List<ErrorMessage>();
+        }
+        public List<AdrProfile> AdrProfile { get; set; }
+        public List<AlertProfile> AlertProfile { get; set; }
+        public List<AllergyProfile> AllergyProfile { get; set; }
+        public List<ErrorMessage> ErrorMessage { get; set; }
+        public object MoePatientSteroidTag { get; set; }
+        public List<SimpleDisplayFormat> SimpleDisplayFormat { get; set; }
+    }
 
     public class AdrProfile
     {
@@ -84,19 +97,7 @@ namespace Demo.HL7MessageParser.Models
         public string MsgText { get; set; }
         public string StandardMsg { get; set; }
     }
-    public class AlertProfileResult
-    {
-        public AlertProfileResult()
-        {
-            ErrorMessage = new List<ErrorMessage>();
-        }
-        public List<AdrProfile> AdrProfile { get; set; }
-        public List<AlertProfile> AlertProfile { get; set; }
-        public List<AllergyProfile> AllergyProfile { get; set; }
-        public List<ErrorMessage> ErrorMessage { get; set; }
-        public object MoePatientSteroidTag { get; set; }
-        public List<SimpleDisplayFormat> SimpleDisplayFormat { get; set; }
-    }
+
 }
 /*
  * {

@@ -64,14 +64,16 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="HL7MessageParser_NTEC.cs" />
     <Compile Include="Interface\IAlertProfileParser.cs" />
+    <Compile Include="Interface\IDrugMasterSoapService .cs" />
     <Compile Include="Interface\IHL7MessageParser.cs" />
-    <Compile Include="Interface\IMedicationProfileParser .cs" />
+    <Compile Include="Interface\IMDSCheckRestService .cs" />
     <Compile Include="Interface\IPatientVisitParser.cs" />
+    <Compile Include="Interface\IProfileRestService1.cs" />
     <Compile Include="JSONIAlertProfileParser.cs" />
-    <Compile Include="JSONMedicationProfileParser.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="ObjectAutoMapping.cs" />
     <Compile Include="PatientServiceProxy.cs" />
+    <Compile Include="ProfileRestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoapPatientVisitParser.cs" />
   </ItemGroup>
