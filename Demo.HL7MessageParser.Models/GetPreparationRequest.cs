@@ -5,24 +5,6 @@ namespace Demo.HL7MessageParser.Models
     [XmlRoot(ElementName = "getPreparation",Namespace = "http://biz.dms.pms.model.ha.org.hk/")]
     public class GetPreparationRequest
     {
-        //private XmlSerializerNamespaces xmlns;
-
-        //[XmlNamespaceDeclarations]
-        //public XmlSerializerNamespaces Xmlns
-        //{
-        //    get
-        //    {
-        //        if (xmlns == null)
-        //        {
-                    
-        //            xmlns = new XmlSerializerNamespaces();
-        //            xmlns.Add("biz", "http://biz.dms.pms.model.ha.org.hk/");
-        //        }
-        //        return xmlns;
-        //    }
-        //    set { xmlns = value; }
-        //}
-
         [XmlElement(ElementName = "arg0", Namespace = "")]
         public Arg0 Arg0 { get; set; }
     }
