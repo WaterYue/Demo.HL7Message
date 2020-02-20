@@ -17,25 +17,14 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
         static void Main(string[] args)
         {
             //SoapClientProxy();
+ 
+         //   DrugMasterSosapService();
 
-            try
-            {
-                PreparationService soapservice = new PreparationService("http://localhost:44368/PreparationService.asmx");
-
-                var r1 = soapservice.getDrugMdsPropertyHq(new WebProxy.getDrugMdsPropertyHq());
-                
-                var r2 = soapservice.getPreparation(new WebProxy.GetPreparationRequest { arg0 = new WebProxy.Arg0 { itemCode = "AMET02" } });
-            }
-            catch (Exception ex)
-            {
-                ex = ex;
-            }
-
-            return;
 
             // Test_HL7Parser();
 
             var client = new RestClient("http://localhost:8290/pms-asa/1/");
+
             Request_CheckMDS(client);
             // Request_AlertProfile(client);
 
@@ -46,6 +35,22 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
 
             Console.ReadLine();
+        }
+
+        private static void DrugMasterSosapService()
+        {
+            try
+            {
+                DrugMasterServiceProxy soapservice = new DrugMasterServiceProxy("http://localhost:44368/PreparationService.asmx");
+
+                var r1 = soapservice.getDrugMdsPropertyHq(new GetDrugMdsPropertyHqRequest());
+
+                var r2 = soapservice.getPreparation(new GetPreparationRequest { Arg0 = new Arg0 { ItemCode = "AMET02" } });
+            }
+            catch (Exception ex)
+            {
+                ex = ex;
+            }
         }
 
         private static void Test_HL7Parser()

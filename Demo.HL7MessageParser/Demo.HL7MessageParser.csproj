@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PreparationServiceProxy.cs" />
+    <Compile Include="DrugMasterServiceProxy.cs" />
     <Compile Include="Service\DrugMasterSoapService.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Service\HL7MessageParser_NTEC.cs" />

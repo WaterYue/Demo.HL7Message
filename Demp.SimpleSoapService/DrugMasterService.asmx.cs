@@ -20,7 +20,7 @@ namespace Demp.SimpleSoapService
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class PreparationService : System.Web.Services.WebService
+    public class DrugMasterService : System.Web.Services.WebService
     {
         public WorkContextSoapHeader WorkContext { get; set; }
 
@@ -79,7 +79,7 @@ namespace Demp.SimpleSoapService
         [WebMethod]
         [SoapHeader("WorkContext", Direction = SoapHeaderDirection.InOut)]
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
-        public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(getDrugMdsPropertyHq request)
+        public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
         {
             WorkContext = new WorkContextSoapHeader();
 

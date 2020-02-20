@@ -19,9 +19,39 @@ namespace Demo.HL7MessageParser.Test
         [TestInitialize]
         public void Initialize()
         {
+            parser = new DrugMasterSoapService();
+        }
+        [TestMethod]
+        public void Test_GetDrugMdsPropertyHqResponse_Successful()
+        {
+            var itemCode = new List<string> { "AMET02", "METH66", "DEXT1Q", "LEVE01" };
+
+            var getDrugMdsPropertyHq = new GetDrugMdsPropertyHqRequest
+            {
+                Arg0 = new GetDrugMdsPropertyHq_Arg0
+                {
+                    ItemCode = itemCode
+                }
+            };
+
+            var actualResult = parser.getDrugMdsPropertyHq(getDrugMdsPropertyHq);
+
+            Assert.IsNotNull(actualResult);
+            // var actualProfileJSONStr = JsonHelper.ToJson(actualResult);
         }
 
-      
+        [TestMethod]
+        public void Test_getPreparationResponse_Successful()
+        {
+            var request = new Models.GetPreparationRequest { Arg0 = new Models.Arg0 { ItemCode = "AMET02" } };
+
+            var actualResult = parser.getPreparation(request);
+
+            Assert.IsNotNull(actualResult);
+            // var actualProfileJSONStr = JsonHelper.ToJson(actualResult);
+        }
+
+
         [TestCleanup]
         public void CleanUp()
         {

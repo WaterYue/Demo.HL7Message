@@ -7,7 +7,7 @@ namespace Demo.HL7MessageParser.Models
 
 
     [XmlRoot(ElementName = "getDrugMdsPropertyHq")]
-    public class getDrugMdsPropertyHq
+    public class GetDrugMdsPropertyHqRequest
     {
         private XmlSerializerNamespaces xmlns;
 

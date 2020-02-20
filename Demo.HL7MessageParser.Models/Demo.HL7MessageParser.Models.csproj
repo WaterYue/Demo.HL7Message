@@ -48,7 +48,7 @@
     <Compile Include="MDSCheckInputParm.cs" />
     <Compile Include="MDSCheckResult.cs" />
     <Compile Include="GetDrugMdsPropertyHqResponse.cs" />
-    <Compile Include="getDrugMdsPropertyHq.cs" />
+    <Compile Include="GetDrugMdsPropertyHqRequest.cs" />
     <Compile Include="GetPreparationResponse.cs" />
     <Compile Include="GetPreparationRequest.cs" />
     <Compile Include="PatientDemoEnquiryResult.cs" />

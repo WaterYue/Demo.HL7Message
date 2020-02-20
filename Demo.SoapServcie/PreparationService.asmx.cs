@@ -42,7 +42,7 @@ namespace Demo.SoapServcie
         [WebMethod]
         [SoapHeader("WorkContext", Direction = SoapHeaderDirection.InOut)]
         [SoapDocumentMethod(ParameterStyle = SoapParameterStyle.Bare)]
-        public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(getDrugMdsPropertyHq request)
+        public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
         {
             WorkContext = new WorkContextSoapHeader();
 

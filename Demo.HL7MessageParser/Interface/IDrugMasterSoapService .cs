@@ -10,6 +10,6 @@ namespace Demo.HL7MessageParser
     {
         GetPreparationResponse getPreparation(GetPreparationRequest request);
 
-        GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(getDrugMdsPropertyHq request);
+        GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request);
     }
 }

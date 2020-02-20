@@ -120,49 +120,6 @@ namespace Demo.HL7MessageParser.WebProxy
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://oracle.com/weblogic/soap/workarea/")]
-    [System.Xml.Serialization.XmlRootAttribute("WorkContext", Namespace = "http://oracle.com/weblogic/soap/workarea/", IsNullable = false)]
-    public partial class WorkContextSoapHeader : System.Web.Services.Protocols.SoapHeader
-    {
-
-        private System.Xml.XmlAttribute[] anyAttrField;
-
-        private System.Xml.Serialization.XmlSerializerNamespaces xmlnsField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
-        public System.Xml.XmlAttribute[] AnyAttr
-        {
-            get
-            {
-                return this.anyAttrField;
-            }
-            set
-            {
-                this.anyAttrField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlNamespaceDeclarationsAttribute()]
-        public System.Xml.Serialization.XmlSerializerNamespaces Xmlns
-        {
-            get
-            {
-                return this.xmlnsField;
-            }
-            set
-            {
-                this.xmlnsField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "2.0.50727.42")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class address
     {
 

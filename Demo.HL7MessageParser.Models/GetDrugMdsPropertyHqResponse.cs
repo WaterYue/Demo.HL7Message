@@ -30,24 +30,24 @@ namespace Demo.HL7MessageParser.Models
         public List<ReturnObj> Return { get; set; }
 
 
-        [XmlRoot(ElementName = "return")]
-        public class ReturnObj
-        {
-            [XmlElement(ElementName = "drugKey")]
-            public string DrugKey { get; set; }
-
-            [XmlElement(ElementName = "drugMds")]
-            public DrugMDSObj DrugMds { get; set; }
-
-            [XmlElement(ElementName = "drugProperty")]
-            public DrugProperty DrugProperty { get; set; }
-
-            [XmlElement(ElementName = "itemCode")]
-            public string ItemCode { get; set; }
-        }
     }
 
 
+    [XmlRoot(ElementName = "return")]
+    public class ReturnObj
+    {
+        [XmlElement(ElementName = "drugKey")]
+        public string DrugKey { get; set; }
+
+        [XmlElement(ElementName = "drugMds")]
+        public DrugMDSObj DrugMds { get; set; }
+
+        [XmlElement(ElementName = "drugProperty")]
+        public DrugProperty DrugProperty { get; set; }
+
+        [XmlElement(ElementName = "itemCode")]
+        public string ItemCode { get; set; }
+    }
 
     [XmlRoot(ElementName = "drugMds")]
     public class DrugMDSObj
