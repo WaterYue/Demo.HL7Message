@@ -34,7 +34,11 @@ namespace Demo.HL7MessageParser.WinForms
 
             var profileService = new ProfileRestService(Global.RestUri, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 
-            parser = new HL7MessageParser_NTEC(patientVisitParser, profileService);
+            var drugMasterSoapService = new DrugMasterSoapService(Global.DrugMasterSoapUrl);
+
+            var mdsCheckRestService = new MDSCheckRestService(Global.MDSCheckRestUrl);
+
+            parser = new HL7MessageParser_NTEC(patientVisitParser, profileService, drugMasterSoapService, mdsCheckRestService);
         }
 
         private void btnRequest_Click(object sender, EventArgs e)

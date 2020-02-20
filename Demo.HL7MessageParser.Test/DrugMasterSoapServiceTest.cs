@@ -15,11 +15,11 @@ namespace Demo.HL7MessageParser.Test
     public class DrugMasterSoapServiceTest
     {
         IDrugMasterSoapService parser;
-        string restUri = "http://localhost:3181/pms-asa/1/";
+        string restUri = "http://localhost:44368/DrugMasterService.asmx";
         [TestInitialize]
         public void Initialize()
         {
-            parser = new DrugMasterSoapService();
+            parser = new DrugMasterSoapService(restUri);
         }
         [TestMethod]
         public void Test_GetDrugMdsPropertyHqResponse_Successful()

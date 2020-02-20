@@ -17,11 +17,11 @@ namespace Demo.HL7MessageParser.Test
         [TestInitialize]
         public void Initialize()
         {
-            hl7Parser = new HL7MessageParser_NTEC
-                (
-                    new FakeSoapPatientVisitParser(),
-                    new FakeProfileRestService()
-                );
+            //hl7Parser = new HL7MessageParser_NTEC
+            //    (
+            //        new FakeSoapPatientVisitParser(),
+            //        new FakeProfileRestService()
+            //    );
         }
 
         [TestCleanup]

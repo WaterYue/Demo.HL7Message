@@ -23,7 +23,10 @@ namespace Demo.HL7MessageParser
             client_id = "CLIENT_ID";
             pathospcode = "PATHOSPCODE";
         }
-
+        public MDSCheckRestService(string restUri)
+        {
+            this.restUri = restUri;
+        }
         public MDSCheckRestService(string restUri, string client_secret, string client_id, string pathospcode)
         {
             this.restUri = restUri;

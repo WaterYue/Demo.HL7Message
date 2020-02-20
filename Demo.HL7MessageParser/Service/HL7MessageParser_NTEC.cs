@@ -28,16 +28,25 @@ namespace Demo.HL7MessageParser
         private string HospitalCode;
         private string AccessCode;
 
+        private string DrugMasterSoapUrl;
+        private string MDSCheckRestUrl;
         private IPatientVisitParser patientVisitParser;
         private IProfileRestService profileService;
+        private IDrugMasterSoapService drugMasterSoapService;
+        private IMDSCheckRestService mdsCheckRestService;
 
         public HL7MessageParser_NTEC()
         {
             Initialize();
 
-            this.patientVisitParser = new SoapPatientVisitParser(SoapUrl, UserName, Password, HospitalCode);
+            patientVisitParser = new SoapPatientVisitParser(SoapUrl, UserName, Password, HospitalCode);
 
-            this.profileService = new ProfileRestService(RestUrl, ClientSecret, ClientId, HospitalCode);
+            profileService = new ProfileRestService(RestUrl, ClientSecret, ClientId, HospitalCode);
+
+            drugMasterSoapService = new DrugMasterSoapService(DrugMasterSoapUrl);
+
+            mdsCheckRestService = new MDSCheckRestService(MDSCheckRestUrl);
+
         }
 
         private void Initialize()
@@ -55,15 +64,21 @@ namespace Demo.HL7MessageParser
 
             AccessCode = "AccessCode";
             HospitalCode = "VH";
+
+            DrugMasterSoapUrl = "http://localhost:44368/DrugMasterService.asmx";
+
+            MDSCheckRestUrl = "http://localhost:3181/pms-asa/1/";
         }
 
-        public HL7MessageParser_NTEC(
-            IPatientVisitParser patientVisitParser,
-           
-            IProfileRestService profileService)
+        public HL7MessageParser_NTEC(IPatientVisitParser patientVisitParser,
+                                     IProfileRestService profileService,
+                                     IDrugMasterSoapService drugMasterSoapService,
+                                     IMDSCheckRestService mdsCheckRestService)
         {
             this.patientVisitParser = patientVisitParser;
             this.profileService = profileService;
+            this.drugMasterSoapService = drugMasterSoapService;
+            this.mdsCheckRestService = mdsCheckRestService;
         }
         static int Max_Retry_Count = 3;
         private static T GetFuncWithRetry<T>(Func<T> func) where T : class
@@ -151,6 +166,21 @@ namespace Demo.HL7MessageParser
 
                 return apr;
             });
+        }
+
+        public GetDrugMdsPropertyHqResponse getDrugMdsPropertyHq(GetDrugMdsPropertyHqRequest request)
+        {
+            return drugMasterSoapService.getDrugMdsPropertyHq(request);
+        }
+
+        public GetPreparationResponse getPreparation(GetPreparationRequest request)
+        {
+            return drugMasterSoapService.getPreparation(request);
+        }
+
+        public MDSCheckResult CheckMDS(MDSCheckInputParm inputParam)
+        {
+            return mdsCheckRestService.CheckMDS(inputParam);
         }
 
         public string SaveRemoteHL7PatientToLocal(string caseNumber, out string errorMessage)

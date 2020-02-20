@@ -28,8 +28,6 @@ namespace Demo.HL7MessageParser.Models
 
         [XmlElement(ElementName = "return")]
         public List<ReturnObj> Return { get; set; }
-
-
     }
 
 

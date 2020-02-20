@@ -24,6 +24,8 @@ namespace Demo.HL7MessageParser.WinForms
         public static string ClientId { get; private set; }
         public static string SourceSystem { get; internal set; }
         public static string LoginId { get; internal set; }
+        public static string DrugMasterSoapUrl { get; internal set; }
+        public static string MDSCheckRestUrl { get; internal set; }
 
         public static void Initialize()
         {
@@ -44,6 +46,11 @@ namespace Demo.HL7MessageParser.WinForms
             LoginId = ConfigurationManager.AppSettings["LoginId"].ToString();
 
             SourceSystem = ConfigurationManager.AppSettings["SourceSystem"].ToString();
+
+
+            DrugMasterSoapUrl = "http://localhost:44368/DrugMasterService.asmx";
+
+            MDSCheckRestUrl = "http://localhost:3181/pms-asa/1/";
 
             ClientId = "AccessCenter";
 
