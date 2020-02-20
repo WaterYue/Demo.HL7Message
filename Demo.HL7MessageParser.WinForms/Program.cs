@@ -22,6 +22,36 @@ namespace Demo.HL7MessageParser.WinForms
         [STAThread]
         static void Main()
         {
+            try
+            {
+
+                var str = @"<biz:getDrugMdsPropertyHq xmlns:biz=""http://biz.dms.pms.model.ha.org.hk/"">
+ <arg0>
+    <itemCode> AMET02 </itemCode>
+    <itemCode> LEVE01 </itemCode>
+</arg0>
+</biz:getDrugMdsPropertyHq> ";
+
+                
+                str = @"<?xml version='1.0' encoding='UTF-8'?>" + str;
+
+                var res = XmlHelper.XmlDeserialize<GetDrugMdsPropertyHqRequest>(str);
+
+                var restr = XmlHelper.XmlSerializeToString(new GetDrugMdsPropertyHqRequest
+                {
+                    Arg0 = new Arg
+                    {
+                        ItemCode = new List<string> { "a", "B" }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                ex = ex;
+            }
+
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

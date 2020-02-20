@@ -24,8 +24,11 @@ namespace Demo.HL7MessageParser.WinForms
     public partial class DrugMasterControl : UserControl
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly string reqDir;
+
         private IHL7MessageParser hl7messageParser;
 
+        GetPreparationRequest SelectedGetPreparationRequest = null;
 
         static DrugMasterControl()
         {
@@ -45,9 +48,16 @@ namespace Demo.HL7MessageParser.WinForms
 
             Initialize();
         }
-        private static readonly string reqDir;
+
         private void Initialize()
         {
+            chxCustomDrugMdsReq.Checked = false;
+            chxCustomPreparationReq.Checked = false;
+
+
+            RefreshPreparationReqUI(false);
+            RefreshCustomDrugMdsReqUI(false);
+
             txtURL.Text = Global.DrugMasterSoapUrl;
             txtURL.ReadOnly = true;
 
@@ -83,15 +93,25 @@ namespace Demo.HL7MessageParser.WinForms
 
             try
             {
-                var res = hl7messageParser.getDrugMdsPropertyHq(SelectedGetDrugMdsPropertyHqRequest);
+                var str = scintillaReq.Text.Trim();
+                GetDrugMdsPropertyHqRequest request = null;
+
+                using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(str)))
+                {
+                    var argElement = XDocument.Load(ms).Descendants("arg0").First();
+
+                    var arg0 = XmlHelper.XmlDeserialize<Arg>(argElement.ToString());
+
+                    request = new GetDrugMdsPropertyHqRequest { Arg0 = arg0 };
+                }
+
+                var res = hl7messageParser.getDrugMdsPropertyHq(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
 
-                scintillaRes.Focus();
-
                 scintillaRes.Text = XmlHelper.FormatXML(resStr);
                 scintillaRes.FormatStyle(StyleType.Xml);
-
+                scintillaRes.Focus();
             }
             catch (Exception ex)
             {
@@ -104,10 +124,13 @@ namespace Demo.HL7MessageParser.WinForms
         {
             GenerateReqXml();
         }
-        GetDrugMdsPropertyHqRequest SelectedGetDrugMdsPropertyHqRequest = null;
+        private void chxCustomDrugMdsReq_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshCustomDrugMdsReqUI(chxCustomDrugMdsReq.Checked);
+        }
+
         private void GenerateReqXml()
         {
-            tcMain.SelectedIndex = 0;
             scintillaReq.Focus();
 
             try
@@ -119,17 +142,9 @@ namespace Demo.HL7MessageParser.WinForms
                 XNamespace x = "http://schemas.xmlsoap.org/soap/envelope/";
                 XNamespace x2 = "http://biz.dms.pms.model.ha.org.hk/";
 
-                var element = doc.Descendants(x + "Body")
-                              .Descendants(x2 + "getDrugMdsPropertyHq")
-                               .Descendants("arg0").First();
+                var element = doc.Descendants(x + "Body").Descendants(x2 + "getDrugMdsPropertyHq");
 
-                var arg0 = XmlHelper.XmlDeserialize<GetDrugMdsPropertyHq_Arg0>(element.ToString());
-
-                SelectedGetDrugMdsPropertyHqRequest = new GetDrugMdsPropertyHqRequest { Arg0 = arg0 };
-
-                //   scintillaReq.Text = XmlHelper.FormatXML(XmlHelper.XmlSerializeToString(SelectedGetDrugMdsPropertyHqRequest));
-
-                scintillaReq.Text = XmlHelper.FormatXML(doc.ToString());
+                scintillaReq.Text = XmlHelper.FormatXML(element.First().ToString());
 
                 scintillaReq.FormatStyle(StyleType.Xml);
             }
@@ -138,8 +153,11 @@ namespace Demo.HL7MessageParser.WinForms
 
             }
         }
-
-
+        private void RefreshCustomDrugMdsReqUI(bool enabled)
+        {
+            cbxCaseNumber.Enabled = !enabled;
+            scintillaReq.Enabled = enabled;
+        }
 
         private void btnRequestPreparation_Click(object sender, EventArgs e)
         {
@@ -148,7 +166,17 @@ namespace Demo.HL7MessageParser.WinForms
 
             try
             {
-                var res = hl7messageParser.getPreparation(SelectedGetPreparationRequest);
+                var str = scintillaReqPreparation.Text.Trim();
+                GetPreparationRequest request = null;
+
+                using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(str)))
+                {
+                    var argElement = XDocument.Load(ms);
+
+                    request = XmlHelper.XmlDeserialize<GetPreparationRequest>(argElement.ToString());
+                }
+
+                var res = hl7messageParser.getPreparation(request);
 
                 var resStr = XmlHelper.XmlSerializeToString(res);
 
@@ -166,13 +194,15 @@ namespace Demo.HL7MessageParser.WinForms
             }
 
         }
-
         private void cbxIDrugItemCodes_SelectedIndexChanged(object sender, EventArgs e)
         {
             GenerateReqPreparationXml();
         }
+        private void chxCustomPreparationReq_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshPreparationReqUI(chxCustomPreparationReq.Checked);
+        }
 
-        GetPreparationRequest SelectedGetPreparationRequest = null;
         private void GenerateReqPreparationXml()
         {
             scintillaReqPreparation.Focus();
@@ -182,20 +212,13 @@ namespace Demo.HL7MessageParser.WinForms
                 var file = Path.Combine(reqDir, string.Format(@"getPreparation\Req\{0}.xml", cbxIDrugItemCodes.SelectedItem.ToString()));
 
                 var doc = XDocument.Load(file);
-
                 XNamespace x = "http://schemas.xmlsoap.org/soap/envelope/";
                 XNamespace x2 = "http://biz.dms.pms.model.ha.org.hk/";
 
-                var element = doc.Descendants(x + "Body")
-                              .Descendants(x2 + "getPreparation")
-                               .Descendants("arg0").First();
+                var element = doc.Descendants(x + "Body").Descendants(x2 + "getPreparation").First();
 
-                var arg0 = XmlHelper.XmlDeserialize<Arg0>(element.ToString());
 
-                SelectedGetPreparationRequest = new GetPreparationRequest { Arg0 = arg0 };
-
-                scintillaReqPreparation.Text = XmlHelper.FormatXML(doc.ToString());
-
+                scintillaReqPreparation.Text = XmlHelper.FormatXML(element.ToString());
                 scintillaReqPreparation.FormatStyle(StyleType.Xml);
             }
             catch (Exception ex)
@@ -203,7 +226,11 @@ namespace Demo.HL7MessageParser.WinForms
 
             }
         }
-
+        private void RefreshPreparationReqUI(bool enabled)
+        {
+            cbxIDrugItemCodes.Enabled = !enabled;
+            scintillaReqPreparation.Enabled = enabled;
+        }
 
     }
 }

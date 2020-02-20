@@ -116,13 +116,23 @@ namespace Demo.HL7MessageParser.Common
         /// <returns>返回转换的对象</returns>
         public static T XmlDeserialize<T>(string xmlStr)
         {
-            XmlSerializer serialize = new XmlSerializer(typeof(T));
-            using (MemoryStream stream = new MemoryStream(xmlEncode.GetBytes(xmlStr)))
+            //XmlSerializer serialize = new XmlSerializer(typeof(T));
+            //using (MemoryStream stream = new MemoryStream(xmlEncode.GetBytes(xmlStr)))
+            //{
+            //    //采用StreamReader是为了编码
+            //    using (StreamReader reader = new StreamReader(stream, xmlEncode))
+            //    {
+            //        return (T)serialize.Deserialize(reader);
+            //    }
+            //}
+
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            XmlReaderSettings settings = new XmlReaderSettings();
+            using (StringReader textReader = new StringReader(xmlStr))
             {
-                //采用StreamReader是为了编码
-                using (StreamReader reader = new StreamReader(stream, xmlEncode))
+                using (XmlReader xmlReader = XmlReader.Create(textReader, settings))
                 {
-                    return (T)serialize.Deserialize(reader);
+                    return (T)serializer.Deserialize(xmlReader);
                 }
             }
         }

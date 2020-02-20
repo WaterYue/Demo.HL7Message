@@ -6,37 +6,22 @@ namespace Demo.HL7MessageParser.Models
 {
 
 
-    [XmlRoot(ElementName = "getDrugMdsPropertyHq")]
+    [XmlRoot(ElementName = "getDrugMdsPropertyHq", Namespace = "http://biz.dms.pms.model.ha.org.hk/")]
     public class GetDrugMdsPropertyHqRequest
     {
-        private XmlSerializerNamespaces xmlns;
-
-        [XmlNamespaceDeclarations]
-        public XmlSerializerNamespaces Xmlns
-        {
-            get
-            {
-                if (xmlns == null)
-                {
-
-                    xmlns = new XmlSerializerNamespaces();
-                    xmlns.Add("biz", "http://biz.dms.pms.model.ha.org.hk/");
-                }
-                return xmlns;
-            }
-            set { xmlns = value; }
-        }
-
         [XmlElement(ElementName = "arg0")]
-        public GetDrugMdsPropertyHq_Arg0 Arg0 { get; set; }
+        public Arg Arg0 { get; set; }
+
+
     }
 
     [XmlRoot(ElementName = "arg0")]
-    public class GetDrugMdsPropertyHq_Arg0
+    public class Arg
     {
         [XmlElement(ElementName = "itemCode")]
         public List<string> ItemCode { get; set; }
     }
+
 }
 /*
  <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:biz="http://biz.dms.pms.model.ha.org.hk/">

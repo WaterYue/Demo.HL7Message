@@ -28,7 +28,7 @@ namespace Demo.HL7MessageParser.Test
 
             var getDrugMdsPropertyHq = new GetDrugMdsPropertyHqRequest
             {
-                Arg0 = new GetDrugMdsPropertyHq_Arg0
+                Arg0 = new Arg
                 {
                     ItemCode = itemCode
                 }
