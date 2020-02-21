@@ -58,11 +58,7 @@ namespace Demo.HL7MessageParser.WinForms
             RefreshPreparationReqUI(false);
             RefreshCustomDrugMdsReqUI(false);
 
-            txtURL.Text = Global.DrugMasterSoapUrl;
-            txtURL.ReadOnly = true;
 
-            txtDrugMasterSoapUrl.Text = Global.DrugMasterSoapUrl;
-            txtDrugMasterSoapUrl.ReadOnly = true;
 
             try
             {

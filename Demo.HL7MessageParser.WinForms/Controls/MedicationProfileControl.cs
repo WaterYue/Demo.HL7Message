@@ -70,7 +70,6 @@ namespace Demo.HL7MessageParser.WinForms
                         scintillaRes.FormatJsonStyle();
 
                         scintillaRes.Focus();
-                        tcBottom.SelectedIndex = 1;
                         scintillaRes.Text = JsonHelper.FormatJson(responseJsonStr);
                     }, false);
                 }

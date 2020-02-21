@@ -43,7 +43,6 @@ namespace Demo.HL7MessageParser.WinForms
             {
                 scintillaReq.Focus();
 
-                tcMain.SelectedIndex = 0;
                 scintillaReq.Text = XmlHelper.FormatXML(XmlFromFile(hkId));
 
                 scintillaReq.FormatStyle(StyleType.Xml);
@@ -106,7 +105,6 @@ namespace Demo.HL7MessageParser.WinForms
 
                         scintillaRes.Focus();
 
-                        tcMain.SelectedIndex = 1;
 
                         scintillaRes.Text = JsonHelper.FormatJson(responseJsonStr);
 
@@ -216,6 +214,16 @@ namespace Demo.HL7MessageParser.WinForms
 
                 return string.Empty;
             }
+        }
+
+        private void btnSendMedicationProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxCaseNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

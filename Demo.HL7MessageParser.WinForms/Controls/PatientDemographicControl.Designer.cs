@@ -28,39 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.scintillaReq = new ScintillaNET.Scintilla();
             this.chxEnableWSAddress = new System.Windows.Forms.CheckBox();
             this.btnCallByWebReq = new System.Windows.Forms.Button();
             this.cbxCaseNumber = new System.Windows.Forms.ComboBox();
             this.btnCallByProxy = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.tcBottom = new System.Windows.Forms.TabControl();
-            this.tbReq = new System.Windows.Forms.TabPage();
-            this.tbRes = new System.Windows.Forms.TabPage();
-            this.scintillaRes = new ScintillaNET.Scintilla();
-            this.panelLeft = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tcBottom.SuspendLayout();
-            this.tbReq.SuspendLayout();
-            this.tbRes.SuspendLayout();
-            this.panelLeft.SuspendLayout();
+            this.splitContainerReqRes = new System.Windows.Forms.SplitContainer();
+            this.gbxReq = new System.Windows.Forms.GroupBox();
+            this.scintillaReq = new ScintillaNET.Scintilla();
+            this.gbxRes = new System.Windows.Forms.GroupBox();
+            this.scintillaRes = new ScintillaNET.Scintilla();
+            this.gbxSearch = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerReqRes)).BeginInit();
+            this.splitContainerReqRes.Panel1.SuspendLayout();
+            this.splitContainerReqRes.Panel2.SuspendLayout();
+            this.splitContainerReqRes.SuspendLayout();
+            this.gbxReq.SuspendLayout();
+            this.gbxRes.SuspendLayout();
+            this.gbxSearch.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // scintillaReq
-            // 
-            this.scintillaReq.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaReq.Location = new System.Drawing.Point(4, 4);
-            this.scintillaReq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.scintillaReq.Name = "scintillaReq";
-            this.scintillaReq.Size = new System.Drawing.Size(397, 354);
-            this.scintillaReq.TabIndex = 0;
-            this.scintillaReq.Text = "scintilla1";
             // 
             // chxEnableWSAddress
             // 
             this.chxEnableWSAddress.AutoSize = true;
-            this.chxEnableWSAddress.Location = new System.Drawing.Point(8, 82);
+            this.chxEnableWSAddress.Location = new System.Drawing.Point(254, 19);
             this.chxEnableWSAddress.Name = "chxEnableWSAddress";
             this.chxEnableWSAddress.Size = new System.Drawing.Size(123, 17);
             this.chxEnableWSAddress.TabIndex = 14;
@@ -71,7 +64,7 @@
             // btnCallByWebReq
             // 
             this.btnCallByWebReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCallByWebReq.Location = new System.Drawing.Point(106, 117);
+            this.btnCallByWebReq.Location = new System.Drawing.Point(254, 39);
             this.btnCallByWebReq.Name = "btnCallByWebReq";
             this.btnCallByWebReq.Size = new System.Drawing.Size(95, 30);
             this.btnCallByWebReq.TabIndex = 13;
@@ -82,7 +75,7 @@
             // cbxCaseNumber
             // 
             this.cbxCaseNumber.FormattingEnabled = true;
-            this.cbxCaseNumber.Location = new System.Drawing.Point(8, 48);
+            this.cbxCaseNumber.Location = new System.Drawing.Point(35, 48);
             this.cbxCaseNumber.Name = "cbxCaseNumber";
             this.cbxCaseNumber.Size = new System.Drawing.Size(195, 21);
             this.cbxCaseNumber.TabIndex = 9;
@@ -91,7 +84,7 @@
             // btnCallByProxy
             // 
             this.btnCallByProxy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCallByProxy.Location = new System.Drawing.Point(8, 117);
+            this.btnCallByProxy.Location = new System.Drawing.Point(378, 41);
             this.btnCallByProxy.Name = "btnCallByProxy";
             this.btnCallByProxy.Size = new System.Drawing.Size(92, 30);
             this.btnCallByProxy.TabIndex = 8;
@@ -101,7 +94,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(4, 22);
+            this.label3.Location = new System.Drawing.Point(31, 22);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 22);
@@ -109,107 +102,123 @@
             this.label3.Text = "CaseNumber";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tcBottom
+            // panel1
             // 
-            this.tcBottom.Controls.Add(this.tbReq);
-            this.tcBottom.Controls.Add(this.tbRes);
-            this.tcBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcBottom.Location = new System.Drawing.Point(0, 0);
-            this.tcBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tcBottom.Name = "tcBottom";
-            this.tcBottom.SelectedIndex = 0;
-            this.tcBottom.Size = new System.Drawing.Size(413, 388);
-            this.tcBottom.TabIndex = 0;
+            this.panel1.Controls.Add(this.splitContainerReqRes);
+            this.panel1.Controls.Add(this.gbxSearch);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(944, 588);
+            this.panel1.TabIndex = 4;
             // 
-            // tbReq
+            // splitContainerReqRes
             // 
-            this.tbReq.Controls.Add(this.scintillaReq);
-            this.tbReq.Location = new System.Drawing.Point(4, 22);
-            this.tbReq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbReq.Name = "tbReq";
-            this.tbReq.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbReq.Size = new System.Drawing.Size(405, 362);
-            this.tbReq.TabIndex = 0;
-            this.tbReq.Text = "RequestXml";
-            this.tbReq.UseVisualStyleBackColor = true;
+            this.splitContainerReqRes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerReqRes.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerReqRes.Name = "splitContainerReqRes";
             // 
-            // tbRes
+            // splitContainerReqRes.Panel1
             // 
-            this.tbRes.Controls.Add(this.scintillaRes);
-            this.tbRes.Location = new System.Drawing.Point(4, 22);
-            this.tbRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbRes.Name = "tbRes";
-            this.tbRes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbRes.Size = new System.Drawing.Size(405, 362);
-            this.tbRes.TabIndex = 1;
-            this.tbRes.Text = "ResponseXml";
-            this.tbRes.UseVisualStyleBackColor = true;
+            this.splitContainerReqRes.Panel1.Controls.Add(this.gbxReq);
+            // 
+            // splitContainerReqRes.Panel2
+            // 
+            this.splitContainerReqRes.Panel2.Controls.Add(this.gbxRes);
+            this.splitContainerReqRes.Size = new System.Drawing.Size(944, 588);
+            this.splitContainerReqRes.SplitterDistance = 460;
+            this.splitContainerReqRes.TabIndex = 21;
+            // 
+            // gbxReq
+            // 
+            this.gbxReq.Controls.Add(this.scintillaReq);
+            this.gbxReq.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxReq.Location = new System.Drawing.Point(0, 0);
+            this.gbxReq.Name = "gbxReq";
+            this.gbxReq.Size = new System.Drawing.Size(460, 588);
+            this.gbxReq.TabIndex = 0;
+            this.gbxReq.TabStop = false;
+            this.gbxReq.Text = "Request";
+            // 
+            // scintillaReq
+            // 
+            this.scintillaReq.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintillaReq.Location = new System.Drawing.Point(3, 16);
+            this.scintillaReq.Margin = new System.Windows.Forms.Padding(4);
+            this.scintillaReq.Name = "scintillaReq";
+            this.scintillaReq.Size = new System.Drawing.Size(454, 569);
+            this.scintillaReq.TabIndex = 10;
+            this.scintillaReq.Text = "scintilla3";
+            // 
+            // gbxRes
+            // 
+            this.gbxRes.Controls.Add(this.scintillaRes);
+            this.gbxRes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxRes.Location = new System.Drawing.Point(0, 0);
+            this.gbxRes.Name = "gbxRes";
+            this.gbxRes.Size = new System.Drawing.Size(480, 588);
+            this.gbxRes.TabIndex = 0;
+            this.gbxRes.TabStop = false;
+            this.gbxRes.Text = "Response";
             // 
             // scintillaRes
             // 
             this.scintillaRes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaRes.Location = new System.Drawing.Point(4, 4);
-            this.scintillaRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.scintillaRes.Location = new System.Drawing.Point(3, 16);
+            this.scintillaRes.Margin = new System.Windows.Forms.Padding(4);
             this.scintillaRes.Name = "scintillaRes";
-            this.scintillaRes.Size = new System.Drawing.Size(397, 354);
+            this.scintillaRes.Size = new System.Drawing.Size(474, 569);
             this.scintillaRes.TabIndex = 1;
             this.scintillaRes.Text = "scintilla2";
             // 
-            // panelLeft
+            // gbxSearch
             // 
-            this.panelLeft.Controls.Add(this.chxEnableWSAddress);
-            this.panelLeft.Controls.Add(this.btnCallByWebReq);
-            this.panelLeft.Controls.Add(this.cbxCaseNumber);
-            this.panelLeft.Controls.Add(this.label3);
-            this.panelLeft.Controls.Add(this.btnCallByProxy);
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(210, 388);
-            this.panelLeft.TabIndex = 3;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tcBottom);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(210, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 388);
-            this.panel1.TabIndex = 4;
+            this.gbxSearch.Controls.Add(this.cbxCaseNumber);
+            this.gbxSearch.Controls.Add(this.label3);
+            this.gbxSearch.Controls.Add(this.chxEnableWSAddress);
+            this.gbxSearch.Controls.Add(this.btnCallByProxy);
+            this.gbxSearch.Controls.Add(this.btnCallByWebReq);
+            this.gbxSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxSearch.Location = new System.Drawing.Point(0, 0);
+            this.gbxSearch.Name = "gbxSearch";
+            this.gbxSearch.Size = new System.Drawing.Size(944, 95);
+            this.gbxSearch.TabIndex = 22;
+            this.gbxSearch.TabStop = false;
+            this.gbxSearch.Text = "Search";
             // 
             // PatientDemographicControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelLeft);
             this.Name = "PatientDemographicControl";
-            this.Size = new System.Drawing.Size(623, 388);
-            this.tcBottom.ResumeLayout(false);
-            this.tbReq.ResumeLayout(false);
-            this.tbRes.ResumeLayout(false);
-            this.panelLeft.ResumeLayout(false);
-            this.panelLeft.PerformLayout();
+            this.Size = new System.Drawing.Size(944, 588);
             this.panel1.ResumeLayout(false);
+            this.splitContainerReqRes.Panel1.ResumeLayout(false);
+            this.splitContainerReqRes.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerReqRes)).EndInit();
+            this.splitContainerReqRes.ResumeLayout(false);
+            this.gbxReq.ResumeLayout(false);
+            this.gbxRes.ResumeLayout(false);
+            this.gbxSearch.ResumeLayout(false);
+            this.gbxSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private ScintillaNET.Scintilla scintillaReq;
         private System.Windows.Forms.ComboBox cbxCaseNumber;
         private System.Windows.Forms.Button btnCallByProxy;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TabControl tcBottom;
-        private System.Windows.Forms.TabPage tbReq;
-        private System.Windows.Forms.TabPage tbRes;
-        private ScintillaNET.Scintilla scintillaRes;
         private System.Windows.Forms.Button btnCallByWebReq;
         private System.Windows.Forms.CheckBox chxEnableWSAddress;
-        private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.SplitContainer splitContainerReqRes;
+        private System.Windows.Forms.GroupBox gbxReq;
+        private ScintillaNET.Scintilla scintillaReq;
+        private System.Windows.Forms.GroupBox gbxRes;
+        private ScintillaNET.Scintilla scintillaRes;
+        private System.Windows.Forms.GroupBox gbxSearch;
     }
 }

@@ -38,9 +38,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chxCustomDrugMdsReq = new System.Windows.Forms.CheckBox();
             this.cbxCaseNumber = new System.Windows.Forms.ComboBox();
-            this.txtURL = new System.Windows.Forms.TextBox();
             this.btnCallByWebReq = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.tbRes = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -50,9 +48,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chxCustomPreparationReq = new System.Windows.Forms.CheckBox();
             this.cbxIDrugItemCodes = new System.Windows.Forms.ComboBox();
-            this.txtDrugMasterSoapUrl = new System.Windows.Forms.TextBox();
             this.btnRequestPreparation = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.tcMain.SuspendLayout();
             this.tbReq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -161,9 +157,7 @@
             // 
             this.groupBox1.Controls.Add(this.chxCustomDrugMdsReq);
             this.groupBox1.Controls.Add(this.cbxCaseNumber);
-            this.groupBox1.Controls.Add(this.txtURL);
             this.groupBox1.Controls.Add(this.btnCallByWebReq);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
@@ -175,7 +169,7 @@
             // chxCustomDrugMdsReq
             // 
             this.chxCustomDrugMdsReq.AutoSize = true;
-            this.chxCustomDrugMdsReq.Location = new System.Drawing.Point(342, 13);
+            this.chxCustomDrugMdsReq.Location = new System.Drawing.Point(17, 15);
             this.chxCustomDrugMdsReq.Name = "chxCustomDrugMdsReq";
             this.chxCustomDrugMdsReq.Size = new System.Drawing.Size(158, 19);
             this.chxCustomDrugMdsReq.TabIndex = 18;
@@ -187,41 +181,22 @@
             // 
             this.cbxCaseNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCaseNumber.FormattingEnabled = true;
-            this.cbxCaseNumber.Location = new System.Drawing.Point(342, 32);
+            this.cbxCaseNumber.Location = new System.Drawing.Point(17, 34);
             this.cbxCaseNumber.Name = "cbxCaseNumber";
             this.cbxCaseNumber.Size = new System.Drawing.Size(195, 23);
             this.cbxCaseNumber.TabIndex = 16;
             this.cbxCaseNumber.SelectedIndexChanged += new System.EventHandler(this.cbxCaseNumber_SelectedIndexChanged);
             // 
-            // txtURL
-            // 
-            this.txtURL.Location = new System.Drawing.Point(25, 34);
-            this.txtURL.Margin = new System.Windows.Forms.Padding(4);
-            this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(288, 21);
-            this.txtURL.TabIndex = 9;
-            // 
             // btnCallByWebReq
             // 
             this.btnCallByWebReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCallByWebReq.Location = new System.Drawing.Point(591, 32);
+            this.btnCallByWebReq.Location = new System.Drawing.Point(266, 34);
             this.btnCallByWebReq.Name = "btnCallByWebReq";
             this.btnCallByWebReq.Size = new System.Drawing.Size(89, 25);
             this.btnCallByWebReq.TabIndex = 14;
             this.btnCallByWebReq.Text = "Request";
             this.btnCallByWebReq.UseVisualStyleBackColor = true;
             this.btnCallByWebReq.Click += new System.EventHandler(this.btnRequest_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 19);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "URL";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbRes
             // 
@@ -299,9 +274,7 @@
             // 
             this.groupBox2.Controls.Add(this.chxCustomPreparationReq);
             this.groupBox2.Controls.Add(this.cbxIDrugItemCodes);
-            this.groupBox2.Controls.Add(this.txtDrugMasterSoapUrl);
             this.groupBox2.Controls.Add(this.btnRequestPreparation);
-            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(4, 4);
             this.groupBox2.Name = "groupBox2";
@@ -313,7 +286,7 @@
             // chxCustomPreparationReq
             // 
             this.chxCustomPreparationReq.AutoSize = true;
-            this.chxCustomPreparationReq.Location = new System.Drawing.Point(410, 15);
+            this.chxCustomPreparationReq.Location = new System.Drawing.Point(15, 22);
             this.chxCustomPreparationReq.Name = "chxCustomPreparationReq";
             this.chxCustomPreparationReq.Size = new System.Drawing.Size(175, 19);
             this.chxCustomPreparationReq.TabIndex = 17;
@@ -325,41 +298,22 @@
             // 
             this.cbxIDrugItemCodes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxIDrugItemCodes.FormattingEnabled = true;
-            this.cbxIDrugItemCodes.Location = new System.Drawing.Point(410, 35);
+            this.cbxIDrugItemCodes.Location = new System.Drawing.Point(15, 42);
             this.cbxIDrugItemCodes.Name = "cbxIDrugItemCodes";
             this.cbxIDrugItemCodes.Size = new System.Drawing.Size(195, 23);
             this.cbxIDrugItemCodes.TabIndex = 16;
             this.cbxIDrugItemCodes.SelectedIndexChanged += new System.EventHandler(this.cbxIDrugItemCodes_SelectedIndexChanged);
             // 
-            // txtDrugMasterSoapUrl
-            // 
-            this.txtDrugMasterSoapUrl.Location = new System.Drawing.Point(25, 34);
-            this.txtDrugMasterSoapUrl.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDrugMasterSoapUrl.Name = "txtDrugMasterSoapUrl";
-            this.txtDrugMasterSoapUrl.Size = new System.Drawing.Size(343, 21);
-            this.txtDrugMasterSoapUrl.TabIndex = 9;
-            // 
             // btnRequestPreparation
             // 
             this.btnRequestPreparation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRequestPreparation.Location = new System.Drawing.Point(645, 34);
+            this.btnRequestPreparation.Location = new System.Drawing.Point(250, 41);
             this.btnRequestPreparation.Name = "btnRequestPreparation";
             this.btnRequestPreparation.Size = new System.Drawing.Size(95, 25);
             this.btnRequestPreparation.TabIndex = 14;
             this.btnRequestPreparation.Text = "Request";
             this.btnRequestPreparation.UseVisualStyleBackColor = true;
             this.btnRequestPreparation.Click += new System.EventHandler(this.btnRequestPreparation_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 19);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 15);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "URL";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DrugMasterControl
             // 
@@ -395,8 +349,6 @@
         private System.Windows.Forms.TabControl tcMain;
         private System.Windows.Forms.TabPage tbReq;
         private System.Windows.Forms.TabPage tbRes;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCallByWebReq;
         private System.Windows.Forms.ComboBox cbxCaseNumber;
@@ -406,9 +358,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox chxCustomPreparationReq;
         private System.Windows.Forms.ComboBox cbxIDrugItemCodes;
-        private System.Windows.Forms.TextBox txtDrugMasterSoapUrl;
         private System.Windows.Forms.Button btnRequestPreparation;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.SplitContainer splitContainer2;

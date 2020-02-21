@@ -92,7 +92,6 @@ namespace Demo.HL7MessageParser.WinForms
                 var resStr = XmlHelper.XmlSerializeToString(res);
 
                 scintillaRes.Focus();
-                tcBottom.SelectedIndex = 1;
 
                 scintillaRes.Text = XmlHelper.FormatXML(resStr);
                 scintillaRes.FormatStyle(StyleType.Xml);
@@ -206,7 +205,6 @@ namespace Demo.HL7MessageParser.WinForms
 
                         scintillaRes.Text = string.Empty;
                         scintillaRes.Focus();
-                        tcBottom.SelectedIndex = 1;
 
                         scintillaRes.Text = XmlHelper.FormatXML(response);
                         scintillaRes.FormatStyle(StyleType.Xml);
@@ -230,7 +228,6 @@ namespace Demo.HL7MessageParser.WinForms
         {
             string SOAPObj = BuildRequestSoap(chxEnableWSAddress.Checked);
 
-            tcBottom.SelectedIndex = 0;
             scintillaReq.Focus();
 
             scintillaReq.Text = XmlHelper.FormatXML(SOAPObj);
