@@ -16,7 +16,7 @@ namespace Demo.HL7MessageParser.WinForms
         {
             InitializeComponent();
 
-            Global.Initialize();
+            Global.RefreshConfigValues();
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -39,9 +39,9 @@ namespace Demo.HL7MessageParser.WinForms
         {
 
 
-            var patientVisitParser = new SoapPatientVisitParser(Global.SoapUri, Global.UserName, Global.Password, Global.HospitalCode);
+            var patientVisitParser = new SoapPatientVisitParser(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
-            var profileService = new ProfileRestService(Global.RestUri, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
+            var profileService = new ProfileRestService(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 
             var drugMasterSoapService = new DrugMasterSoapService(Global.DrugMasterSoapUrl);
 
@@ -67,7 +67,13 @@ namespace Demo.HL7MessageParser.WinForms
             tc.TabPages.Add(new TabPage { Name = "tbDrugMasterControl", Text = "DrugMaster" });
             tc.TabPages["tbDrugMasterControl"].Controls.Add(new DrugMasterControl(parser) { Dock = DockStyle.Fill });
 
-            Controls.Add(tc);
+            this.Controls.Add(tc);
+            this.Controls.Add(this.menuStrip1);
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new SystemConfig().ShowDialog();
         }
     }
 }

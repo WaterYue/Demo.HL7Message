@@ -33,11 +33,6 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void InitializeMP()
         {
-            txtURL.Text = Global.RestUri;
-
-            txtClientSecret.Text = ConfigurationManager.AppSettings["client_secret"];
-            txtPaHospCode.Text = ConfigurationManager.AppSettings["patHospCode"];
-
             try
             {
                 var profilesDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/MP");
@@ -52,7 +47,7 @@ namespace Demo.HL7MessageParser.WinForms
                 throw;
             }
 
-         //   cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
+            //   cbxCaseNumber.DataSource = new string[] { "HN03191100Y", "HN17000256S", "HN18001140Y", "HN170002512", "HN170002520", };
         }
 
         private void btnSendMedicationProfile_Click(object sender, EventArgs e)
@@ -104,11 +99,11 @@ namespace Demo.HL7MessageParser.WinForms
 
             loadData.LoadDataAsync(new RestRequestParam
             {
-                url = txtURL.Text.Trim(),
-                clientsecret = txtClientSecret.Text.Trim(),
-                pahospCode = txtPaHospCode.Text.Trim(),
+                url = Global.ProfileRestUrl,
+                clientsecret = Global.ClientSecret,
+                pahospCode = Global.HospitalCode,
                 casenumber = cbxCaseNumber.Text.Trim()
-            });
+            }); ; ;
         }
 
         private void cbxCaseNumber_SelectedIndexChanged(object sender, EventArgs e)

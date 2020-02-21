@@ -30,9 +30,9 @@ namespace Demo.HL7MessageParser.WinForms
 
             backgroundWorker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
 
-            var patientVisitParser = new SoapPatientVisitParser(Global.SoapUri, Global.UserName, Global.Password, Global.HospitalCode);
+            var patientVisitParser = new SoapPatientVisitParser(Global.PatientEnquirySoapUrl, Global.UserName, Global.Password, Global.HospitalCode);
 
-            var profileService = new ProfileRestService(Global.RestUri, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
+            var profileService = new ProfileRestService(Global.ProfileRestUrl, Global.ClientSecret, Global.ClientId, Global.HospitalCode);
 
             var drugMasterSoapService = new DrugMasterSoapService(Global.DrugMasterSoapUrl);
 

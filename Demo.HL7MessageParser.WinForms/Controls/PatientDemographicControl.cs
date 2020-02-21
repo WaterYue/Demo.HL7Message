@@ -37,14 +37,6 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void InitializePE()
         {
-            txtURL.Text = Global.SoapUri;
-
-            txtUserName.Text = ConfigurationManager.AppSettings["Token_Username"];
-
-            txtPassword.Text = ConfigurationManager.AppSettings["Token_Password"];
-
-            txtHospitalCode.Text = ConfigurationManager.AppSettings["patHospCode"];
-
             var patientDemoEnquiryXmlDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/PE/");
             try
             {
@@ -69,14 +61,14 @@ namespace Demo.HL7MessageParser.WinForms
         private void btnCallByProxy_Click(object sender, EventArgs e)
         {
             scintillaRes.Text = string.Empty;
-            string credid = txtUserName.Text.Trim();
-            string credpassword = txtPassword.Text.Trim();
-            string url = txtURL.Text.Trim();
-            var hospitalCode = txtHospitalCode.Text.Trim();
+            string credid = Global.UserName;
+            string credpassword =Global.Password;
+            string url = Global.PatientEnquirySoapUrl;
+            var hospitalCode = Global.HospitalCode;
             var caseNo = cbxCaseNumber.Text.Trim();
 
             //init web service proxy 
-            PatientService serviceProxy = new PatientService(txtURL.Text.Trim());
+            PatientService serviceProxy = new PatientService(url);
 
             //init UsernameToken, password is the reverted string of username, the same logic in AuthenticateToken
             //  of ServiceUsernameTokenManager class.
@@ -116,16 +108,16 @@ namespace Demo.HL7MessageParser.WinForms
 
         private string BuildRequestSoap(bool enableWSAddress)
         {
-            string credid = txtUserName.Text.Trim();
-            string credpassword = txtPassword.Text.Trim();
-            string url = txtURL.Text.Trim();
+            string credid = Global.UserName;
+            string credpassword = Global.Password;
+            string url = Global.PatientEnquirySoapUrl;
 
             var actionName = "http://webservice.pas.ha.org.hk/searchHKPMIPatientByCaseNo";
 
             StringBuilder rawSOAP = new StringBuilder();
             rawSOAP.Append(BuildSoapHeader(credid, credpassword, enableWSAddress, url, actionName));
             rawSOAP.Append(@"<soapenv:Body><web:searchHKPMIPatientByCaseNo>");
-            rawSOAP.Append(BuildSearchparms("hospitalCode", txtHospitalCode.Text.Trim()));
+            rawSOAP.Append(BuildSearchparms("hospitalCode", Global.HospitalCode));
             rawSOAP.Append(BuildSearchparms("caseNo", cbxCaseNumber.Text.Trim()));
 
             rawSOAP.Append(@"</web:searchHKPMIPatientByCaseNo></soapenv:Body></soapenv:Envelope>");
@@ -190,7 +182,7 @@ namespace Demo.HL7MessageParser.WinForms
             }
 
             string SOAPObj = BuildRequestSoap(chxEnableWSAddress.Checked);
-            string url = txtURL.Text.Trim();
+            string url = Global.PatientEnquirySoapUrl;
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(url + "?op=searchHKPMIPatientByCaseNo") as HttpWebRequest;

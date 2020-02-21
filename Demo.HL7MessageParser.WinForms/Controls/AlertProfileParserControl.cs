@@ -82,7 +82,7 @@ namespace Demo.HL7MessageParser.WinForms
     </credentials>
 </alertInputParm>";
 
-                    scintillaReq.Text = string.Format(str, hkId, txtAccessCode.Text.Trim());
+                    scintillaReq.Text = string.Format(str, hkId, Global.AccessCode);
                 }
             }
         }
@@ -136,21 +136,16 @@ namespace Demo.HL7MessageParser.WinForms
 
             loadData.LoadDataAsync(new RestRequestParam
             {
-                url = txtURL.Text.Trim(),
-                clientsecret = txtClientSecret.Text.Trim(),
-                accessCode = txtAccessCode.Text.Trim(),
-                pahospCode = txtPaHospCode.Text.Trim(),
+                url = Global.ProfileRestUrl,
+                clientsecret = Global.ClientSecret,
+                accessCode = Global.AccessCode,
+                pahospCode = Global.HospitalCode,
                 xmlReq = scintillaReq.Text.Trim()
             });
         }
 
         private void InitializeAP()
         {
-            txtURL.Text = Global.RestUri;
-
-            txtClientSecret.Text = ConfigurationManager.AppSettings["client_secret"];
-            txtPaHospCode.Text = ConfigurationManager.AppSettings["patHospCode"];
-            txtAccessCode.Text = "YAYRoZAJoaYD5qYZbwjQsTGI";
             try
             {
                 var alertsDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/AP");
