@@ -44,18 +44,18 @@
             // cbxCaseNumber
             // 
             this.cbxCaseNumber.FormattingEnabled = true;
-            this.cbxCaseNumber.Location = new System.Drawing.Point(46, 51);
+            this.cbxCaseNumber.Location = new System.Drawing.Point(105, 36);
             this.cbxCaseNumber.Name = "cbxCaseNumber";
-            this.cbxCaseNumber.Size = new System.Drawing.Size(201, 21);
+            this.cbxCaseNumber.Size = new System.Drawing.Size(234, 23);
             this.cbxCaseNumber.TabIndex = 9;
             this.cbxCaseNumber.SelectedIndexChanged += new System.EventHandler(this.cbxCaseNumber_SelectedIndexChanged);
             // 
             // btnSendMedicationProfile
             // 
             this.btnSendMedicationProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendMedicationProfile.Location = new System.Drawing.Point(264, 44);
+            this.btnSendMedicationProfile.Location = new System.Drawing.Point(356, 34);
             this.btnSendMedicationProfile.Name = "btnSendMedicationProfile";
-            this.btnSendMedicationProfile.Size = new System.Drawing.Size(98, 30);
+            this.btnSendMedicationProfile.Size = new System.Drawing.Size(114, 25);
             this.btnSendMedicationProfile.TabIndex = 8;
             this.btnSendMedicationProfile.Text = "Send";
             this.btnSendMedicationProfile.UseVisualStyleBackColor = true;
@@ -63,10 +63,11 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(43, 26);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 38);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 22);
+            this.label3.Size = new System.Drawing.Size(90, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "CaseNumber";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -74,10 +75,10 @@
             // scintillaRes
             // 
             this.scintillaRes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaRes.Location = new System.Drawing.Point(3, 16);
-            this.scintillaRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.scintillaRes.Location = new System.Drawing.Point(3, 17);
+            this.scintillaRes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.scintillaRes.Name = "scintillaRes";
-            this.scintillaRes.Size = new System.Drawing.Size(646, 301);
+            this.scintillaRes.Size = new System.Drawing.Size(755, 267);
             this.scintillaRes.TabIndex = 1;
             this.scintillaRes.Text = "scintilla2";
             // 
@@ -97,18 +98,18 @@
             this.panelMain.Controls.Add(this.gbxSearch);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(2);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(652, 320);
+            this.panelMain.Size = new System.Drawing.Size(761, 369);
             this.panelMain.TabIndex = 3;
             // 
             // gbxRes
             // 
             this.gbxRes.Controls.Add(this.scintillaRes);
             this.gbxRes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbxRes.Location = new System.Drawing.Point(0, 0);
+            this.gbxRes.Location = new System.Drawing.Point(0, 82);
             this.gbxRes.Name = "gbxRes";
-            this.gbxRes.Size = new System.Drawing.Size(652, 320);
+            this.gbxRes.Size = new System.Drawing.Size(761, 287);
             this.gbxRes.TabIndex = 10;
             this.gbxRes.TabStop = false;
             this.gbxRes.Text = "Response";
@@ -119,23 +120,26 @@
             this.gbxSearch.Controls.Add(this.btnSendMedicationProfile);
             this.gbxSearch.Controls.Add(this.cbxCaseNumber);
             this.gbxSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxSearch.Location = new System.Drawing.Point(0, 0);
             this.gbxSearch.Name = "gbxSearch";
-            this.gbxSearch.Size = new System.Drawing.Size(652, 95);
+            this.gbxSearch.Size = new System.Drawing.Size(761, 82);
             this.gbxSearch.TabIndex = 11;
             this.gbxSearch.TabStop = false;
             this.gbxSearch.Text = "Search";
             // 
             // MedicationProfileControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelMain);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MedicationProfileControl";
-            this.Size = new System.Drawing.Size(652, 320);
+            this.Size = new System.Drawing.Size(761, 369);
             this.panelMain.ResumeLayout(false);
             this.gbxRes.ResumeLayout(false);
             this.gbxSearch.ResumeLayout(false);
+            this.gbxSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }

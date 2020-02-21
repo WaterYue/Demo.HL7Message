@@ -37,6 +37,8 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void InitializePE()
         {
+            btnCallByWebReq.Enabled = chxEnableWSAddress.Checked = false;
+
             var patientDemoEnquiryXmlDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data/PE/");
             try
             {
@@ -51,11 +53,6 @@ namespace Demo.HL7MessageParser.WinForms
 
                 throw;
             }
-        }
-
-        private void btnPreview_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCallByProxy_Click(object sender, EventArgs e)
@@ -237,7 +234,13 @@ namespace Demo.HL7MessageParser.WinForms
 
         private void chxEnableWSAddress_CheckedChanged(object sender, EventArgs e)
         {
-            GenerateReqXml();
+            if (chxEnableWSAddress.Checked)
+            {
+                GenerateReqXml();
+            }
+
+            btnCallByWebReq.Enabled = chxEnableWSAddress.Checked;
+
         }
     }
 }

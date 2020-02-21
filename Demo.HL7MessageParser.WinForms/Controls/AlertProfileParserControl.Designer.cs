@@ -50,9 +50,9 @@
             // cbxHKId
             // 
             this.cbxHKId.FormattingEnabled = true;
-            this.cbxHKId.Location = new System.Drawing.Point(6, 48);
+            this.cbxHKId.Location = new System.Drawing.Point(63, 36);
             this.cbxHKId.Name = "cbxHKId";
-            this.cbxHKId.Size = new System.Drawing.Size(194, 21);
+            this.cbxHKId.Size = new System.Drawing.Size(226, 21);
             this.cbxHKId.TabIndex = 19;
             this.cbxHKId.SelectedIndexChanged += new System.EventHandler(this.cbxHKId_SelectedIndexChanged);
             this.cbxHKId.TextChanged += new System.EventHandler(this.cbxHKId_TextChanged);
@@ -60,9 +60,9 @@
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(223, 41);
+            this.btnSend.Location = new System.Drawing.Point(309, 31);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(98, 30);
+            this.btnSend.Size = new System.Drawing.Size(114, 29);
             this.btnSend.TabIndex = 18;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -70,10 +70,12 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(7, 23);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(14, 39);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 22);
+            this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "HKID";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -81,20 +83,20 @@
             // scintillaReq
             // 
             this.scintillaReq.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaReq.Location = new System.Drawing.Point(3, 16);
-            this.scintillaReq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.scintillaReq.Location = new System.Drawing.Point(3, 17);
+            this.scintillaReq.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.scintillaReq.Name = "scintillaReq";
-            this.scintillaReq.Size = new System.Drawing.Size(360, 323);
+            this.scintillaReq.Size = new System.Drawing.Size(420, 290);
             this.scintillaReq.TabIndex = 10;
             this.scintillaReq.Text = "scintilla3";
             // 
             // scintillaRes
             // 
             this.scintillaRes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scintillaRes.Location = new System.Drawing.Point(3, 16);
-            this.scintillaRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.scintillaRes.Location = new System.Drawing.Point(3, 17);
+            this.scintillaRes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.scintillaRes.Name = "scintillaRes";
-            this.scintillaRes.Size = new System.Drawing.Size(376, 323);
+            this.scintillaRes.Size = new System.Drawing.Size(440, 290);
             this.scintillaRes.TabIndex = 1;
             this.scintillaRes.Text = "scintilla2";
             // 
@@ -111,7 +113,7 @@
             // splitContainerReqRes
             // 
             this.splitContainerReqRes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerReqRes.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerReqRes.Location = new System.Drawing.Point(0, 85);
             this.splitContainerReqRes.Name = "splitContainerReqRes";
             // 
             // splitContainerReqRes.Panel1
@@ -121,8 +123,9 @@
             // splitContainerReqRes.Panel2
             // 
             this.splitContainerReqRes.Panel2.Controls.Add(this.gbxRes);
-            this.splitContainerReqRes.Size = new System.Drawing.Size(752, 342);
-            this.splitContainerReqRes.SplitterDistance = 366;
+            this.splitContainerReqRes.Size = new System.Drawing.Size(877, 310);
+            this.splitContainerReqRes.SplitterDistance = 426;
+            this.splitContainerReqRes.SplitterWidth = 5;
             this.splitContainerReqRes.TabIndex = 20;
             // 
             // gbxReq
@@ -131,7 +134,7 @@
             this.gbxReq.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxReq.Location = new System.Drawing.Point(0, 0);
             this.gbxReq.Name = "gbxReq";
-            this.gbxReq.Size = new System.Drawing.Size(366, 342);
+            this.gbxReq.Size = new System.Drawing.Size(426, 310);
             this.gbxReq.TabIndex = 0;
             this.gbxReq.TabStop = false;
             this.gbxReq.Text = "Request";
@@ -142,7 +145,7 @@
             this.gbxRes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbxRes.Location = new System.Drawing.Point(0, 0);
             this.gbxRes.Name = "gbxRes";
-            this.gbxRes.Size = new System.Drawing.Size(382, 342);
+            this.gbxRes.Size = new System.Drawing.Size(446, 310);
             this.gbxRes.TabIndex = 0;
             this.gbxRes.TabStop = false;
             this.gbxRes.Text = "Response";
@@ -153,21 +156,23 @@
             this.gbxSearch.Controls.Add(this.label3);
             this.gbxSearch.Controls.Add(this.btnSend);
             this.gbxSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxSearch.Location = new System.Drawing.Point(0, 0);
             this.gbxSearch.Name = "gbxSearch";
-            this.gbxSearch.Size = new System.Drawing.Size(752, 95);
+            this.gbxSearch.Size = new System.Drawing.Size(877, 85);
             this.gbxSearch.TabIndex = 21;
             this.gbxSearch.TabStop = false;
             this.gbxSearch.Text = "Search";
             // 
             // AlertProfileParserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerReqRes);
             this.Controls.Add(this.gbxSearch);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AlertProfileParserControl";
-            this.Size = new System.Drawing.Size(752, 342);
+            this.Size = new System.Drawing.Size(877, 395);
             this.splitContainerReqRes.Panel1.ResumeLayout(false);
             this.splitContainerReqRes.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerReqRes)).EndInit();
@@ -175,6 +180,7 @@
             this.gbxReq.ResumeLayout(false);
             this.gbxRes.ResumeLayout(false);
             this.gbxSearch.ResumeLayout(false);
+            this.gbxSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
