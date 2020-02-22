@@ -116,6 +116,7 @@
             // splitContainerReqRes
             // 
             this.splitContainerReqRes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerReqRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.splitContainerReqRes.Location = new System.Drawing.Point(0, 85);
             this.splitContainerReqRes.Name = "splitContainerReqRes";
             // 
@@ -126,6 +127,7 @@
             // splitContainerReqRes.Panel2
             // 
             this.splitContainerReqRes.Panel2.Controls.Add(this.gbxRes);
+            this.splitContainerReqRes.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.splitContainerReqRes.Size = new System.Drawing.Size(1101, 593);
             this.splitContainerReqRes.SplitterDistance = 536;
             this.splitContainerReqRes.SplitterWidth = 5;

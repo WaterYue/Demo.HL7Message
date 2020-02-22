@@ -55,7 +55,7 @@
             this.txtPatientEnquirySoapUrl.Location = new System.Drawing.Point(24, 37);
             this.txtPatientEnquirySoapUrl.Margin = new System.Windows.Forms.Padding(5);
             this.txtPatientEnquirySoapUrl.Name = "txtPatientEnquirySoapUrl";
-            this.txtPatientEnquirySoapUrl.Size = new System.Drawing.Size(559, 21);
+            this.txtPatientEnquirySoapUrl.Size = new System.Drawing.Size(397, 21);
             this.txtPatientEnquirySoapUrl.TabIndex = 11;
             // 
             // label4
@@ -72,7 +72,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(617, 17);
+            this.label1.Location = new System.Drawing.Point(450, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 15);
@@ -82,24 +82,24 @@
             // 
             // txtHospitalCode
             // 
-            this.txtHospitalCode.Location = new System.Drawing.Point(621, 163);
+            this.txtHospitalCode.Location = new System.Drawing.Point(454, 163);
             this.txtHospitalCode.Margin = new System.Windows.Forms.Padding(5);
             this.txtHospitalCode.Name = "txtHospitalCode";
-            this.txtHospitalCode.Size = new System.Drawing.Size(257, 21);
+            this.txtHospitalCode.Size = new System.Drawing.Size(232, 21);
             this.txtHospitalCode.TabIndex = 20;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(621, 37);
+            this.txtUserName.Location = new System.Drawing.Point(454, 37);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(5);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(257, 21);
+            this.txtUserName.Size = new System.Drawing.Size(232, 21);
             this.txtUserName.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(617, 142);
+            this.label2.Location = new System.Drawing.Point(450, 142);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 15);
@@ -110,7 +110,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(617, 78);
+            this.lblPassword.Location = new System.Drawing.Point(450, 78);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(69, 15);
@@ -120,10 +120,10 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(621, 98);
+            this.txtPassword.Location = new System.Drawing.Point(454, 98);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(257, 21);
+            this.txtPassword.Size = new System.Drawing.Size(232, 21);
             this.txtPassword.TabIndex = 16;
             // 
             // lblDrugMasterUrl
@@ -142,17 +142,17 @@
             this.txtDrugMasterUrl.Location = new System.Drawing.Point(24, 98);
             this.txtDrugMasterUrl.Margin = new System.Windows.Forms.Padding(5);
             this.txtDrugMasterUrl.Name = "txtDrugMasterUrl";
-            this.txtDrugMasterUrl.Size = new System.Drawing.Size(559, 21);
+            this.txtDrugMasterUrl.Size = new System.Drawing.Size(397, 21);
             this.txtDrugMasterUrl.TabIndex = 18;
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(593, 325);
+            this.btnSave.Location = new System.Drawing.Point(453, 337);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(123, 35);
+            this.btnSave.Size = new System.Drawing.Size(103, 35);
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -163,10 +163,10 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(755, 325);
+            this.btnCancel.Location = new System.Drawing.Point(583, 337);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(123, 35);
+            this.btnCancel.Size = new System.Drawing.Size(103, 35);
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -184,10 +184,10 @@
             // 
             // txtProfileRestUrl
             // 
-            this.txtProfileRestUrl.Location = new System.Drawing.Point(21, 226);
+            this.txtProfileRestUrl.Location = new System.Drawing.Point(24, 226);
             this.txtProfileRestUrl.Margin = new System.Windows.Forms.Padding(5);
             this.txtProfileRestUrl.Name = "txtProfileRestUrl";
-            this.txtProfileRestUrl.Size = new System.Drawing.Size(559, 21);
+            this.txtProfileRestUrl.Size = new System.Drawing.Size(397, 21);
             this.txtProfileRestUrl.TabIndex = 26;
             this.txtProfileRestUrl.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -196,7 +196,7 @@
             this.txtMDSCheckRestUrl.Location = new System.Drawing.Point(24, 163);
             this.txtMDSCheckRestUrl.Margin = new System.Windows.Forms.Padding(5);
             this.txtMDSCheckRestUrl.Name = "txtMDSCheckRestUrl";
-            this.txtMDSCheckRestUrl.Size = new System.Drawing.Size(559, 21);
+            this.txtMDSCheckRestUrl.Size = new System.Drawing.Size(397, 21);
             this.txtMDSCheckRestUrl.TabIndex = 24;
             // 
             // label5
@@ -213,7 +213,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 267);
+            this.label6.Location = new System.Drawing.Point(21, 267);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 15);
@@ -223,24 +223,24 @@
             // 
             // txtClientSecret
             // 
-            this.txtClientSecret.Location = new System.Drawing.Point(24, 286);
+            this.txtClientSecret.Location = new System.Drawing.Point(24, 287);
             this.txtClientSecret.Margin = new System.Windows.Forms.Padding(5);
             this.txtClientSecret.Name = "txtClientSecret";
-            this.txtClientSecret.Size = new System.Drawing.Size(559, 21);
+            this.txtClientSecret.Size = new System.Drawing.Size(397, 21);
             this.txtClientSecret.TabIndex = 28;
             // 
             // txtAccessCode
             // 
-            this.txtAccessCode.Location = new System.Drawing.Point(621, 226);
+            this.txtAccessCode.Location = new System.Drawing.Point(454, 226);
             this.txtAccessCode.Margin = new System.Windows.Forms.Padding(5);
             this.txtAccessCode.Name = "txtAccessCode";
-            this.txtAccessCode.Size = new System.Drawing.Size(257, 21);
+            this.txtAccessCode.Size = new System.Drawing.Size(232, 21);
             this.txtAccessCode.TabIndex = 30;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(617, 205);
+            this.label7.Location = new System.Drawing.Point(450, 205);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 15);
@@ -254,7 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(900, 384);
+            this.ClientSize = new System.Drawing.Size(707, 384);
             this.Controls.Add(this.txtAccessCode);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -278,6 +278,8 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SystemConfig";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SystemConfig";

@@ -12,6 +12,7 @@ namespace Demo.HL7MessageParser
     {
         string SaveRemoteHL7PatientToLocal(string caseNumber, out string errorMessage);
 
+
         PatientDemoEnquiry GetPatientEnquiry(string caseno);
 
         MedicationProfileResult GetMedicationProfiles(string caseno);

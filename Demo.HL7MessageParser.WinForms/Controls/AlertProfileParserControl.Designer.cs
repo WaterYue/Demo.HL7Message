@@ -113,6 +113,7 @@
             // splitContainerReqRes
             // 
             this.splitContainerReqRes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerReqRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.splitContainerReqRes.Location = new System.Drawing.Point(0, 85);
             this.splitContainerReqRes.Name = "splitContainerReqRes";
             // 

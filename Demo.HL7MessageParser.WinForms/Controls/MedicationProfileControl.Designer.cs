@@ -107,6 +107,7 @@
             // 
             this.gbxRes.Controls.Add(this.scintillaRes);
             this.gbxRes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbxRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRes.Location = new System.Drawing.Point(0, 82);
             this.gbxRes.Name = "gbxRes";
             this.gbxRes.Size = new System.Drawing.Size(761, 287);

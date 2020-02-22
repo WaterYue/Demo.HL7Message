@@ -91,6 +91,7 @@ namespace Demo.HL7MessageParser.Models
         public string HkicSymbol { get; set; }
         [XmlElement(ElementName = "homePhone")]
         public string HomePhone { get; set; }
+
         [XmlElement(ElementName = "key")]
         public string Key { get; set; }
         [XmlElement(ElementName = "lastPayCode")]

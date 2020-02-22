@@ -70,7 +70,7 @@ namespace Demo.HL7MessageParser.Models
         public string Certainty { get; set; }
         public string CertaintyCode { get; set; }
         public string DisplayName { get; set; }
-        public List<object> HicSeqno { get; set; }
+        public List<string> HicSeqno { get; set; }
         public string HiclSeqno { get; set; }
         public string Manifestation { get; set; }
         public string NameType { get; set; }

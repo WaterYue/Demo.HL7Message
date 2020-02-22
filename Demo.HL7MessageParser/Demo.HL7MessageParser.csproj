@@ -69,7 +69,7 @@
     <Compile Include="Interface\IHL7MessageParser.cs" />
     <Compile Include="Interface\IMDSCheckRestService .cs" />
     <Compile Include="Interface\IPatientVisitParser.cs" />
-    <Compile Include="Interface\IProfileRestService1.cs" />
+    <Compile Include="Interface\IProfileRestService.cs" />
     <Compile Include="Service\MDSCheckRestService.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="ObjectAutoMapping.cs" />
