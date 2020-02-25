@@ -244,6 +244,9 @@ namespace Demo.HL7MessageParser
                     AllergySeqNo = profile.AllergySeqNo,
                     AllergenCode = "",
                     Displayname = profile.DisplayName,
+                    EhrLocalDesc = string.Empty,
+                    HiclSeqNo = profile.HiclSeqno,
+                    HicSeqNos = new HiclSeqNos { HicSeqNo = profile.HicSeqno }
                 };
             }
 
@@ -256,6 +259,8 @@ namespace Demo.HL7MessageParser
                     AllergenCode = "",
                     Displayname = profile.DisplayName,
                     Aliasname = profile.AliasName,
+                    HiclSeqNo = profile.HiclSeqno,
+                    HicSeqNos = new HiclSeqNos { HicSeqNo = profile.HicSeqno }
                 };
             }
 
@@ -280,17 +285,67 @@ namespace Demo.HL7MessageParser
                 DdimDosRelatedCheck = "N"
             };
 
+           /*if  (moeCheckFlag from 2.4.1.2) = “Y”
+                if (gcnSeqno from 2.4.1.2) > 0, then gcnSeqno from 2.4.1.2
+                else “0”
+             else if (GroupMoeCheckFlag from 2.4.1.2) = “Y”
+                if (groupGcnSeqno from2.4.1.2) > 0, then groupGcnSeqno from2.4.1.2
+                else “0”
+            else skip MDS checking
+           */
+            currentRxDrugProfile.GcnSeqNo = "";
+
+            /*if  (moeCheckFlag from 2.4.1.2) = “Y”
+                if (routeformGeneric from 2.4.1.2) > 0, then routeformGeneric from 2.4.1.2
+                else “0”
+             else if (GroupMoeCheckFlag from 2.4.1.2) = “Y”
+                if (groupRouteformGeneric from2.4.1.2) > 0, then groupRouteformGeneric from2.4.1.2
+                else “0”
+            else skip MDS checking
+             */
+            currentRxDrugProfile.RDfGenId = "";
+
+            /*if  (moeCheckFlag from 2.4.1.2) = “Y”
+                  if (routedGeneric from 2.4.1.2) > 0, then routedGeneric from 2.4.1.2
+                  else “0”
+              else if (GroupMoeCheckFlag from 2.4.1.2) = “Y”
+                  if (groupRoutedGeneric from2.4.1.2) > 0, then groupRoutedGeneric from2.4.1.2
+                  else “0”
+              else skip MDS checking
+            */
+            currentRxDrugProfile.RGenId = "";
+            /*
+             if (gcnSeqNum > 0), then "S"
+             else if (gcnSeqNum <= 0 && (rdfgenId > 0 || rgenId > 0)), then "R"
+             else "X"
+            */
+            currentRxDrugProfile.Type = "";
+
+
+            /*drugDisplayName +
+             if (Drug moeDesc from 2.4.2.2) is BLANK, then BLANK
+             else “ “ + lowercase(Drug moeDesc from 2.4.2.2)
+            */
+            currentRxDrugProfile.DrugDdimDisplayName = "";
+
+            /*drugDdimDisplayName +
+            1.	if(Drug strength from 2.4.2.2) is BLANK, then BLANK
+            else “ “ + lowercase(Drug strength from 2.4.2.2)
+            2.	if(Drug volumeValue from 2.4.2.2) not > 0, then BLANK
+            else “ “ + (Drug volumeValue from 2.4.2.2) in format "#######.####" + lowercase(Drug  volumeUnit from 2.4.2.2)
+            */
+            currentRxDrugProfile.DrugErrorDisplayName = "";
         }
     }
 }
 /*MDS Check Service 
- <inputParm>
-    <patientInfo>
-        <!-- HN130005510 -->
-        <HKID>I001362A</HKID>
-        <patientKey>92621099</patientKey>
+<inputParm>
+    <patientInfo>        
+        <!-- HN170002520 -->
+        <HKID>I0013638</HKID>
+        <patientKey>92621100</patientKey>
         <sex>M</sex>
-        <ageInDays>6098</ageInDays>
+        <ageInDays>7805</ageInDays>
         <heightInCM>0</heightInCM>
         <BSAInM2>0</BSAInM2>
         <weightInKG>0</weightInKG>
@@ -304,120 +359,16 @@ namespace Demo.HL7MessageParser
         <wrkStnType>O</wrkStnType>
     </userInfo>
     <patientAllergyProfile>
-        <allergySeqNo>0000090020</allergySeqNo>
+        <allergySeqNo>0000091639</allergySeqNo>
         <allergenCode></allergenCode>
-        <displayname>METHYLPREDNISOLONE</displayname>
+        <displayname>CIPROFLOXACIN</displayname>
         <ehrLocalDesc></ehrLocalDesc>
         <aliasname></aliasname>
-        <salt>ACEPONATE</salt>
+        <salt></salt>
         <nameType>D</nameType>
-        <allergen>METHYLPREDNISOLONE ACEPONATE</allergen>
+        <allergen>CIPROFLOXACIN</allergen>
         <allergenType>D</allergenType>
         <certainty>Certain</certainty>
-        <remark>Asthma</remark>
-        <sourceSystem>CMS</sourceSystem>
-        <createBy></createBy>
-        <createUserName></createUserName>
-        <createHosp></createHosp>
-        <createRank></createRank>
-        <createRankDesc></createRankDesc>
-        <createDtm>2019-09-24 09:47:59.0</createDtm>
-        <updateBy>Y2KMED</updateBy>
-        <updateUserName>AA, FORMAT in IP</updateUserName>
-        <updateHosp>VH</updateHosp>
-        <updateRank>Department Manager (Pharmacy)</updateRank>
-        <updateRankDesc>Department Manager (Pharmacy)</updateRankDesc>
-        <updateDtm>2019-08-16 17:27:01.0</updateDtm>
-        <manifestations>
-            <seqNo>0</seqNo>
-            <mDesc>Allergic rhinitis</mDesc>
-        </manifestations>
-        <manifestations>
-            <seqNo>0</seqNo>
-            <mDesc>Asthma</mDesc>
-        </manifestations>
-        <manifestations>
-            <seqNo>0</seqNo>
-            <mDesc>Rash</mDesc>
-        </manifestations>
-        <hiclSeqNo>12057</hiclSeqNo>
-        <hicSeqNos/>
-    </patientAllergyProfile>
-    <patientAllergyProfile>
-        <allergySeqNo>0000087781</allergySeqNo>
-        <allergenCode></allergenCode>
-        <displayname>ASPIRIN</displayname>
-        <ehrLocalDesc></ehrLocalDesc>
-        <aliasname></aliasname>
-        <salt></salt>
-        <nameType>D</nameType>
-        <allergen>ASPIRIN</allergen>
-        <allergenType>D</allergenType>
-        <certainty>Certain</certainty>
-        <remark>~!@#$%^&amp;*()_+`-=][\}{|;':",./&gt;?&lt; 1234567890</remark>
-        <sourceSystem>CMS</sourceSystem>
-        <createBy></createBy>
-        <createUserName></createUserName>
-        <createHosp></createHosp>
-        <createRank></createRank>
-        <createRankDesc></createRankDesc>
-        <createDtm>2019-09-24 09:47:59.0</createDtm>
-        <updateBy>Y2KMED</updateBy>
-        <updateUserName>AA, FORMAT in IP</updateUserName>
-        <updateHosp>VH</updateHosp>
-        <updateRank>Analyst Programmer I</updateRank>
-        <updateRankDesc>Analyst Programmer I</updateRankDesc>
-        <updateDtm>2019-02-27 14:30:47.0</updateDtm>
-        <manifestations>
-            <seqNo>0</seqNo>
-            <mDesc>Others</mDesc>
-        </manifestations>
-        <hiclSeqNo>1820</hiclSeqNo>
-        <hicSeqNos/>
-    </patientAllergyProfile>
-    <patientAllergyProfile>
-        <allergySeqNo>0000089979</allergySeqNo>
-        <allergenCode></allergenCode>
-        <displayname>ACTIFED COMPOUND</displayname>
-        <ehrLocalDesc></ehrLocalDesc>
-        <aliasname>FEDAC CPD LINCTUS</aliasname>
-        <salt></salt>
-        <nameType>T</nameType>
-        <allergen>FEDAC CPD LINCTUS [ACTIFED COMPOUND]</allergen>
-        <allergenType>D</allergenType>
-        <certainty>Suspected</certainty>
-        <remark>aa</remark>
-        <sourceSystem>CMS</sourceSystem>
-        <createBy></createBy>
-        <createUserName></createUserName>
-        <createHosp></createHosp>
-        <createRank></createRank>
-        <createRankDesc></createRankDesc>
-        <createDtm>2019-09-24 09:47:59.0</createDtm>
-        <updateBy>Y2KMED</updateBy>
-        <updateUserName>AA, FORMAT in IP</updateUserName>
-        <updateHosp>VH</updateHosp>
-        <updateRank>Department Manager (Pharmacy)</updateRank>
-        <updateRankDesc>Department Manager (Pharmacy)</updateRankDesc>
-        <updateDtm>2019-08-15 16:08:18.0</updateDtm>
-        <manifestations>
-            <seqNo>0</seqNo>
-            <mDesc>Angioedema</mDesc>
-        </manifestations>
-        <hiclSeqNo>5359</hiclSeqNo>
-        <hicSeqNos/>
-    </patientAllergyProfile>
-    <patientAllergyProfile>
-        <allergySeqNo>0000082091</allergySeqNo>
-        <allergenCode></allergenCode>
-        <displayname>BELZER UW-CSS</displayname>
-        <ehrLocalDesc></ehrLocalDesc>
-        <aliasname></aliasname>
-        <salt></salt>
-        <nameType>D</nameType>
-        <allergen>BELZER UW-CSS</allergen>
-        <allergenType>D</allergenType>
-        <certainty>Suspected</certainty>
         <remark></remark>
         <sourceSystem>CMS</sourceSystem>
         <createBy></createBy>
@@ -425,22 +376,95 @@ namespace Demo.HL7MessageParser
         <createHosp></createHosp>
         <createRank></createRank>
         <createRankDesc></createRankDesc>
-        <createDtm>2019-09-24 09:47:59.0</createDtm>
+        <createDtm>2020-02-24 10:03:30.0</createDtm>
         <updateBy>Y2KMED</updateBy>
         <updateUserName>AA, FORMAT in IP</updateUserName>
         <updateHosp>VH</updateHosp>
-        <updateRank>Medical Officer</updateRank>
-        <updateRankDesc>Medical Officer</updateRankDesc>
-        <updateDtm>2017-05-12 09:42:48.0</updateDtm>
+        <updateRank>Department Manager (Pharmacy)</updateRank>
+        <updateRankDesc>Department Manager (Pharmacy)</updateRankDesc>
+        <updateDtm>2020-02-24 10:01:47.0</updateDtm>
         <manifestations>
             <seqNo>0</seqNo>
-            <mDesc>Stevens-Johnson Syndrome</mDesc>
+            <mDesc>Angioedema</mDesc>
         </manifestations>
-        <hiclSeqNo>25006</hiclSeqNo>
+        <hiclSeqNo>13446</hiclSeqNo>
         <hicSeqNos/>
     </patientAllergyProfile>
+    <patientAllergyProfile>
+        <allergySeqNo>0000090491</allergySeqNo>
+        <allergenCode></allergenCode>
+        <displayname>GAVISCON</displayname>
+        <ehrLocalDesc></ehrLocalDesc>
+        <aliasname></aliasname>
+        <salt></salt>
+        <nameType>D</nameType>
+        <allergen>GAVISCON</allergen>
+        <allergenType>D</allergenType>
+        <certainty>Certain</certainty>
+        <remark></remark>
+        <sourceSystem>CMS</sourceSystem>
+        <createBy></createBy>
+        <createUserName></createUserName>
+        <createHosp></createHosp>
+        <createRank></createRank>
+        <createRankDesc></createRankDesc>
+        <createDtm>2020-02-24 10:03:30.0</createDtm>
+        <updateBy>Y2KMED</updateBy>
+        <updateUserName>AA, FORMAT in IP</updateUserName>
+        <updateHosp>VH</updateHosp>
+        <updateRank>Department Manager (Pharmacy)</updateRank>
+        <updateRankDesc>Department Manager (Pharmacy)</updateRankDesc>
+        <updateDtm>2019-09-09 17:39:30.0</updateDtm>
+        <manifestations>
+            <seqNo>0</seqNo>
+            <mDesc>Allergic contact dermatitis</mDesc>
+        </manifestations>
+        <hiclSeqNo xsi:nil="true" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <hicSeqNos>
+            <hicSeqNo>743</hicSeqNo>
+            <hicSeqNo>1117</hicSeqNo>
+            <hicSeqNo>1121</hicSeqNo>
+            <hicSeqNo>1123</hicSeqNo>
+            <hicSeqNo>2434</hicSeqNo>
+            <hicSeqNo>2523</hicSeqNo>
+        </hicSeqNos>
+    </patientAllergyProfile>
     <patientAdrProfile>
-        <adrSeqNo>0000004366</adrSeqNo>
+        <adrSeqNo>0000005400</adrSeqNo>
+        <allergenCode></allergenCode>
+        <displayname>CIPROFLOXACIN</displayname>
+        <aliasname></aliasname>
+        <salt></salt>
+        <nameType>D</nameType>
+        <adr>CIPROFLOXACIN</adr>
+        <adrType>D</adrType>
+        <severity>S</severity>
+        <remark></remark>
+        <sourceSystem>CMS</sourceSystem>
+        <createBy></createBy>
+        <createUserName></createUserName>
+        <createHosp></createHosp>
+        <createRank></createRank>
+        <createRankDesc></createRankDesc>
+        <createDtm>2020-02-24 10:03:30.0</createDtm>
+        <updateBy>Y2KMED</updateBy>
+        <updateUserName>AA, FORMAT in IP</updateUserName>
+        <updateHosp>VH</updateHosp>
+        <updateRank>Department Manager (Pharmacy)</updateRank>
+        <updateRankDesc>Department Manager (Pharmacy)</updateRankDesc>
+        <updateDtm>2020-02-24 10:02:15.0</updateDtm>
+        <reactions>
+            <seqNo></seqNo>
+            <rDesc>Bronchospasm</rDesc>
+            <severCode>0</severCode>
+            <freqCode>0</freqCode>
+        </reactions>
+        <hiclSeqNo>13446</hiclSeqNo>
+        <hicSeqNos/>
+    </patientAdrProfile>
+    <patientAdrProfile>
+        <adrSeqNo>0000004921</adrSeqNo>
         <allergenCode></allergenCode>
         <displayname>ASPIRIN</displayname>
         <aliasname></aliasname>
@@ -449,28 +473,20 @@ namespace Demo.HL7MessageParser
         <adr>ASPIRIN</adr>
         <adrType>D</adrType>
         <severity>S</severity>
-        <remark>~!@#$%^&amp;*()_+`-=][\}{|;':",./&gt;?&lt; 1234567890
- &lt;RRR
- &lt;?
- &lt; ?
- &lt;
- &lt;RRR&gt;
- &lt;&gt;
- qwertyuiopasdfghjklzxcvbnm
- QWERTYUIOPASDFGHJKLZXCVBNM</remark>
+        <remark>TEST 2</remark>
         <sourceSystem>CMS</sourceSystem>
         <createBy></createBy>
         <createUserName></createUserName>
         <createHosp></createHosp>
         <createRank></createRank>
         <createRankDesc></createRankDesc>
-        <createDtm>2019-09-24 09:47:59.0</createDtm>
+        <createDtm>2020-02-24 10:03:30.0</createDtm>
         <updateBy>Y2KMED</updateBy>
         <updateUserName>AA, FORMAT in IP</updateUserName>
         <updateHosp>VH</updateHosp>
-        <updateRank>Analyst Programmer I</updateRank>
-        <updateRankDesc>Analyst Programmer I</updateRankDesc>
-        <updateDtm>2019-02-27 14:30:28.0</updateDtm>
+        <updateRank>Department Manager (Pharmacy)</updateRank>
+        <updateRankDesc>Department Manager (Pharmacy)</updateRankDesc>
+        <updateDtm>2019-08-29 16:43:06.0</updateDtm>
         <reactions>
             <seqNo></seqNo>
             <rDesc>Abdominal Pain with Cramps</rDesc>
@@ -479,7 +495,7 @@ namespace Demo.HL7MessageParser
         </reactions>
         <reactions>
             <seqNo></seqNo>
-            <rDesc>Others</rDesc>
+            <rDesc>Heartburn</rDesc>
             <severCode>0</severCode>
             <freqCode>0</freqCode>
         </reactions>
@@ -489,22 +505,23 @@ namespace Demo.HL7MessageParser
     <currentRxDrugProfile>
         <isCapdItem>false</isCapdItem>
         <type>S</type>
-        <rGenId>5254937</rGenId>
-        <rDfGenId>19506</rDfGenId>
-        <gcnSeqNo>28829</gcnSeqNo>
-        <trueDisplayName>METHYLPREDNISOLONE</trueDisplayName>
-        <drugDisplayName>Methylprednisolone Aceponate</drugDisplayName>
-        <drugErrorDisplayName>Methylprednisolone Aceponate ointment 0.1% 10g</drugErrorDisplayName>
+        <rGenId>1052700</rGenId>
+        <rDfGenId>9927</rDfGenId>
+        <gcnSeqNo>9509</gcnSeqNo>
+        <trueDisplayName>CIPROFLOXACIN</trueDisplayName>
+        <drugDisplayName>Ciprofloxacin Hcl</drugDisplayName>
+        <drugErrorDisplayName>Ciprofloxacin Hcl tablet</drugErrorDisplayName>
         <arrayPos>0</arrayPos>
         <indRow>1</indRow>
         <ordNo>0</ordNo>
         <hospCode>VH</hospCode>
         <delete>false</delete>
-        <salt>ACEPONATE</salt>
-        <strength>0.1%</strength>
-        <drugDdimDisplayName>Methylprednisolone Aceponate ointment</drugDdimDisplayName>
-        <formCode>OIN</formCode>
-        <itemCode>METH66</itemCode>
+        <salt>HCL</salt>
+        <strength xsi:nil="true" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <drugDdimDisplayName>Ciprofloxacin Hcl tablet</drugDdimDisplayName>
+        <formCode>TAB</formCode>
+        <itemCode>CIPR01</itemCode>
         <specRestrict></specRestrict>
         <specInstruct></specInstruct>
         <pharSpec></pharSpec>
@@ -523,5 +540,6 @@ namespace Demo.HL7MessageParser
     <checkSteroid>false</checkSteroid>
     <callerSourceSystem>PMS</callerSourceSystem>
     <checkDiscon>false</checkDiscon>
+    <checkHepaB>false</checkHepaB>
 </inputParm>
 */

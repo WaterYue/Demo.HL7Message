@@ -16,16 +16,18 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
     {
         static void Main(string[] args)
         {
+            MDSCheckInputTest();
+
             //SoapClientProxy();
- 
-         //   DrugMasterSosapService();
+
+            //   DrugMasterSosapService();
 
 
             // Test_HL7Parser();
 
-            var client = new RestClient("http://localhost:8290/pms-asa/1/");
+            //var client = new RestClient("http://localhost:8290/pms-asa/1/");
 
-            Request_CheckMDS(client);
+            //Request_CheckMDS(client);
             // Request_AlertProfile(client);
 
             //  Request_MedicationProfile(client);
@@ -35,6 +37,21 @@ namespace Demo.HL7MessageParser.ServiceSimulator.Test
 
 
             Console.ReadLine();
+        }
+
+        private static void MDSCheckInputTest()
+        {
+            var input = new MDSCheckInputParm
+            {
+                PatientAllergyProfile = new List<PatientAllergyProfile> {
+            new PatientAllergyProfile{
+                 HiclSeqNo="HiclSeqNoStr",
+                 HicSeqNos=new HiclSeqNos{  HicSeqNo=new List<string>{ "HiclSeqNo1","HiclSeqNo2" } }
+            }
+                }
+            };
+
+            var xmlStr = XmlHelper.XmlSerializeToString(input);
         }
 
         private static void DrugMasterSosapService()

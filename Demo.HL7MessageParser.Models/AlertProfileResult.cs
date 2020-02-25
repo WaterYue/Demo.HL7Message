@@ -21,12 +21,16 @@ namespace Demo.HL7MessageParser.Models
 
     public class AdrProfile
     {
+        public AdrProfile()
+        {
+            HicSeqno = new List<string>();
+        }
         public string AdrSeqNo { get; set; }
         public string AliasName { get; set; }
         public string DisplayName { get; set; }
         public string Drug { get; set; }
         public string DrugType { get; set; }
-        public List<object> HicSeqno { get; set; }
+        public List<string> HicSeqno { get; set; }
         public string HiclSeqno { get; set; }
         public string NameType { get; set; }
         public string Reaction { get; set; }
@@ -46,6 +50,10 @@ namespace Demo.HL7MessageParser.Models
 
     public class AlertProfile
     {
+        public AlertProfile()
+        {
+            HicSeqno = new List<string>();
+        }
         public string AlertCode { get; set; }
         public string AlertDesc { get; set; }
         public string AlertSeqNo { get; set; }

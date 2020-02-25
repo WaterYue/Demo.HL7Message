@@ -197,7 +197,7 @@ namespace Demo.HL7MessageParser.Models
         [XmlElement(ElementName = "displayname")]
         public string Displayname { get; set; }
         ///// <summary>
-        /// [MISSING]
+        ///DEFAULT: [BLANK]
         /// </summary>
         [XmlElement(ElementName = "ehrLocalDesc")]
         public string EhrLocalDesc { get; set; }
@@ -317,7 +317,14 @@ namespace Demo.HL7MessageParser.Models
         /// HIC sequence number list from  AllergyProfile.HicSeqno
         /// </summary>
         [XmlElement(ElementName = "hicSeqNos")]
-        public string HicSeqNos { get; set; }
+        public HiclSeqNos HicSeqNos { get; set; }
+    }
+
+    [XmlRoot(ElementName = "hicSeqNos")]
+    public class HiclSeqNos
+    {
+        [XmlElement(ElementName = "hicSeqNo")]
+        public List<string> HicSeqNo { get; set; }
     }
 
     [XmlRoot(ElementName = "reactions")]
@@ -482,7 +489,7 @@ namespace Demo.HL7MessageParser.Models
         ///AdrProfile.HicSeqno
         /// </summary>
         [XmlElement(ElementName = "hicSeqNos")]
-        public string HicSeqNos { get; set; }
+        public HiclSeqNos HicSeqNos { get; set; }
     }
 
     [XmlRoot(ElementName = "currentRxDrugProfile")]
