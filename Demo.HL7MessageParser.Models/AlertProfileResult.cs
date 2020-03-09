@@ -50,10 +50,6 @@ namespace Demo.HL7MessageParser.Models
 
     public class AlertProfile
     {
-        public AlertProfile()
-        {
-            HicSeqno = new List<string>();
-        }
         public string AlertCode { get; set; }
         public string AlertDesc { get; set; }
         public string AlertSeqNo { get; set; }
